@@ -4,7 +4,7 @@
 - Project folderot, kaj so vi sa site raboti, kopirajte go vo dr folder
 - Vo kopiraniot project folder izbrisete go project.godot fileot
 - Site raboti so gi koristite od fodlerot, sceni , c# files, assets, kopirajte gi vo soodvetniot folder na repovo
-- Vekje vo noviov proekt, na site sceni edna po edna ke trebit da kliknite i ke vi izlezit error deka ne mozit da najt tocna pateka, samo kliknejte fix dependencies i posle gore desno samo klikni fix broken. (Tie depen
+- Vekje vo noviov proekt, na site sceni edna po edna ke trebit da kliknite i ke vi izlezit error deka ne mozit da najt tocna pateka, samo kliknejte fix dependencies i posle gore desno samo klikni fix broken.
 - Sekade vo kodot kaj so koristite res://, za loading na sceni, zamenete so soodvetna pateka. Go naprev jas so klasa vaka:
 
 ```
