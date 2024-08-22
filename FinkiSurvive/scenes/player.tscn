@@ -355,7 +355,6 @@ script = ExtResource("1_2eplu")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(0, 16)
-zoom = Vector2(0.8, 0.8)
 process_callback = 0
 position_smoothing_enabled = true
 position_smoothing_speed = 2.0
@@ -390,7 +389,6 @@ frame_progress = 1.0
 metadata/_edit_lock_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-visible = false
 position = Vector2(-0.499999, -1.43051e-06)
 scale = Vector2(1.00207, 0.808825)
 shape = SubResource("CapsuleShape2D_wr6at")

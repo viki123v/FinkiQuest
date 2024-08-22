@@ -11,9 +11,9 @@ public partial class Attack1 : BaseAttack
 	
 	[Signal]
 	public delegate void HealPlayerEventHandler(float healAmount);
-	
 
-	public float healAmount = 3.5f;
+
+	public float healAmount = 2f;
 	public override void _Ready()
 	{
 		var player = GetNode<player>("/root/Level/Player");
