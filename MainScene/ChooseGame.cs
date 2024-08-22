@@ -2,6 +2,8 @@ using Godot;
 using System;
 using FinkiAdventureQuest.FinkiSurvive.FinkiQuest;
 
+namespace FinkiAdventureQuest.MainScene
+{
 public partial class ChooseGame : Node2D
 {
 	// Called when the node enters the scene tree for the first time.
@@ -19,4 +21,6 @@ public partial class ChooseGame : Node2D
 		GD.Print("FinkiSurvive");
 		GetTree().ChangeSceneToFile(ProjectPath.MainScenePath);
 	}
+}
+	
 }

@@ -26,6 +26,8 @@ namespace FinkiAdventureQuest.FinkiSurvive.FinkiQuest.scenes
 			MobSceneNames.Add("mob_zombie");
 			MobSceneNames.Add("mob_knight");
 			
+			//
+			
 			Timer = GetNode<Timer>("GameTimer");
 			TimeSecs = WaveTime;
 			
