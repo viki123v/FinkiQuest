@@ -1,0 +1,62 @@
+[gd_scene load_steps=8 format=3 uid="uid://cpuq3drxwa581"]
+
+[ext_resource type="Script" path="res://FinkiSurvive/scenes/Attack1.cs" id="1_eupbr"]
+[ext_resource type="Texture2D" uid="uid://lcq5pnsatlpy" path="res://FinkiSurvive/assets/fx/slash/image/slash_00003.png" id="2_kkn5t"]
+[ext_resource type="Texture2D" uid="uid://dmfntj1k5ltba" path="res://FinkiSurvive/assets/fx/slash/image/slash_00004.png" id="3_nv424"]
+[ext_resource type="Texture2D" uid="uid://dlodlmv78dvj2" path="res://FinkiSurvive/assets/fx/slash/image/slash_00005.png" id="4_jqily"]
+[ext_resource type="Texture2D" uid="uid://dpd2av2nxnx65" path="res://FinkiSurvive/assets/fx/slash/image/skash_00004.png" id="5_u1kqa"]
+[ext_resource type="AudioStream" uid="uid://cmq7e0264tjxn" path="res://FinkiSurvive/assets/audio/mixkit-quick-knife-slice-cutting-2152.mp3" id="6_ftfyi"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_7b38b"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_kkn5t")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_nv424")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_jqily")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_u1kqa")
+}],
+"loop": false,
+"name": &"default",
+"speed": 30.0
+}]
+
+[node name="Attack" type="Area2D"]
+position = Vector2(771, 401)
+rotation = -0.487306
+collision_layer = 4
+collision_mask = 2
+script = ExtResource("1_eupbr")
+
+[node name="Slash" type="AnimatedSprite2D" parent="."]
+modulate = Color(0.831373, 0.827451, 0, 1)
+z_index = 1
+position = Vector2(4.84119, -15.5423)
+rotation = -0.386917
+scale = Vector2(1.14985, 2.2993)
+sprite_frames = SubResource("SpriteFrames_7b38b")
+frame = 3
+frame_progress = 1.0
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+position = Vector2(-170.701, -64.43)
+rotation = 0.117543
+polygon = PackedVector2Array(177.575, 91.7233, 197.031, 69.308, 201.45, 59.8489, 204.47, 46.1419, 207.132, 14.1902, 204.215, -0.386963, 196.206, -14.6998, 188.897, -26.8888, 173.646, -33.1669, 185.919, 14.1129, 185.696, 36.3153, 183.785, 56.2489)
+
+[node name="HitSoundEffect" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_ftfyi")
+volume_db = -21.81
+max_polyphony = 5
+
+[node name="AttackSpeed" type="Timer" parent="."]
+wait_time = 0.3
+autostart = true
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="timeout" from="AttackSpeed" to="." method="OnTimerTick"]

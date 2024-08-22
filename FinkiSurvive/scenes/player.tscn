@@ -1,0 +1,439 @@
+[gd_scene load_steps=84 format=3 uid="uid://cvmyqo7j3bbvg"]
+
+[ext_resource type="Script" path="res://FinkiSurvive/scenes/player.cs" id="1_2eplu"]
+[ext_resource type="Texture2D" uid="uid://bvstvophmcllk" path="res://FinkiSurvive/tmp_assets/craftpix-net-563568-free-wraith-tiny-style-2d-sprites/PNG/Wraith_01/PNG Sequences/Attacking/Wraith_01_Attack_000.png" id="2_hr6kb"]
+[ext_resource type="Texture2D" uid="uid://dk5n2tcaqn51a" path="res://FinkiSurvive/tmp_assets/craftpix-net-563568-free-wraith-tiny-style-2d-sprites/PNG/Wraith_01/PNG Sequences/Attacking/Wraith_01_Attack_001.png" id="3_4vrtb"]
+[ext_resource type="Texture2D" uid="uid://yc8qwxqsixql" path="res://FinkiSurvive/tmp_assets/craftpix-net-563568-free-wraith-tiny-style-2d-sprites/PNG/Wraith_01/PNG Sequences/Attacking/Wraith_01_Attack_002.png" id="4_6lv8u"]
+[ext_resource type="Texture2D" uid="uid://bbywhu3hxkcg5" path="res://FinkiSurvive/tmp_assets/craftpix-net-563568-free-wraith-tiny-style-2d-sprites/PNG/Wraith_01/PNG Sequences/Attacking/Wraith_01_Attack_003.png" id="5_fdpah"]
+[ext_resource type="Texture2D" uid="uid://ckrus6t3wmo0w" path="res://FinkiSurvive/tmp_assets/craftpix-net-563568-free-wraith-tiny-style-2d-sprites/PNG/Wraith_01/PNG Sequences/Attacking/Wraith_01_Attack_004.png" id="6_2qcd3"]
+[ext_resource type="AudioStream" uid="uid://bgapo4y5ul3rk" path="res://FinkiSurvive/assets/audio/mixkit-footsteps-in-the-forest-ground-1230-[AudioTrimmer.com].wav" id="6_a1het"]
+[ext_resource type="Texture2D" uid="uid://w0gd7tafieti" path="res://FinkiSurvive/tmp_assets/craftpix-net-563568-free-wraith-tiny-style-2d-sprites/PNG/Wraith_01/PNG Sequences/Attacking/Wraith_01_Attack_005.png" id="7_ossfb"]
+[ext_resource type="Texture2D" uid="uid://dqrdtc58lef4u" path="res://FinkiSurvive/tmp_assets/craftpix-net-563568-free-wraith-tiny-style-2d-sprites/PNG/Wraith_01/PNG Sequences/Attacking/Wraith_01_Attack_006.png" id="8_60o1l"]
+[ext_resource type="Texture2D" uid="uid://bj4b0c8igbt7p" path="res://FinkiSurvive/tmp_assets/craftpix-net-563568-free-wraith-tiny-style-2d-sprites/PNG/Wraith_01/PNG Sequences/Attacking/Wraith_01_Attack_007.png" id="9_v68jj"]
+[ext_resource type="Texture2D" uid="uid://c1reexugegxjr" path="res://FinkiSurvive/tmp_assets/craftpix-net-563568-free-wraith-tiny-style-2d-sprites/PNG/Wraith_01/PNG Sequences/Attacking/Wraith_01_Attack_008.png" id="10_vy56u"]
+[ext_resource type="Texture2D" uid="uid://hx4lwc48dxdw" path="res://FinkiSurvive/tmp_assets/craftpix-net-563568-free-wraith-tiny-style-2d-sprites/PNG/Wraith_01/PNG Sequences/Attacking/Wraith_01_Attack_009.png" id="11_l6cbh"]
+[ext_resource type="Texture2D" uid="uid://sgemiwafqppb" path="res://FinkiSurvive/tmp_assets/craftpix-net-563568-free-wraith-tiny-style-2d-sprites/PNG/Wraith_01/PNG Sequences/Attacking/Wraith_01_Attack_010.png" id="12_655fa"]
+[ext_resource type="Texture2D" uid="uid://btia3sjb186h1" path="res://FinkiSurvive/tmp_assets/craftpix-net-563568-free-wraith-tiny-style-2d-sprites/PNG/Wraith_01/PNG Sequences/Attacking/Wraith_01_Attack_011.png" id="13_aj64o"]
+[ext_resource type="Texture2D" uid="uid://crf8ygjq527p" path="res://FinkiSurvive/tmp_assets/craftpix-net-563568-free-wraith-tiny-style-2d-sprites/PNG/Wraith_01/PNG Sequences/Dying/Wraith_01_Dying_000.png" id="14_5hf8t"]
+[ext_resource type="Texture2D" uid="uid://bwhfpyfnomut3" path="res://FinkiSurvive/tmp_assets/craftpix-net-563568-free-wraith-tiny-style-2d-sprites/PNG/Wraith_01/PNG Sequences/Idle/Wraith_01_Idle_000.png" id="14_an1xr"]
+[ext_resource type="Texture2D" uid="uid://dnckaytq4gqtq" path="res://FinkiSurvive/tmp_assets/craftpix-net-563568-free-wraith-tiny-style-2d-sprites/PNG/Wraith_01/PNG Sequences/Dying/Wraith_01_Dying_001.png" id="15_67eyp"]
+[ext_resource type="Texture2D" uid="uid://c78yaq2fxmxj7" path="res://FinkiSurvive/tmp_assets/craftpix-net-563568-free-wraith-tiny-style-2d-sprites/PNG/Wraith_01/PNG Sequences/Idle/Wraith_01_Idle_001.png" id="15_sc6ek"]
+[ext_resource type="Texture2D" uid="uid://bhoe10i6484of" path="res://FinkiSurvive/tmp_assets/craftpix-net-563568-free-wraith-tiny-style-2d-sprites/PNG/Wraith_01/PNG Sequences/Dying/Wraith_01_Dying_002.png" id="16_ccqx5"]
+[ext_resource type="Texture2D" uid="uid://b5a16mffpspb8" path="res://FinkiSurvive/tmp_assets/craftpix-net-563568-free-wraith-tiny-style-2d-sprites/PNG/Wraith_01/PNG Sequences/Idle/Wraith_01_Idle_002.png" id="16_jnnca"]
+[ext_resource type="Texture2D" uid="uid://cwmtr74gwwaa3" path="res://FinkiSurvive/tmp_assets/craftpix-net-563568-free-wraith-tiny-style-2d-sprites/PNG/Wraith_01/PNG Sequences/Dying/Wraith_01_Dying_003.png" id="17_05cem"]
+[ext_resource type="Texture2D" uid="uid://cn5g1yiynyuy6" path="res://FinkiSurvive/tmp_assets/craftpix-net-563568-free-wraith-tiny-style-2d-sprites/PNG/Wraith_01/PNG Sequences/Idle/Wraith_01_Idle_003.png" id="17_f0wmh"]
+[ext_resource type="Texture2D" uid="uid://dwy3b24xkd7cu" path="res://FinkiSurvive/tmp_assets/craftpix-net-563568-free-wraith-tiny-style-2d-sprites/PNG/Wraith_01/PNG Sequences/Idle/Wraith_01_Idle_004.png" id="18_n07aa"]
+[ext_resource type="Texture2D" uid="uid://dx1e2remjxsgn" path="res://FinkiSurvive/tmp_assets/craftpix-net-563568-free-wraith-tiny-style-2d-sprites/PNG/Wraith_01/PNG Sequences/Dying/Wraith_01_Dying_004.png" id="18_xbpd2"]
+[ext_resource type="Texture2D" uid="uid://delxp831wmitm" path="res://FinkiSurvive/tmp_assets/craftpix-net-563568-free-wraith-tiny-style-2d-sprites/PNG/Wraith_01/PNG Sequences/Idle/Wraith_01_Idle_005.png" id="19_f8meo"]
+[ext_resource type="Texture2D" uid="uid://dv1hqgxhomx8m" path="res://FinkiSurvive/tmp_assets/craftpix-net-563568-free-wraith-tiny-style-2d-sprites/PNG/Wraith_01/PNG Sequences/Dying/Wraith_01_Dying_005.png" id="19_v7ulw"]
+[ext_resource type="Texture2D" uid="uid://b67w06qrbgbrq" path="res://FinkiSurvive/tmp_assets/craftpix-net-563568-free-wraith-tiny-style-2d-sprites/PNG/Wraith_01/PNG Sequences/Dying/Wraith_01_Dying_006.png" id="20_m8hr6"]
+[ext_resource type="Texture2D" uid="uid://djkpc4qjgp6qm" path="res://FinkiSurvive/tmp_assets/craftpix-net-563568-free-wraith-tiny-style-2d-sprites/PNG/Wraith_01/PNG Sequences/Idle/Wraith_01_Idle_006.png" id="20_t156s"]
+[ext_resource type="Texture2D" uid="uid://cv7716iqobxis" path="res://FinkiSurvive/tmp_assets/craftpix-net-563568-free-wraith-tiny-style-2d-sprites/PNG/Wraith_01/PNG Sequences/Dying/Wraith_01_Dying_007.png" id="21_8d4ct"]
+[ext_resource type="Texture2D" uid="uid://ckrtel1amx1dc" path="res://FinkiSurvive/tmp_assets/craftpix-net-563568-free-wraith-tiny-style-2d-sprites/PNG/Wraith_01/PNG Sequences/Idle/Wraith_01_Idle_007.png" id="21_nlp14"]
+[ext_resource type="Texture2D" uid="uid://7n0k0ax58vmc" path="res://FinkiSurvive/tmp_assets/craftpix-net-563568-free-wraith-tiny-style-2d-sprites/PNG/Wraith_01/PNG Sequences/Idle/Wraith_01_Idle_008.png" id="22_4ps4d"]
+[ext_resource type="Texture2D" uid="uid://deenjp836a8ch" path="res://FinkiSurvive/tmp_assets/craftpix-net-563568-free-wraith-tiny-style-2d-sprites/PNG/Wraith_01/PNG Sequences/Dying/Wraith_01_Dying_008.png" id="22_oamfb"]
+[ext_resource type="Texture2D" uid="uid://bc1b0n4nv32kp" path="res://FinkiSurvive/tmp_assets/craftpix-net-563568-free-wraith-tiny-style-2d-sprites/PNG/Wraith_01/PNG Sequences/Dying/Wraith_01_Dying_009.png" id="23_1tat8"]
+[ext_resource type="Texture2D" uid="uid://drttt2qxthmhv" path="res://FinkiSurvive/tmp_assets/craftpix-net-563568-free-wraith-tiny-style-2d-sprites/PNG/Wraith_01/PNG Sequences/Idle/Wraith_01_Idle_009.png" id="23_yg2c2"]
+[ext_resource type="Texture2D" uid="uid://1yqtl0aefam3" path="res://FinkiSurvive/tmp_assets/craftpix-net-563568-free-wraith-tiny-style-2d-sprites/PNG/Wraith_01/PNG Sequences/Idle/Wraith_01_Idle_010.png" id="24_qq13f"]
+[ext_resource type="Texture2D" uid="uid://b8tiu73xqilcl" path="res://FinkiSurvive/tmp_assets/craftpix-net-563568-free-wraith-tiny-style-2d-sprites/PNG/Wraith_01/PNG Sequences/Dying/Wraith_01_Dying_010.png" id="24_u87bg"]
+[ext_resource type="Texture2D" uid="uid://c63k1al8qrwri" path="res://FinkiSurvive/tmp_assets/craftpix-net-563568-free-wraith-tiny-style-2d-sprites/PNG/Wraith_01/PNG Sequences/Idle/Wraith_01_Idle_011.png" id="25_l2lbq"]
+[ext_resource type="Texture2D" uid="uid://5jkfplmcp30a" path="res://FinkiSurvive/tmp_assets/craftpix-net-563568-free-wraith-tiny-style-2d-sprites/PNG/Wraith_01/PNG Sequences/Dying/Wraith_01_Dying_011.png" id="25_xbvj1"]
+[ext_resource type="Texture2D" uid="uid://bpw7t8e7b4bb3" path="res://FinkiSurvive/tmp_assets/craftpix-net-563568-free-wraith-tiny-style-2d-sprites/PNG/Wraith_01/PNG Sequences/Dying/Wraith_01_Dying_012.png" id="26_5n84m"]
+[ext_resource type="Texture2D" uid="uid://batdpc5bk18bq" path="res://FinkiSurvive/tmp_assets/craftpix-net-563568-free-wraith-tiny-style-2d-sprites/PNG/Wraith_01/PNG Sequences/Walking/Wraith_01_Moving Forward_000.png" id="26_krke2"]
+[ext_resource type="Texture2D" uid="uid://c5pfobxduejmq" path="res://FinkiSurvive/tmp_assets/craftpix-net-563568-free-wraith-tiny-style-2d-sprites/PNG/Wraith_01/PNG Sequences/Walking/Wraith_01_Moving Forward_001.png" id="27_bhjx5"]
+[ext_resource type="Texture2D" uid="uid://cg8s8j5sj8nfh" path="res://FinkiSurvive/tmp_assets/craftpix-net-563568-free-wraith-tiny-style-2d-sprites/PNG/Wraith_01/PNG Sequences/Dying/Wraith_01_Dying_013.png" id="27_mtlwf"]
+[ext_resource type="Texture2D" uid="uid://bpn45g7mr6y8m" path="res://FinkiSurvive/tmp_assets/craftpix-net-563568-free-wraith-tiny-style-2d-sprites/PNG/Wraith_01/PNG Sequences/Dying/Wraith_01_Dying_014.png" id="28_awkey"]
+[ext_resource type="Texture2D" uid="uid://bfvjgvqgnvjjf" path="res://FinkiSurvive/tmp_assets/craftpix-net-563568-free-wraith-tiny-style-2d-sprites/PNG/Wraith_01/PNG Sequences/Walking/Wraith_01_Moving Forward_002.png" id="28_k1bdr"]
+[ext_resource type="Texture2D" uid="uid://cdi53up8313gs" path="res://FinkiSurvive/tmp_assets/craftpix-net-563568-free-wraith-tiny-style-2d-sprites/PNG/Wraith_01/PNG Sequences/Walking/Wraith_01_Moving Forward_003.png" id="29_1pkj8"]
+[ext_resource type="Texture2D" uid="uid://ccjrgj7ws5frt" path="res://FinkiSurvive/tmp_assets/craftpix-net-563568-free-wraith-tiny-style-2d-sprites/PNG/Wraith_01/PNG Sequences/Hurt/Wraith_01_Hurt_000.png" id="29_saae0"]
+[ext_resource type="Texture2D" uid="uid://cwrlitk1qxepm" path="res://FinkiSurvive/tmp_assets/craftpix-net-563568-free-wraith-tiny-style-2d-sprites/PNG/Wraith_01/PNG Sequences/Hurt/Wraith_01_Hurt_001.png" id="30_6ytwg"]
+[ext_resource type="Texture2D" uid="uid://dixpbbwdhs7ug" path="res://FinkiSurvive/tmp_assets/craftpix-net-563568-free-wraith-tiny-style-2d-sprites/PNG/Wraith_01/PNG Sequences/Walking/Wraith_01_Moving Forward_004.png" id="30_m114o"]
+[ext_resource type="Texture2D" uid="uid://jejqrctaus6t" path="res://FinkiSurvive/tmp_assets/craftpix-net-563568-free-wraith-tiny-style-2d-sprites/PNG/Wraith_01/PNG Sequences/Walking/Wraith_01_Moving Forward_005.png" id="31_11sou"]
+[ext_resource type="Texture2D" uid="uid://4lru2fyvehac" path="res://FinkiSurvive/tmp_assets/craftpix-net-563568-free-wraith-tiny-style-2d-sprites/PNG/Wraith_01/PNG Sequences/Hurt/Wraith_01_Hurt_002.png" id="31_tc1h5"]
+[ext_resource type="Texture2D" uid="uid://ctodki27sa6j" path="res://FinkiSurvive/tmp_assets/craftpix-net-563568-free-wraith-tiny-style-2d-sprites/PNG/Wraith_01/PNG Sequences/Hurt/Wraith_01_Hurt_003.png" id="32_rbcm8"]
+[ext_resource type="Texture2D" uid="uid://cnum8aeiqgqn0" path="res://FinkiSurvive/tmp_assets/craftpix-net-563568-free-wraith-tiny-style-2d-sprites/PNG/Wraith_01/PNG Sequences/Walking/Wraith_01_Moving Forward_006.png" id="32_yaj1s"]
+[ext_resource type="Texture2D" uid="uid://dhwnd00lgdxe7" path="res://FinkiSurvive/tmp_assets/craftpix-net-563568-free-wraith-tiny-style-2d-sprites/PNG/Wraith_01/PNG Sequences/Hurt/Wraith_01_Hurt_004.png" id="33_2rqw1"]
+[ext_resource type="Texture2D" uid="uid://dqjr3l50pg6ky" path="res://FinkiSurvive/tmp_assets/craftpix-net-563568-free-wraith-tiny-style-2d-sprites/PNG/Wraith_01/PNG Sequences/Walking/Wraith_01_Moving Forward_007.png" id="33_brpu3"]
+[ext_resource type="Texture2D" uid="uid://d17l2tp6jkql2" path="res://FinkiSurvive/tmp_assets/craftpix-net-563568-free-wraith-tiny-style-2d-sprites/PNG/Wraith_01/PNG Sequences/Hurt/Wraith_01_Hurt_005.png" id="34_4bemu"]
+[ext_resource type="Texture2D" uid="uid://7g05txrf3egp" path="res://FinkiSurvive/tmp_assets/craftpix-net-563568-free-wraith-tiny-style-2d-sprites/PNG/Wraith_01/PNG Sequences/Walking/Wraith_01_Moving Forward_008.png" id="34_nsjun"]
+[ext_resource type="Texture2D" uid="uid://sen35krwgemg" path="res://FinkiSurvive/tmp_assets/craftpix-net-563568-free-wraith-tiny-style-2d-sprites/PNG/Wraith_01/PNG Sequences/Walking/Wraith_01_Moving Forward_009.png" id="35_l1xis"]
+[ext_resource type="Texture2D" uid="uid://bsqbcv402dx1f" path="res://FinkiSurvive/tmp_assets/craftpix-net-563568-free-wraith-tiny-style-2d-sprites/PNG/Wraith_01/PNG Sequences/Hurt/Wraith_01_Hurt_006.png" id="35_rky24"]
+[ext_resource type="Texture2D" uid="uid://hsy8agl8igs8" path="res://FinkiSurvive/tmp_assets/craftpix-net-563568-free-wraith-tiny-style-2d-sprites/PNG/Wraith_01/PNG Sequences/Hurt/Wraith_01_Hurt_007.png" id="36_4wfbw"]
+[ext_resource type="Texture2D" uid="uid://b02vwx8xto71o" path="res://FinkiSurvive/tmp_assets/craftpix-net-563568-free-wraith-tiny-style-2d-sprites/PNG/Wraith_01/PNG Sequences/Walking/Wraith_01_Moving Forward_010.png" id="36_6e4lq"]
+[ext_resource type="Texture2D" uid="uid://dmcmwelim50fd" path="res://FinkiSurvive/tmp_assets/craftpix-net-563568-free-wraith-tiny-style-2d-sprites/PNG/Wraith_01/PNG Sequences/Hurt/Wraith_01_Hurt_008.png" id="37_b6ilq"]
+[ext_resource type="Texture2D" uid="uid://c0qe3ptck2x2m" path="res://FinkiSurvive/tmp_assets/craftpix-net-563568-free-wraith-tiny-style-2d-sprites/PNG/Wraith_01/PNG Sequences/Walking/Wraith_01_Moving Forward_011.png" id="37_fh8m3"]
+[ext_resource type="Texture2D" uid="uid://c0i1l4jsl0u5m" path="res://FinkiSurvive/tmp_assets/craftpix-net-563568-free-wraith-tiny-style-2d-sprites/PNG/Wraith_01/PNG Sequences/Hurt/Wraith_01_Hurt_009.png" id="38_eb36n"]
+[ext_resource type="Texture2D" uid="uid://dosuo1j3kldl2" path="res://FinkiSurvive/tmp_assets/craftpix-net-563568-free-wraith-tiny-style-2d-sprites/PNG/Wraith_01/PNG Sequences/Hurt/Wraith_01_Hurt_010.png" id="39_d2wnm"]
+[ext_resource type="Texture2D" uid="uid://delfxckwi1ixd" path="res://FinkiSurvive/tmp_assets/ENEMY_MOBS/health_bar/health_bar-04.png" id="39_mjq87"]
+[ext_resource type="Texture2D" uid="uid://c57m4hejeoo5n" path="res://FinkiSurvive/tmp_assets/craftpix-net-563568-free-wraith-tiny-style-2d-sprites/PNG/Wraith_01/PNG Sequences/Hurt/Wraith_01_Hurt_011.png" id="40_fbtuw"]
+[ext_resource type="Texture2D" uid="uid://btuv4uddhyeir" path="res://FinkiSurvive/tmp_assets/ENEMY_MOBS/health_bar/health_bar-07.png" id="40_th7c5"]
+[ext_resource type="Texture2D" uid="uid://dm1560mkcrmww" path="res://FinkiSurvive/tmp_assets/craftpix-996712-free-staves-2d-weapon-pack/PNG/Staves_5/5.png" id="41_qjhfg"]
+[ext_resource type="Texture2D" uid="uid://dfvv8sf2diqga" path="res://FinkiSurvive/tmp_assets/craftpix-net-563568-free-wraith-tiny-style-2d-sprites/PNG/Wraith_01/PNG Sequences/Idle Blink/Wraith_01_Idle Blinking_000.png" id="53_motiw"]
+[ext_resource type="Texture2D" uid="uid://cnjpoq4yegfrm" path="res://FinkiSurvive/tmp_assets/craftpix-net-563568-free-wraith-tiny-style-2d-sprites/PNG/Wraith_01/PNG Sequences/Idle Blink/Wraith_01_Idle Blinking_001.png" id="54_k35g8"]
+[ext_resource type="Texture2D" uid="uid://cd8cwh6fjlmet" path="res://FinkiSurvive/tmp_assets/craftpix-net-563568-free-wraith-tiny-style-2d-sprites/PNG/Wraith_01/PNG Sequences/Idle Blink/Wraith_01_Idle Blinking_002.png" id="55_wnk1t"]
+[ext_resource type="Texture2D" uid="uid://d4fuxwtsu5bgx" path="res://FinkiSurvive/tmp_assets/craftpix-net-563568-free-wraith-tiny-style-2d-sprites/PNG/Wraith_01/PNG Sequences/Idle Blink/Wraith_01_Idle Blinking_003.png" id="56_3ryca"]
+[ext_resource type="Texture2D" uid="uid://d1hueyqwcsno7" path="res://FinkiSurvive/tmp_assets/craftpix-net-563568-free-wraith-tiny-style-2d-sprites/PNG/Wraith_01/PNG Sequences/Idle Blink/Wraith_01_Idle Blinking_004.png" id="57_8j4q0"]
+[ext_resource type="Texture2D" uid="uid://crjkpfm0t7t7p" path="res://FinkiSurvive/tmp_assets/craftpix-net-563568-free-wraith-tiny-style-2d-sprites/PNG/Wraith_01/PNG Sequences/Idle Blink/Wraith_01_Idle Blinking_005.png" id="58_ihe0e"]
+[ext_resource type="Texture2D" uid="uid://dpctr0c4vryor" path="res://FinkiSurvive/tmp_assets/craftpix-net-563568-free-wraith-tiny-style-2d-sprites/PNG/Wraith_01/PNG Sequences/Idle Blink/Wraith_01_Idle Blinking_006.png" id="59_eojoo"]
+[ext_resource type="Texture2D" uid="uid://brp66onc7y25p" path="res://FinkiSurvive/tmp_assets/craftpix-net-563568-free-wraith-tiny-style-2d-sprites/PNG/Wraith_01/PNG Sequences/Idle Blink/Wraith_01_Idle Blinking_007.png" id="60_e53qg"]
+[ext_resource type="Texture2D" uid="uid://bvxkdl3qmrq0n" path="res://FinkiSurvive/tmp_assets/craftpix-net-563568-free-wraith-tiny-style-2d-sprites/PNG/Wraith_01/PNG Sequences/Idle Blink/Wraith_01_Idle Blinking_008.png" id="61_lmn8w"]
+[ext_resource type="Texture2D" uid="uid://d4mglnosnpmq5" path="res://FinkiSurvive/tmp_assets/craftpix-net-563568-free-wraith-tiny-style-2d-sprites/PNG/Wraith_01/PNG Sequences/Idle Blink/Wraith_01_Idle Blinking_009.png" id="62_d40ll"]
+[ext_resource type="Texture2D" uid="uid://nb56t3aekrm8" path="res://FinkiSurvive/tmp_assets/craftpix-net-563568-free-wraith-tiny-style-2d-sprites/PNG/Wraith_01/PNG Sequences/Idle Blink/Wraith_01_Idle Blinking_010.png" id="63_6hqp6"]
+[ext_resource type="Texture2D" uid="uid://ck5g0nrdg5bc2" path="res://FinkiSurvive/tmp_assets/craftpix-net-563568-free-wraith-tiny-style-2d-sprites/PNG/Wraith_01/PNG Sequences/Idle Blink/Wraith_01_Idle Blinking_011.png" id="64_5agwf"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_hdxnp"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_hr6kb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_4vrtb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_6lv8u")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_fdpah")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_2qcd3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_ossfb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_60o1l")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_v68jj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_vy56u")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_l6cbh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_655fa")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_aj64o")
+}],
+"loop": false,
+"name": &"attack",
+"speed": 15.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("14_5hf8t")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_67eyp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_ccqx5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_05cem")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_xbpd2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_v7ulw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_m8hr6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("21_8d4ct")
+}, {
+"duration": 1.0,
+"texture": ExtResource("22_oamfb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("23_1tat8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("24_u87bg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("25_xbvj1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("26_5n84m")
+}, {
+"duration": 1.0,
+"texture": ExtResource("27_mtlwf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("28_awkey")
+}],
+"loop": false,
+"name": &"death",
+"speed": 20.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("29_saae0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("30_6ytwg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("31_tc1h5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("32_rbcm8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("33_2rqw1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("34_4bemu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("35_rky24")
+}, {
+"duration": 1.0,
+"texture": ExtResource("36_4wfbw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("37_b6ilq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("38_eb36n")
+}, {
+"duration": 1.0,
+"texture": ExtResource("39_d2wnm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("40_fbtuw")
+}],
+"loop": false,
+"name": &"hurt",
+"speed": 20.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("14_an1xr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_sc6ek")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_jnnca")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_f0wmh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_n07aa")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_f8meo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_t156s")
+}, {
+"duration": 1.0,
+"texture": ExtResource("21_nlp14")
+}, {
+"duration": 1.0,
+"texture": ExtResource("22_4ps4d")
+}, {
+"duration": 1.0,
+"texture": ExtResource("23_yg2c2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("24_qq13f")
+}, {
+"duration": 1.0,
+"texture": ExtResource("25_l2lbq")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 15.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("53_motiw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("54_k35g8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("55_wnk1t")
+}, {
+"duration": 1.0,
+"texture": ExtResource("56_3ryca")
+}, {
+"duration": 1.0,
+"texture": ExtResource("57_8j4q0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("58_ihe0e")
+}, {
+"duration": 1.0,
+"texture": ExtResource("59_eojoo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("60_e53qg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("61_lmn8w")
+}, {
+"duration": 1.0,
+"texture": ExtResource("62_d40ll")
+}, {
+"duration": 1.0,
+"texture": ExtResource("63_6hqp6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("64_5agwf")
+}],
+"loop": false,
+"name": &"idle_blink",
+"speed": 20.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("26_krke2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("27_bhjx5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("28_k1bdr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("29_1pkj8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("30_m114o")
+}, {
+"duration": 1.0,
+"texture": ExtResource("31_11sou")
+}, {
+"duration": 1.0,
+"texture": ExtResource("32_yaj1s")
+}, {
+"duration": 1.0,
+"texture": ExtResource("33_brpu3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("34_nsjun")
+}, {
+"duration": 1.0,
+"texture": ExtResource("35_l1xis")
+}, {
+"duration": 1.0,
+"texture": ExtResource("36_6e4lq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("37_fh8m3")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 15.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_wr6at"]
+radius = 18.0457
+height = 70.8938
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_yhqtj"]
+radius = 27.9445
+height = 75.5218
+
+[node name="Player" type="CharacterBody2D" groups=["Player"]]
+scale = Vector2(3.18489, 2.8601)
+collision_layer = 9
+collision_mask = 2
+script = ExtResource("1_2eplu")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(0, 16)
+zoom = Vector2(0.8, 0.8)
+process_callback = 0
+position_smoothing_enabled = true
+position_smoothing_speed = 2.0
+metadata/_edit_lock_ = true
+
+[node name="Attacks" type="Node2D" parent="."]
+editor_description = "asd"
+z_index = 1
+
+[node name="Attack1" type="Node2D" parent="Attacks"]
+position = Vector2(0, 4.16285)
+metadata/_edit_lock_ = true
+
+[node name="Attack2" type="Node2D" parent="Attacks"]
+position = Vector2(0, -16.6514)
+metadata/_edit_lock_ = true
+
+[node name="Attack3" type="Node2D" parent="Attacks"]
+position = Vector2(36.3969, 0)
+
+[node name="PlayerImage" type="Node2D" parent="."]
+position = Vector2(-8, 0)
+metadata/_edit_lock_ = true
+
+[node name="PlayerSprite" type="AnimatedSprite2D" parent="PlayerImage"]
+position = Vector2(9, 5)
+scale = Vector2(0.15, 0.167)
+sprite_frames = SubResource("SpriteFrames_hdxnp")
+animation = &"attack"
+frame = 11
+frame_progress = 1.0
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2(-0.499999, -1.43051e-06)
+scale = Vector2(1.00207, 0.808825)
+shape = SubResource("CapsuleShape2D_wr6at")
+metadata/_edit_lock_ = true
+
+[node name="AttackSpeed" type="Timer" parent="."]
+process_callback = 0
+autostart = true
+
+[node name="WalkSoundEffect" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_a1het")
+volume_db = -33.611
+metadata/_edit_lock_ = true
+
+[node name="HealthBar" type="TextureProgressBar" parent="."]
+modulate = Color(1, 1, 1, 0.94902)
+offset_left = -38.0
+offset_top = -37.0
+offset_right = 670.0
+offset_bottom = 43.0
+scale = Vector2(0.108511, 0.114299)
+max_value = 15.0
+value = 15.0
+texture_over = ExtResource("39_mjq87")
+texture_progress = ExtResource("40_th7c5")
+tint_over = Color(1, 1, 1, 0.498039)
+metadata/_edit_lock_ = true
+
+[node name="Weapon" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(10, 16)
+rotation = 0.641664
+scale = Vector2(0.0315094, 0.0670231)
+texture = ExtResource("41_qjhfg")
+
+[node name="Marker2D" type="Marker2D" parent="."]
+metadata/_edit_lock_ = true
+
+[node name="HurtBox" type="Area2D" parent="."]
+
+[node name="HurtShape" type="CollisionShape2D" parent="HurtBox"]
+position = Vector2(-0.627965, 0.699276)
+shape = SubResource("CapsuleShape2D_yhqtj")
+
+[connection signal="timeout" from="AttackSpeed" to="." method="_on_timer_timeout"]
+[connection signal="area_entered" from="HurtBox" to="." method="TakeDamage"]

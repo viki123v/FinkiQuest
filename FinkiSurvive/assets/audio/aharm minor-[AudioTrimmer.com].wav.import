@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://bd5pgyq5lfoj1"
+path="res://.godot/imported/aharm minor-[AudioTrimmer.com].wav-a4dcaaa426a4b03ba22155b69f72c57c.sample"
+
+[deps]
+
+source_file="res://FinkiSurvive/assets/audio/aharm minor-[AudioTrimmer.com].wav"
+dest_files=["res://.godot/imported/aharm minor-[AudioTrimmer.com].wav-a4dcaaa426a4b03ba22155b69f72c57c.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=2
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

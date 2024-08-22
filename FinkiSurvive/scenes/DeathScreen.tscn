@@ -1,0 +1,78 @@
+[gd_scene load_steps=3 format=3 uid="uid://by36fl7tow1u5"]
+
+[ext_resource type="FontFile" uid="uid://4on88usjtnj4" path="res://FinkiSurvive/tmp_assets/FONTS/videophreak/VIDEOPHREAK.ttf" id="1_lyrq2"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_lwqr3"]
+font = ExtResource("1_lyrq2")
+font_size = 64
+
+[node name="DeathScreen" type="CanvasLayer"]
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = -15.0
+offset_right = 26.0
+offset_bottom = 41.0
+scale = Vector2(28.5687, 15.8559)
+color = Color(0.00392157, 0, 0.00392157, 0.666667)
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -162.0
+offset_top = -192.0
+offset_right = 176.0
+offset_bottom = -108.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="MarginContainer"]
+layout_mode = 2
+text = "YOU DIED"
+label_settings = SubResource("LabelSettings_lwqr3")
+uppercase = true
+
+[node name="MarginContainer2" type="MarginContainer" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -256.0
+offset_top = -76.0
+offset_right = -22.0
+offset_bottom = 35.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_top = 50
+
+[node name="PlayAgainButton" type="Button" parent="MarginContainer2"]
+process_mode = 3
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_lyrq2")
+theme_override_font_sizes/font_size = 40
+text = "Play Again"
+
+[node name="MarginContainer3" type="MarginContainer" parent="."]
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -432.0
+offset_top = -180.0
+offset_right = -336.0
+offset_bottom = 31.0
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_constants/margin_top = 150
+
+[node name="QuitButton" type="Button" parent="MarginContainer3"]
+process_mode = 3
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_lyrq2")
+theme_override_font_sizes/font_size = 40
+text = "Quit
+"
