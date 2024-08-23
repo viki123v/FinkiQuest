@@ -1,0 +1,65 @@
+[gd_scene load_steps=6 format=3 uid="uid://ckooju67ri4kc"]
+
+[ext_resource type="PackedScene" uid="uid://cyehum7ce8f2m" path="res://SpaceAlgorithm's/prefabs/player.tscn" id="1_q4plj"]
+[ext_resource type="Script" path="res://SpaceAlgorithm's/scripts/Game.cs" id="1_xeluj"]
+[ext_resource type="PackedScene" uid="uid://offqhbjpbq0d" path="res://SpaceAlgorithm's/scenes/background.tscn" id="2_lcbv6"]
+[ext_resource type="AudioStream" uid="uid://pwru58paxuf4" path="res://SpaceAlgorithm's/assets/space-asteroids.ogg" id="4_7xs6w"]
+[ext_resource type="Theme" uid="uid://b1710rrqh6wcu" path="res://SpaceAlgorithm's/new_theme.tres" id="5_lhkjo"]
+
+[node name="game" type="Node2D"]
+script = ExtResource("1_xeluj")
+
+[node name="background" parent="." instance=ExtResource("2_lcbv6")]
+
+[node name="player" parent="." instance=ExtResource("1_q4plj")]
+position = Vector2(141, 306)
+
+[node name="enemy_timer" type="Timer" parent="."]
+wait_time = 0.925
+autostart = true
+
+[node name="boss_attack_meteor" type="Timer" parent="."]
+autostart = true
+
+[node name="boss_shield" type="Timer" parent="."]
+wait_time = 5.0
+autostart = true
+
+[node name="boss_special" type="Timer" parent="."]
+wait_time = 7.0
+autostart = true
+
+[node name="end_timer" type="Timer" parent="."]
+wait_time = 2.5
+one_shot = true
+
+[node name="score" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_7xs6w")
+volume_db = -10.733
+autoplay = true
+
+[node name="game_ui" type="Control" parent="."]
+custom_minimum_size = Vector2(1152, 100)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+theme = ExtResource("5_lhkjo")
+
+[node name="score_label" type="Label" parent="game_ui"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -81.0
+offset_right = 81.0
+offset_bottom = 41.0
+grow_horizontal = 2
+text = "Points: 0 / 100"
+
+[connection signal="timeout" from="enemy_timer" to="." method="_on_enemy_timer_timeout"]
+[connection signal="timeout" from="enemy_timer" to="player" method="_on_enemy_timer_timeout"]
+[connection signal="timeout" from="boss_attack_meteor" to="." method="_on_boss_attack_meteor_timeout"]
+[connection signal="timeout" from="boss_shield" to="." method="_on_boss_shield_timeout"]
+[connection signal="timeout" from="boss_special" to="." method="_on_boss_special_timeout"]
+[connection signal="timeout" from="end_timer" to="." method="_on_end_timer_timeout"]

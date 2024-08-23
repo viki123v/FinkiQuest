@@ -1,0 +1,61 @@
+[gd_scene load_steps=10 format=3 uid="uid://dk8ep66lr5xgn"]
+
+[ext_resource type="Script" path="res://SpaceAlgorithm's/scripts/BossDeath.cs" id="1_gbd5y"]
+[ext_resource type="Texture2D" uid="uid://doaxx54pahwgp" path="res://SpaceAlgorithm's/assets/exploion.png" id="1_i3wpo"]
+[ext_resource type="AudioStream" uid="uid://bf71nyb35awi5" path="res://SpaceAlgorithm's/assets/Sounds/explosion.wav" id="2_c6kfh"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fflql"]
+atlas = ExtResource("1_i3wpo")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1wtfi"]
+atlas = ExtResource("1_i3wpo")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ox1mi"]
+atlas = ExtResource("1_i3wpo")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eadm1"]
+atlas = ExtResource("1_i3wpo")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k75dq"]
+atlas = ExtResource("1_i3wpo")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_0x03g"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fflql")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1wtfi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ox1mi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eadm1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k75dq")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="boss_death" type="Node2D"]
+script = ExtResource("1_gbd5y")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(5, 5)
+sprite_frames = SubResource("SpriteFrames_0x03g")
+frame = 1
+frame_progress = 0.900042
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_c6kfh")
+autoplay = true

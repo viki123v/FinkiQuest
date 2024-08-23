@@ -21,6 +21,10 @@ public partial class ChooseGame : Node2D
 		GD.Print("FinkiSurvive");
 		GetTree().ChangeSceneToFile(ProjectPath.MainScenePath);
 	}
+	public void SpaceAlorithms(){
+		GD.Print("Space Algorithm's");
+		GetTree().ChangeSceneToFile("res://SpaceAlgorithm's/scenes/start.tscn");
+	}
 }
 	
 }

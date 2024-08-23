@@ -1,0 +1,25 @@
+[gd_scene load_steps=5 format=3 uid="uid://bkoht104ym34i"]
+
+[ext_resource type="Texture2D" uid="uid://b8l82rglcdfod" path="res://SpaceAlgorithm's/kenney_space-shooter-redux/PNG/Lasers/laserBlue01.png" id="1_absj7"]
+[ext_resource type="Script" path="res://SpaceAlgorithm's/scripts/Laser.cs" id="1_kxgdo"]
+[ext_resource type="AudioStream" uid="uid://bvp1feffys6qh" path="res://SpaceAlgorithm's/kenney_space-shooter-redux/Bonus/sfx_laser1.ogg" id="3_2vi6o"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vv7d6"]
+size = Vector2(42, 10)
+
+[node name="laser" type="Area2D"]
+script = ExtResource("1_kxgdo")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(2.4166e-12, -6.67572e-07)
+rotation = 1.5708
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("1_absj7")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(2, 0)
+shape = SubResource("RectangleShape2D_vv7d6")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_2vi6o")
+autoplay = true

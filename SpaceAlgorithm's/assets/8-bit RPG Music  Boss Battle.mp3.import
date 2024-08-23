@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://677ekuwjq4tt"
+path="res://.godot/imported/8-bit RPG Music  Boss Battle.mp3-7590162d281044cd9a3c9cadf146627e.mp3str"
+
+[deps]
+
+source_file="res://SpaceAlgorithm's/assets/8-bit RPG Music  Boss Battle.mp3"
+dest_files=["res://.godot/imported/8-bit RPG Music  Boss Battle.mp3-7590162d281044cd9a3c9cadf146627e.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

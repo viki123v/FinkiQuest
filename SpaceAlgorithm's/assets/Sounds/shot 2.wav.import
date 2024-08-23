@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://84fuxw5n7veo"
+path="res://.godot/imported/shot 2.wav-11ac66e8a65f11b2143ff10cdcde7c11.sample"
+
+[deps]
+
+source_file="res://SpaceAlgorithm's/assets/Sounds/shot 2.wav"
+dest_files=["res://.godot/imported/shot 2.wav-11ac66e8a65f11b2143ff10cdcde7c11.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

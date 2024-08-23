@@ -1,0 +1,65 @@
+[gd_scene load_steps=4 format=3 uid="uid://b7dun5687gb6v"]
+
+[ext_resource type="PackedScene" uid="uid://offqhbjpbq0d" path="res://SpaceAlgorithm's/scenes/background.tscn" id="1_5vi5p"]
+[ext_resource type="Script" path="res://SpaceAlgorithm's/scripts/End.cs" id="1_gio7a"]
+[ext_resource type="Theme" uid="uid://b1710rrqh6wcu" path="res://SpaceAlgorithm's/new_theme.tres" id="2_uulni"]
+
+[node name="end" type="CanvasLayer"]
+script = ExtResource("1_gio7a")
+
+[node name="background" parent="." instance=ExtResource("1_5vi5p")]
+
+[node name="play_again" type="Button" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -64.0
+offset_top = -76.0
+offset_right = 65.0
+offset_bottom = 12.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_uulni")
+text = "Play again
+"
+autowrap_mode = 3
+
+[node name="exit" type="Button" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -48.0
+offset_top = 44.0
+offset_right = 48.0
+offset_bottom = 98.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_uulni")
+text = "Quit
+"
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -200.0
+offset_top = -196.0
+offset_right = 200.0
+offset_bottom = -132.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_uulni")
+text = "Grade: 5
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="pressed" from="play_again" to="." method="_on_play_again_pressed"]
+[connection signal="pressed" from="exit" to="." method="_on_exit_pressed"]

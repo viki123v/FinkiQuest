@@ -1,0 +1,53 @@
+[gd_scene load_steps=10 format=3 uid="uid://offqhbjpbq0d"]
+
+[ext_resource type="Shader" path="res://SpaceAlgorithm's/assets/game.gdshader" id="1_jclxi"]
+[ext_resource type="Texture2D" uid="uid://cfqiqijsuc3qt" path="res://SpaceAlgorithm's/assets/Background/bg-back (Custom).png" id="2_0bqqq"]
+[ext_resource type="Shader" path="res://SpaceAlgorithm's/assets/stars.gdshader" id="3_v38do"]
+[ext_resource type="Texture2D" uid="uid://cqwitgdp8c6ag" path="res://SpaceAlgorithm's/assets/Background/bg-stars.png" id="4_6gxj4"]
+[ext_resource type="Shader" path="res://SpaceAlgorithm's/assets/planets.gdshader" id="5_iibsq"]
+[ext_resource type="Texture2D" uid="uid://3d4uf0bla5yy" path="res://SpaceAlgorithm's/assets/Background/bg-planet.png" id="6_yftyd"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_wta32"]
+shader = ExtResource("1_jclxi")
+shader_parameter/direction = Vector2(1, 0)
+shader_parameter/speed_scale = 0.1
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_62eh8"]
+shader = ExtResource("3_v38do")
+shader_parameter/direction = Vector2(1, 0)
+shader_parameter/speed_scale = 0.1
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_g0ip0"]
+shader = ExtResource("5_iibsq")
+shader_parameter/direction = Vector2(1, 0)
+shader_parameter/speed_scale = 0.1
+
+[node name="background" type="Node2D"]
+
+[node name="background_galaxy" type="TextureRect" parent="."]
+material = SubResource("ShaderMaterial_wta32")
+offset_top = -1.0
+offset_right = 4587.0
+offset_bottom = 2496.0
+scale = Vector2(0.6, 0.6)
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("2_0bqqq")
+stretch_mode = 1
+
+[node name="background_stars" type="TextureRect" parent="."]
+material = SubResource("ShaderMaterial_62eh8")
+offset_right = 1151.0
+offset_bottom = 659.0
+scale = Vector2(3, 3)
+texture = ExtResource("4_6gxj4")
+stretch_mode = 1
+
+[node name="background_planets" type="TextureRect" parent="."]
+material = SubResource("ShaderMaterial_g0ip0")
+offset_right = 915.0
+offset_bottom = 87.0
+scale = Vector2(3, 3)
+texture = ExtResource("6_yftyd")
+expand_mode = 1
+stretch_mode = 1
