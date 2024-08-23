@@ -15,6 +15,7 @@ dest_files=["res://.godot/imported/Planes_ValMore.ttf-2012e43acbbf6a8c7391e0d0c1
 Rendering=null
 antialiasing=1
 generate_mipmaps=false
+disable_embedded_bitmaps=true
 multichannel_signed_distance_field=false
 msdf_pixel_range=8
 msdf_size=48
