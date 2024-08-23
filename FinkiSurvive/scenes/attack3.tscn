@@ -68,7 +68,7 @@ script = ExtResource("1_su8mp")
 AttackSpeed = 0.4
 Damage = 50
 AttackRange = 160.0
-AvailableAtWave = 1
+AvailableAtWave = 4
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
 position = Vector2(26.2875, 27.5493)
