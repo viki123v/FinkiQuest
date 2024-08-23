@@ -1,16 +1,16 @@
 using Godot;
 using System;
 
-namespace FinkiAdventureQuest.FinkiSurvive.FinkiQuest.scenes
-{
-	
-public partial class Attack3 : BaseAttack
+namespace FinkiAdventureQuest.FinkiSurvive.code;
+
+[GlobalClass]
+public partial class Attack2 : BaseAttack
 {
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
 	}
-
+	
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
 	public override void _Process(double delta)
 	{
@@ -18,43 +18,40 @@ public partial class Attack3 : BaseAttack
 
 	public override float GetAttackSpeed()
 	{
-		return 0.3f;
+		return AttackSpeed;
 	}
 
-	public override float GetDamage()
+	public override int GetDamage()
 	{
-		return Rng.Next(40,60);
+		return Rng.Next(Damage, Damage + 50);
 	}
 
 	public override float GetAttackRange()
 	{
-		return 150;
+		return AttackRange;
 	}
 
-	public override void ScaleHp()
+	protected override void ScaleHp()
 	{
 		throw new NotImplementedException();
 	}
 
 	public override string GetContainerName()
 	{
-		return "Attack3";
+		return "Attack2";
 	}
 
 	public override string GetIconPath()
 	{
-		return "res://FinkiSurvive/assets/fx/slash5/image/slash5_1_00006.png";
+		return "res://FinkiSurvive/assets/fx/slash6/image/slash6_00005.png";
 	}
 
-	public override int AvailableAtWave()
+	public override int GetAvailableAtWave()
 	{
-		return 3;
+		return AvailableAtWave;
 	}
 
-	public override void Ability()
+	protected override void Ability()
 	{
-		
 	}
 }
-}
-

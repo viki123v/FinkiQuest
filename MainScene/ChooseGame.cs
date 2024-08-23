@@ -1,6 +1,6 @@
 using Godot;
 using System;
-using FinkiAdventureQuest.FinkiSurvive.FinkiQuest;
+using FinkiAdventureQuest.FinkiSurvive.code;
 
 namespace FinkiAdventureQuest.MainScene
 {

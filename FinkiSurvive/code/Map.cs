@@ -1,12 +1,10 @@
 using Godot;
 using System;
 using System.Collections.Generic;
-using System.Globalization;
-using FinkiAdventureQuest.FinkiSurvive.FinkiQuest;
 
-namespace FinkiAdventureQuest.FinkiSurvive.FinkiQuest.scenes
+namespace FinkiAdventureQuest.FinkiSurvive.code
 {
-	public partial class level : Node2D
+	public partial class Map : Node2D
 	{
 		Random rng = new Random();
 		public static int WaveTime = 30;
@@ -18,8 +16,8 @@ namespace FinkiAdventureQuest.FinkiSurvive.FinkiQuest.scenes
 
 		private Label fpsLabel;
 
-		private List<string> MobSceneNames = new List<string>();
-		// Called when the node enters the scene tree for the first time.
+		private List<string> MobSceneNames = new ();
+		
 		public override void _Ready()
 		{
 			MobSceneNames.Add("mob_orc");
@@ -33,7 +31,7 @@ namespace FinkiAdventureQuest.FinkiSurvive.FinkiQuest.scenes
 			
 			fpsLabel = GetNode<Label>("UI/FpsCont/Label");
 
-			var player = GetNode<player>("Player");
+			var player = GetNode<Player>("Player");
 			player?.Connect(nameof(player.PlayerDied), new Callable(this, nameof(PlayerDeath)));
 			
 			UpdateTimerText(WaveTime / 60, WaveTime % 60);
@@ -220,7 +218,7 @@ namespace FinkiAdventureQuest.FinkiSurvive.FinkiQuest.scenes
 		
 		private Vector2 _getSpawnPos()
 		{
-			var playerNode = GetNode<player>("Player");
+			var playerNode = GetNode<Player>("Player");
 			var width = playerNode.Position.X + ( (int) GetViewport().GetVisibleRect().Size[0] - playerNode.Position.X);
 			var height = playerNode.Position.Y + (GetViewport().GetVisibleRect().Size[1] - playerNode.Position.X);
 			Vector2[] spawnPositions = new Vector2[4];

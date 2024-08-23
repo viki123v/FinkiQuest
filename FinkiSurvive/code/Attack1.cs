@@ -1,42 +1,43 @@
 using Godot;
 using System;
 
-namespace FinkiAdventureQuest.FinkiSurvive.FinkiQuest.scenes
-{
+namespace FinkiAdventureQuest.FinkiSurvive.code;
+
+[GlobalClass]
 public partial class Attack1 : BaseAttack
 {
 
 	[Signal]
 	public delegate void AtkSpeedEventHandler();
-	
 	[Signal]
 	public delegate void HealPlayerEventHandler(float healAmount);
-
-
-	public float healAmount = 2f;
+	
+	
+	[Export]
+	private float _healAmount = 5f;
 	public override void _Ready()
 	{
-		var player = GetNode<player>("/root/Level/Player");
-
+		var player = GetNode<Player>("/root/Level/Player");
+		
 		Connect(nameof(HealPlayer), new Callable(player, nameof(player.HealPlayer)));
 	}
 
 	public override float GetAttackSpeed()
 	{
-		return 0.1f;
+		return AttackSpeed;
 	}
 
-	public override float GetDamage()
+	public override int GetDamage()
 	{
-		return Rng.Next(5, 10);
+		return Rng.Next(Damage, Damage + 10);
 	}
 
 	public override float GetAttackRange()
 	{
-		return 100;
+		return AttackRange;
 	}
 
-	public override void ScaleHp()
+	protected override void ScaleHp()
 	{
 		throw new NotImplementedException();
 	}
@@ -51,14 +52,14 @@ public partial class Attack1 : BaseAttack
 		return "res://FinkiSurvive/assets/fx/slash/image/skash_00007.png"; 
 	}
 
-	public override int AvailableAtWave()
+	public override int GetAvailableAtWave()
 	{
-		return 1;
+		return AvailableAtWave;
 	}
 
-	public override void Ability()
+	protected override void Ability()
 	{
-		EmitSignal(nameof(HealPlayer), healAmount);
+		EmitSignal(nameof(HealPlayer), _healAmount);
 	}
 	
 
@@ -67,5 +68,4 @@ public partial class Attack1 : BaseAttack
 	{
 	}
 	
-}
 }

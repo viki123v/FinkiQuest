@@ -1,7 +1,6 @@
 [gd_scene load_steps=87 format=3 uid="uid://5etwucqfjvn1"]
 
-[ext_resource type="Script" path="res://FinkiSurvive/scenes/MobCollisions.cs" id="1_5ctrs"]
-[ext_resource type="Script" path="res://FinkiSurvive/scenes/KnightMob.cs" id="1_23ka2"]
+[ext_resource type="Script" path="res://FinkiSurvive/code/KnightMob.cs" id="1_23ka2"]
 [ext_resource type="Texture2D" uid="uid://bjxdprjh1d5us" path="res://FinkiSurvive/assets/fx/HealthBars/health_bar_under2.svg" id="2_m36m5"]
 [ext_resource type="Texture2D" uid="uid://cbrhbkxyv5wck" path="res://FinkiSurvive/tmp_assets/ENEMY_MOBS/PNG/3/3_enemies_1_attack_000.png" id="2_oagbt"]
 [ext_resource type="Texture2D" uid="uid://bqagx0frewjem" path="res://FinkiSurvive/assets/fx/HealthBars/health_bar_progress.svg" id="3_uruh4"]
@@ -85,6 +84,7 @@
 [ext_resource type="Texture2D" uid="uid://2bejoce00vtp" path="res://FinkiSurvive/tmp_assets/ENEMY_MOBS/PNG/3/3_enemies_1_run_017.png" id="79_2t77s"]
 [ext_resource type="Texture2D" uid="uid://p20cwmkqofik" path="res://FinkiSurvive/tmp_assets/ENEMY_MOBS/PNG/3/3_enemies_1_run_018.png" id="80_mhvh5"]
 [ext_resource type="Texture2D" uid="uid://d0f4uemekxs1v" path="res://FinkiSurvive/tmp_assets/ENEMY_MOBS/PNG/3/3_enemies_1_run_019.png" id="81_1v7ag"]
+[ext_resource type="Script" path="res://FinkiSurvive/code/MobCollisions.cs" id="82_idcon"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_qwwvm"]
 animations = [{
@@ -149,9 +149,9 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("21_px08e")
 }],
-"loop": true,
+"loop": false,
 "name": &"attack",
-"speed": 5.0
+"speed": 20.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -362,15 +362,13 @@ position = Vector2(362.47, 198.729)
 scale = Vector2(1.04554, 0.799329)
 sprite_frames = SubResource("SpriteFrames_qwwvm")
 animation = &"walk"
-frame = 5
-frame_progress = 0.47777
 
 [node name="MobCollisions" type="Area2D" parent="."]
 position = Vector2(296.694, 218.322)
 scale = Vector2(1.00178, 1)
 collision_layer = 2
 collision_mask = 12
-script = ExtResource("1_5ctrs")
+script = ExtResource("82_idcon")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="MobCollisions"]
 position = Vector2(-89.4087, -264.505)

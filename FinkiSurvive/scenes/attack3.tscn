@@ -1,6 +1,6 @@
 [gd_scene load_steps=16 format=3 uid="uid://c11xq5d5f2r8x"]
 
-[ext_resource type="Script" path="res://FinkiSurvive/scenes/Attack3.cs" id="1_gu63k"]
+[ext_resource type="Script" path="res://FinkiSurvive/code/Attack3.cs" id="1_su8mp"]
 [ext_resource type="AudioStream" uid="uid://cmq7e0264tjxn" path="res://FinkiSurvive/assets/audio/mixkit-quick-knife-slice-cutting-2152.mp3" id="2_0fn1s"]
 [ext_resource type="Texture2D" uid="uid://vu1r358px1kj" path="res://FinkiSurvive/assets/fx/slash5/image/slash5_1_00001.png" id="3_atl0p"]
 [ext_resource type="Texture2D" uid="uid://djf52s73srdlh" path="res://FinkiSurvive/assets/fx/slash5/image/slash5_1_00002.png" id="4_45kog"]
@@ -64,11 +64,15 @@ position = Vector2(838, 539)
 rotation = -3.42802
 collision_layer = 4
 collision_mask = 2
-script = ExtResource("1_gu63k")
+script = ExtResource("1_su8mp")
+AttackSpeed = 0.4
+Damage = 50
+AttackRange = 160.0
+AvailableAtWave = 1
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
-position = Vector2(44.7233, 75.0488)
-scale = Vector2(0.500604, 1.50529)
+position = Vector2(26.2875, 27.5493)
+scale = Vector2(0.24109, 0.724944)
 polygon = PackedVector2Array(-154.535, -139.638, -54.2784, -126.152, 9.75586, -106.651, 57.4606, -87.7123, 79.1164, -52.7997, 72.0033, -22.4005, 12.88, 14.3237, -80.6388, 32.0224, -35.7063, -25.3594, -54.4411, -58.7834, -172.148, -122.947)
 
 [node name="HitSoundEffect" type="AudioStreamPlayer2D" parent="."]
@@ -84,7 +88,7 @@ autostart = true
 [node name="Slash" type="AnimatedSprite2D" parent="."]
 position = Vector2(1.01837, -6.99734)
 rotation = 0.566756
-scale = Vector2(0.902574, 0.974246)
+scale = Vector2(0.476413, 0.514244)
 skew = -0.0890118
 sprite_frames = SubResource("SpriteFrames_3vus7")
 

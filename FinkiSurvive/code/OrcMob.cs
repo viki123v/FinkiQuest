@@ -2,9 +2,9 @@ using Godot;
 using System;
 using System.Collections.Generic;
 
-namespace FinkiAdventureQuest.FinkiSurvive.FinkiQuest.scenes
-{
-	public partial class Mob_Orc : Mob
+namespace FinkiAdventureQuest.FinkiSurvive.code {
+	
+public partial class OrcMob : Mob
 	{
 		public int BaseHp = 60;
 		public int AppearsAtLevel = 1;
@@ -15,7 +15,7 @@ namespace FinkiAdventureQuest.FinkiSurvive.FinkiQuest.scenes
 		{
 			HpScaling.Add(BaseHp);
 			MaxHealth = BaseHp;
-			if(level.WaveCount > AppearsAtLevel)
+			if(Map.WaveCount > AppearsAtLevel)
 				ScaleHp();
 			Speed = rng.Next(120, 130);
 			base._Ready();

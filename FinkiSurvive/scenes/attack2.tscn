@@ -1,6 +1,6 @@
 [gd_scene load_steps=16 format=3 uid="uid://cswtg2jdsgix"]
 
-[ext_resource type="Script" path="res://FinkiSurvive/scenes/Attack2.cs" id="1_p0qvv"]
+[ext_resource type="Script" path="res://FinkiSurvive/code/Attack2.cs" id="1_p0qvv"]
 [ext_resource type="Texture2D" uid="uid://cawgp1pm6yki2" path="res://FinkiSurvive/assets/fx/slash6/image/slash6_00001.png" id="2_jmfme"]
 [ext_resource type="Texture2D" uid="uid://dwi6jxo8xfibt" path="res://FinkiSurvive/assets/fx/slash6/image/slash6_00002.png" id="3_73kp2"]
 [ext_resource type="Texture2D" uid="uid://b7rp33txvtvu" path="res://FinkiSurvive/assets/fx/slash6/image/slash6_00003.png" id="4_sqro6"]
@@ -64,11 +64,14 @@ stream_1/weight = 1.0
 collision_layer = 4
 collision_mask = 2
 script = ExtResource("1_p0qvv")
+AttackSpeed = 1.8
+Damage = 120
+AttackRange = 300.0
+AvailableAtWave = 1
 
 [node name="Slash" type="AnimatedSprite2D" parent="."]
 position = Vector2(-3, 3)
 sprite_frames = SubResource("SpriteFrames_x27sa")
-frame = 4
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
 position = Vector2(-968, -354)

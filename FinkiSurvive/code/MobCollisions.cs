@@ -2,7 +2,7 @@ using Godot;
 using System;
 
 
-namespace FinkiAdventureQuest.FinkiSurvive.FinkiQuest.scenes
+namespace FinkiAdventureQuest.FinkiSurvive.code
 {
     public partial class MobCollisions : Area2D
     {

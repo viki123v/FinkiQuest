@@ -1,13 +1,11 @@
- using Godot;
+using Godot;
 using System;
 using System.Collections.Generic;
-using FinkiAdventureQuest.FinkiSurvive.FinkiQuest;
-
 
 // TODO: HITBOX I HURTBOX IMPL
-namespace FinkiAdventureQuest.FinkiSurvive.FinkiQuest.scenes
+namespace FinkiAdventureQuest.FinkiSurvive.code
 {
-	public partial class player : CharacterBody2D
+	public partial class Player : CharacterBody2D
 	{
 		private const float Speed = 170f;
 		private static int _maxHealth = 300;
@@ -112,7 +110,7 @@ namespace FinkiAdventureQuest.FinkiSurvive.FinkiQuest.scenes
 		{
 			ShiftAttackIdx();
 			
-			GD.Print(level.WaveCount);
+			GD.Print(Map.WaveCount);
 			
 			
 			
@@ -120,7 +118,7 @@ namespace FinkiAdventureQuest.FinkiSurvive.FinkiQuest.scenes
 			
 			BaseAttack atk = scene.Instantiate() as BaseAttack;
 			
-			while (atk!.AvailableAtWave() > level.WaveCount)
+			while (atk!.GetAvailableAtWave() > Map.WaveCount)
 			{
 				ShiftAttackIdx();
 				atk = GD.Load<PackedScene>(ProjectPath.ScenesPath + _attackScenes[_currentAttackIdx] + ".tscn").Instantiate() as BaseAttack;

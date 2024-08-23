@@ -1,6 +1,6 @@
-[gd_scene load_steps=84 format=3 uid="uid://cvmyqo7j3bbvg"]
+[gd_scene load_steps=85 format=3 uid="uid://cvmyqo7j3bbvg"]
 
-[ext_resource type="Script" path="res://FinkiSurvive/scenes/player.cs" id="1_2eplu"]
+[ext_resource type="Script" path="res://FinkiSurvive/code/Player.cs" id="1_pgcxt"]
 [ext_resource type="Texture2D" uid="uid://bvstvophmcllk" path="res://FinkiSurvive/tmp_assets/craftpix-net-563568-free-wraith-tiny-style-2d-sprites/PNG/Wraith_01/PNG Sequences/Attacking/Wraith_01_Attack_000.png" id="2_hr6kb"]
 [ext_resource type="Texture2D" uid="uid://dk5n2tcaqn51a" path="res://FinkiSurvive/tmp_assets/craftpix-net-563568-free-wraith-tiny-style-2d-sprites/PNG/Wraith_01/PNG Sequences/Attacking/Wraith_01_Attack_001.png" id="3_4vrtb"]
 [ext_resource type="Texture2D" uid="uid://yc8qwxqsixql" path="res://FinkiSurvive/tmp_assets/craftpix-net-563568-free-wraith-tiny-style-2d-sprites/PNG/Wraith_01/PNG Sequences/Attacking/Wraith_01_Attack_002.png" id="4_6lv8u"]
@@ -80,6 +80,7 @@
 [ext_resource type="Texture2D" uid="uid://d4mglnosnpmq5" path="res://FinkiSurvive/tmp_assets/craftpix-net-563568-free-wraith-tiny-style-2d-sprites/PNG/Wraith_01/PNG Sequences/Idle Blink/Wraith_01_Idle Blinking_009.png" id="62_d40ll"]
 [ext_resource type="Texture2D" uid="uid://nb56t3aekrm8" path="res://FinkiSurvive/tmp_assets/craftpix-net-563568-free-wraith-tiny-style-2d-sprites/PNG/Wraith_01/PNG Sequences/Idle Blink/Wraith_01_Idle Blinking_010.png" id="63_6hqp6"]
 [ext_resource type="Texture2D" uid="uid://ck5g0nrdg5bc2" path="res://FinkiSurvive/tmp_assets/craftpix-net-563568-free-wraith-tiny-style-2d-sprites/PNG/Wraith_01/PNG Sequences/Idle Blink/Wraith_01_Idle Blinking_011.png" id="64_5agwf"]
+[ext_resource type="Texture2D" uid="uid://bbqfgawsegyut" path="res://FinkiSurvive/assets/fx/light.png" id="81_aeyqs"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_hdxnp"]
 animations = [{
@@ -349,9 +350,9 @@ height = 75.5218
 
 [node name="Player" type="CharacterBody2D" groups=["Player"]]
 scale = Vector2(3.18489, 2.8601)
-collision_layer = 9
+collision_layer = 10
 collision_mask = 2
-script = ExtResource("1_2eplu")
+script = ExtResource("1_pgcxt")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(0, 16)
@@ -432,6 +433,11 @@ metadata/_edit_lock_ = true
 [node name="HurtShape" type="CollisionShape2D" parent="HurtBox"]
 position = Vector2(-0.627965, 0.699276)
 shape = SubResource("CapsuleShape2D_yhqtj")
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+visible = false
+texture = ExtResource("81_aeyqs")
+texture_scale = 2.05
 
 [connection signal="timeout" from="AttackSpeed" to="." method="_on_timer_timeout"]
 [connection signal="area_entered" from="HurtBox" to="." method="TakeDamage"]

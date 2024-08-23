@@ -1,7 +1,7 @@
 using Godot;
 using System;
 
-namespace FinkiAdventureQuest.FinkiSurvive.FinkiQuest.scenes
+namespace FinkiAdventureQuest.FinkiSurvive.code
 {
     public partial class ZombieMob : Mob
     {
@@ -13,7 +13,7 @@ namespace FinkiAdventureQuest.FinkiSurvive.FinkiQuest.scenes
         {
             HpScaling.Add(BaseHp);
             MaxHealth = BaseHp;
-            if(level.WaveCount > AppearsAtLevel)
+            if(Map.WaveCount > AppearsAtLevel)
                 ScaleHp();
             Speed = rng.Next(90,100);
             base._Ready();

@@ -1,26 +1,59 @@
-[gd_scene load_steps=8 format=3 uid="uid://cpuq3drxwa581"]
+[gd_scene load_steps=17 format=3 uid="uid://cpuq3drxwa581"]
 
-[ext_resource type="Script" path="res://FinkiSurvive/scenes/Attack1.cs" id="1_eupbr"]
-[ext_resource type="Texture2D" uid="uid://lcq5pnsatlpy" path="res://FinkiSurvive/assets/fx/slash/image/slash_00003.png" id="2_kkn5t"]
-[ext_resource type="Texture2D" uid="uid://dmfntj1k5ltba" path="res://FinkiSurvive/assets/fx/slash/image/slash_00004.png" id="3_nv424"]
-[ext_resource type="Texture2D" uid="uid://dlodlmv78dvj2" path="res://FinkiSurvive/assets/fx/slash/image/slash_00005.png" id="4_jqily"]
-[ext_resource type="Texture2D" uid="uid://dpd2av2nxnx65" path="res://FinkiSurvive/assets/fx/slash/image/skash_00004.png" id="5_u1kqa"]
+[ext_resource type="Script" path="res://FinkiSurvive/code/Attack1.cs" id="1_x8sfl"]
+[ext_resource type="Texture2D" uid="uid://dmn5bn1pxbv84" path="res://FinkiSurvive/assets/fx/slash/image/skash_00007.png" id="2_ssacd"]
+[ext_resource type="Texture2D" uid="uid://cvxqhnlwciqf8" path="res://FinkiSurvive/assets/fx/slash4/image/slash4_00001.png" id="3_ic8a2"]
+[ext_resource type="Texture2D" uid="uid://cv5ch3ksnh11c" path="res://FinkiSurvive/assets/fx/slash4/image/slash4_00002.png" id="4_gtfc1"]
+[ext_resource type="Texture2D" uid="uid://c60wssphqe68" path="res://FinkiSurvive/assets/fx/slash4/image/slash4_00003.png" id="5_m5yux"]
+[ext_resource type="Texture2D" uid="uid://dmgmn5lni5yl2" path="res://FinkiSurvive/assets/fx/slash4/image/slash4_00004.png" id="6_f8fsm"]
 [ext_resource type="AudioStream" uid="uid://cmq7e0264tjxn" path="res://FinkiSurvive/assets/audio/mixkit-quick-knife-slice-cutting-2152.mp3" id="6_ftfyi"]
+[ext_resource type="Texture2D" uid="uid://dpnuxncwuf7sw" path="res://FinkiSurvive/assets/fx/slash4/image/slash4_00005.png" id="7_nbt1c"]
+[ext_resource type="Texture2D" uid="uid://bch5ybfmwms2l" path="res://FinkiSurvive/assets/fx/slash4/image/slash4_00006.png" id="8_hmto3"]
+[ext_resource type="Texture2D" uid="uid://6mjmnunwj3ty" path="res://FinkiSurvive/assets/fx/slash4/image/slash4_00007.png" id="9_3ewhj"]
+[ext_resource type="Texture2D" uid="uid://cp2x6i0rr8dw1" path="res://FinkiSurvive/assets/fx/slash4/image/slash4_00008.png" id="10_ri28j"]
+[ext_resource type="Texture2D" uid="uid://brlymi5icnep3" path="res://FinkiSurvive/assets/fx/slash4/image/slash4_00009.png" id="11_6bpnj"]
+[ext_resource type="Texture2D" uid="uid://c4ek3t7jgnmcf" path="res://FinkiSurvive/assets/fx/slash4/image/slash4_00010.png" id="12_tvtct"]
+[ext_resource type="Texture2D" uid="uid://bsa8o0h6rhqqu" path="res://FinkiSurvive/assets/fx/slash4/image/slash4_00011.png" id="13_habkt"]
+[ext_resource type="Texture2D" uid="uid://cdc704kp5588y" path="res://FinkiSurvive/assets/fx/slash4/image/slash4_00012.png" id="14_ygato"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_7b38b"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_kkn5t")
+"texture": ExtResource("3_ic8a2")
 }, {
 "duration": 1.0,
-"texture": ExtResource("3_nv424")
+"texture": ExtResource("4_gtfc1")
 }, {
 "duration": 1.0,
-"texture": ExtResource("4_jqily")
+"texture": ExtResource("5_m5yux")
 }, {
 "duration": 1.0,
-"texture": ExtResource("5_u1kqa")
+"texture": ExtResource("6_f8fsm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_nbt1c")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_hmto3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_3ewhj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_ri28j")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_6bpnj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_tvtct")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_habkt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_ygato")
 }],
 "loop": false,
 "name": &"default",
@@ -28,26 +61,26 @@ animations = [{
 }]
 
 [node name="Attack" type="Area2D"]
+show_behind_parent = true
 position = Vector2(771, 401)
 rotation = -0.487306
 collision_layer = 4
 collision_mask = 2
-script = ExtResource("1_eupbr")
+script = ExtResource("1_x8sfl")
+_healAmount = 6.0
+AttackSpeed = 0.2
+Damage = 10
+AttackRange = 70.0
+AvailableAtWave = 1
+Icon = ExtResource("2_ssacd")
 
 [node name="Slash" type="AnimatedSprite2D" parent="."]
-modulate = Color(0.831373, 0.827451, 0, 1)
+modulate = Color(0.168627, 0.686275, 0.792157, 1)
 z_index = 1
-position = Vector2(4.84119, -15.5423)
-rotation = -0.386917
-scale = Vector2(1.14985, 2.2993)
+position = Vector2(2.87019, -26.7724)
+rotation = 4.18879
+scale = Vector2(0.09841, 0.449147)
 sprite_frames = SubResource("SpriteFrames_7b38b")
-frame = 3
-frame_progress = 1.0
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
-position = Vector2(-170.701, -64.43)
-rotation = 0.117543
-polygon = PackedVector2Array(177.575, 91.7233, 197.031, 69.308, 201.45, 59.8489, 204.47, 46.1419, 207.132, 14.1902, 204.215, -0.386963, 196.206, -14.6998, 188.897, -26.8888, 173.646, -33.1669, 185.919, 14.1129, 185.696, 36.3153, 183.785, 56.2489)
 
 [node name="HitSoundEffect" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("6_ftfyi")
@@ -57,6 +90,10 @@ max_polyphony = 5
 [node name="AttackSpeed" type="Timer" parent="."]
 wait_time = 0.3
 autostart = true
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+position = Vector2(27.4522, -6.95516)
+polygon = PackedVector2Array(-67.222, 5.11938, -55.6823, 8.97119, -49.8595, 8.66162, -43.5686, 7.46844, -30.8808, 0.611267, -23.912, -5.62777, -6.69852, -19.394, 19.9231, -29.053, 25.4891, -37.4207, 22.0605, -43.7645, 13.2246, -48.447, -20.1562, -36.7114, -33.7805, -28.087, -30.7143, -25.3304, -8.56369, -35.0951, 21.5393, -40.6455, 19.5606, -32.6403, 14.5686, -29.627, -33.5767, -17.7934, -70.0765, -6.57898, -76.8886, -2.26678, -70.2352, 0.12738, -20.2699, -13.0051, -34.8835, -0.378174, -47.4654, 2.00818, -57.759, 2.21191, -63.5818, 2.52148)
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
 [connection signal="timeout" from="AttackSpeed" to="." method="OnTimerTick"]

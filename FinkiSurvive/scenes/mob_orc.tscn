@@ -1,6 +1,6 @@
 [gd_scene load_steps=87 format=3 uid="uid://bymdgs1rljchi"]
 
-[ext_resource type="Script" path="res://FinkiSurvive/scenes/Mob_Orc.cs" id="1_lof6l"]
+[ext_resource type="Script" path="res://FinkiSurvive/code/OrcMob.cs" id="1_5stjo"]
 [ext_resource type="Texture2D" uid="uid://roa8dbfp7ps" path="res://FinkiSurvive/tmp_assets/ENEMY_MOBS/PNG/1/1_enemies_1_attack_000.png" id="2_wnnr7"]
 [ext_resource type="Texture2D" uid="uid://bylhdq4vnwrmi" path="res://FinkiSurvive/tmp_assets/ENEMY_MOBS/PNG/1/1_enemies_1_attack_001.png" id="3_pce0j"]
 [ext_resource type="Texture2D" uid="uid://bjdbktlk744rx" path="res://FinkiSurvive/tmp_assets/ENEMY_MOBS/PNG/1/1_enemies_1_attack_002.png" id="4_2oi8t"]
@@ -81,7 +81,7 @@
 [ext_resource type="Texture2D" uid="uid://bekfthqhjcsnm" path="res://FinkiSurvive/tmp_assets/ENEMY_MOBS/PNG/1/1_enemies_1_walk_017.png" id="79_d4uj8"]
 [ext_resource type="Texture2D" uid="uid://ckpv6pgpydovu" path="res://FinkiSurvive/tmp_assets/ENEMY_MOBS/PNG/1/1_enemies_1_walk_018.png" id="80_yq5cu"]
 [ext_resource type="Texture2D" uid="uid://14a2fx1xrcss" path="res://FinkiSurvive/tmp_assets/ENEMY_MOBS/PNG/1/1_enemies_1_walk_019.png" id="81_ufwfg"]
-[ext_resource type="Script" path="res://FinkiSurvive/scenes/MobCollisions.cs" id="82_fjraw"]
+[ext_resource type="Script" path="res://FinkiSurvive/code/MobCollisions.cs" id="82_t472t"]
 [ext_resource type="Texture2D" uid="uid://bjxdprjh1d5us" path="res://FinkiSurvive/assets/fx/HealthBars/health_bar_under2.svg" id="83_0jw5g"]
 [ext_resource type="Texture2D" uid="uid://bqagx0frewjem" path="res://FinkiSurvive/assets/fx/HealthBars/health_bar_progress.svg" id="84_3uaeo"]
 [ext_resource type="AudioStream" uid="uid://chj6061yu0g6f" path="res://FinkiSurvive/assets/audio/mixkit-sword-cutting-flesh-2788.wav" id="85_q8cq8"]
@@ -355,7 +355,7 @@ scale = Vector2(0.275, 0.275)
 collision_layer = 2
 collision_mask = 14
 safe_margin = 3.636
-script = ExtResource("1_lof6l")
+script = ExtResource("1_5stjo")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(466.5, 336.705)
@@ -368,7 +368,7 @@ position = Vector2(298.182, 221.818)
 scale = Vector2(1.00178, 1)
 collision_layer = 2
 collision_mask = 12
-script = ExtResource("82_fjraw")
+script = ExtResource("82_t472t")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="MobCollisions"]
 position = Vector2(68.9679, -94.5452)
@@ -404,7 +404,6 @@ stream = ExtResource("85_q8cq8")
 metadata/_edit_lock_ = true
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
-visible = false
 position = Vector2(374.545, 120)
 polygon = PackedVector2Array(54.4487, 367.273, 192.385, 363.636, 214.164, 123.636, 98.0076, 83.6365, -25.4092, 123.636, -18.1494, 370.909, 68.9683, 367.273)
 

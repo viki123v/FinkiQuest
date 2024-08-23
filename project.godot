@@ -16,6 +16,15 @@ config/features=PackedStringArray("4.2", "C#", "GL Compatibility")
 run/max_fps=200
 config/icon="res://icon.svg"
 
+[debug]
+
+shapes/size/mode=0
+shapes/vsync/vsync_mode=0
+
+[display]
+
+window/vsync/vsync_mode=0
+
 [dotnet]
 
 project/assembly_name="FinkiAdventureQuest"
