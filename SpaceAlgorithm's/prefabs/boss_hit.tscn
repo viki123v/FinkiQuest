@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://cl65y2hq77ajw"]
 
 [ext_resource type="Texture2D" uid="uid://cicjykq2ewagi" path="res://SpaceAlgorithm's/kenney_space-shooter-redux/PNG/Lasers/laserRed09.png" id="1_acysf"]
-[ext_resource type="Script" path="res://scripts/GpuParticles2d.cs" id="2_glkou"]
+[ext_resource type="Script" path="res://SpaceAlgorithm's/scripts/GpuParticles2d.cs" id="2_glkou"]
 [ext_resource type="AudioStream" uid="uid://dvelumjc1orsc" path="res://SpaceAlgorithm's/kenney_space-shooter-redux/Bonus/sfx_twoTone.ogg" id="3_erimx"]
 
 [sub_resource type="Gradient" id="Gradient_d0yrh"]
