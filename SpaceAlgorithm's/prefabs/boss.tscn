@@ -1,0 +1,77 @@
+[gd_scene load_steps=12 format=3 uid="uid://caai4m7art6jn"]
+
+[ext_resource type="Script" path="res://SpaceAlgorithm's/scripts/Boss.cs" id="1_ldks4"]
+[ext_resource type="Texture2D" uid="uid://darexrxpjk4qe" path="res://SpaceAlgorithm's/assets/Boss/frame_0_delay-0.15s.png" id="1_yhxuf"]
+[ext_resource type="Texture2D" uid="uid://co1gaajexnga5" path="res://SpaceAlgorithm's/assets/Boss/frame_1_delay-0.15s.png" id="2_r2muq"]
+[ext_resource type="Texture2D" uid="uid://cx52qposr3pht" path="res://SpaceAlgorithm's/assets/Boss/frame_2_delay-0.15s.png" id="3_5263v"]
+[ext_resource type="Texture2D" uid="uid://t7u5gicjsj54" path="res://SpaceAlgorithm's/assets/Boss/frame_3_delay-0.15s.png" id="4_duomg"]
+[ext_resource type="Texture2D" uid="uid://dexf2r6k6vetu" path="res://SpaceAlgorithm's/assets/Boss/frame_4_delay-0.15s.png" id="5_52ii4"]
+[ext_resource type="Texture2D" uid="uid://06jard88t38u" path="res://SpaceAlgorithm's/assets/Boss/frame_5_delay-0.15s.png" id="6_a0il5"]
+[ext_resource type="AudioStream" uid="uid://677ekuwjq4tt" path="res://SpaceAlgorithm's/assets/8-bit RPG Music  Boss Battle.mp3" id="8_ftmx8"]
+[ext_resource type="Theme" uid="uid://b1710rrqh6wcu" path="res://SpaceAlgorithm's/new_theme.tres" id="8_wxr2w"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_lconi"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_yhxuf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_r2muq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_5263v")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_duomg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_52ii4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_a0il5")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_umvpm"]
+size = Vector2(361, 354)
+
+[node name="boss" type="Area2D"]
+scale = Vector2(0.8, 0.8)
+script = ExtResource("1_ldks4")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_lconi")
+frame = 1
+frame_progress = 0.378252
+
+[node name="Label" type="Label" parent="AnimatedSprite2D"]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -248.0
+offset_top = -199.0
+offset_right = -208.0
+offset_bottom = -176.0
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(1.57257, 2.13714)
+theme = ExtResource("8_wxr2w")
+text = "
+ISPIT"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(49.5, 4)
+shape = SubResource("RectangleShape2D_umvpm")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_ftmx8")
+volume_db = -8.512
+autoplay = true
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]

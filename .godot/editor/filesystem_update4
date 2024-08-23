@@ -1,0 +1,12 @@
+res://MainScene/choose_game.tscn
+res://SpaceAlgorithm's/scenes/start.tscn
+res://SpaceAlgorithm's/prefabs/enemy.tscn
+res://SpaceAlgorithm's/scenes/end.tscn
+res://SpaceAlgorithm's/scenes/game.tscn
+res://SpaceAlgorithm's/prefabs/enemy_laser.tscn
+res://SpaceAlgorithm's/prefabs/laser.tscn
+res://SpaceAlgorithm's/prefabs/player.tscn
+res://SpaceAlgorithm's/prefabs/shield.tscn
+res://SpaceAlgorithm's/prefabs/meteor.tscn
+res://SpaceAlgorithm's/prefabs/boss_hit.tscn
+res://SpaceAlgorithm's/prefabs/explosion.tscn

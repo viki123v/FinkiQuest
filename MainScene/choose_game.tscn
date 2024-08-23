@@ -10,4 +10,13 @@ offset_right = 129.0
 offset_bottom = 35.0
 text = "FINKISURVIVE"
 
+[node name="SpaceAlgorithms" type="Button" parent="."]
+offset_left = 187.0
+offset_top = 3.0
+offset_right = 316.0
+offset_bottom = 38.0
+text = "Space Algorithm's
+"
+
 [connection signal="pressed" from="FinkiSurvive" to="." method="FinkiSurvive"]
+[connection signal="pressed" from="SpaceAlgorithms" to="." method="SpaceAlorithms"]

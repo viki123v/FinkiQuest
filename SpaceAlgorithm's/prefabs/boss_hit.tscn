@@ -1,0 +1,40 @@
+[gd_scene load_steps=7 format=3 uid="uid://cl65y2hq77ajw"]
+
+[ext_resource type="Texture2D" uid="uid://cicjykq2ewagi" path="res://SpaceAlgorithm's/kenney_space-shooter-redux/PNG/Lasers/laserRed09.png" id="1_acysf"]
+[ext_resource type="Script" path="res://SpaceAlgorithm's/scripts/GpuParticles2d.cs" id="2_glkou"]
+[ext_resource type="AudioStream" uid="uid://dvelumjc1orsc" path="res://SpaceAlgorithm's/kenney_space-shooter-redux/Bonus/sfx_twoTone.ogg" id="3_erimx"]
+
+[sub_resource type="Gradient" id="Gradient_d0yrh"]
+offsets = PackedFloat32Array(0, 0.606557, 1)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_eckuc"]
+gradient = SubResource("Gradient_d0yrh")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_ec35y"]
+particle_flag_disable_z = true
+angle_min = -180.0
+angle_max = 180.0
+direction = Vector3(0, 0, 0)
+spread = 180.0
+initial_velocity_min = 10.0
+initial_velocity_max = 100.0
+angular_velocity_min = -90.0
+angular_velocity_max = 90.0
+gravity = Vector3(0, 0, 0)
+color_ramp = SubResource("GradientTexture1D_eckuc")
+
+[node name="boss_hit" type="Node2D"]
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+emitting = false
+amount = 1
+process_material = SubResource("ParticleProcessMaterial_ec35y")
+texture = ExtResource("1_acysf")
+one_shot = true
+explosiveness = 1.0
+script = ExtResource("2_glkou")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_erimx")
+autoplay = true
