@@ -23,7 +23,7 @@ public partial class End : CanvasLayer
 
 	}
 	private void _on_exit_pressed(){
-		GetTree().Quit();
+		GetTree().ChangeSceneToFile("res://MainScene/choose_game.tscn");
 	}
 
 	public void setGrade(int grade){

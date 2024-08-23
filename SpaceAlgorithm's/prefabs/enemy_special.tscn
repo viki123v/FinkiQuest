@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://dhfjc0wkpa4ad"]
+
+[ext_resource type="Script" path="res://SpaceAlgorithm's/scripts/BossSpecial.cs" id="1_17vwk"]
+[ext_resource type="Texture2D" uid="uid://c4mvwnx2eijy5" path="res://SpaceAlgorithm's/kenney_space-shooter-redux/PNG/Effects/star3.png" id="1_pwcr4"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_vstx4"]
+radius = 13.0384
+
+[node name="BossSpecial" type="Area2D"]
+script = ExtResource("1_17vwk")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(2, 2)
+shape = SubResource("CircleShape2D_vstx4")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(2, 2)
+texture = ExtResource("1_pwcr4")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://caai4m7art6jn"]
+[gd_scene load_steps=13 format=3 uid="uid://caai4m7art6jn"]
 
 [ext_resource type="Script" path="res://SpaceAlgorithm's/scripts/Boss.cs" id="1_ldks4"]
 [ext_resource type="Texture2D" uid="uid://darexrxpjk4qe" path="res://SpaceAlgorithm's/assets/Boss/frame_0_delay-0.15s.png" id="1_yhxuf"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://06jard88t38u" path="res://SpaceAlgorithm's/assets/Boss/frame_5_delay-0.15s.png" id="6_a0il5"]
 [ext_resource type="AudioStream" uid="uid://677ekuwjq4tt" path="res://SpaceAlgorithm's/assets/8-bit RPG Music  Boss Battle.mp3" id="8_ftmx8"]
 [ext_resource type="Theme" uid="uid://b1710rrqh6wcu" path="res://SpaceAlgorithm's/new_theme.tres" id="8_wxr2w"]
+[ext_resource type="Texture2D" uid="uid://derl01ynyqy7c" path="res://SpaceAlgorithm's/assets/Boss/crack-3.png" id="10_kjv4m"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_lconi"]
 animations = [{
@@ -73,5 +74,16 @@ shape = SubResource("RectangleShape2D_umvpm")
 stream = ExtResource("8_ftmx8")
 volume_db = -8.512
 autoplay = true
+
+[node name="damadge_texture" type="Sprite2D" parent="."]
+position = Vector2(72.5, 12.5)
+rotation = -0.62127
+scale = Vector2(0.139089, 0.127743)
+texture = ExtResource("10_kjv4m")
+
+[node name="more_damadge_texture" type="Sprite2D" parent="."]
+position = Vector2(-7.5, -12.5)
+scale = Vector2(0.1375, 0.160405)
+texture = ExtResource("10_kjv4m")
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]

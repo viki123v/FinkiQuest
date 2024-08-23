@@ -4,7 +4,7 @@ using FinkiAdventureQuest.FinkiSurvive.code;
 
 namespace FinkiAdventureQuest.MainScene
 {
-public partial class ChooseGame : Node2D
+public partial class ChooseGame : Control
 {
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
@@ -18,12 +18,13 @@ public partial class ChooseGame : Node2D
 
 	public void FinkiSurvive()
 	{
-		GD.Print("FinkiSurvive");
 		GetTree().ChangeSceneToFile(ProjectPath.MainScenePath);
 	}
 	public void SpaceAlorithms(){
-		GD.Print("Space Algorithm's");
 		GetTree().ChangeSceneToFile("res://SpaceAlgorithm's/scenes/start.tscn");
+	}
+	public void _on_back_pressed(){
+		GetTree().ChangeSceneToFile("res://MainScene/main_menu.tscn");
 	}
 }
 	

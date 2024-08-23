@@ -18,6 +18,6 @@ public partial class Start : CanvasLayer
 	}
 
 	public void _on_exit_pressed(){
-		GetTree().Quit();
+		GetTree().ChangeSceneToFile("res://MainScene/choose_game.tscn");
 	}
 }

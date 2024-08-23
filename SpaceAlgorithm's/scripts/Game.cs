@@ -15,6 +15,7 @@ public partial class Game : Node2D
 	private PackedScene bossPrefab = (PackedScene)GD.Load("res://SpaceAlgorithm's/prefabs/boss.tscn");
 	private PackedScene _shieldPrefab = (PackedScene)GD.Load("res://SpaceAlgorithm's/prefabs/shield.tscn");
 	private PackedScene _laserPrefab = (PackedScene)GD.Load("res://SpaceAlgorithm's/prefabs/enemy_laser.tscn");
+	private PackedScene _bossSpecial = (PackedScene)GD.Load("res://SpaceAlgorithm's/prefabs/enemy_special.tscn");
 
     private Node2D _player;
     private Label _label;
@@ -73,8 +74,8 @@ public partial class Game : Node2D
 		this.AddChild(enemy);
 
 		if(enemies.Count == 0 && !bossStarted){
-			bossStarted = true;
 			startBoss();
+			bossStarted = true;
 		}
     }
 
@@ -110,23 +111,21 @@ public partial class Game : Node2D
 
 	private void _on_boss_special_timeout(){
 		if(!bossStarted) return;
-		EnemyLaser laser;
+		BossSpecial special;
 
 		int halfScreen = (int)(_screenSize.Y/2);
 
-		laser = (EnemyLaser)_laserPrefab.Instantiate();
-		laser.Position = new Vector2(_screenSize.X + 50, halfScreen);
-		AddChild(laser);
+		special = (BossSpecial)_bossSpecial.Instantiate();
+		special.Position = new Vector2(_screenSize.X + 50, halfScreen);
+		AddChild(special);
 
-		laser = (EnemyLaser)_laserPrefab.Instantiate();
-		laser.Position = new Vector2(_screenSize.X + 50, halfScreen + halfScreen / 2);
-		AddChild(laser);
+		special = (BossSpecial)_bossSpecial.Instantiate();
+		special.Position = new Vector2(_screenSize.X + 50, halfScreen + halfScreen / 2);
+		AddChild(special);
 
-		laser = (EnemyLaser)_laserPrefab.Instantiate();
-		laser.Position = new Vector2(_screenSize.X + 50, halfScreen - halfScreen / 2);
-		AddChild(laser);
-
-		
+		special = (BossSpecial)_bossSpecial.Instantiate();
+		special.Position = new Vector2(_screenSize.X + 50, halfScreen - halfScreen / 2);
+		AddChild(special);
 	}
 
 	public void incrementPoints(){
