@@ -19,6 +19,7 @@ wait_time = 0.925
 autostart = true
 
 [node name="boss_attack_meteor" type="Timer" parent="."]
+wait_time = 1.25
 autostart = true
 
 [node name="boss_shield" type="Timer" parent="."]

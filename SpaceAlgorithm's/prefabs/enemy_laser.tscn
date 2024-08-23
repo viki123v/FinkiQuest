@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://dh28w8fqtd22x" path="res://SpaceAlgorithm's/kenney_space-shooter-redux/PNG/Lasers/laserRed08.png" id="2_6eaqr"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_w7gs2"]
-radius = 24.0
+radius = 30.0
 
 [node name="enemy_laser" type="Area2D"]
 script = ExtResource("1_o214f")

@@ -10,6 +10,7 @@ public partial class Enemy : Area2D
 	public override void _Ready()
 	{
 		Name = "Enemy";
+		
 	}
 
 	float speed = -1.5f;
