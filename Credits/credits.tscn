@@ -1,0 +1,38 @@
+[gd_scene load_steps=4 format=3 uid="uid://6wwe7inx4i5j"]
+
+[ext_resource type="Texture2D" uid="uid://bdbv13fir2fie" path="res://MainScene/background_mc.jpg" id="1_6ru2u"]
+[ext_resource type="Script" path="res://Credits/ScrollingLabel.cs" id="2_wd87s"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_7hh63"]
+texture = ExtResource("1_6ru2u")
+modulate_color = Color(0.446777, 0.446777, 0.446777, 1)
+
+[node name="Credits" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="."]
+modulate = Color(0.533037, 0.533037, 0.533037, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 0
+theme_override_styles/panel = SubResource("StyleBoxTexture_7hh63")
+
+[node name="ScrollingLabel" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 16
+horizontal_alignment = 1
+script = ExtResource("2_wd87s")

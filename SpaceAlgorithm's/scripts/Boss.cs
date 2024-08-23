@@ -5,6 +5,8 @@ public partial class Boss : Area2D
 {
     int hp;
     private AnimatedSprite2D sprite;
+    private Sprite2D damage_texture;
+    private Sprite2D more_damage_texture;
     private Color originalColor;
 	private PackedScene _explosionPrefab = (PackedScene)GD.Load("res://SpaceAlgorithm's/prefabs/explosion.tscn");
 	private PackedScene _bossHitPrefab = (PackedScene)GD.Load("res://SpaceAlgorithm's/prefabs/boss_hit.tscn");
@@ -13,9 +15,14 @@ public partial class Boss : Area2D
     public override void _Ready()
     {
         sprite = GetNode<AnimatedSprite2D>("AnimatedSprite2D");
+        damage_texture = GetNode<Sprite2D>("damadge_texture");
+        more_damage_texture = GetNode<Sprite2D>("more_damadge_texture");
         originalColor = sprite.Modulate; 
-        hp = 70;
+        hp = 100;
         sprite.Play(); 
+        damage_texture.Visible = false;
+        more_damage_texture.Visible = false;
+
     }
 
     private void _on_area_entered(Area2D area)
@@ -23,6 +30,12 @@ public partial class Boss : Area2D
         if (area is Laser)
         {
             hp--;
+            if(hp <= 50){
+                damage_texture.Visible = true;
+            }
+            if(hp <= 30){
+                more_damage_texture.Visible = true;
+            }
             if (hp == 0)
             {
                 var gameNode = (Game)GetParent();
@@ -54,5 +67,6 @@ public partial class Boss : Area2D
 
         // Reset the sprite color to its original value
         sprite.Modulate = originalColor;
+        
     }
 }

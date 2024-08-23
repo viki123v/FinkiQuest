@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://kortguommu3g"]
 
 [ext_resource type="Script" path="res://SpaceAlgorithm's/scripts/Shield.cs" id="1_gegnl"]
-[ext_resource type="Texture2D" uid="uid://cin35jwpf2sf7" path="res://SpaceAlgorithm's/assets/9dc1f28153e0ab6.png" id="2_s61vd"]
+[ext_resource type="Texture2D" uid="uid://bmghl0iug1ywi" path="res://SpaceAlgorithm's/kenney_space-shooter-redux/PNG/Effects/shield1.png" id="2_xhks0"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_nmttv"]
 radius = 67.9681
@@ -11,9 +11,10 @@ scale = Vector2(1.03, 1.03)
 script = ExtResource("1_gegnl")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-33.495, 3.39809)
 rotation = -1.5708
-scale = Vector2(0.2, 0.2)
-texture = ExtResource("2_s61vd")
+scale = Vector2(0.99568, 0.820279)
+texture = ExtResource("2_xhks0")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-9.70874, 2.91262)
