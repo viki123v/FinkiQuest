@@ -1,8 +1,12 @@
+res://FinkiSurvive/scenes/player.tscn
+res://FinkiSurvive/themes/HelpMenuTheme.tres
 res://MainScene/main_menu.tscn
 res://FinkiSurvive/scenes/attack2.tscn
 res://MainScene/choose_game.tscn
-res://FinkiSurvive/themes/HelpMenuTheme.tres
 res://FinkiSurvive/scenes/map.tscn
+res://FinkiSurvive/scenes/attack3.tscn
+res://FinkiSurvive/scenes/mob_orc.tscn
+res://FinkiSurvive/scenes/mob.tscn
 res://SpaceAlgorithm's/scripts/Meteor.cs
 res://FinkiSurvive/code/Mob.cs
 res://Credits/ScrollingLabel.cs
@@ -32,7 +36,5 @@ res://SpaceAlgorithm's/scripts/GpuParticles2d.cs
 res://SpaceAlgorithm's/scripts/Enemy.cs
 res://SpaceAlgorithm's/scripts/BossDeath.cs
 res://SpaceAlgorithm's/scripts/End.cs
-res://FinkiSurvive/scenes/attack3.tscn
-res://FinkiSurvive/scenes/mob_orc.tscn
-res://FinkiSurvive/scenes/player.tscn
-res://FinkiSurvive/scenes/mob.tscn
+res://FinkiSurvive/scenes/mob_knight.tscn
+res://FinkiSurvive/scenes/attack1.tscn

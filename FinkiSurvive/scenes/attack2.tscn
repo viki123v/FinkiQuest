@@ -59,13 +59,14 @@ stream_0/stream = ExtResource("12_6ecbn")
 stream_1/stream = ExtResource("13_3r488")
 
 [node name="Area2D" type="Area2D"]
+scale = Vector2(0.607146, 0.600667)
 collision_layer = 4
 collision_mask = 2
 script = ExtResource("1_p0qvv")
 AttackSpeed = 1.5
 Damage = 120
-AttackRange = 250.0
-AvailableAtWave = 2
+AttackRange = 150.0
+AvailableAtWave = 1
 
 [node name="Slash" type="AnimatedSprite2D" parent="."]
 position = Vector2(-3, 3)

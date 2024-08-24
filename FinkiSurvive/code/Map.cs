@@ -18,7 +18,7 @@ namespace FinkiAdventureQuest.FinkiSurvive.code
 		
 		public Vector2[] MobSpawnPoints = new Vector2[4];
 
-		private Label fpsLabel;
+		private Label _fps;
 
 		private List<string> _mobSceneNames = new ();
 		
@@ -31,7 +31,7 @@ namespace FinkiAdventureQuest.FinkiSurvive.code
 			Timer = GetNode<Timer>("GameTimer");
 			TimeSecs = WaveTime;
 			
-			fpsLabel = GetNode<Label>("UI/FpsCont/Label");
+			_fps = GetNode<Label>("UI/FpsCont/Label");
 			
 			var player = GetNode<Player>("Player");
 			player?.Connect(nameof(player.PlayerDied), new Callable(this, nameof(PlayerDeath)));
@@ -55,7 +55,7 @@ namespace FinkiAdventureQuest.FinkiSurvive.code
 		public override void _Process(double delta)
 		{
 			FrameCount++;
-			fpsLabel.Text = Engine.GetFramesPerSecond().ToString();
+			_fps.Text = Engine.GetFramesPerSecond().ToString();
 		}
 
 		public void PauseSceneTree()
@@ -95,8 +95,9 @@ namespace FinkiAdventureQuest.FinkiSurvive.code
 		public void PlayerDeath()
 		{
 			GetNode<CanvasLayer>("DeathScreen").Visible = true;
-			ClearMobs();
-			PauseGame();
+			// ClearMobs();
+			// PauseGame();
+			PauseSceneTree();
 		}
 		
 

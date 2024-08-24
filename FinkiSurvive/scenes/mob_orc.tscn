@@ -281,7 +281,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"hurt",
-"speed": 15.0
+"speed": 60.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -359,7 +359,7 @@ script = ExtResource("1_5stjo")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(466.5, 336.705)
 sprite_frames = SubResource("SpriteFrames_nbxpl")
-animation = &"walk"
+animation = &"hurt"
 
 [node name="MobCollisions" type="Area2D" parent="."]
 position = Vector2(298.182, 221.818)
