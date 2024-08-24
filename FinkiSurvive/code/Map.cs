@@ -13,24 +13,26 @@ namespace FinkiAdventureQuest.FinkiSurvive.code
 		public static int WaveCount = 1;
 		private int _score = 0;
 		public int WinAtWave = 10;
+		
+		public static int FrameCount = 0;
+		
+		public Vector2[] MobSpawnPoints = new Vector2[4];
 
 		private Label fpsLabel;
 
-		private List<string> MobSceneNames = new ();
+		private List<string> _mobSceneNames = new ();
 		
 		public override void _Ready()
 		{
-			MobSceneNames.Add("mob_orc");
-			MobSceneNames.Add("mob_zombie");
-			MobSceneNames.Add("mob_knight");
-			
-			//
+			_mobSceneNames.Add("mob_orc");
+			_mobSceneNames.Add("mob_zombie");
+			_mobSceneNames.Add("mob_knight");
 			
 			Timer = GetNode<Timer>("GameTimer");
 			TimeSecs = WaveTime;
 			
 			fpsLabel = GetNode<Label>("UI/FpsCont/Label");
-
+			
 			var player = GetNode<Player>("Player");
 			player?.Connect(nameof(player.PlayerDied), new Callable(this, nameof(PlayerDeath)));
 			
@@ -47,16 +49,12 @@ namespace FinkiAdventureQuest.FinkiSurvive.code
 			GetNode<Button>("WinScreen/MarginContainer2/ContinueButton").Pressed += ResumeGame;
 			GetNode<Button>("WinScreen/MarginContainer3/GraduateButton").Pressed += QuitGame;
 			GetNode<CanvasLayer>("DeathScreen").Visible = false;
+			GetNode<CanvasLayer>("WinScreen").Visible = false;
 		}
-
-		public void DisplayInfo()
-		{
-			GD.Print("Enter");
-			GetNode<RichTextLabel>("UI/GameInfoCont/RichTextLabel").Text = "This is test\nTestetst\n";
-		}
-
+		
 		public override void _Process(double delta)
 		{
+			FrameCount++;
 			fpsLabel.Text = Engine.GetFramesPerSecond().ToString();
 		}
 
@@ -96,7 +94,6 @@ namespace FinkiAdventureQuest.FinkiSurvive.code
 
 		public void PlayerDeath()
 		{
-			GD.Print("Player died signal");
 			GetNode<CanvasLayer>("DeathScreen").Visible = true;
 			ClearMobs();
 			PauseGame();
@@ -175,7 +172,6 @@ namespace FinkiAdventureQuest.FinkiSurvive.code
 		
 		public void OnTimerTick()
 		{
-			GD.Print(Mob.StateValid);
 			if (--TimeSecs <= 0)
 			{
 				TimeSecs = WaveTime;
@@ -215,30 +211,31 @@ namespace FinkiAdventureQuest.FinkiSurvive.code
 
 			return 0;
 		}
-		
-		private Vector2 _getSpawnPos()
+
+		public Vector2 GetMobSpawnPos()
 		{
-			var playerNode = GetNode<Player>("Player");
-			var width = playerNode.Position.X + ( (int) GetViewport().GetVisibleRect().Size[0] - playerNode.Position.X);
-			var height = playerNode.Position.Y + (GetViewport().GetVisibleRect().Size[1] - playerNode.Position.X);
-			Vector2[] spawnPositions = new Vector2[4];
-			spawnPositions[0] = new Vector2(rng.Next((int) width + 200, (int) width + 300), rng.Next( (int)height - 150, (int)height)); // gore desno
-			spawnPositions[1] = new Vector2(rng.Next((int) 200, (int)300), rng.Next((int)height - 200,(int) height)); // gore levo
-			spawnPositions[2] = new Vector2(rng.Next(200, 300), rng.Next((int)-height, -(int)height + 250)); // dolu levo
-			spawnPositions[3] = new Vector2(rng.Next(200,300), rng.Next((int)-height, -(int)height + 250));// dolu desno
+			var player = GetNode<Player>("Player");
+			var width = player.Position.X + ( (int) GetViewport().GetVisibleRect().Size[0] - player.Position.X);
+			var height = player.Position.Y + (GetViewport().GetVisibleRect().Size[1] - player.Position.X);
+			MobSpawnPoints[0] = new Vector2(rng.Next((int) width + 200, (int) width + 300), rng.Next( (int)height - 150, (int)height)); // gore desno
+			MobSpawnPoints[1] = new Vector2(rng.Next((int) 200, (int)300), rng.Next((int)height - 200,(int) height)); // gore levo
+			MobSpawnPoints[2] = new Vector2(rng.Next(200, 300), rng.Next((int)-height, -(int)height + 250)); // dolu levo
+			MobSpawnPoints[3] = new Vector2(rng.Next(200,300), rng.Next((int)-height, -(int)height + 250));// dolu desno
 			
-			return spawnPositions[rng.Next(spawnPositions.Length)]; 
-		} 
+			// ova da sa optimizirat, samo na toj indeks so ke go izberite da presmetvit kaj da sa naogjat ne na site
+			
+			return MobSpawnPoints[rng.Next(MobSpawnPoints.Length)];
+		}
+		
 		public void GenerateMobs()
 		{
 			int idx = GetBiasedIndex();
-			PackedScene mobScene = GD.Load<PackedScene>(ProjectPath.ScenesPath + MobSceneNames[idx] +  ".tscn");
+			PackedScene mobScene = GD.Load<PackedScene>(ProjectPath.ScenesPath + _mobSceneNames[idx] +  ".tscn");
 			var instance = mobScene.Instantiate<Mob>();
 			
 			instance.Connect(nameof(Mob.MobDamaged),new Callable(this,nameof(KillMob)));
 
-			var pos = _getSpawnPos();
-			instance.Position = pos;
+			instance.Position = GetMobSpawnPos(); 
 			GetNode<Node2D>("Mobs").AddChild(instance);
 		}
 	}

@@ -65,11 +65,11 @@ namespace FinkiAdventureQuest.FinkiSurvive.code
 			if (direction != Vector2.Zero)
 			{
 				direction.Normalized();
-
+				
 				playerSprite.FlipH = direction.X < 0; 
 				
-				if(playerSprite.Animation != "attack")
-					playerSprite.Play("walk", 1.0f);
+				if(playerSprite.Animation != "attack" || !playerSprite.IsPlaying())
+					playerSprite.Play("walk");
 				
 				if (!walkAudio.Playing)
 					walkAudio.Play();
@@ -77,21 +77,36 @@ namespace FinkiAdventureQuest.FinkiSurvive.code
 			else
 			{
 				if(playerSprite.Animation != "attack")
-					playerSprite.Play("idle_blink");
+					playerSprite.Play("idle");
 				
 				walkAudio.Stop();
 			}
 			
 			if (Input.IsActionPressed("FINKISURVIVE_player_attack"))
 			{
-				playerSprite.Play("attack", 1.0f);
+				playerSprite.Play("attack");
+				var mousePos = GetGlobalMousePosition().Normalized();
+				var dot = mousePos.Dot(direction);
+				var tolerance = 0.1f;
+				if(Math.Abs(dot) > (1 - tolerance))
+				{
+					playerSprite.FlipH = !playerSprite.FlipH;
+				}
+				
 				
 				if (_canAttack) Attack();
 				
 			}
 			
 			Velocity = direction * (Speed * (float)delta);
-			MoveAndCollide(Velocity);
+			
+			var collision = MoveAndCollide(Velocity);
+
+			if (collision != null)
+			{
+				Velocity = Velocity.Bounce((collision.GetNormal()).Normalized());
+				MoveAndCollide(Velocity);
+			}
 			
 			EmitSignal(nameof(PlayerMoved),Position);
 			
@@ -110,14 +125,8 @@ namespace FinkiAdventureQuest.FinkiSurvive.code
 		{
 			ShiftAttackIdx();
 			
-			GD.Print(Map.WaveCount);
-			
-			
-			
 			var scene = GD.Load<PackedScene>(ProjectPath.ScenesPath + _attackScenes[_currentAttackIdx] + ".tscn");
-			
 			BaseAttack atk = scene.Instantiate() as BaseAttack;
-			
 			while (atk!.GetAvailableAtWave() > Map.WaveCount)
 			{
 				ShiftAttackIdx();
@@ -126,7 +135,6 @@ namespace FinkiAdventureQuest.FinkiSurvive.code
 
 			GetNode<TextureRect>("/root/Level/UI/CurrentWeaponCont/Panel/TextureRect").Texture =
 				ResourceLoader.Load<Texture2D>(atk!.GetIconPath());
-			
 			
 			var timer = GetNode<Timer>("AttackSpeed");
 			timer.Stop();
@@ -209,10 +217,10 @@ namespace FinkiAdventureQuest.FinkiSurvive.code
 			_stateValid = false;
 			AnimatedSprite2D playerSprite = GetNode<AnimatedSprite2D>("PlayerImage/PlayerSprite");
 			playerSprite.Play("death");
-			playerSprite.AnimationFinished += () =>
-			 {
-			 	playerSprite.Play("idle_blink");
-			 };
+			// playerSprite.AnimationFinished += () =>
+			//  {
+			//  	playerSprite.Play("idle");
+			//  };
 
 		}
 

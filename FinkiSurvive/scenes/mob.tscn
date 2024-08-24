@@ -348,7 +348,7 @@ animations = [{
 position = Vector2(562, 304)
 scale = Vector2(0.275, 0.275)
 collision_layer = 2
-collision_mask = 12
+collision_mask = 14
 safe_margin = 3.636
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]

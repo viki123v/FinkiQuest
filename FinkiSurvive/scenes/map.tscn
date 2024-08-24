@@ -344,7 +344,7 @@ tile_set = SubResource("TileSet_6rfj0")
 [node name="Player" parent="." instance=ExtResource("3_h8xn1")]
 position = Vector2(966, 60)
 scale = Vector2(0.993117, 1.00456)
-collision_mask = 1
+collision_mask = 3
 
 [node name="Borders" type="Node2D" parent="."]
 metadata/_edit_lock_ = true

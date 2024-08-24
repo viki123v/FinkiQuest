@@ -349,7 +349,7 @@ animations = [{
 "speed": 30.0
 }]
 
-[node name="Mob" type="CharacterBody2D"]
+[node name="Mob" type="CharacterBody2D" groups=["Mobs"]]
 position = Vector2(562, 304)
 scale = Vector2(0.275, 0.275)
 collision_layer = 2

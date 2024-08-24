@@ -23,8 +23,7 @@ public abstract partial class Mob : CharacterBody2D
 
     private bool _canMove = true;
     public static bool StateValid = true;
-
-    public int FrameCount = 0;
+    
 		
 		
     [Signal]
@@ -147,13 +146,13 @@ public abstract partial class Mob : CharacterBody2D
 			
         var collision = MoveAndCollide(Velocity);
 
-        if (FrameCount++ % 60 == 0)
+        if (Map.FrameCount++ % 60 == 0)
         {
             _animSprite.FlipH = desired.X < 0;
         }
 			
 			
-        var bounceFactor = 100;
+        var bounceFactor = 2;
 
         if (collision != null)
         { 
@@ -162,9 +161,11 @@ public abstract partial class Mob : CharacterBody2D
             {
                 GetNode<Player>("/root/Level/Player").TakeDamage(AttackDamage);
                 Attack();
+            } else if (collidedNode!.IsInGroup("Mobs"))
+            {
+                Velocity = Velocity.Bounce((collision.GetNormal()).Normalized());
+                MoveAndCollide(Velocity * (float)delta);
             }
-
-            var normal = (collision.GetNormal() * bounceFactor).Normalized();
         }
         
     }
