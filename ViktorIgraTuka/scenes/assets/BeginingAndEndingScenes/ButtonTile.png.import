@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ndqsl0mlby7o"
-path="res://.godot/imported/scaled.png-7409e926cfbfc1229c8749c74a9c96fd.ctex"
+uid="uid://bbbxnlb0hrmgs"
+path="res://.godot/imported/ButtonTile.png-06fc8f035e9a4f585fedf1c1b9e0f57c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://ViktorIgraTuka/scenes/assets/scaled.png"
-dest_files=["res://.godot/imported/scaled.png-7409e926cfbfc1229c8749c74a9c96fd.ctex"]
+source_file="res://ViktorIgraTuka/scenes/assets/BeginingAndEndingScenes/ButtonTile.png"
+dest_files=["res://.godot/imported/ButtonTile.png-06fc8f035e9a4f585fedf1c1b9e0f57c.ctex"]
 
 [params]
 

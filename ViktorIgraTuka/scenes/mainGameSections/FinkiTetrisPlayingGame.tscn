@@ -3,9 +3,16 @@
 [node name="FinkiTetrisPlayingGame" type="Node2D"]
 
 [node name="Label" type="Label" parent="."]
-offset_left = 223.0
-offset_top = 190.0
-offset_right = 263.0
-offset_bottom = 213.0
+offset_left = 467.0
+offset_top = 239.0
+offset_right = 570.0
+offset_bottom = 262.0
 text = "Playing game 
 "
+
+[node name="Button" type="Button" parent="."]
+offset_left = 330.0
+offset_top = 131.0
+offset_right = 338.0
+offset_bottom = 139.0
+text = "Udri"

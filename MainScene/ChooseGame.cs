@@ -21,6 +21,11 @@ public partial class ChooseGame : Control
 	{
 		GetTree().ChangeSceneToFile(ProjectPath.MainScenePath);
 	}
+
+	public void FinkiTetris()
+	 =>  GetTree().ChangeSceneToFile("res://ViktorIgraTuka/scenes/mainGameSections/FinkiTetrisExplanation.tscn");
+	
+	
 	public void SpaceAlorithms(){
 		GetTree().ChangeSceneToFile("res://SpaceAlgorithm's/scenes/start.tscn");
 	}

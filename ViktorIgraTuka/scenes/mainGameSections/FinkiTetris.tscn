@@ -1,6 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://jqk277ir1teg"]
-
-[ext_resource type="Script" path="res://ViktorIgraTuka/FinkiTetris.cs" id="1_7n07i"]
-
-[node name="FinkiTetris" type="Node2D"]
-script = ExtResource("1_7n07i")
