@@ -62,12 +62,11 @@ animations = [{
 
 [node name="Attack" type="Area2D"]
 show_behind_parent = true
-position = Vector2(783, 413)
+position = Vector2(782, 413)
 rotation = -0.487306
 collision_layer = 4
 collision_mask = 2
 script = ExtResource("1_x8sfl")
-_healAmount = 6.0
 AttackSpeed = 0.2
 Damage = 10
 AttackRange = 70.0

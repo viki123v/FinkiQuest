@@ -20,6 +20,14 @@ namespace FinkiAdventureQuest.FinkiSurvive.code
 		public override void Attack()
 		{
 			_animSprite.Play("attack");
+			if (Map.FrameCount % 60 != 0) return;
+			GetNode<Player>("/root/Level/Player").TakeDamage(GetDamage());
+			_animSprite.Play("attack");
+		}
+
+		public override int GetDamage()
+		{
+			return rng.Next(70,85);
 		}
 
 		public override void ScaleHp()

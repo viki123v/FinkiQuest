@@ -1,0 +1,106 @@
+[gd_scene load_steps=8 format=3 uid="uid://cb6a5uhvkpf4r"]
+
+[ext_resource type="FontFile" uid="uid://4on88usjtnj4" path="res://FinkiSurvive/tmp_assets/FONTS/videophreak/VIDEOPHREAK.ttf" id="1_bbk2p"]
+[ext_resource type="LabelSettings" uid="uid://bkht2s674oh3r" path="res://FinkiSurvive/assets/ui_font_purple.tres" id="2_of2dg"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_ljcni"]
+font = ExtResource("1_bbk2p")
+font_size = 32
+font_color = Color(0.363994, 0.287268, 0.772575, 1)
+shadow_size = 2
+shadow_color = Color(0.643137, 0.737255, 0.960784, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_ltd3b"]
+font = ExtResource("1_bbk2p")
+font_size = 32
+font_color = Color(0.364706, 0.286275, 0.772549, 1)
+shadow_size = 2
+shadow_color = Color(0.643137, 0.737255, 0.960784, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_1l8p7"]
+font = ExtResource("1_bbk2p")
+font_size = 32
+font_color = Color(0.364706, 0.286275, 0.772549, 1)
+shadow_color = Color(0.643137, 0.737255, 0.960784, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_kkrqu"]
+font = ExtResource("1_bbk2p")
+font_size = 32
+font_color = Color(0.757988, 0.000522315, 0.774142, 1)
+shadow_size = 2
+shadow_color = Color(0.643295, 0.735921, 0.961793, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_h5bqv"]
+font = ExtResource("1_bbk2p")
+font_size = 32
+font_color = Color(0.756863, 0, 0.772549, 1)
+shadow_size = 2
+shadow_color = Color(0.643137, 0.737255, 0.960784, 1)
+
+[node name="Container" type="Control"]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -576.0
+offset_top = -332.0
+offset_right = -528.0
+offset_bottom = -268.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="NumContainers" type="FlowContainer" parent="."]
+layout_mode = 2
+offset_left = 640.0
+offset_top = 352.0
+offset_right = 709.0
+offset_bottom = 538.0
+rotation = -0.125221
+theme_override_constants/v_separation = 30
+metadata/_edit_lock_ = true
+
+[node name="GradeNum" type="Label" parent="NumContainers"]
+layout_mode = 2
+text = "10
+"
+label_settings = SubResource("LabelSettings_ljcni")
+
+[node name="ScoreNum" type="Label" parent="NumContainers"]
+layout_mode = 2
+text = "300"
+label_settings = SubResource("LabelSettings_ltd3b")
+
+[node name="WaveCountNum" type="Label" parent="NumContainers"]
+layout_mode = 2
+text = "3
+"
+label_settings = SubResource("LabelSettings_1l8p7")
+
+[node name="ScoreCont" type="FlowContainer" parent="."]
+layout_mode = 2
+offset_left = 463.0
+offset_top = 282.0
+offset_right = 678.0
+offset_bottom = 583.0
+rotation = -0.0683756
+scale = Vector2(1.21651, 1.17042)
+theme_override_constants/v_separation = 20
+alignment = 1
+vertical = true
+
+[node name="Score" type="Label" parent="ScoreCont"]
+layout_mode = 2
+text = "Score: "
+label_settings = ExtResource("2_of2dg")
+
+[node name="Grade" type="Label" parent="ScoreCont"]
+layout_mode = 2
+text = "Grade:"
+label_settings = SubResource("LabelSettings_kkrqu")
+
+[node name="Waves" type="Label" parent="ScoreCont"]
+layout_mode = 2
+text = "Waves:"
+label_settings = SubResource("LabelSettings_h5bqv")

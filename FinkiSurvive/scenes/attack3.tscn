@@ -60,7 +60,7 @@ animations = [{
 }]
 
 [node name="Attack" type="Area2D"]
-position = Vector2(838, 539)
+position = Vector2(830, 538)
 rotation = -3.42802
 scale = Vector2(0.302298, 1.11532)
 collision_layer = 4
@@ -69,7 +69,7 @@ script = ExtResource("1_su8mp")
 AttackSpeed = 0.3
 Damage = 50
 AttackRange = 90.0
-AvailableAtWave = 1
+AvailableAtWave = 4
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
 position = Vector2(26.2875, 27.5493)

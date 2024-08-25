@@ -2,8 +2,8 @@ using Godot;
 using System;
 using System.Collections.Generic;
 using FinkiAdventureQuest.FinkiSurvive.code.AnimationHandler;
+using FinkiAdventureQuest.FinkiSurvive.code.Util;
 
-// TODO: HITBOX I HURTBOX IMPL
 namespace FinkiAdventureQuest.FinkiSurvive.code
 {
     public partial class Player : CharacterBody2D
@@ -37,7 +37,7 @@ namespace FinkiAdventureQuest.FinkiSurvive.code
         {
             _canAttack = true;
             _health = _maxHealth;
-            _hpBarSize = _maxHealth / 15; // 15 - br pati so trebit da ta udrat za da umris
+            _hpBarSize = _maxHealth / 30; // 15 - br pati so trebit da ta udrat za da umris
             _healthBar = GetNode<TextureProgressBar>("HealthBar");
             _attackScenes.Add("attack1");
             _attackScenes.Add("attack2");
@@ -54,8 +54,6 @@ namespace FinkiAdventureQuest.FinkiSurvive.code
         public override void _PhysicsProcess(double delta)
         {
             if(!_stateValid) return;
-			
-			
             _animation.Visible = true;
             var walkAudio = GetNode<AudioStreamPlayer2D>("WalkSoundEffect");
 			
@@ -83,8 +81,12 @@ namespace FinkiAdventureQuest.FinkiSurvive.code
 
             if (collision != null)
             {
-                Velocity = Velocity.Bounce((collision.GetNormal()).Normalized());
-                MoveAndCollide(Velocity);
+                if (Map.FrameCount % 10 == 0)
+                {
+                    Velocity = Velocity.Bounce((collision.GetNormal()).Normalized());
+                    MoveAndCollide(Velocity * 2);
+                }
+                
             }
 			
             EmitSignal(nameof(PlayerMoved),Position);
@@ -173,8 +175,9 @@ namespace FinkiAdventureQuest.FinkiSurvive.code
 
         public void TakeDamage(int damage)
         {
-            UpdateHealthBar();
+            LabelFactory.DisplayDamageLabel(this,damage);
             _health -= damage;
+            UpdateHealthBar();
 
             if (_health <= 0)
             {
@@ -185,7 +188,7 @@ namespace FinkiAdventureQuest.FinkiSurvive.code
 
         private void UpdateHealthBar()
         {
-            _healthBar.Value = (int) Math.Ceiling((float) _health / _hpBarSize);
+            _healthBar.Value = (int) Math.Ceiling( _health / _hpBarSize);
         }
 
         public void Death()

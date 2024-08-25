@@ -1,6 +1,7 @@
 using Godot;
 using System;
 using System.Collections.Generic;
+using FinkiAdventureQuest.FinkiSurvive.code.Util;
 
 namespace FinkiAdventureQuest.FinkiSurvive.code;
 
@@ -59,43 +60,14 @@ public abstract partial class Mob : CharacterBody2D
         hpLabel.Text = numHp.ToString();
         _animSprite.Play("hurt");
 			
-        DisplayDamageTaken(amount);
-			
+        LabelFactory.DisplayDamageLabel(this,amount);
+        
         if (Health <= 0)
         {
             EmitSignal(nameof(MobDamaged), this);
         }
     }
-
-    public void DisplayDamageTaken(int amount)
-    {
-        var container = GetNode<MarginContainer>("HitLabelsCont");
-        var tween = GetTree().CreateTween();
-        var label = new Label();
-        label.Text = amount.ToString();
-        label.AddThemeFontSizeOverride("font_size",50);
-        container.AddChild(label);
-
-        var fv = new FontVariation();
-
-        fv.BaseFont = ResourceLoader.Load<FontFile>(ProjectPath.DefaultPath + "tmp_assets/FONTS/videophreak/VIDEOPHREAK.ttf");
-        fv.VariationEmbolden = 1.2f;
-
-        label.AddThemeFontOverride("font", fv);
-        label.AddThemeColorOverride("font_color", Colors.Crimson);
-
-        //label.Scale = Vector2.Zero;
-        var endPos = label.Position;
-        Vector2 offset = new Vector2(rng.Next(0,150),rng.Next(0,250));
-        endPos += offset;
-			
-        tween.TweenProperty(label, "scale",Vector2.One, 0.3f);
-        tween.TweenProperty(label, "position", endPos, 0.5f); // radi ova imat warinngs vo debug
-        tween.TweenProperty(label, "scale",Vector2.Zero, 0.5f);
-			
-        tween.TweenCallback(Callable.From(label.QueueFree)).SetDelay(0.7f);
-			
-    }
+    
 
     public void Death()
     {
@@ -159,18 +131,20 @@ public abstract partial class Mob : CharacterBody2D
             var collidedNode = collision.GetCollider() as Node;
             if (collidedNode!.IsInGroup("Player"))
             {
-                GetNode<Player>("/root/Level/Player").TakeDamage(AttackDamage);
                 Attack();
+
             } else if (collidedNode!.IsInGroup("Mobs"))
             {
                 Velocity = Velocity.Bounce((collision.GetNormal()).Normalized());
-                MoveAndCollide(Velocity * (float)delta);
+                MoveAndCollide(Velocity * (float)delta * 20);
             }
         }
         
     }
 
     public abstract void Attack();
+
+    public abstract int GetDamage();
 
     public void MoveMob(Vector2 position)
     {
