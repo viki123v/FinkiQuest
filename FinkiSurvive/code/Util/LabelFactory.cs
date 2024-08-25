@@ -32,7 +32,7 @@ public class LabelFactory
         tween.TweenProperty(label, "position", endPos, 0.5f); // radi ova imat warinngs vo debug
         tween.TweenProperty(label, "scale",Vector2.Zero, 0.5f);
 			
-        tween.TweenCallback(Callable.From(label.QueueFree)).SetDelay(0.7f);
+        tween.TweenCallback(Callable.From(label.QueueFree)).SetDelay(0.8f);
     }
 
     public static Label CreateLabel(Color color)

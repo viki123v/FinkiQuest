@@ -8,12 +8,13 @@ namespace FinkiAdventureQuest.FinkiSurvive.code
 {
     public partial class Player : CharacterBody2D
     {
-        private const float Speed = 170f;
-        private static int _maxHealth = 300;
+        [Export]
+        private float Speed = 170f;
+        [Export]
+        private int _maxHealth = 300;
         private float _health;
         private int _hpBarSize; // golemina na edno hp bar delce
         private TextureProgressBar _healthBar;
-		
         private MovementState State {get; set;}
 		
         private BaseAttack _currentAttack;
@@ -21,11 +22,14 @@ namespace FinkiAdventureQuest.FinkiSurvive.code
 
         private readonly List<string> _attackScenes = new();
         private int _currentAttackIdx;
-		
+        private Label _hpLabel;
         private bool _stateValid = true;
 
         private AnimatedSprite2D _animation;
-		
+        [Export]
+        public int dashSpeed = 100;
+        private bool canDash;
+
         [Signal]
         public delegate void PlayerMovedEventHandler(Vector2 position);
         [Signal]
@@ -44,11 +48,15 @@ namespace FinkiAdventureQuest.FinkiSurvive.code
             _attackScenes.Add("attack3");
             _currentAttackIdx = 0;
             _currentAttack = _currentAttack = GD.Load<PackedScene>(ProjectPath.ScenesPath + _attackScenes[_currentAttackIdx] + ".tscn").Instantiate<Attack1>();
-			
+            _hpLabel = GetNode<Label>("HealthBar/Label");
+            
+            _hpLabel.Text = $"{_maxHealth} / {_maxHealth}";
             GetNode<Timer>("AttackSpeed").WaitTime = _currentAttack.GetAttackSpeed();
 			
             _animation = GetNode<AnimatedSprite2D>("PlayerImage/PlayerSprite");
-			
+
+            canDash = true;
+
         }
         
         public override void _PhysicsProcess(double delta)
@@ -67,6 +75,28 @@ namespace FinkiAdventureQuest.FinkiSurvive.code
             {
                 State.Attack(_animation);
                 if (_canAttack) Attack();
+            }
+            
+            if (Input.IsActionJustPressed("FINKISURVIVE_dash") )
+            {
+                if (canDash)
+                {
+                    var map = GetParent<Map>();
+                    map.DisableCollisisonsPLayer();
+                    if (direction != Vector2.Zero)
+                    {
+                        Velocity = direction * dashSpeed;
+                    }
+                    else
+                    {
+                        Velocity = Velocity.Normalized();
+                    }
+
+                    MoveAndCollide(Velocity);
+                    canDash = false;
+                    GetNode<Timer>("DashCooldown").Start();
+                    map.EnableCollisisonsPLayer();
+                }
             }
             
             
@@ -93,11 +123,27 @@ namespace FinkiAdventureQuest.FinkiSurvive.code
 			
             _canAttack = false;
         }
+        
+
+
+        public void OnDashCooldownEnd()
+        {
+            canDash = true;
+        }
 
         public void HealPlayer(float amount)
         {
-            _health += amount;
+            if (_health + amount >= _maxHealth)
+            {
+                _health = _maxHealth;
+            }
+            else
+            {
+                _health += amount;
+            }
+           
             UpdateHealthBar();
+
         }
         
         public void SwitchAttack()
@@ -137,7 +183,10 @@ namespace FinkiAdventureQuest.FinkiSurvive.code
             {
                 SwitchAttack();
             }
+            
         }
+
+       
 
         private void Attack()
         {
@@ -153,8 +202,7 @@ namespace FinkiAdventureQuest.FinkiSurvive.code
 
             Vector2 attackPos = point.Position;
             Vector2 direction = (mousePosition - playerPosition).Normalized();
-			
-            GD.Print(direction);
+            
 			
 
             var attackDistance = _currentAttack!.GetAttackRange();
@@ -188,7 +236,8 @@ namespace FinkiAdventureQuest.FinkiSurvive.code
 
         private void UpdateHealthBar()
         {
-            _healthBar.Value = (int) Math.Ceiling( _health / _hpBarSize);
+            _healthBar.Value = (int)Math.Ceiling(_health / _hpBarSize);
+            _hpLabel.Text = $"{_health} / {_maxHealth}";
         }
 
         public void Death()

@@ -7,46 +7,51 @@ namespace FinkiAdventureQuest.FinkiSurvive.code
 {
 	public partial class Map : Node2D
 	{
-		Random rng = new();
-		public static int WaveTime = 30;
-		public Timer Timer;
-		public int TimeSecs;
+		
 		public static int WaveCount = 1;
 		public static int Score = 0;
 		public static int Grade = 5;
-		public int WinAtWave = 10;
-		
-		public bool CanGraduate;
-
-		public Label PassedGrade;
-		
+		public static readonly int WaveTime = 30;
 		public static uint FrameCount;
 		
-		public Vector2[] MobSpawnPoints = new Vector2[4];
+		private readonly Random _rng = new();
 
-		private Label _fps;
+		private Timer _timer;
+		private int _timeSecs;
 		
-		private List<string> _mobSceneNames = new ();
-		public Label GradeLabel;
+		private int _checkpointWave = 12;
+		private bool _canGraduate;
+
+		private Vector2[] _mobSpawnPoints = new Vector2[4];
+		private Label _fps;
+		private readonly List<string> _mobSceneNames = new ();
+		private Label _gradeLabel;
+		
+		[Export] 
+		private float _minMobSpawnRate = 0.5f;
+		[Export]
+		private int _targetWaveForMinSpawnRate = 10;
+		
+		private float _spawnRateDecrement;
 		
 		public override void _Ready()
 		{
 			_mobSceneNames.Add("mob_orc");
 			_mobSceneNames.Add("mob_zombie");
 			_mobSceneNames.Add("mob_knight");
-			
-			GradeLabel = GetNode<Label>("UI/GradeCont/Label");
-			
-			Timer = GetNode<Timer>("GameTimer");
-			TimeSecs = WaveTime;
-			
+			_gradeLabel = GetNode<Label>("UI/GradeCont/Label");
+			_timer = GetNode<Timer>("GameTimer");
+			_timeSecs = WaveTime;
 			_fps = GetNode<Label>("UI/FpsCont/Label");
+			_spawnRateDecrement = MobSpawner.CalcDecrementValue(_targetWaveForMinSpawnRate, _minMobSpawnRate);
 			
 			var player = GetNode<Player>("Player");
 			player?.Connect(nameof(player.PlayerDied), new Callable(this, nameof(PlayerDeath)));
 			
 			UpdateTimerText(WaveTime / 60, WaveTime % 60);
 			SetupUIListeners();
+			
+			GD.Print("TARGET SPAWN: " + MobSpawner.CalcDecrementValue(10,0.5f));
 			
 		}
 
@@ -74,7 +79,6 @@ namespace FinkiAdventureQuest.FinkiSurvive.code
 
 		public void ResumeGame()
 		{
-			GD.Print("CLICK");
 			GetTree().Paused = false;
 			Mob.StateValid = true;
 			GetNode<CanvasLayer>("WinScreen").Visible = false;
@@ -93,15 +97,11 @@ namespace FinkiAdventureQuest.FinkiSurvive.code
 			GetNode<Timer>("GameTimer").Stop();
 			Mob.StateValid = false;
 		}
-
-		public void Win()
-		{
-			PauseSceneTree();
-		}
+		
 
 		public void PlayerDeath()
 		{
-			if (CanGraduate)
+			if (_canGraduate)
 			{
 				GetNode<CanvasLayer>("WinScreen").Visible = true;
 			}
@@ -116,10 +116,13 @@ namespace FinkiAdventureQuest.FinkiSurvive.code
 
 		public void RestartGame()
 		{
+			GetTree().Paused = false;
 			GetTree().ReloadCurrentScene();
 			WaveCount = 1;
 			Mob.StateValid = true;
-			GD.Print("RESTART");
+			Score = 0;
+			Grade = 5;
+			_canGraduate = false;
 		}
 		
 
@@ -138,11 +141,11 @@ namespace FinkiAdventureQuest.FinkiSurvive.code
 					return;
 				case >= 300 and < 400:
 					Grade = 6;
-					GradeLabel.QueueFree();
+					_gradeLabel.QueueFree();
 					Color color = Color.FromHtml("#adebb0");
-					GradeLabel = LabelFactory.CreateLabel(color);
-					GetNode<MarginContainer>("UI/GradeCont").AddChild(GradeLabel);
-					CanGraduate = true;
+					_gradeLabel = LabelFactory.CreateLabel(color);
+					GetNode<MarginContainer>("UI/GradeCont").AddChild(_gradeLabel);
+					_canGraduate = true;
 					
 					break;
 				case >= 400:
@@ -150,7 +153,7 @@ namespace FinkiAdventureQuest.FinkiSurvive.code
 					break;
 			}
 			
-			GradeLabel.Text = "Grade: " + Grade;
+			_gradeLabel.Text = "Grade: " + Grade;
 		}
 		
 
@@ -178,6 +181,32 @@ namespace FinkiAdventureQuest.FinkiSurvive.code
 
 		public void UpdateWaveLabel()
 		{
+			switch (WaveCount)
+			{
+				case 2:
+					GetNode<Timer>("MobSpawnTimer").WaitTime = 1.1f;
+					GD.Print("CHANGED TIME");
+					break;
+				case 4:
+					GetNode<Timer>("MobSpawnTimer").WaitTime = 0.8f;
+					GD.Print("CHANGED TIME");
+					break;
+				case > 9:
+					GetNode<Timer>("MobSpawnTimer").WaitTime = 0.5f;
+					GD.Print("CHANGED TIME");
+					break;
+				default:
+				{
+					if (WaveCount > 20)
+					{
+						GetNode<Timer>("MobSpawnTimer").WaitTime = 0.3f;
+					}
+
+					break;
+				}
+			}
+			
+			
 			GetNode<Label>("UI/WaveNumCont/Label").Text = "Wave: " + WaveCount;
 		}
 
@@ -206,22 +235,34 @@ namespace FinkiAdventureQuest.FinkiSurvive.code
 			}
 			
 		}
-		
+
+		public void DisableCollisisonsPLayer()
+		{
+			var player = GetNode<Player>("Player");
+			player.SetCollisionLayerValue(4,false);
+			player.SetCollisionMaskValue(2,false);
+		}
+
+		public void EnableCollisisonsPLayer()
+		{
+			var player = GetNode<Player>("Player");
+			player.SetCollisionLayerValue(4,true);
+			player.SetCollisionMaskValue(2,true);
+		}
+
 		public void OnTimerTick()
 		{
-			if (--TimeSecs <= 0)
+			if (--_timeSecs <= 0)
 			{
-				TimeSecs = WaveTime;
+				_timeSecs = WaveTime;
 				WaveCount++;
 				UpdateWaveLabel();
 				UpdateMenu();
-				
-				if (WaveCount % WinAtWave == 0)
-					Win();
 			}
-			
-			GetNode<Timer>("MobSpawnTimer").WaitTime -= 0.01f;
-			UpdateTimerText(TimeSecs / 60, TimeSecs % 60);
+
+			GetNode<Timer>("MobSpawnTimer").WaitTime -= _spawnRateDecrement;
+			GD.Print(GetNode<Timer>("MobSpawnTimer").WaitTime);
+			UpdateTimerText(_timeSecs / 60, _timeSecs % 60);
 			
 		}
 		
@@ -231,19 +272,17 @@ namespace FinkiAdventureQuest.FinkiSurvive.code
 			
 			if (WaveCount == 2 )
 			{
-				GetNode<Timer>("MobSpawnTimer").WaitTime = 1.1f;
-				return rng.NextDouble() < 0.31 ? 1 : 0;
+				return _rng.NextDouble() < 0.31 ? 1 : 0;
 			}
 
 			if (WaveCount > 2)
 			{
-				GetNode<Timer>("MobSpawnTimer").WaitTime = 0.8f;
-				if (rng.NextDouble() < 0.05)
+				if (_rng.NextDouble() < 0.05)
 				{
 					return 2;
 				}
 				
-				return rng.NextDouble() < 0.7 ? 1 : 0;
+				return _rng.NextDouble() < 0.7 ? 1 : 0;
 			}
 
 			return 0;
@@ -254,14 +293,14 @@ namespace FinkiAdventureQuest.FinkiSurvive.code
 			var player = GetNode<Player>("Player");
 			var width = player.Position.X + ( (int) GetViewport().GetVisibleRect().Size[0] - player.Position.X);
 			var height = player.Position.Y + (GetViewport().GetVisibleRect().Size[1] - player.Position.X);
-			MobSpawnPoints[0] = new Vector2(rng.Next((int) width + 200, (int) width + 300), rng.Next( (int)height - 150, (int)height)); // gore desno
-			MobSpawnPoints[1] = new Vector2(rng.Next(200, 300), rng.Next((int)height - 200,(int) height)); // gore levo
-			MobSpawnPoints[2] = new Vector2(rng.Next(200, 300), rng.Next((int)-height, -(int)height + 250)); // dolu levo
-			MobSpawnPoints[3] = new Vector2(rng.Next(200,300), rng.Next((int)-height, -(int)height + 250));// dolu desno
+			_mobSpawnPoints[0] = new Vector2(_rng.Next((int) width + 200, (int) width + 300), _rng.Next( (int)height - 150, (int)height)); // gore desno
+			_mobSpawnPoints[1] = new Vector2(_rng.Next(200, 300), _rng.Next((int)height - 200,(int) height)); // gore levo
+			_mobSpawnPoints[2] = new Vector2(_rng.Next(200, 300), _rng.Next((int)-height, -(int)height + 250)); // dolu levo
+			_mobSpawnPoints[3] = new Vector2(_rng.Next(200,300), _rng.Next((int)-height, -(int)height + 250));// dolu desno
 			
 			// ova da sa optimizirat, samo na toj indeks so ke go izberite da presmetvit kaj da sa naogjat ne na site
 			
-			return MobSpawnPoints[rng.Next(MobSpawnPoints.Length)];
+			return _mobSpawnPoints[_rng.Next(_mobSpawnPoints.Length)];
 		}
 		
 		public void GenerateMobs()

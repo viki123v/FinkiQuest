@@ -53,28 +53,27 @@ grow_vertical = 2
 
 [node name="NumContainers" type="FlowContainer" parent="."]
 layout_mode = 2
-offset_left = 640.0
+offset_left = 648.0
 offset_top = 352.0
-offset_right = 709.0
-offset_bottom = 538.0
+offset_right = 717.0
+offset_bottom = 566.0
 rotation = -0.125221
 theme_override_constants/v_separation = 30
-metadata/_edit_lock_ = true
+vertical = true
 
 [node name="GradeNum" type="Label" parent="NumContainers"]
 layout_mode = 2
-text = "10
-"
+text = "asd"
 label_settings = SubResource("LabelSettings_ljcni")
 
 [node name="ScoreNum" type="Label" parent="NumContainers"]
 layout_mode = 2
-text = "300"
+text = "as"
 label_settings = SubResource("LabelSettings_ltd3b")
 
 [node name="WaveCountNum" type="Label" parent="NumContainers"]
 layout_mode = 2
-text = "3
+text = "1
 "
 label_settings = SubResource("LabelSettings_1l8p7")
 
