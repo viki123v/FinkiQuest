@@ -1,1 +1,8 @@
-12312
+ -Eden state za nareden 
+ -Eden state za active 
+ -Factory 
+ -3 promenlivi za time exportirani
+ -Tie sho se border na drug layer samo da gi odbivat
+ -Tie sho se dolu trebat da ne gi ostavat da se dvizhat niz niv 
+ -Sekoj node da imat rotate funkcija bez state za rotiranje deka vo nodot se chuvat 
+ -Nekakov state sistem za da se pratit dali sho da ti displaynit 

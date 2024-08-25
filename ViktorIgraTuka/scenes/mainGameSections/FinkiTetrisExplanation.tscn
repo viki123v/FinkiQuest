@@ -1,0 +1,124 @@
+[gd_scene load_steps=8 format=4 uid="uid://bq7j6ggbgnb4f"]
+
+[ext_resource type="Texture2D" uid="uid://ndqsl0mlby7o" path="res://ViktorIgraTuka/scenes/assets/BeginingAndEndingScenes/BackgroundTile.png" id="1_8e6vd"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_i48ob"]
+texture = ExtResource("1_8e6vd")
+0:0/size_in_atlas = Vector2i(4, 4)
+0:0/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_ciicq"]
+sources/0 = SubResource("TileSetAtlasSource_i48ob")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_q7if7"]
+bg_color = Color(1, 1, 1, 0.270588)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_size = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2iuow"]
+bg_color = Color(0.741385, 0.741385, 0.741385, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_size = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cp3l6"]
+bg_color = Color(0.362829, 0.362829, 0.362829, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_size = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_p4ggb"]
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_size = 5
+
+[node name="FinkiTetrisExplanation" type="Node2D"]
+
+[node name="Background" type="TileMapLayer" parent="."]
+tile_map_data = PackedByteArray("AAACAAIAAAAAAAAAAAAGAAIAAAAAAAAAAAAKAAIAAAAAAAAAAAAOAAIAAAAAAAAAAAASAAIAAAAAAAAAAAAWAAIAAAAAAAAAAAAaAAIAAAAAAAAAAAAeAAIAAAAAAAAAAAAiAAIAAAAAAAAAAAAmAAIAAAAAAAAAAAAqAAIAAAAAAAAAAAAuAAIAAAAAAAAAAAAuAP7/AAAAAAAAAAAqAP7/AAAAAAAAAAAmAP7/AAAAAAAAAAAiAP7/AAAAAAAAAAAeAP7/AAAAAAAAAAAaAP7/AAAAAAAAAAAWAP7/AAAAAAAAAAASAP7/AAAAAAAAAAAOAP7/AAAAAAAAAAAKAP7/AAAAAAAAAAAGAP7/AAAAAAAAAAACAP7/AAAAAAAAAAD+//7/AAAAAAAAAAD+/wIAAAAAAAAAAAACAAYAAAAAAAAAAAD+/wYAAAAAAAAAAAD+/woAAAAAAAAAAAD+/w4AAAAAAAAAAAD+/xIAAAAAAAAAAAD+/xYAAAAAAAAAAAD+/xoAAAAAAAAAAAD+/x4AAAAAAAAAAAD+/yIAAAAAAAAAAAD+/yYAAAAAAAAAAAD+/yoAAAAAAAAAAAACACoAAAAAAAAAAAAGACoAAAAAAAAAAAAKACoAAAAAAAAAAAAOACoAAAAAAAAAAAASACoAAAAAAAAAAAAWACoAAAAAAAAAAAAaACoAAAAAAAAAAAAeACoAAAAAAAAAAAAiACoAAAAAAAAAAAAmACoAAAAAAAAAAAAqACoAAAAAAAAAAAAuACoAAAAAAAAAAAAyACoAAAAAAAAAAAA2ACoAAAAAAAAAAAA6ACoAAAAAAAAAAAA+ACoAAAAAAAAAAABCACoAAAAAAAAAAABGACoAAAAAAAAAAABKACoAAAAAAAAAAABKACYAAAAAAAAAAABKACIAAAAAAAAAAABKAB4AAAAAAAAAAABKABoAAAAAAAAAAABKABYAAAAAAAAAAABKABIAAAAAAAAAAABKAA4AAAAAAAAAAABKAAoAAAAAAAAAAABKAAYAAAAAAAAAAABKAAMAAAAAAAAAAABKAAAAAAAAAAAAAABKAPz/AAAAAAAAAABGAP7/AAAAAAAAAABCAP7/AAAAAAAAAAA+AP7/AAAAAAAAAAA6AP7/AAAAAAAAAAA2AP7/AAAAAAAAAAAyAP7/AAAAAAAAAAAyAAIAAAAAAAAAAAA2AAIAAAAAAAAAAAA6AAIAAAAAAAAAAAA+AAIAAAAAAAAAAABCAAIAAAAAAAAAAABGAAIAAAAAAAAAAAACAAoAAAAAAAAAAAACAA4AAAAAAAAAAAACABIAAAAAAAAAAAACABYAAAAAAAAAAAACABoAAAAAAAAAAAACAB4AAAAAAAAAAAACACIAAAAAAAAAAAACACYAAAAAAAAAAAAGACYAAAAAAAAAAAAKACYAAAAAAAAAAAAOACYAAAAAAAAAAAASACYAAAAAAAAAAAAWACYAAAAAAAAAAAAaACYAAAAAAAAAAAAeACYAAAAAAAAAAAAiACYAAAAAAAAAAAAlACYAAAAAAAAAAAApACYAAAAAAAAAAAAtACYAAAAAAAAAAAAxACYAAAAAAAAAAAA1ACYAAAAAAAAAAAA5ACYAAAAAAAAAAAA9ACYAAAAAAAAAAABBACYAAAAAAAAAAABFACYAAAAAAAAAAABHACYAAAAAAAAAAABGACIAAAAAAAAAAABGAB4AAAAAAAAAAABGABoAAAAAAAAAAABGABYAAAAAAAAAAABGABIAAAAAAAAAAABGAA8AAAAAAAAAAABGAAsAAAAAAAAAAABGAAYAAAAAAAAAAABGAAgAAAAAAAAAAAAGAAYAAAAAAAAAAAAKAAYAAAAAAAAAAAAOAAYAAAAAAAAAAAASAAYAAAAAAAAAAAAWAAYAAAAAAAAAAAAaAAYAAAAAAAAAAAAeAAYAAAAAAAAAAAAiAAYAAAAAAAAAAAAmAAYAAAAAAAAAAAApAAYAAAAAAAAAAAAtAAYAAAAAAAAAAAAxAAYAAAAAAAAAAAA1AAYAAAAAAAAAAAA5AAYAAAAAAAAAAAA9AAYAAAAAAAAAAABBAAYAAAAAAAAAAABDAAYAAAAAAAAAAAAGACIAAAAAAAAAAAAKACIAAAAAAAAAAAAOACIAAAAAAAAAAAASACIAAAAAAAAAAAAWACIAAAAAAAAAAAAaACIAAAAAAAAAAAAeACIAAAAAAAAAAAAiACIAAAAAAAAAAAAmACIAAAAAAAAAAAAqACIAAAAAAAAAAAAuACIAAAAAAAAAAAAyACIAAAAAAAAAAAA2ACIAAAAAAAAAAAA5ACIAAAAAAAAAAAA9ACIAAAAAAAAAAABBACIAAAAAAAAAAABDACIAAAAAAAAAAABCAB4AAAAAAAAAAABCABoAAAAAAAAAAABCABYAAAAAAAAAAABCABIAAAAAAAAAAABCAA4AAAAAAAAAAABCAAoAAAAAAAAAAAA+AAoAAAAAAAAAAAA6AAoAAAAAAAAAAAA2AAoAAAAAAAAAAAAyAAoAAAAAAAAAAAAuAAoAAAAAAAAAAAAqAAoAAAAAAAAAAAAmAAoAAAAAAAAAAAAiAAoAAAAAAAAAAAAeAAoAAAAAAAAAAAAaAAoAAAAAAAAAAAAWAAoAAAAAAAAAAAASAAoAAAAAAAAAAAAOAAoAAAAAAAAAAAAKAAoAAAAAAAAAAAAGAAoAAAAAAAAAAAAGAA4AAAAAAAAAAAAGABIAAAAAAAAAAAAGABYAAAAAAAAAAAAGABkAAAAAAAAAAAAGAB0AAAAAAAAAAAAGAB8AAAAAAAAAAAAKAB4AAAAAAAAAAAAKABoAAAAAAAAAAAAKABYAAAAAAAAAAAAKABIAAAAAAAAAAAAKAA4AAAAAAAAAAAAOAA4AAAAAAAAAAAAOABIAAAAAAAAAAAAOABUAAAAAAAAAAAAOABkAAAAAAAAAAAAOABwAAAAAAAAAAAAOAB8AAAAAAAAAAAASAB4AAAAAAAAAAAASABoAAAAAAAAAAAASABYAAAAAAAAAAAASABIAAAAAAAAAAAASAA8AAAAAAAAAAAASAA0AAAAAAAAAAAAWAA4AAAAAAAAAAAAaAA4AAAAAAAAAAAAeAA4AAAAAAAAAAAAiAA4AAAAAAAAAAAAmAA4AAAAAAAAAAAAqAA4AAAAAAAAAAAAuAA4AAAAAAAAAAAAyAA4AAAAAAAAAAAA2AA4AAAAAAAAAAAA6AA4AAAAAAAAAAAA+AA4AAAAAAAAAAAA+ABIAAAAAAAAAAAA+ABUAAAAAAAAAAAA+ABkAAAAAAAAAAAA+AB0AAAAAAAAAAAA+AB8AAAAAAAAAAAA6AB4AAAAAAAAAAAA2AB4AAAAAAAAAAAAyAB4AAAAAAAAAAAAuAB4AAAAAAAAAAAAqAB4AAAAAAAAAAAAmAB4AAAAAAAAAAAAiAB4AAAAAAAAAAAAeAB4AAAAAAAAAAAAaAB4AAAAAAAAAAAAWAB4AAAAAAAAAAAAWABoAAAAAAAAAAAAWABYAAAAAAAAAAAAWABIAAAAAAAAAAAAaABIAAAAAAAAAAAAaABYAAAAAAAAAAAAaABoAAAAAAAAAAAAeABoAAAAAAAAAAAAiABoAAAAAAAAAAAAmABoAAAAAAAAAAAAqABoAAAAAAAAAAAAuABoAAAAAAAAAAAAyABoAAAAAAAAAAAA2ABoAAAAAAAAAAAA6ABoAAAAAAAAAAAA6ABYAAAAAAAAAAAA6ABIAAAAAAAAAAAA2ABIAAAAAAAAAAAA2ABYAAAAAAAAAAAAyABYAAAAAAAAAAAAyABIAAAAAAAAAAAAuABIAAAAAAAAAAAAuABYAAAAAAAAAAAAqABYAAAAAAAAAAAAqABIAAAAAAAAAAAAmABIAAAAAAAAAAAAmABYAAAAAAAAAAAAiABYAAAAAAAAAAAAiABIAAAAAAAAAAAAeABIAAAAAAAAAAAAeABYAAAAAAAAAAAA=")
+tile_set = SubResource("TileSet_ciicq")
+
+[node name="Explanation" type="RichTextLabel" parent="."]
+offset_left = 104.0
+offset_top = 135.0
+offset_right = 1044.0
+offset_bottom = 446.0
+theme_override_font_sizes/italics_font_size = 16
+theme_override_font_sizes/normal_font_size = 26
+bbcode_enabled = true
+text = "[center]The purpose of the game is for you to survive the given time. 
+Based on the time you survive you will get a grade. [center]The game is considered accomplished if you get at least a six as a grade. To survive you musn't let the figures, that are instanciated, get out of the window, if so the game will finish.
+
+ "
+fit_content = true
+tab_size = 5
+
+[node name="PlayGame" type="Button" parent="."]
+offset_left = 849.0
+offset_top = 513.0
+offset_right = 970.0
+offset_bottom = 555.0
+size_flags_vertical = 3
+theme_override_colors/font_disabled_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_normal_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_disabled_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 20
+theme_override_styles/disabled = SubResource("StyleBoxFlat_q7if7")
+theme_override_styles/hover = SubResource("StyleBoxFlat_2iuow")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_cp3l6")
+theme_override_styles/normal = SubResource("StyleBoxFlat_p4ggb")
+text = "Play game"
+
+[node name="GoBack" type="Button" parent="."]
+offset_left = 181.0
+offset_top = 513.0
+offset_right = 302.0
+offset_bottom = 555.0
+size_flags_vertical = 3
+theme_override_colors/font_disabled_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_normal_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_disabled_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 20
+theme_override_styles/disabled = SubResource("StyleBoxFlat_q7if7")
+theme_override_styles/hover = SubResource("StyleBoxFlat_2iuow")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_cp3l6")
+theme_override_styles/normal = SubResource("StyleBoxFlat_p4ggb")
+text = "Back"
+
+[node name="Disclamer" type="RichTextLabel" parent="."]
+offset_left = 161.0
+offset_top = 361.0
+offset_right = 1129.0
+offset_bottom = 401.0
+theme_override_colors/default_color = Color(0.66884, 0.488722, 0.952764, 1)
+bbcode_enabled = true
+text = "[i]Disclaimer: As the time goes, the rate at which the figures spawn is getting bigger, so be prepared for that. [i]"
+fit_content = true
