@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://cqi5f0md53dqv"]
+
+[node name="FinkiTetrisPlayingGame" type="Node2D"]
+
+[node name="Label" type="Label" parent="."]
+offset_left = 223.0
+offset_top = 190.0
+offset_right = 263.0
+offset_bottom = 213.0
+text = "Playing game 
+"
