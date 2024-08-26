@@ -860,6 +860,7 @@ scale = Vector2(0.193165, 0.204053)
 
 [node name="DashCooldown" type="Timer" parent="."]
 wait_time = 1.5
+one_shot = true
 
 [connection signal="timeout" from="AttackSpeed" to="." method="_on_timer_timeout"]
 [connection signal="area_entered" from="HurtBox" to="." method="TakeDamage"]

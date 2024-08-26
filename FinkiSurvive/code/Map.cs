@@ -17,6 +17,7 @@ namespace FinkiAdventureQuest.FinkiSurvive.code
 		private readonly Random _rng = new();
 
 		private Timer _timer;
+		private Timer _spacebarIconTimer;
 		private int _timeSecs;
 		
 		private int _checkpointWave = 12;
@@ -50,6 +51,12 @@ namespace FinkiAdventureQuest.FinkiSurvive.code
 			
 			UpdateTimerText(WaveTime / 60, WaveTime % 60);
 			SetupUIListeners();
+
+			_spacebarIconTimer = new Timer();
+			_spacebarIconTimer.WaitTime = 0.1f;
+			_spacebarIconTimer.OneShot = true;
+			_spacebarIconTimer.Timeout += SpacebarTimerDone;
+			AddChild(_spacebarIconTimer);
 			
 			GD.Print("TARGET SPAWN: " + MobSpawner.CalcDecrementValue(10,0.5f));
 			
@@ -238,6 +245,21 @@ namespace FinkiAdventureQuest.FinkiSurvive.code
 			}
 			
 		}
+
+		public override void _Input(InputEvent @event)
+		{
+			if (@event.IsActionPressed("FINKISURVIVE_dash"))
+			{
+				GetNode<TextureRect>("UI/CurrentWeaponCont/Panel/SpaceBarIcon").Modulate = Color.FromHtml("#acacac");
+				_spacebarIconTimer.Start();
+			}
+		}
+
+		public void SpacebarTimerDone()
+		{
+			GetNode<TextureRect>("UI/CurrentWeaponCont/Panel/SpaceBarIcon").Modulate = Color.FromHtml("#ffffff");
+		}
+			
 
 		public void DisablePlayerCollisions()
 		{

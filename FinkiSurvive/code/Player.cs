@@ -37,6 +37,9 @@ namespace FinkiAdventureQuest.FinkiSurvive.code
         [Signal]
         public delegate void PlayerDiedEventHandler();
 
+        [Signal]
+        public delegate void DashTimerStartedEventHandler();
+
         public override void _Ready()
         {
             _canAttack = true;
@@ -95,6 +98,7 @@ namespace FinkiAdventureQuest.FinkiSurvive.code
                     MoveAndCollide(Velocity);
                     canDash = false;
                     GetNode<Timer>("DashCooldown").Start();
+                    EmitSignal(nameof(DashTimerStarted));
                     map.EnablePlayerCollisions();
                 }
             }
