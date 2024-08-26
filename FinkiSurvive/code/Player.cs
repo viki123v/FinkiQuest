@@ -82,7 +82,7 @@ namespace FinkiAdventureQuest.FinkiSurvive.code
                 if (canDash)
                 {
                     var map = GetParent<Map>();
-                    map.DisableCollisisonsPLayer();
+                    map.DisablePlayerCollisions();
                     if (direction != Vector2.Zero)
                     {
                         Velocity = direction * dashSpeed;
@@ -95,7 +95,7 @@ namespace FinkiAdventureQuest.FinkiSurvive.code
                     MoveAndCollide(Velocity);
                     canDash = false;
                     GetNode<Timer>("DashCooldown").Start();
-                    map.EnableCollisisonsPLayer();
+                    map.EnablePlayerCollisions();
                 }
             }
             

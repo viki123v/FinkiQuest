@@ -417,6 +417,9 @@ position = Vector2(-104, -80)
 wait_time = 1.3
 autostart = true
 
+[node name="GameTimer" type="Timer" parent="."]
+autostart = true
+
 [node name="ThemeMusic" type="AudioStreamPlayer" parent="."]
 process_mode = 3
 stream = ExtResource("5_owg0p")
@@ -585,9 +588,6 @@ theme = SubResource("Theme_nmqei")
 texture = ExtResource("8_h6pmy")
 metadata/_edit_lock_ = true
 
-[node name="GameTimer" type="Timer" parent="."]
-autostart = true
-
 [node name="DeathScreen" parent="." instance=ExtResource("9_ob5eq")]
 visible = false
 
@@ -595,5 +595,5 @@ visible = false
 visible = false
 
 [connection signal="timeout" from="MobSpawnTimer" to="." method="GenerateMobs"]
+[connection signal="timeout" from="GameTimer" to="." method="OnGameTimerTick"]
 [connection signal="about_to_popup" from="UI/GameInfoCont/MenuButton" to="." method="PauseSceneTree"]
-[connection signal="timeout" from="GameTimer" to="." method="OnTimerTick"]

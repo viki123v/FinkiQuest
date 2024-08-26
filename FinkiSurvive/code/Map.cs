@@ -55,13 +55,14 @@ namespace FinkiAdventureQuest.FinkiSurvive.code
 			
 		}
 
+		// ReSharper disable once InconsistentNaming
 		private void SetupUIListeners()
 		{
 			GetNode<MenuButton>("UI/GameInfoCont/MenuButton").GetPopup().PopupHide += ResumeGame;
 			GetNode<Button>("DeathScreen/MarginContainer2/PlayAgainButton").Pressed += RestartGame;
-			GetNode<Button>("DeathScreen/MarginContainer3/QuitButton").Pressed += QuitGame;
+			GetNode<Button>("DeathScreen/MarginContainer3/QuitButton").Pressed += QuitToGameSelection;
 			GetNode<Button>("WinScreen/MarginContainer2/ContinueButton").Pressed += RestartGame;
-			GetNode<Button>("WinScreen/MarginContainer3/GraduateButton").Pressed += QuitGame;
+			GetNode<Button>("WinScreen/MarginContainer3/GraduateButton").Pressed += QuitToGameSelection;
 		}
 		
 		public override void _Process(double delta)
@@ -72,26 +73,26 @@ namespace FinkiAdventureQuest.FinkiSurvive.code
 			_fps.Text = Engine.GetFramesPerSecond().ToString();
 		}
 
-		public void PauseSceneTree()
+		private void PauseSceneTree()
 		{
 			GetTree().Paused = true;
 		}
 
-		public void ResumeGame()
+		private void ResumeGame()
 		{
 			GetTree().Paused = false;
 			Mob.StateValid = true;
 			GetNode<CanvasLayer>("WinScreen").Visible = false;
 		}
 
-		public void ClearMobs()
+		private void ClearMobs()
 		{
 			var mobs = GetNode<Node2D>("Mobs");
 			foreach (var mob in mobs.GetChildren())
 				mob.QueueFree();
 		}
 
-		public void PauseGame()
+		private void PauseGame()
 		{
 			GetNode<Timer>("MobSpawnTimer").Stop();
 			GetNode<Timer>("GameTimer").Stop();
@@ -101,20 +102,13 @@ namespace FinkiAdventureQuest.FinkiSurvive.code
 
 		public void PlayerDeath()
 		{
-			if (_canGraduate)
-			{
-				GetNode<CanvasLayer>("WinScreen").Visible = true;
-			}
-			else
-			{
-				GetNode<CanvasLayer>("DeathScreen").Visible = true;
-			}
-			
+			if (_canGraduate) GetNode<CanvasLayer>("WinScreen").Visible = true;
+			else GetNode<CanvasLayer>("DeathScreen").Visible = true;
 			PauseSceneTree();
 		}
-		
 
-		public void RestartGame()
+
+		private void RestartGame()
 		{
 			GetTree().Paused = false;
 			GetTree().ReloadCurrentScene();
@@ -124,14 +118,14 @@ namespace FinkiAdventureQuest.FinkiSurvive.code
 			Grade = 5;
 			_canGraduate = false;
 		}
-		
 
-		public void QuitGame()
+
+		private void QuitToGameSelection()
 		{
-			GetTree().ChangeSceneToFile("res://MainScene/main_menu.tscn");
+			GetTree().ChangeSceneToFile("res://MainScene/choose_game.tscn");
 		}
 
-		public void UpdateScore()
+		private void UpdateScore()
 		{
 			Score++;
 			GetNode<Label>("UI/ScoreMarginCont/Score").Text = "Score: " + Score;
@@ -148,8 +142,17 @@ namespace FinkiAdventureQuest.FinkiSurvive.code
 					_canGraduate = true;
 					
 					break;
-				case >= 400:
-					Grade++;
+				case >= 400 and < 500:
+					Grade = 7;
+					break;
+				case >= 500 and < 600:
+					Grade = 8;
+					break;
+				case >=600 and < 800:
+					Grade = 9;
+					break;
+				case >= 1000:
+					Grade = 10;
 					break;
 			}
 			
@@ -174,12 +177,12 @@ namespace FinkiAdventureQuest.FinkiSurvive.code
 
 		}
 
-		public void UpdateTimerText(int mins, int secs)
+		private void UpdateTimerText(int mins, int secs)
 		{
 			GetNode<Label>("UI/GameTimeMarginCont/GameTime").Text = $"{mins:D1}:{secs:D2}";
 		}
 
-		public void UpdateWaveLabel()
+		private void UpdateWaveLabel()
 		{
 			switch (WaveCount)
 			{
@@ -210,7 +213,7 @@ namespace FinkiAdventureQuest.FinkiSurvive.code
 			GetNode<Label>("UI/WaveNumCont/Label").Text = "Wave: " + WaveCount;
 		}
 
-		public void UpdateMenu()
+		private void UpdateMenu()
 		{
 			if (WaveCount > 4) return;
 			
@@ -236,21 +239,21 @@ namespace FinkiAdventureQuest.FinkiSurvive.code
 			
 		}
 
-		public void DisableCollisisonsPLayer()
+		public void DisablePlayerCollisions()
 		{
 			var player = GetNode<Player>("Player");
 			player.SetCollisionLayerValue(4,false);
 			player.SetCollisionMaskValue(2,false);
 		}
 
-		public void EnableCollisisonsPLayer()
+		public void EnablePlayerCollisions()
 		{
 			var player = GetNode<Player>("Player");
 			player.SetCollisionLayerValue(4,true);
 			player.SetCollisionMaskValue(2,true);
 		}
 
-		public void OnTimerTick()
+		private void OnGameTimerTick()
 		{
 			if (--_timeSecs <= 0)
 			{
@@ -261,12 +264,14 @@ namespace FinkiAdventureQuest.FinkiSurvive.code
 			}
 
 			GetNode<Timer>("MobSpawnTimer").WaitTime -= _spawnRateDecrement;
+			
 			GD.Print(GetNode<Timer>("MobSpawnTimer").WaitTime);
+			
 			UpdateTimerText(_timeSecs / 60, _timeSecs % 60);
 			
 		}
-		
-		public int GetBiasedIndex()
+
+		private int GetBiasedIndex()
 		{
 			if (WaveCount == 1) return 0;
 			
@@ -288,7 +293,7 @@ namespace FinkiAdventureQuest.FinkiSurvive.code
 			return 0;
 		}
 
-		public Vector2 GetMobSpawnPos()
+		private Vector2 GetMobSpawnPos()
 		{
 			var player = GetNode<Player>("Player");
 			var width = player.Position.X + ( (int) GetViewport().GetVisibleRect().Size[0] - player.Position.X);
@@ -302,8 +307,8 @@ namespace FinkiAdventureQuest.FinkiSurvive.code
 			
 			return _mobSpawnPoints[_rng.Next(_mobSpawnPoints.Length)];
 		}
-		
-		public void GenerateMobs()
+
+		private void GenerateMobs()
 		{
 			int idx = GetBiasedIndex();
 			PackedScene mobScene = GD.Load<PackedScene>(ProjectPath.ScenesPath + _mobSceneNames[idx] +  ".tscn");

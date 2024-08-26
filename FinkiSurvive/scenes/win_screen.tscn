@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://xndssfje6yyu"]
 
 [ext_resource type="FontFile" uid="uid://4on88usjtnj4" path="res://FinkiSurvive/tmp_assets/FONTS/videophreak/VIDEOPHREAK.ttf" id="1_er1cb"]
-[ext_resource type="Script" path="res://FinkiSurvive/scenes/WinScreen.cs" id="1_h0hwt"]
+[ext_resource type="Script" path="res://FinkiSurvive/code/WinScreen.cs" id="1_naaaq"]
 [ext_resource type="PackedScene" uid="uid://cb6a5uhvkpf4r" path="res://scenes/GameStats.tscn" id="3_8oh3u"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_6ovir"]
@@ -14,7 +14,7 @@ shadow_offset = Vector2(5, 5)
 
 [node name="DeathScreen" type="CanvasLayer"]
 process_mode = 3
-script = ExtResource("1_h0hwt")
+script = ExtResource("1_naaaq")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 offset_left = -15.0

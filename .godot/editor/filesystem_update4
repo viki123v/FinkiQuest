@@ -49,4 +49,4 @@ res://FinkiSurvive/code/OrcMob.cs
 res://FinkiSurvive/code/Map.cs
 res://Credits/ScrollingLabel.cs
 res://FinkiSurvive/code/win_screen.cs
-res://FinkiSurvive/scenes/node_3dTest.tscn
+res://FinkiSurvive/code/WinScreen.cs
