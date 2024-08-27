@@ -1,2 +1,7 @@
+<<<<<<< HEAD
 ﻿34215
 /home/stevetosak/devapps/Godot_v4.3-stable_mono_linux_x86_64/Godot_v4.3-stable_mono_linux.x86_64
+=======
+﻿54697
+C:/Users/anton/OneDrive/Desktop/Godot_v4.3-stable_mono_win64/Godot_v4.3-stable_mono_win64.exe
+>>>>>>> 2deb0827e07366bf2e86a52abaff9e8bbe54ab44

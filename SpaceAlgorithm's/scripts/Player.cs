@@ -29,32 +29,19 @@ public override void _Process(double delta)
 {
     _screenSize = GetViewport().GetVisibleRect().Size;
 
-    Vector2 movement = new Vector2();
+    
+    Vector2 inputVector = Input.GetVector("space_algorithms_player_left", "space_algorithms_player_right", "space_algorithms_player_up", "space_algorithms_player_down");
 
-    if (Input.IsActionPressed("space_algorithms_player_up") && Position.Y > 30)
-    {
-        movement.Y -= 1;
-    }
-    if (Input.IsActionPressed("space_algorithms_player_down") && Position.Y < _screenSize.Y - 30)
-    {
-        movement.Y += 5;
-    }
-    if (Input.IsActionPressed("space_algorithms_player_left") && Position.X > 30)
-    {
-        movement.X -= 1;
-    }
-    if (Input.IsActionPressed("space_algorithms_player_right") && Position.X < _screenSize.X / 2)
-    {
-        movement.X += 1;
-    }
+    
+    Position += inputVector * moveSpeed * (float)delta;
 
-    if (movement != Vector2.Zero)
-    {
-        movement = movement.Normalized();
-    }
+    
+    Position = new Vector2(
+        Mathf.Clamp(Position.X, 30, _screenSize.X / 2),
+        Mathf.Clamp(Position.Y, 30, _screenSize.Y - 30)
+    );
 
-    Position += movement * moveSpeed * (float)delta;
-
+    // Handle shooting
     if (Input.IsActionJustPressed("space_algorithms_player_shoot"))
     {
         if(isHit) return;
@@ -63,6 +50,7 @@ public override void _Process(double delta)
         this.GetParent().AddChild(laser);
     }
 }
+
 
     private void _on_area_entered(Area2D area){
         if(isHit) return;

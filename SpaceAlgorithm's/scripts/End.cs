@@ -1,3 +1,4 @@
+using FinkiAdventureQuest.MainScene;
 using Godot;
 using System;
 
@@ -23,6 +24,8 @@ public partial class End : CanvasLayer
 
 	}
 	private void _on_exit_pressed(){
+		ChooseGame.setGrade(1, grade);
+
 		GetTree().ChangeSceneToFile("res://MainScene/choose_game.tscn");
 	}
 
