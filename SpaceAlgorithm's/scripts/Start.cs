@@ -20,4 +20,8 @@ public partial class Start : CanvasLayer
 	public void _on_exit_pressed(){
 		GetTree().ChangeSceneToFile("res://MainScene/choose_game.tscn");
 	}
+
+	public void _on_how_to_play_pressed(){
+		GetTree().ChangeSceneToFile("res://SpaceAlgorithm's/scenes/how_to_play.tscn");
+	}
 }

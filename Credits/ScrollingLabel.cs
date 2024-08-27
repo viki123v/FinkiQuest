@@ -4,7 +4,7 @@ using System;
 public partial class ScrollingLabel : Godot.Label
 {
 	private string creditsText = 
-    "\n\n\nFINKI Quest\n" +
+    "\n\nFINKI Quest\n" +
     "\n" +
     "Created by:\n" +
     "Martin Djakov\n" +

@@ -17,6 +17,8 @@ public partial class Player : Area2D
         _restartTimer = GetNode<Timer>("restart_timer");
         _screenSize = GetViewport().GetVisibleRect().Size;
 		laserPrefab = (PackedScene)GD.Load("res://SpaceAlgorithm's/prefabs/laser.tscn");
+        Position = new Vector2(Position.X, _screenSize.Y / 2);
+
         Visible = true;
     }
 
@@ -64,7 +66,7 @@ public override void _Process(double delta)
 
     private void _on_area_entered(Area2D area){
         if(isHit) return;
-        if(area is EnemyLaser || area is Enemy || area is Meteor){
+        if(area is EnemyLaser || area is Enemy || area is Meteor || area is BossSpecial){
             Node2D explosion = (Node2D)_explosionPrefab.Instantiate();
             explosion.Position = Position;
             this.GetParent().AddChild(explosion);

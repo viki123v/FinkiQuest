@@ -1,0 +1,80 @@
+[gd_scene load_steps=5 format=3 uid="uid://bmjwfq0cladt"]
+
+[ext_resource type="Script" path="res://SpaceAlgorithm's/scripts/HowToPlay.cs" id="1_n0r3d"]
+[ext_resource type="PackedScene" uid="uid://offqhbjpbq0d" path="res://SpaceAlgorithm's/scenes/background.tscn" id="1_q7p4y"]
+[ext_resource type="Theme" uid="uid://b1710rrqh6wcu" path="res://SpaceAlgorithm's/new_theme.tres" id="2_e5l2d"]
+[ext_resource type="FontFile" uid="uid://c3thqc7u4k6lx" path="res://SpaceAlgorithm's/kenney_space-shooter-redux/Bonus/kenvector_future_thin.ttf" id="3_j1cw6"]
+
+[node name="HowToPlay" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_n0r3d")
+
+[node name="background" parent="." instance=ExtResource("1_q7p4y")]
+
+[node name="Label2" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -362.0
+offset_top = -133.0
+offset_right = 363.0
+offset_bottom = 183.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("3_j1cw6")
+theme_override_font_sizes/font_size = 16
+text = "Move Your Ship: Use the arrow keys or WASD to navigate your ship.
+
+Shoot Enemies: Press the spacebar to fire your lasers. Destroy enemies to earn points.
+
+Avoid Collisions: Don't let enemies, asteroids, or lasers hit your ship.
+
+Defeat the Boss: Survive waves of enemies and face the boss.
+
+Restart: If you're defeated, the game will restart."
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="start" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.919753
+anchor_right = 0.506076
+anchor_bottom = 0.919753
+offset_left = -72.0
+offset_top = -53.0
+offset_right = 65.0
+offset_bottom = -5.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_e5l2d")
+text = "Done"
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -185.5
+offset_top = -206.0
+offset_right = 185.5
+offset_bottom = -170.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_e5l2d")
+theme_override_font_sizes/font_size = 48
+text = "SPACE ALGORIHM's"
+
+[connection signal="pressed" from="start" to="." method="_on_start_pressed"]

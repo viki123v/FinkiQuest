@@ -51,13 +51,19 @@ public partial class Game : Node2D
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
 	public override void _Process(double delta)
-	{
-		if(boss != null) boss.Position = new Vector2(_screenSize.X - 200, _screenSize.Y/2);
-		_screenSize = GetViewport().GetVisibleRect().Size;
-		_control.CustomMinimumSize = _screenSize;
-	}
+{
+    if (boss != null && IsInstanceValid(boss))
+    {
+        boss.Position = new Vector2(_screenSize.X - 250, _screenSize.Y / 2);
+    }
+
+    _screenSize = GetViewport().GetVisibleRect().Size;
+    _control.CustomMinimumSize = _screenSize;
+}
+
 	private void _on_enemy_timer_timeout()
     {
+		if(bossStarted || enemies.Count == 0) return;
 
 		Random r = new Random();
 		Enemy enemy = (Enemy)enemyPrefab.Instantiate();
@@ -81,7 +87,7 @@ public partial class Game : Node2D
 
 	public void startBoss(){
 		boss = (Boss)bossPrefab.Instantiate();
-		boss.Position = new Vector2(_screenSize.X - 200, _screenSize.Y/2);
+		boss.Position = new Vector2(_screenSize.X - 400, _screenSize.Y/2);
 		this.AddChild(boss);
 	}
 
@@ -91,6 +97,8 @@ public partial class Game : Node2D
 			Meteor meteor = (Meteor) _meteorPrefab.Instantiate();
 			meteor.Position = new Vector2(_screenSize.X + 20, r.Next(40, (int)_screenSize.Y - 40));
 			AddChild(meteor);
+
+			meteor = (Meteor) _meteorPrefab.Instantiate();
 			meteor.Position = new Vector2(_screenSize.X + 20, r.Next(40, (int)_screenSize.Y - 40));
 			AddChild(meteor);
 
@@ -104,7 +112,7 @@ public partial class Game : Node2D
 	private void _on_boss_shield_timeout(){
 		if(bossStarted){
 			Shield shield = (Shield) _shieldPrefab.Instantiate();
-			shield.Position = new Vector2(_screenSize.X - 200, _screenSize.Y/2);
+			shield.Position = new Vector2(_screenSize.X - 400, _screenSize.Y/2);
 			AddChild(shield);
 		}
 	}

@@ -18,7 +18,7 @@ public partial class Boss : Area2D
         damage_texture = GetNode<Sprite2D>("damadge_texture");
         more_damage_texture = GetNode<Sprite2D>("more_damadge_texture");
         originalColor = sprite.Modulate; 
-        hp = 100;
+        hp = 120;
         sprite.Play(); 
         damage_texture.Visible = false;
         more_damage_texture.Visible = false;
@@ -30,12 +30,6 @@ public partial class Boss : Area2D
         if (area is Laser)
         {
             hp--;
-            if(hp <= 50){
-                damage_texture.Visible = true;
-            }
-            if(hp <= 30){
-                more_damage_texture.Visible = true;
-            }
             if (hp == 0)
             {
                 var gameNode = (Game)GetParent();
@@ -46,6 +40,7 @@ public partial class Boss : Area2D
 				explosionInstance.Position = Position;
         		this.GetParent().AddChild(explosionInstance);
                 QueueFree();
+                return;
             }
             else
             {
@@ -54,6 +49,13 @@ public partial class Boss : Area2D
 				explosionInstance.Position = area.Position;
         		this.GetParent().AddChild(explosionInstance);
             }
+            if(hp <= 50){
+                damage_texture.Visible = true;
+            }
+            if(hp <= 30){
+                more_damage_texture.Visible = true;
+            }
+            
         }
     }
 

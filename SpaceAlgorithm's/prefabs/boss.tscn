@@ -72,7 +72,7 @@ shape = SubResource("RectangleShape2D_umvpm")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("8_ftmx8")
-volume_db = -8.512
+volume_db = -11.742
 autoplay = true
 
 [node name="damadge_texture" type="Sprite2D" parent="."]

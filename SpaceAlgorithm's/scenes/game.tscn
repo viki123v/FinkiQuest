@@ -10,7 +10,6 @@
 script = ExtResource("1_xeluj")
 
 [node name="background" parent="." instance=ExtResource("2_lcbv6")]
-position = Vector2(-1, -84)
 
 [node name="player" parent="." instance=ExtResource("1_q4plj")]
 position = Vector2(141, 306)
@@ -24,7 +23,7 @@ wait_time = 1.25
 autostart = true
 
 [node name="boss_shield" type="Timer" parent="."]
-wait_time = 5.0
+wait_time = 5.5
 autostart = true
 
 [node name="boss_special" type="Timer" parent="."]
