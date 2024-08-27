@@ -3,8 +3,8 @@ using System.Collections.ObjectModel;
 
 namespace FinkiAdventureQuest.ViktorIgraTuka.scenes.mainGameSections.randomGenerationStrategies;
 
-public interface IPickers
+public interface IPickers<T>
 {
-    Object Generate(); 
-    void SetValues(Collection<object> values);
+    T Generate(); 
+    void SetValues(Collection<T> values);
 }

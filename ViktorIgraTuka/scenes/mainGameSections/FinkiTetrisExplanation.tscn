@@ -66,9 +66,9 @@ fit_content = true
 tab_size = 5
 
 [node name="PlayGame" type="Button" parent="."]
-offset_left = 849.0
+offset_left = 330.0
 offset_top = 513.0
-offset_right = 970.0
+offset_right = 451.0
 offset_bottom = 555.0
 size_flags_vertical = 3
 theme_override_colors/font_disabled_color = Color(0, 0, 0, 1)
