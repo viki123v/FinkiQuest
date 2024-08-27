@@ -1,7 +1,9 @@
 using System;
 using System.Collections.Generic;
 using FinkiAdventureQuest.FinkiSurvive.code.Util;
+using FinkiAdventureQuest.MainScene;
 using Godot;
+using GameNames = FinkiAdventureQuest.MainScene.GameNames;
 
 namespace FinkiAdventureQuest.FinkiSurvive.code
 {
@@ -9,7 +11,7 @@ namespace FinkiAdventureQuest.FinkiSurvive.code
 	{
 		
 		public static int WaveCount = 1;
-		public static int Score = 0;
+		public static int Score = 350;
 		public static int Grade = 5;
 		public static readonly int WaveTime = 30;
 		public static uint FrameCount;
@@ -109,7 +111,11 @@ namespace FinkiAdventureQuest.FinkiSurvive.code
 
 		public void PlayerDeath()
 		{
-			if (_canGraduate) GetNode<CanvasLayer>("WinScreen").Visible = true;
+			if (_canGraduate)
+			{
+				GetNode<CanvasLayer>("WinScreen").Visible = true;
+				ChooseGame.AddGradeEntry(GameNames.FinkiSurvive,Grade);
+			}
 			else GetNode<CanvasLayer>("DeathScreen").Visible = true;
 			PauseSceneTree();
 		}

@@ -1775,7 +1775,7 @@ theme_override_colors/icon_focus_color = Color(0, 0, 0, 1)
 theme_override_colors/icon_pressed_color = Color(0, 0, 0, 1)
 theme_override_colors/icon_hover_pressed_color = Color(0, 0, 0, 1)
 theme_override_colors/icon_disabled_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 36
+theme_override_font_sizes/font_size = 26
 theme_override_styles/disabled = SubResource("StyleBoxFlat_js5u0")
 theme_override_styles/hover = SubResource("StyleBoxFlat_cwrjc")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_h3ya6")
@@ -1798,7 +1798,7 @@ theme_override_colors/icon_focus_color = Color(0, 0, 0, 1)
 theme_override_colors/icon_pressed_color = Color(0, 0, 0, 1)
 theme_override_colors/icon_hover_pressed_color = Color(0, 0, 0, 1)
 theme_override_colors/icon_disabled_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 36
+theme_override_font_sizes/font_size = 26
 theme_override_styles/disabled = SubResource("StyleBoxFlat_js5u0")
 theme_override_styles/hover = SubResource("StyleBoxFlat_cwrjc")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_h3ya6")
@@ -1820,7 +1820,7 @@ theme_override_colors/icon_focus_color = Color(0, 0, 0, 1)
 theme_override_colors/icon_pressed_color = Color(0, 0, 0, 1)
 theme_override_colors/icon_hover_pressed_color = Color(0, 0, 0, 1)
 theme_override_colors/icon_disabled_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 36
+theme_override_font_sizes/font_size = 26
 theme_override_styles/disabled = SubResource("StyleBoxFlat_js5u0")
 theme_override_styles/hover = SubResource("StyleBoxFlat_cwrjc")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_h3ya6")
@@ -1849,7 +1849,7 @@ theme_override_colors/icon_focus_color = Color(0, 0, 0, 1)
 theme_override_colors/icon_pressed_color = Color(0, 0, 0, 1)
 theme_override_colors/icon_hover_pressed_color = Color(0, 0, 0, 1)
 theme_override_colors/icon_disabled_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 36
+theme_override_font_sizes/font_size = 26
 theme_override_styles/disabled = SubResource("StyleBoxFlat_js5u0")
 theme_override_styles/hover = SubResource("StyleBoxFlat_cwrjc")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_h3ya6")
@@ -1898,5 +1898,4 @@ texture = ExtResource("4_v3em7")
 [connection signal="pressed" from="Container/SpaceAlgorithms2" to="." method="SpaceAlorithms"]
 [connection signal="pressed" from="Container/FinkiSurvive" to="." method="FinkiSurvive"]
 [connection signal="pressed" from="Container/Viki" to="." method="FinkiSurvive"]
-[connection signal="pressed" from="Container/Graduate" to="." method="FinkiSurvive"]
 [connection signal="pressed" from="Back" to="." method="_on_back_pressed"]
