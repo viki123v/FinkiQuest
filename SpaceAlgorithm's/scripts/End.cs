@@ -24,8 +24,7 @@ public partial class End : CanvasLayer
 
 	}
 	private void _on_exit_pressed(){
-		ChooseGame.setGrade(1, grade);
-
+		ChooseGame.AddGradeEntry(GameNames.SpaceAlgorithms,grade);
 		GetTree().ChangeSceneToFile("res://MainScene/choose_game.tscn");
 	}
 

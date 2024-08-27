@@ -28,6 +28,16 @@ public partial class ScrollingLabel : Godot.Label
         ScrollText(creditsText);
     }
 
+    public override void _Input(InputEvent @event)
+    {
+        
+        if(@event.IsActionPressed("ui_cancel") || @event.IsActionPressed("ui_accept"))
+        {
+            
+            GetTree().ChangeSceneToFile("res://MainScene/main_menu.tscn");
+        }
+    }
+
     private async void ScrollText(string inputText)
     {
         int visibleCharacters = 0;
