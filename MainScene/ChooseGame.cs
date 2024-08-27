@@ -14,7 +14,7 @@ public partial class ChooseGame : Control
 	public override void _Ready()
 	{
 		GetTree().Paused = false;
-		_label = GetNode<Label>("Container/passed");
+		_label = GetNode<Label>("Container/Passed");
 		graduate = GetNode<Button>("Container/Graduate");
 		
 	}

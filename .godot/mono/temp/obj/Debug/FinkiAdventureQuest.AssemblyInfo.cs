@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("FinkiAdventureQuest")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+374adfce195006ee693027d0ad6676d189aa203d")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+56e0cbf169f35cf814fb6f9765d0c11317cdbd26")]
 [assembly: System.Reflection.AssemblyProductAttribute("FinkiAdventureQuest")]
 [assembly: System.Reflection.AssemblyTitleAttribute("FinkiAdventureQuest")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
