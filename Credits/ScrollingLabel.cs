@@ -51,7 +51,7 @@ public partial class ScrollingLabel : Godot.Label
         }
 		
 		
-		await ToSignal(GetTree().CreateTimer(4.0f), "timeout");
-        GetTree().ChangeSceneToFile("res://MainScene/main_menu.tscn");
+		// await ToSignal(GetTree().CreateTimer(4.0f), "timeout");
+        // GetTree().ChangeSceneToFile("res://MainScene/main_menu.tscn");
     }
 }

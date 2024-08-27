@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://d4nsmb8kqdndu"
+path="res://.godot/imported/José Feliciano - Feliz Navidad (Official Audio).mp3-9b1de5de025b35cee2c2d4e70b34edf8.mp3str"
+
+[deps]
+
+source_file="res://Credits/José Feliciano - Feliz Navidad (Official Audio).mp3"
+dest_files=["res://.godot/imported/José Feliciano - Feliz Navidad (Official Audio).mp3-9b1de5de025b35cee2c2d4e70b34edf8.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
