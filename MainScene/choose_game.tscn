@@ -1744,7 +1744,7 @@ grow_vertical = 2
 size_flags_horizontal = 0
 theme_override_styles/panel = SubResource("StyleBoxTexture_qiw4l")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
+[node name="Container" type="VBoxContainer" parent="."]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -1752,15 +1752,15 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -137.0
-offset_top = 59.0
+offset_top = 41.0
 offset_right = 309.0
-offset_bottom = 385.0
+offset_bottom = 395.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(0.610493, 0.637887)
 theme_override_constants/separation = 9
 
-[node name="SpaceAlgorithms2" type="Button" parent="VBoxContainer"]
+[node name="SpaceAlgorithms2" type="Button" parent="Container"]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_colors/font_disabled_color = Color(0, 0, 0, 1)
@@ -1775,7 +1775,7 @@ theme_override_colors/icon_focus_color = Color(0, 0, 0, 1)
 theme_override_colors/icon_pressed_color = Color(0, 0, 0, 1)
 theme_override_colors/icon_hover_pressed_color = Color(0, 0, 0, 1)
 theme_override_colors/icon_disabled_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 24
+theme_override_font_sizes/font_size = 36
 theme_override_styles/disabled = SubResource("StyleBoxFlat_js5u0")
 theme_override_styles/hover = SubResource("StyleBoxFlat_cwrjc")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_h3ya6")
@@ -1783,7 +1783,7 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_aek4c")
 text = "Space Algorithms
 "
 
-[node name="FinkiSurvive" type="Button" parent="VBoxContainer"]
+[node name="FinkiSurvive" type="Button" parent="Container"]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_colors/font_disabled_color = Color(0, 0, 0, 1)
@@ -1798,14 +1798,14 @@ theme_override_colors/icon_focus_color = Color(0, 0, 0, 1)
 theme_override_colors/icon_pressed_color = Color(0, 0, 0, 1)
 theme_override_colors/icon_hover_pressed_color = Color(0, 0, 0, 1)
 theme_override_colors/icon_disabled_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 24
+theme_override_font_sizes/font_size = 36
 theme_override_styles/disabled = SubResource("StyleBoxFlat_js5u0")
 theme_override_styles/hover = SubResource("StyleBoxFlat_cwrjc")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_h3ya6")
 theme_override_styles/normal = SubResource("StyleBoxFlat_aek4c")
 text = "FINKI Survive"
 
-[node name="Viki" type="Button" parent="VBoxContainer"]
+[node name="Viki" type="Button" parent="Container"]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_colors/font_disabled_color = Color(0, 0, 0, 1)
@@ -1820,15 +1820,21 @@ theme_override_colors/icon_focus_color = Color(0, 0, 0, 1)
 theme_override_colors/icon_pressed_color = Color(0, 0, 0, 1)
 theme_override_colors/icon_hover_pressed_color = Color(0, 0, 0, 1)
 theme_override_colors/icon_disabled_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 24
+theme_override_font_sizes/font_size = 36
 theme_override_styles/disabled = SubResource("StyleBoxFlat_js5u0")
 theme_override_styles/hover = SubResource("StyleBoxFlat_cwrjc")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_h3ya6")
 theme_override_styles/normal = SubResource("StyleBoxFlat_aek4c")
-text = "Viktor's Driving School
-"
+text = "VIKI Tetris"
 
-[node name="Graduate" type="Button" parent="VBoxContainer"]
+[node name="Label" type="Label" parent="Container"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "Exams passed: 0/3"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Graduate" type="Button" parent="Container"]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_colors/font_disabled_color = Color(0, 0, 0, 1)
@@ -1843,7 +1849,7 @@ theme_override_colors/icon_focus_color = Color(0, 0, 0, 1)
 theme_override_colors/icon_pressed_color = Color(0, 0, 0, 1)
 theme_override_colors/icon_hover_pressed_color = Color(0, 0, 0, 1)
 theme_override_colors/icon_disabled_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 24
+theme_override_font_sizes/font_size = 36
 theme_override_styles/disabled = SubResource("StyleBoxFlat_js5u0")
 theme_override_styles/hover = SubResource("StyleBoxFlat_cwrjc")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_h3ya6")
@@ -1880,6 +1886,7 @@ offset_bottom = 550.0
 grow_horizontal = 0
 scale = Vector2(0.0993027, 0.109624)
 theme = SubResource("Theme_btrgo")
+flat = true
 icon_alignment = 1
 
 [node name="Logofinki-removebg-preview" type="Sprite2D" parent="."]
@@ -1888,8 +1895,8 @@ position = Vector2(585, 309)
 scale = Vector2(0.144601, 0.126622)
 texture = ExtResource("4_v3em7")
 
-[connection signal="pressed" from="VBoxContainer/SpaceAlgorithms2" to="." method="SpaceAlorithms"]
-[connection signal="pressed" from="VBoxContainer/FinkiSurvive" to="." method="FinkiSurvive"]
-[connection signal="pressed" from="VBoxContainer/Viki" to="." method="FinkiSurvive"]
-[connection signal="pressed" from="VBoxContainer/Graduate" to="." method="FinkiSurvive"]
+[connection signal="pressed" from="Container/SpaceAlgorithms2" to="." method="SpaceAlorithms"]
+[connection signal="pressed" from="Container/FinkiSurvive" to="." method="FinkiSurvive"]
+[connection signal="pressed" from="Container/Viki" to="." method="FinkiSurvive"]
+[connection signal="pressed" from="Container/Graduate" to="." method="FinkiSurvive"]
 [connection signal="pressed" from="Back" to="." method="_on_back_pressed"]

@@ -1,8 +1,9 @@
+res://MainScene
+res://FinkiSurvive/assets
 <<<<<<< HEAD
 =======
 res://FinkiSurvive/scenes
 res://scenes
-res://FinkiSurvive/assets
 res://FinkiSurvive/tmp_assets/Char/PNG/Unarmed_Death
 res://FinkiSurvive/tmp_assets/Char/PNG/Sword_Run_Attack
 res://FinkiSurvive/tmp_assets/Char/PNG/Sword_Idle
@@ -12,5 +13,4 @@ res://SpaceAlgorithm's/kenney_space-shooter-redux/PNG/Effects
 >>>>>>> dc6c06c7a7e08d1e9d362a16b4c4fb5ce0c297f5
 res://SpaceAlgorithm's/scripts
 res://SpaceAlgorithm's/kenney_space-shooter-redux/PNG/Effects
-res://MainScene
 res://SpaceAlgorithm's/assets/Boss

@@ -1,23 +1,13 @@
+Label
 Control
 Panel
-Label
 CollisionShape2D
-<<<<<<< HEAD
 Sprite2D
 Area2D
 Button
-=======
 StaticBody2D
 TextureRect
-Label
 TextureProgressBar
 TextureButton
 Button
 MarginContainer
-Sprite3D
-Sprite2D
-ColorRect
-Timer
-Area2D
-Polygon2D
->>>>>>> dc6c06c7a7e08d1e9d362a16b4c4fb5ce0c297f5
