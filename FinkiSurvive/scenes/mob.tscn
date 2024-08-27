@@ -1,6 +1,5 @@
-[gd_scene load_steps=86 format=3 uid="uid://b1sy2xjlbg5v4"]
+[gd_scene load_steps=85 format=3 uid="uid://bw67plt2wd8du"]
 
-[ext_resource type="Script" path="res://FinkiSurvive/code/Mob.cs" id="1_l88q4"]
 [ext_resource type="Texture2D" uid="uid://roa8dbfp7ps" path="res://FinkiSurvive/tmp_assets/ENEMY_MOBS/PNG/1/1_enemies_1_attack_000.png" id="2_5spg6"]
 [ext_resource type="Texture2D" uid="uid://bylhdq4vnwrmi" path="res://FinkiSurvive/tmp_assets/ENEMY_MOBS/PNG/1/1_enemies_1_attack_001.png" id="3_4v0fl"]
 [ext_resource type="Texture2D" uid="uid://bjdbktlk744rx" path="res://FinkiSurvive/tmp_assets/ENEMY_MOBS/PNG/1/1_enemies_1_attack_002.png" id="4_vyj1u"]
@@ -349,9 +348,8 @@ animations = [{
 position = Vector2(562, 304)
 scale = Vector2(0.275, 0.275)
 collision_layer = 2
-collision_mask = 12
+collision_mask = 14
 safe_margin = 3.636
-script = ExtResource("1_l88q4")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(461.818, 338.182)

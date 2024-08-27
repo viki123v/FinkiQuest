@@ -25,27 +25,18 @@ public partial class OrcMob : Mob
 		public override void Attack()
 		{
 			
-			PackedScene attackScene = GD.Load<PackedScene>(ProjectPath.ScenesPath + "mob_attack.tscn");
-			var instance = attackScene.Instantiate<Area2D>();
-			var direction = GetDirection();
-			var marker = GetNode<Marker2D>("Marker2D");
-
-			var attackPosition = marker.Position;
-
-			instance.Position = attackPosition * direction;
-			var cont = GetNode<Node2D>("Attack");
-			cont.AddChild(instance);
-			
-			_animSprite.AnimationFinished += () =>
-			{
-				foreach (var child in cont.GetChildren())
-				{
-					child.QueueFree();
-				}
-			};
-			
 			_animSprite.Play("attack");
 			
+			if (Map.FrameCount % 5 != 0) return;
+			GetNode<Player>("/root/Level/Player").TakeDamage(GetDamage());
+			
+			
+			
+		}
+
+		public override int GetDamage()
+		{
+			return new Random().Next(4,6);
 		}
 
 		public override void ScaleHp()

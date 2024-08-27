@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 res://MainScene/choose_game.tscn
 res://MainScene/main_menu.tscn
 res://SpaceAlgorithm's/scenes/start.tscn
@@ -41,3 +42,20 @@ res://SpaceAlgorithm's/scripts/GpuParticles2d.cs
 res://SpaceAlgorithm's/scenes/how_to_play.tscn
 res://SpaceAlgorithm's/scripts/HowToPlay.cs
 res://SpaceAlgorithm's/scenes/background.tscn
+=======
+res://FinkiSurvive/scenes/attack2.tscn
+res://FinkiSurvive/themes/HelpMenuTheme.tres
+res://FinkiSurvive/assets/ui_font_purple.tres
+res://MainScene/choose_game.tscn
+res://FinkiSurvive/scenes/map.tscn
+res://FinkiSurvive/scenes/attack3.tscn
+res://FinkiSurvive/scenes/mob_orc.tscn
+res://FinkiSurvive/scenes/player.tscn
+res://FinkiSurvive/scenes/mob_knight.tscn
+res://FinkiSurvive/scenes/attack1.tscn
+res://FinkiSurvive/scenes/win_screen.tscn
+res://FinkiSurvive/scenes/death_screen.tscn
+res://scenes/GameStats.tscn
+res://ViktorIgraTuka/scenes/mainGameSections/FinkiTetrisEndCredits.tscn
+res://MainScene/main_menu.tscn
+>>>>>>> dc6c06c7a7e08d1e9d362a16b4c4fb5ce0c297f5

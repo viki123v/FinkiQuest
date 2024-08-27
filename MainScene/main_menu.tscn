@@ -1,12 +1,13 @@
-[gd_scene load_steps=9 format=3 uid="uid://dbld6reqebrb8"]
+[gd_scene load_steps=11 format=3 uid="uid://dbld6reqebrb8"]
 
 [ext_resource type="Script" path="res://MainScene/MainMenu.cs" id="1_pgo65"]
-[ext_resource type="Texture2D" uid="uid://bdbv13fir2fie" path="res://MainScene/background_mc.jpg" id="1_yjd4o"]
-[ext_resource type="FontFile" uid="uid://bjetb2qlxoxl1" path="res://MainScene/GrapeSoda.ttf" id="2_n1kw5"]
+[ext_resource type="Texture2D" uid="uid://d4hxmqolvsl3r" path="res://MainScene/FinkiQuestBG.jpg" id="2_13027"]
+[ext_resource type="FontFile" uid="uid://4on88usjtnj4" path="res://FinkiSurvive/tmp_assets/FONTS/videophreak/VIDEOPHREAK.ttf" id="3_71rwn"]
+[ext_resource type="Texture2D" uid="uid://cd2qbgx6xm00p" path="res://FinkiSurvive/assets/logofinki-removebg-preview.png" id="4_7af7c"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_h2ta5"]
-texture = ExtResource("1_yjd4o")
-modulate_color = Color(0.446777, 0.446777, 0.446777, 1)
+texture = ExtResource("2_13027")
+modulate_color = Color(0.525101, 0.525101, 0.525101, 1)
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_rnre0"]
 
@@ -37,7 +38,17 @@ corner_radius_bottom_left = 16
 shadow_size = 5
 shadow_offset = Vector2(0, 3.41)
 
+[sub_resource type="LabelSettings" id="LabelSettings_8561t"]
+font = ExtResource("3_71rwn")
+font_size = 56
+outline_size = 5
+outline_color = Color(0.337255, 0.717647, 1, 0.701961)
+shadow_size = 20
+shadow_color = Color(0.000142741, 0.000109941, 6.24961e-05, 1)
+shadow_offset = Vector2(3, 3)
+
 [node name="MainMenu" type="Control"]
+process_mode = 3
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -63,12 +74,13 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -215.5
-offset_top = -58.0
-offset_right = 215.5
-offset_bottom = 188.0
+offset_left = -164.0
+offset_top = 107.0
+offset_right = 267.0
+offset_bottom = 353.0
 grow_horizontal = 2
 grow_vertical = 2
+scale = Vector2(0.749573, 0.749573)
 theme_override_constants/separation = 9
 
 [node name="start" type="Button" parent="VBoxContainer"]
@@ -150,18 +162,27 @@ layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -195.0
-offset_top = 101.0
-offset_right = 203.0
-offset_bottom = 244.0
+offset_left = -269.0
+offset_top = -14.0
+offset_right = 179.0
+offset_bottom = 129.0
 grow_horizontal = 2
+scale = Vector2(1.25032, 1.14032)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_constants/shadow_offset_x = 10
-theme_override_fonts/font = ExtResource("2_n1kw5")
 theme_override_font_sizes/font_size = 101
-text = "Finki Quest"
+text = "FINKI QUEST
+"
+label_settings = SubResource("LabelSettings_8561t")
 horizontal_alignment = 1
 vertical_alignment = 1
+metadata/_edit_lock_ = true
+
+[node name="Logofinki-removebg-preview" type="Sprite2D" parent="."]
+self_modulate = Color(1, 1, 1, 0.2)
+position = Vector2(578, 312)
+scale = Vector2(0.228084, 0.188531)
+texture = ExtResource("4_7af7c")
 
 [connection signal="pressed" from="VBoxContainer/start" to="." method="_on_start_pressed"]
 [connection signal="pressed" from="VBoxContainer/credits" to="." method="_on_credits_pressed"]

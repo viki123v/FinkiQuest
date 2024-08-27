@@ -62,12 +62,11 @@ animations = [{
 
 [node name="Attack" type="Area2D"]
 show_behind_parent = true
-position = Vector2(771, 401)
+position = Vector2(782, 413)
 rotation = -0.487306
 collision_layer = 4
 collision_mask = 2
 script = ExtResource("1_x8sfl")
-_healAmount = 6.0
 AttackSpeed = 0.2
 Damage = 10
 AttackRange = 70.0
@@ -79,8 +78,9 @@ modulate = Color(0.168627, 0.686275, 0.792157, 1)
 z_index = 1
 position = Vector2(2.87019, -26.7724)
 rotation = 4.18879
-scale = Vector2(0.09841, 0.449147)
+scale = Vector2(0.0856735, 0.389054)
 sprite_frames = SubResource("SpriteFrames_7b38b")
+frame = 5
 
 [node name="HitSoundEffect" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("6_ftfyi")
@@ -92,7 +92,8 @@ wait_time = 0.3
 autostart = true
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
-position = Vector2(27.4522, -6.95516)
+position = Vector2(23.5025, -10.18)
+scale = Vector2(0.858858, 0.858858)
 polygon = PackedVector2Array(-67.222, 5.11938, -55.6823, 8.97119, -49.8595, 8.66162, -43.5686, 7.46844, -30.8808, 0.611267, -23.912, -5.62777, -6.69852, -19.394, 19.9231, -29.053, 25.4891, -37.4207, 22.0605, -43.7645, 13.2246, -48.447, -20.1562, -36.7114, -33.7805, -28.087, -30.7143, -25.3304, -8.56369, -35.0951, 21.5393, -40.6455, 19.5606, -32.6403, 14.5686, -29.627, -33.5767, -17.7934, -70.0765, -6.57898, -76.8886, -2.26678, -70.2352, 0.12738, -20.2699, -13.0051, -34.8835, -0.378174, -47.4654, 2.00818, -57.759, 2.21191, -63.5818, 2.52148)
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]

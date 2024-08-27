@@ -51,24 +51,25 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("13_t7h4e")
 }, {
-"duration": 1.0,
+"duration": 3.0,
 "texture": ExtResource("14_5xkm5")
 }],
 "loop": false,
 "name": &"default",
-"speed": 30.0
+"speed": 20.0
 }]
 
 [node name="Attack" type="Area2D"]
-position = Vector2(838, 539)
+position = Vector2(830, 538)
 rotation = -3.42802
+scale = Vector2(0.302298, 1.11532)
 collision_layer = 4
 collision_mask = 2
 script = ExtResource("1_su8mp")
-AttackSpeed = 0.4
-Damage = 50
-AttackRange = 160.0
-AvailableAtWave = 1
+AttackSpeed = 0.3
+Damage = 60
+AttackRange = 60.0
+AvailableAtWave = 4
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
 position = Vector2(26.2875, 27.5493)
@@ -88,8 +89,7 @@ autostart = true
 [node name="Slash" type="AnimatedSprite2D" parent="."]
 position = Vector2(1.01837, -6.99734)
 rotation = 0.566756
-scale = Vector2(0.476413, 0.514244)
-skew = -0.0890118
+scale = Vector2(0.474538, 0.51546)
 sprite_frames = SubResource("SpriteFrames_3vus7")
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]

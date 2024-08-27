@@ -354,12 +354,11 @@ position = Vector2(340, 139)
 scale = Vector2(0.714542, 0.714542)
 collision_layer = 2
 collision_mask = 12
-safe_margin = 3.636
 script = ExtResource("1_23ka2")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(362.47, 198.729)
-scale = Vector2(1.04554, 0.799329)
+position = Vector2(403.311, 198.729)
+scale = Vector2(0.811492, 0.799329)
 sprite_frames = SubResource("SpriteFrames_qwwvm")
 animation = &"walk"
 
@@ -371,9 +370,9 @@ collision_mask = 12
 script = ExtResource("82_idcon")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="MobCollisions"]
-position = Vector2(-89.4087, -264.505)
+position = Vector2(-33.5287, -277.101)
 scale = Vector2(0.9935, 1.0142)
-polygon = PackedVector2Array(53.8208, 372.157, 236.287, 369.527, 238.912, 144.655, 98.4528, 144.655, -23.6287, 147.285, -18.1494, 370.909, 129.958, 369.527)
+polygon = PackedVector2Array(236.287, 369.527, 240.452, 175.248, 106.867, 173.868, 36.5599, 175.248, 39.3723, 258.042, 43.5907, 372.574, 129.958, 369.527)
 
 [node name="HealthBar" type="TextureProgressBar" parent="."]
 offset_left = 194.53
@@ -402,8 +401,9 @@ position = Vector2(317.686, 393.259)
 stream = ExtResource("4_oe018")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
-position = Vector2(132.952, -30.789)
-polygon = PackedVector2Array(309.035, 356.376, 307.72, 256.433, 314.295, 132.819, 115.724, 132.819, 44.7114, 132.819, 49.9715, 287.994, 51.2866, 362.951, 115.724, 361.636)
+position = Vector2(264.505, -12.5955)
+scale = Vector2(0.778616, 0.917865)
+polygon = PackedVector2Array(309.035, 356.376, 307.72, 256.433, 303.763, 146.374, 118.63, 147.899, 48.5303, 144.85, 49.9715, 287.994, 51.2866, 362.951, 115.724, 361.636)
 
 [node name="HitLabelsCont" type="MarginContainer" parent="."]
 offset_left = 520.613

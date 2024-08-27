@@ -25,8 +25,6 @@ namespace FinkiAdventureQuest.FinkiSurvive.code
             var attack = area as BaseAttack;
             mobParent.TakeDamage((int) attack!.GetDamage());
             
-            GD.Print("Mob Damaged: " + attack.GetDamage());
-			
         }
 		
     }

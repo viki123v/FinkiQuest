@@ -9,6 +9,7 @@ public partial class ChooseGame : Control
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
+		GetTree().Paused = false;
 	}
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -20,6 +21,11 @@ public partial class ChooseGame : Control
 	{
 		GetTree().ChangeSceneToFile(ProjectPath.MainScenePath);
 	}
+
+	public void FinkiTetris()
+	 =>  GetTree().ChangeSceneToFile("res://ViktorIgraTuka/scenes/mainGameSections/FinkiTetrisExplanation.tscn");
+	
+	
 	public void SpaceAlorithms(){
 		GetTree().ChangeSceneToFile("res://SpaceAlgorithm's/scenes/start.tscn");
 	}
