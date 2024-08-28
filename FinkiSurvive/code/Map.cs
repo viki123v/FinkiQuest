@@ -11,10 +11,10 @@ namespace FinkiAdventureQuest.FinkiSurvive.code
 	{
 		
 		public static int WaveCount = 1;
-		public static int Score = 350;
+		public static int Score = 0;
 		public static int Grade = 5;
 		public static readonly int WaveTime = 30;
-		public static uint FrameCount;
+		//public static uint FrameCount;
 		
 		private readonly Random _rng = new();
 
@@ -62,6 +62,7 @@ namespace FinkiAdventureQuest.FinkiSurvive.code
 			
 			GD.Print("TARGET SPAWN: " + MobSpawner.CalcDecrementValue(10,0.5f));
 			
+			
 		}
 
 		// ReSharper disable once InconsistentNaming
@@ -76,9 +77,6 @@ namespace FinkiAdventureQuest.FinkiSurvive.code
 		
 		public override void _Process(double delta)
 		{
-			
-			FrameCount++;
-			if (FrameCount >= uint.MaxValue - 1) FrameCount = 0;
 			_fps.Text = Engine.GetFramesPerSecond().ToString();
 		}
 

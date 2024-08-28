@@ -19,8 +19,14 @@ public abstract partial class Mob : CharacterBody2D
     public int AttackDamage = 2;
     public float SeekForce = 0.05f;
     public Vector2 Acceleration = Vector2.Zero;
+
+    protected Timer AttackSpeedTimer = new();
+    public Timer FlipTimer = new();
+
+    public bool CanFlip = false;
 		
     protected readonly List<int> HpScaling = new();
+    protected bool CanAttack = false;
 
     private bool _canMove = true;
     public static bool StateValid = true;
@@ -35,7 +41,6 @@ public abstract partial class Mob : CharacterBody2D
 
     public override void _Ready()
     {
-			
         _healthBar = GetNode<TextureProgressBar>("HealthBar");
         Health = MaxHealth;
         _animSprite = GetNode<AnimatedSprite2D>("AnimatedSprite2D");
@@ -45,6 +50,15 @@ public abstract partial class Mob : CharacterBody2D
 			
         var playerObj = GetNode<Player>("/root/Level/Player");
         playerObj?.Connect(nameof(Player.PlayerMoved), new Callable(this, nameof(MoveMob)));
+
+        AttackSpeedTimer.Autostart = true;
+        AttackSpeedTimer.Timeout += () => { CanAttack = true; };
+        
+        FlipTimer.Autostart = true;
+        FlipTimer.WaitTime = 0.5f;
+        FlipTimer.Timeout += () => { CanFlip = true; };
+        
+        AddChild(FlipTimer);
 			
         _animSprite.Play("walk");
 
@@ -118,10 +132,6 @@ public abstract partial class Mob : CharacterBody2D
 			
         var collision = MoveAndCollide(Velocity);
 
-        if (Map.FrameCount++ % 60 == 0)
-        {
-            _animSprite.FlipH = desired.X < 0;
-        }
 			
 			
         var bounceFactor = 2;
@@ -140,11 +150,18 @@ public abstract partial class Mob : CharacterBody2D
             }
         }
         
+        
+        if (!CanFlip) return;
+        
+        _animSprite.FlipH = desired.X < 0;
+        CanFlip = false;
+
     }
 
     public abstract void Attack();
 
     public abstract int GetDamage();
+    
 
     public void MoveMob(Vector2 position)
     {

@@ -1,0 +1,60 @@
+[gd_scene load_steps=8 format=3 uid="uid://8re1f1cepmc"]
+
+[ext_resource type="Texture2D" uid="uid://c3t4f0etdyaad" path="res://MainScene/icons8-exit-50.png" id="1_ajxjk"]
+[ext_resource type="FontFile" uid="uid://4on88usjtnj4" path="res://FinkiSurvive/tmp_assets/FONTS/videophreak/VIDEOPHREAK.ttf" id="1_bqpfu"]
+[ext_resource type="Script" path="res://MainScene/QuitGamePopup.cs" id="1_hh5vv"]
+[ext_resource type="Script" path="res://MainScene/QuitButton.cs" id="2_x42e3"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_fixr2"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_mkplg"]
+
+[sub_resource type="Theme" id="Theme_rl6n8"]
+Button/colors/icon_hover_color = Color(0.490196, 0, 0.219608, 0.901961)
+Button/styles/focus = SubResource("StyleBoxEmpty_fixr2")
+Button/styles/pressed = SubResource("StyleBoxEmpty_mkplg")
+
+[node name="Control" type="Control"]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -3.0
+offset_top = 1.0
+offset_right = -3.0
+offset_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_hh5vv")
+
+[node name="ConfirmationDialog" type="ConfirmationDialog" parent="."]
+title = "Leave Game"
+initial_position = 1
+size = Vector2i(252, 100)
+ok_button_text = "Quit"
+dialog_text = "Are you sure you want to quit?"
+cancel_button_text = "Continue Playing"
+
+[node name="QuitButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = -1.0
+offset_top = -6.0
+offset_right = 57.0
+offset_bottom = 52.0
+tooltip_text = "Leave Game"
+theme = SubResource("Theme_rl6n8")
+icon = ExtResource("1_ajxjk")
+flat = true
+script = ExtResource("2_x42e3")
+
+[node name="Label" type="Label" parent="QuitButton"]
+z_index = 1
+layout_mode = 0
+offset_left = 34.0
+offset_top = -4.0
+offset_right = 74.0
+offset_bottom = 19.0
+theme_override_fonts/font = ExtResource("1_bqpfu")
+theme_override_font_sizes/font_size = 12
+text = "Quit"

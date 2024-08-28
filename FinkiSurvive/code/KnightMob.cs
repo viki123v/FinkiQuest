@@ -15,14 +15,17 @@ namespace FinkiAdventureQuest.FinkiSurvive.code
 				ScaleHp();
 			Speed = rng.Next(60,70);
 			base._Ready();
+			AttackSpeedTimer.WaitTime = 0.5f;
+			AddChild(AttackSpeedTimer);
 		}
 
 		public override void Attack()
 		{
-			_animSprite.Play("attack");
-			if (Map.FrameCount % 60 != 0) return;
+			if (!CanAttack) return;
+			
 			GetNode<Player>("/root/Level/Player").TakeDamage(GetDamage());
 			_animSprite.Play("attack");
+			CanAttack = false;
 		}
 
 		public override int GetDamage()

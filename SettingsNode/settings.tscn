@@ -1,0 +1,128 @@
+[gd_scene load_steps=7 format=3 uid="uid://dj0qc3pxlg5f2"]
+
+[ext_resource type="Script" path="res://SettingsNode/Settings.cs" id="1_5xg0l"]
+[ext_resource type="LabelSettings" uid="uid://dqihd3qcb11xj" path="res://SettingsNode/settings.tres" id="2_fav6u"]
+[ext_resource type="FontFile" uid="uid://4on88usjtnj4" path="res://FinkiSurvive/tmp_assets/FONTS/videophreak/VIDEOPHREAK.ttf" id="3_sm4k0"]
+[ext_resource type="Texture2D" uid="uid://lwdnp332naim" path="res://SettingsNode/icons8-settings-50.png" id="4_ixxli"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1xqx3"]
+
+[sub_resource type="Theme" id="Theme_6f6go"]
+Button/colors/icon_hover_color = Color(0.490196, 0, 0.219608, 0.901961)
+Button/styles/focus = SubResource("StyleBoxEmpty_1xqx3")
+
+[node name="Settings" type="Control"]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 0
+scale = Vector2(0.623985, 2.07148)
+size_flags_horizontal = 3
+script = ExtResource("1_5xg0l")
+
+[node name="Menu" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.373
+anchor_top = 0.303
+anchor_right = 0.373
+anchor_bottom = 0.303
+offset_left = -89.7457
+offset_top = 7.72396
+offset_right = 93.2543
+offset_bottom = 172.724
+scale = Vector2(1.44178, 0.443442)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Menu"]
+layout_mode = 2
+
+[node name="Volume Label" type="Label" parent="Menu/VBoxContainer"]
+layout_mode = 2
+text = "Volume"
+label_settings = ExtResource("2_fav6u")
+horizontal_alignment = 1
+
+[node name="HSlider" type="HSlider" parent="Menu/VBoxContainer"]
+layout_mode = 2
+value = 50.0
+
+[node name="CheckBox" type="CheckBox" parent="Menu/VBoxContainer/HSlider"]
+layout_mode = 2
+offset_left = 122.108
+offset_top = -25.0
+offset_right = 183.108
+offset_bottom = -1.0
+theme_override_colors/font_hover_color = Color(0.952941, 0.670588, 0.231373, 1)
+theme_override_fonts/font = ExtResource("3_sm4k0")
+theme_override_font_sizes/font_size = 12
+text = "Mute"
+alignment = 1
+
+[node name="DisplayModeLabel" type="Label" parent="Menu/VBoxContainer"]
+layout_mode = 2
+text = "Display Mode"
+label_settings = ExtResource("2_fav6u")
+horizontal_alignment = 1
+
+[node name="OptionButton" type="OptionButton" parent="Menu/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+selected = 0
+item_count = 2
+popup/item_0/text = "Windowed"
+popup/item_0/id = 1
+popup/item_1/text = "Fullscreen"
+popup/item_1/id = 1
+
+[node name="Label" type="Label" parent="Menu/VBoxContainer"]
+layout_mode = 2
+text = "Resolution"
+label_settings = ExtResource("2_fav6u")
+horizontal_alignment = 1
+
+[node name="ResolutionOptions" type="OptionButton" parent="Menu/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+selected = 0
+item_count = 4
+popup/item_0/text = "1280x720"
+popup/item_0/id = 3
+popup/item_1/text = "1366x768"
+popup/item_1/id = 2
+popup/item_2/text = "1600x900"
+popup/item_2/id = 1
+popup/item_3/text = "1920x1080"
+popup/item_3/id = 3
+
+[node name="TextureButton" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.323
+anchor_top = 0.05
+anchor_right = 0.323
+anchor_bottom = 0.05
+offset_left = 12.8208
+offset_top = -23.1719
+offset_right = 70.8208
+offset_bottom = 36.8281
+scale = Vector2(0.762848, 0.202524)
+theme = SubResource("Theme_6f6go")
+icon = ExtResource("4_ixxli")
+flat = true
+icon_alignment = 1
+
+[node name="Label" type="Label" parent="TextureButton"]
+visible = false
+z_index = 1
+layout_mode = 0
+offset_left = 30.1252
+offset_right = 92.1252
+offset_bottom = 23.0
+theme_override_fonts/font = ExtResource("3_sm4k0")
+theme_override_font_sizes/font_size = 12
+text = "Settings"
+
+[connection signal="value_changed" from="Menu/VBoxContainer/HSlider" to="." method="OnVolumeSliderValueChanged"]
+[connection signal="toggled" from="Menu/VBoxContainer/HSlider/CheckBox" to="." method="OnMuteCheckBoxToggled"]
+[connection signal="item_selected" from="Menu/VBoxContainer/OptionButton" to="." method="OnDisplayModeOptionSelected"]
+[connection signal="item_selected" from="Menu/VBoxContainer/ResolutionOptions" to="." method="OnResolutionOptionSelected"]
+[connection signal="pressed" from="TextureButton" to="." method="ShowMenu"]

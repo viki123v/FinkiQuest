@@ -19,6 +19,7 @@ namespace FinkiAdventureQuest.FinkiSurvive.code
 		
         private BaseAttack _currentAttack;
         private bool _canAttack;
+        private bool _canBounce;
 
         private readonly List<string> _attackScenes = new();
         private int _currentAttackIdx;
@@ -57,6 +58,12 @@ namespace FinkiAdventureQuest.FinkiSurvive.code
             GetNode<Timer>("AttackSpeed").WaitTime = _currentAttack.GetAttackSpeed();
 			
             _animation = GetNode<AnimatedSprite2D>("PlayerImage/PlayerSprite");
+
+            Timer BounceTimer = new Timer();
+            
+            BounceTimer.Autostart = true;
+            BounceTimer.WaitTime = 0.2f;
+            BounceTimer.Timeout += () => { _canBounce = true; };
 
             canDash = true;
 
@@ -112,20 +119,14 @@ namespace FinkiAdventureQuest.FinkiSurvive.code
             Velocity = direction * (Speed * (float)delta);
 			
             var collision = MoveAndCollide(Velocity);
-
-            if (collision != null)
-            {
-                if (Map.FrameCount % 10 == 0)
-                {
-                    Velocity = Velocity.Bounce((collision.GetNormal()).Normalized());
-                    MoveAndCollide(Velocity * 2);
-                }
-                
-            }
-			
             EmitSignal(nameof(PlayerMoved),Position);
-			
-            _canAttack = false;
+
+            if (collision == null) return;
+            if (!_canBounce) return;
+                
+            Velocity = Velocity.Bounce((collision.GetNormal()).Normalized());
+            MoveAndCollide(Velocity * 2);
+            
         }
         
 
@@ -196,7 +197,8 @@ namespace FinkiAdventureQuest.FinkiSurvive.code
         {
             if(!_canAttack) return;
 
-            _canAttack = true;
+            _canAttack = false;
+            
             PackedScene attackScene = GD.Load<PackedScene>(ProjectPath.ScenesPath + _attackScenes[_currentAttackIdx] + ".tscn");
             _currentAttack = attackScene.Instantiate() as BaseAttack;
             var cont = GetNode<Node2D>("Attacks/" + _currentAttack!.GetContainerName());
