@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=4 uid="uid://u6tdgbuw31s8"]
+[gd_scene load_steps=35 format=4 uid="uid://u6tdgbuw31s8"]
 
 [ext_resource type="Script" path="res://FinkiSurvive/code/Map.cs" id="1_bpkay"]
 [ext_resource type="Texture2D" uid="uid://bv1r25vwj74db" path="res://FinkiSurvive/tmp_assets/TILESET/mountain_landscape.png" id="2_4466c"]
@@ -13,6 +13,8 @@
 [ext_resource type="Script" path="res://FinkiSurvive/code/DashProgress.cs" id="9_w4qm5"]
 [ext_resource type="PackedScene" uid="uid://xndssfje6yyu" path="res://FinkiSurvive/scenes/win_screen.tscn" id="10_k3y2k"]
 [ext_resource type="Texture2D" uid="uid://b83cqy1j8cc8s" path="res://FinkiSurvive/assets/spacebaricon.png" id="10_s3tdu"]
+[ext_resource type="PackedScene" uid="uid://8re1f1cepmc" path="res://MainScene/QuitGamePopup.tscn" id="12_d36eh"]
+[ext_resource type="PackedScene" uid="uid://dj0qc3pxlg5f2" path="res://SettingsNode/settings.tscn" id="14_dgnaq"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_s1m5j"]
 texture = ExtResource("2_4466c")
@@ -482,7 +484,6 @@ autoplay = true
 [node name="UI" type="CanvasLayer" parent="."]
 
 [node name="FpsCont" type="MarginContainer" parent="UI"]
-visible = false
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
@@ -491,6 +492,7 @@ offset_top = 3.0
 offset_right = -19.0
 offset_bottom = 43.0
 grow_horizontal = 0
+scale = Vector2(0.997646, 1)
 
 [node name="Label" type="Label" parent="UI/FpsCont"]
 layout_mode = 2
@@ -531,17 +533,18 @@ uppercase = true
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -304.0
-offset_right = -264.0
-offset_bottom = 40.0
+offset_left = -201.0
+offset_top = 4.0
+offset_right = -156.0
+offset_bottom = 44.0
 grow_horizontal = 0
-scale = Vector2(1.02281, 1.02281)
+scale = Vector2(0.998935, 0.935051)
 
 [node name="MenuButton" type="MenuButton" parent="UI/GameInfoCont"]
-process_mode = 3
 layout_mode = 2
 theme = ExtResource("7_2ukd3")
 theme_override_font_sizes/font_size = 12
+icon_alignment = 1
 item_count = 2
 popup/item_0/text = "New attacks are available on Wave 2 and Wave 4"
 popup/item_0/id = 1
@@ -549,6 +552,14 @@ popup/item_0/separator = true
 popup/item_1/text = "Attack1: Abillity: Heal"
 popup/item_1/icon = ExtResource("8_gq6nm")
 popup/item_1/id = 1
+metadata/_edit_lock_ = true
+
+[node name="Settings" parent="UI" groups=["MenuButtons"] instance=ExtResource("14_dgnaq")]
+offset_left = 998.0
+offset_top = 79.0
+offset_right = 998.0
+offset_bottom = 79.0
+scale = Vector2(0.963054, 3.27755)
 
 [node name="WaveNumCont" type="MarginContainer" parent="UI"]
 anchors_preset = -1
@@ -589,9 +600,9 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_7678r")
 [node name="DashProgress" type="TextureProgressBar" parent="UI/CurrentWeaponCont/Panel"]
 modulate = Color(0.74902, 0.529412, 0.262745, 0.980392)
 layout_mode = 0
-offset_left = 6.81846
+offset_left = 2.98507
 offset_top = 15.914
-offset_right = 609.818
+offset_right = 605.985
 offset_bottom = 588.914
 scale = Vector2(0.00596954, 0.102666)
 max_value = 150.0
@@ -624,9 +635,9 @@ texture = ExtResource("8_gq6nm")
 
 [node name="SpaceBarIcon" type="TextureRect" parent="UI/CurrentWeaponCont/Panel"]
 layout_mode = 0
-offset_left = 6.0
+offset_left = 2.16661
 offset_top = 84.0
-offset_right = 10.0
+offset_right = 6.16661
 offset_bottom = 105.0
 scale = Vector2(1.36377, 1.01631)
 texture = ExtResource("10_s3tdu")
@@ -656,6 +667,7 @@ offset_right = 290.0
 offset_bottom = 302.0
 rotation = -0.195261
 scale = Vector2(0.347624, 0.288503)
+metadata/_edit_lock_ = true
 
 [node name="TextureRect" type="TextureRect" parent="UI/LogoCont"]
 self_modulate = Color(1, 1, 1, 0.654902)
@@ -664,6 +676,13 @@ size_flags_horizontal = 4
 theme = SubResource("Theme_nmqei")
 texture = ExtResource("8_h6pmy")
 metadata/_edit_lock_ = true
+
+[node name="QuitGame" parent="UI" groups=["MenuButtons"] instance=ExtResource("12_d36eh")]
+offset_left = 1149.0
+offset_top = 8.0
+offset_right = -46.0
+offset_bottom = -573.0
+scale = Vector2(0.656538, 0.667675)
 
 [node name="DeathScreen" parent="." instance=ExtResource("9_ob5eq")]
 visible = false

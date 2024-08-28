@@ -1,0 +1,7 @@
+[gd_resource type="LabelSettings" load_steps=2 format=3 uid="uid://dqihd3qcb11xj"]
+
+[ext_resource type="FontFile" uid="uid://4on88usjtnj4" path="res://FinkiSurvive/tmp_assets/FONTS/videophreak/VIDEOPHREAK.ttf" id="1_io4x3"]
+
+[resource]
+font = ExtResource("1_io4x3")
+font_color = Color(1, 0.772549, 0.364706, 1)
