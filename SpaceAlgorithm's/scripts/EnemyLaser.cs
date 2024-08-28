@@ -19,8 +19,8 @@ public partial class EnemyLaser : Area2D
 	}
 
 	private void _on_area_entered(Area2D area){
-		if(area is Laser){
-			this.QueueFree();
-		}
+		// if(area is Laser){
+		// 	this.QueueFree();
+		// }
 	}
 }

@@ -1,9 +1,10 @@
-res://SpaceAlgorithm's/prefabs/pause_menu.tscn
-res://SpaceAlgorithm's/scenes/game.tscn
-res://SpaceAlgorithm's/shaders/pause_menu.gdshader
 res://SpaceAlgorithm's/prefabs/boss.tscn
+res://SpaceAlgorithm's/shaders/pause_menu.gdshader
+res://SpaceAlgorithm's/scenes/game.tscn
 res://SpaceAlgorithm's/scenes/end.tscn
 res://SpaceAlgorithm's/scenes/start.tscn
+res://SpaceAlgorithm's/prefabs/pause_menu.tscn
+res://SpaceAlgorithm's/scenes/background.tscn
 res://SpaceAlgorithm's/scripts/Meteor.cs
 res://FinkiSurvive/code/Attack1.cs
 res://FinkiSurvive/code/ZombieMob.cs
@@ -21,13 +22,13 @@ res://SpaceAlgorithm's/scripts/GpuParticles2d.cs
 res://FinkiSurvive/code/Attack2.cs
 res://FinkiSurvive/code/DashProgress.cs
 res://MainScene/ChooseGame.cs
-res://SpaceAlgorithm's/scripts/Player.cs
+res://SpaceAlgorithm's/scripts/PauseMenu.cs
 res://SpaceAlgorithm's/scripts/BossSpecial.cs
 res://ViktorIgraTuka/scenes/mainGameSections/FinkiTetrisExplanation.cs
 res://SpaceAlgorithm's/scripts/BossDeath.cs
 res://MainScene/MainMenu.cs
 res://FinkiSurvive/code/DeathScreen.cs
-res://SpaceAlgorithm's/scripts/Shield.cs
+res://SpaceAlgorithm's/scripts/Player.cs
 res://SpaceAlgorithm's/scripts/Laser.cs
 res://FinkiSurvive/code/Player.cs
 res://SpaceAlgorithm's/scripts/Boss.cs
@@ -40,6 +41,5 @@ res://ViktorIgraTuka/scenes/mainGameSections/FinkiTetrisEndCredits.cs
 res://FinkiSurvive/code/MobCollisions.cs
 res://SpaceAlgorithm's/scripts/End.cs
 res://FinkiSurvive/code/win_screen.cs
+res://SpaceAlgorithm's/scripts/Shield.cs
 res://SpaceAlgorithm's/scripts/Start.cs
-res://SpaceAlgorithm's/scripts/PauseMenu.cs
-res://SpaceAlgorithm's/scenes/background.tscn
