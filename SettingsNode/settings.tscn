@@ -19,7 +19,7 @@ scale = Vector2(0.623985, 2.07148)
 size_flags_horizontal = 3
 script = ExtResource("1_5xg0l")
 
-[node name="Menu" type="MarginContainer" parent="."]
+[node name="Menu" type="MarginContainer" parent="." groups=["Settings"]]
 visible = false
 layout_mode = 1
 anchors_preset = -1

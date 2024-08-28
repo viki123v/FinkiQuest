@@ -9,18 +9,17 @@ namespace FinkiAdventureQuest.MainScene
 public partial class ChooseGame : Control
 {
 	private Label _label;
-	private Button graduate;
-	static int[] grades = {5, 5, 5};
-
+	private Button _graduateButton;
+	
 	private static Dictionary<GameNames, int> _gameNameToGrade = new();
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
 		GetTree().Paused = false;
 		_label = GetNode<Label>("Container/Passed");
-		graduate = GetNode<Button>("Container/Graduate");
-		graduate.Disabled = true;
-		graduate.Pressed += () =>
+		_graduateButton = GetNode<Button>("Container/Graduate");
+		_graduateButton.Disabled = true;
+		_graduateButton.Pressed += () =>
 		{
 			GetTree().ChangeSceneToFile("res://Credits/credits.tscn");
 		};
@@ -33,7 +32,8 @@ public partial class ChooseGame : Control
 		_label.Text = "Exams passed: " + GetPassed() + "/3";
 		if (GetPassed() == 1)
 		{
-			graduate.Disabled = false;
+			_graduateButton.Disabled = false;
+			GetNode<Button>("/root/MainMenu/VBoxContainer/credits");
 		}
 		
 	}
@@ -42,11 +42,7 @@ public partial class ChooseGame : Control
 	{
 		_gameNameToGrade[name] = grade;
 	}
-
-	public static void setGrade(int gameNum, int grade){
-		grades[gameNum-1] = grade;
-	}
-
+	
 	public static int GetPassed(){
 		return _gameNameToGrade.Values.Count(value => value > 5);
 	}

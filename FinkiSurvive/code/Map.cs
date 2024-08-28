@@ -14,7 +14,6 @@ namespace FinkiAdventureQuest.FinkiSurvive.code
 		public static int Score = 0;
 		public static int Grade = 5;
 		public static readonly int WaveTime = 30;
-		//public static uint FrameCount;
 		
 		private readonly Random _rng = new();
 
@@ -61,8 +60,9 @@ namespace FinkiAdventureQuest.FinkiSurvive.code
 			AddChild(_spacebarIconTimer);
 			
 			GD.Print("TARGET SPAWN: " + MobSpawner.CalcDecrementValue(10,0.5f));
-			
-			
+
+			TreeExiting += ResetStats;
+
 		}
 
 		// ReSharper disable once InconsistentNaming
@@ -99,7 +99,7 @@ namespace FinkiAdventureQuest.FinkiSurvive.code
 				mob.QueueFree();
 		}
 
-		private void PauseGame()
+		 void PauseGame()
 		{
 			GetNode<Timer>("MobSpawnTimer").Stop();
 			GetNode<Timer>("GameTimer").Stop();
@@ -113,11 +113,19 @@ namespace FinkiAdventureQuest.FinkiSurvive.code
 			{
 				GetNode<CanvasLayer>("WinScreen").Visible = true;
 				ChooseGame.AddGradeEntry(GameNames.FinkiSurvive,Grade);
-				Score = 0;
-				Grade = 5;
+				ResetStats();
 			}
 			else GetNode<CanvasLayer>("DeathScreen").Visible = true;
+			
 			PauseSceneTree();
+		}
+
+		private void ResetStats()
+		{
+			Score = 0;
+			Grade = 5;
+			_canGraduate = false;
+			WaveCount = 1;
 		}
 
 
@@ -125,17 +133,16 @@ namespace FinkiAdventureQuest.FinkiSurvive.code
 		{
 			GetTree().Paused = false;
 			GetTree().ReloadCurrentScene();
-			WaveCount = 1;
 			Mob.StateValid = true;
-			Score = 0;
-			Grade = 5;
-			_canGraduate = false;
+			ResetStats();
+			
 		}
 
 
 		private void QuitToGameSelection()
 		{
 			GetTree().ChangeSceneToFile("res://MainScene/choose_game.tscn");
+			ResetStats();
 		}
 
 		private void UpdateScore()

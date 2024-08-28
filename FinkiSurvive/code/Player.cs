@@ -62,8 +62,9 @@ namespace FinkiAdventureQuest.FinkiSurvive.code
             Timer BounceTimer = new Timer();
             
             BounceTimer.Autostart = true;
-            BounceTimer.WaitTime = 0.2f;
+            BounceTimer.WaitTime = 0.5f;
             BounceTimer.Timeout += () => { _canBounce = true; };
+            AddChild(BounceTimer);
 
             canDash = true;
 

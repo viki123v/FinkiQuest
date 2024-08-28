@@ -35,6 +35,11 @@ window/vsync/vsync_mode=0
 
 project/assembly_name="FinkiAdventureQuest"
 
+[global_group]
+
+MenuButtons=""
+Settings=""
+
 [input]
 
 FINKISURVIVE_player_left={

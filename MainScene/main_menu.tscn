@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://dbld6reqebrb8"]
+[gd_scene load_steps=12 format=3 uid="uid://dbld6reqebrb8"]
 
 [ext_resource type="Script" path="res://MainScene/MainMenu.cs" id="1_pgo65"]
 [ext_resource type="Texture2D" uid="uid://d4hxmqolvsl3r" path="res://MainScene/FinkiQuestBG.jpg" id="2_13027"]
@@ -31,6 +31,15 @@ shadow_offset = Vector2(0, 3.41)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kfn1t"]
 bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_size = 5
+shadow_offset = Vector2(0, 3.41)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5x1xd"]
+bg_color = Color(0.437501, 0.425042, 0.416736, 0.968627)
 corner_radius_top_left = 16
 corner_radius_top_right = 16
 corner_radius_bottom_right = 16
@@ -127,9 +136,11 @@ theme_override_colors/icon_disabled_color = Color(0, 0, 0, 1)
 theme_override_constants/h_separation = -1
 theme_override_font_sizes/font_size = 30
 theme_override_styles/focus = SubResource("StyleBoxEmpty_rnre0")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_5x1xd")
 theme_override_styles/hover = SubResource("StyleBoxFlat_eo5gt")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_gvxtg")
 theme_override_styles/normal = SubResource("StyleBoxFlat_kfn1t")
+disabled = true
 text = "Credits
 "
 
@@ -185,5 +196,5 @@ scale = Vector2(0.228084, 0.188531)
 texture = ExtResource("4_7af7c")
 
 [connection signal="pressed" from="VBoxContainer/start" to="." method="_on_start_pressed"]
-[connection signal="pressed" from="VBoxContainer/credits" to="." method="_on_credits_pressed"]
+[connection signal="pressed" from="VBoxContainer/credits" to="." method="OnSettingsPressed"]
 [connection signal="pressed" from="VBoxContainer/exit" to="." method="_on_exit_pressed"]

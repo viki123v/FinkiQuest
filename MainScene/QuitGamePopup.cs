@@ -1,11 +1,13 @@
 using Godot;
 using System;
+using System.Linq;
 
 public partial class QuitGamePopup : Control
 {
 	// Called when the node enters the scene tree for the first time.
 
-	private Label _label; 
+	private Label _label;
+	public bool IsActive;
 	public override void _Ready()
 	{
 		_label = GetNode<Label>("QuitButton/Label");
@@ -27,8 +29,22 @@ public partial class QuitGamePopup : Control
 		};
 		GetNode<Button>("QuitButton").Pressed += () =>
 		{
-			dialog.Visible = !dialog.Visible;
-			GetTree().Paused = false;
+			if (!dialog.Visible)
+			{
+				if (GetTree().GetNodesInGroup("Settings").Select(node => node as Control).Any(menu => menu!.Visible))
+				{
+					return;
+				}
+				
+				dialog.Visible = true;
+			}
+			else
+			{
+				dialog.Visible = false;
+				
+			}
+
+			GetTree().Paused = dialog.Visible;
 
 		};
 	}

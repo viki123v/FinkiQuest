@@ -131,10 +131,7 @@ public abstract partial class Mob : CharacterBody2D
         
 			
         var collision = MoveAndCollide(Velocity);
-
-			
-			
-        var bounceFactor = 2;
+        
 
         if (collision != null)
         { 
