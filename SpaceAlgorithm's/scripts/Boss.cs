@@ -35,10 +35,10 @@ public partial class Boss : Area2D
                 var gameNode = (Game)GetParent();
                 gameNode.gameWin();
 
-				
                 Node2D explosionInstance = (Node2D) _bossDeathPrefab.Instantiate();
 				explosionInstance.Position = Position;
         		this.GetParent().AddChild(explosionInstance);
+                //Add the screen shake here
                 QueueFree();
                 return;
             }
