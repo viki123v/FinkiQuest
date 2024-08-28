@@ -1,5 +1,3 @@
-using System.Linq;
-using FinkiAdventureQuest.ViktorIgraTuka.scenes.util;
 using Godot;
 
 namespace FinkiAdventureQuest.ViktorIgraTuka.scenes.Blocks;

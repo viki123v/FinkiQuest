@@ -11,8 +11,6 @@ public class BlockTransition
         Vector2[] newPositions = new Vector2[fromPivotToBlcok.Length];
         newPositions[0] = pivotPosition;
 
-        var blockSize = FinkiTetrisPlayingGame.BlockSize;
-
         for (int i = 1; i < fromPivotToBlcok.Length; i++)
         {
             var newPosition = new Vector2(pivotPosition.X, pivotPosition.Y);
@@ -24,19 +22,15 @@ public class BlockTransition
 
             var xAxisTranslation = new Vector2(currentDisFromPivot.X * xAxis.X, currentDisFromPivot.X * xAxis.Y);
             var yAxisTranslation = new Vector2(currentDisFromPivot.Y * yAxis.X, currentDisFromPivot.Y * yAxis.Y);
-            var all = xAxisTranslation + yAxisTranslation;
 
-            newPosition.X += blockSize * all.X;
-            newPosition.Y += blockSize * all.Y;
-
+            newPosition.X += xAxisTranslation.Y + yAxisTranslation.Y;
+            newPosition.Y += xAxisTranslation.X + yAxisTranslation.X;
+            
             newPositions[i] = newPosition;
         }
 
         return newPositions;
     }
-
-    public static Vector2[] MoveBlocks(ColorRect[] nodePositions, Vector2 direction)
-        => nodePositions.Select(node => node.Position).Select(pos => pos + direction).ToArray();
 
     public static ColorRect Create(Vector2 position)
     {
