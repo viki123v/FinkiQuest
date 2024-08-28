@@ -1,0 +1,73 @@
+[gd_scene load_steps=5 format=3 uid="uid://cy8v7i5b4nmnd"]
+
+[ext_resource type="Script" path="res://SpaceAlgorithm's/scripts/PauseMenu.cs" id="1_gxbl2"]
+[ext_resource type="Shader" path="res://SpaceAlgorithm's/shaders/pause_menu.gdshader" id="1_l4exm"]
+[ext_resource type="Theme" uid="uid://b1710rrqh6wcu" path="res://SpaceAlgorithm's/new_theme.tres" id="1_qoi1b"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_gpxl4"]
+shader = ExtResource("1_l4exm")
+shader_parameter/amount = 3.0
+
+[node name="PauseMenu" type="CanvasLayer"]
+process_mode = 3
+script = ExtResource("1_gxbl2")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_gpxl4")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="continue" type="Button" parent="."]
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.506076
+anchor_bottom = 0.5
+offset_left = -72.0
+offset_top = -53.0
+offset_right = 65.0
+offset_bottom = -5.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_qoi1b")
+text = "CONTINUE
+"
+
+[node name="exit" type="Button" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -48.0
+offset_top = 25.0
+offset_right = 48.0
+offset_bottom = 79.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_qoi1b")
+text = "Exit"
+
+[node name="Label" type="Label" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -185.5
+offset_top = -206.0
+offset_right = 185.5
+offset_bottom = -170.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_qoi1b")
+theme_override_font_sizes/font_size = 48
+text = "GAME PAUSED"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="pressed" from="continue" to="." method="_on_continue_pressed"]
+[connection signal="pressed" from="exit" to="." method="_on_exit_pressed"]

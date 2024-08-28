@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 HBoxContainer
 MarginContainer
 Label
@@ -12,3 +13,19 @@ VBoxContainer
 TextureButton
 Panel
 Control
+=======
+ColorRect
+WorldEnvironment
+CanvasLayer
+PanelContainer
+MarginContainer
+AnimationPlayer
+VBoxContainer
+Panel
+Container
+AudioStreamPlayer2D
+Label
+Control
+CollisionShape2D
+Sprite2D
+>>>>>>> 3696846d11b0706ef44a32b2893f3e67fcd75c14

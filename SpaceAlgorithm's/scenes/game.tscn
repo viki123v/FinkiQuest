@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://ckooju67ri4kc"]
+[gd_scene load_steps=7 format=3 uid="uid://ckooju67ri4kc"]
 
 [ext_resource type="PackedScene" uid="uid://cyehum7ce8f2m" path="res://SpaceAlgorithm's/prefabs/player.tscn" id="1_q4plj"]
 [ext_resource type="Script" path="res://SpaceAlgorithm's/scripts/Game.cs" id="1_xeluj"]
 [ext_resource type="PackedScene" uid="uid://offqhbjpbq0d" path="res://SpaceAlgorithm's/scenes/background.tscn" id="2_lcbv6"]
 [ext_resource type="AudioStream" uid="uid://pwru58paxuf4" path="res://SpaceAlgorithm's/assets/space-asteroids.ogg" id="4_7xs6w"]
 [ext_resource type="Theme" uid="uid://b1710rrqh6wcu" path="res://SpaceAlgorithm's/new_theme.tres" id="5_lhkjo"]
+[ext_resource type="PackedScene" uid="uid://cy8v7i5b4nmnd" path="res://SpaceAlgorithm's/prefabs/pause_menu.tscn" id="6_mw1cr"]
 
 [node name="game" type="Node2D"]
 script = ExtResource("1_xeluj")
@@ -57,6 +58,9 @@ offset_right = 81.0
 offset_bottom = 41.0
 grow_horizontal = 2
 text = "Points: 0 / 100"
+
+[node name="PauseMenu" parent="." instance=ExtResource("6_mw1cr")]
+visible = false
 
 [connection signal="timeout" from="enemy_timer" to="." method="_on_enemy_timer_timeout"]
 [connection signal="timeout" from="enemy_timer" to="player" method="_on_enemy_timer_timeout"]

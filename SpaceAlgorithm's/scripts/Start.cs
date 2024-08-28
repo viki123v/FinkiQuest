@@ -11,6 +11,7 @@ public partial class Start : CanvasLayer
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
 	public override void _Process(double delta)
 	{
+		
 	}
 
 	public void _on_start_pressed(){

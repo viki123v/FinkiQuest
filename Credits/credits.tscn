@@ -1,10 +1,12 @@
-[gd_scene load_steps=4 format=3 uid="uid://6wwe7inx4i5j"]
+[gd_scene load_steps=6 format=3 uid="uid://6wwe7inx4i5j"]
 
-[ext_resource type="Texture2D" uid="uid://bdbv13fir2fie" path="res://MainScene/background_mc.jpg" id="1_6ru2u"]
+[ext_resource type="Script" path="res://Credits/Credits.cs" id="1_uprnf"]
+[ext_resource type="Texture2D" uid="uid://dc4djw2833hgb" path="res://Credits/graduating image.webp" id="2_8arxl"]
 [ext_resource type="Script" path="res://Credits/ScrollingLabel.cs" id="2_wd87s"]
+[ext_resource type="AudioStream" uid="uid://d4nsmb8kqdndu" path="res://Credits/José Feliciano - Feliz Navidad (Official Audio).mp3" id="3_bi2fi"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_7hh63"]
-texture = ExtResource("1_6ru2u")
+texture = ExtResource("2_8arxl")
 modulate_color = Color(0.446777, 0.446777, 0.446777, 1)
 
 [node name="Credits" type="Control"]
@@ -14,6 +16,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_uprnf")
 
 [node name="Panel" type="Panel" parent="."]
 modulate = Color(0.533037, 0.533037, 0.533037, 1)
@@ -36,3 +39,7 @@ grow_vertical = 2
 theme_override_font_sizes/font_size = 18
 horizontal_alignment = 1
 script = ExtResource("2_wd87s")
+
+[node name="Song" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_bi2fi")
+autoplay = true

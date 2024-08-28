@@ -1,3 +1,10 @@
+<<<<<<< HEAD
+=======
+res://SpaceAlgorithm's/shaders
+res://SpaceAlgorithm's/scripts
+res://SpaceAlgorithm's/prefabs
+res://FinkiSurvive/assets
+>>>>>>> 3696846d11b0706ef44a32b2893f3e67fcd75c14
 res://MainScene
 res://SettingsNode
 res://FinkiSurvive/assets
@@ -12,6 +19,5 @@ res://FinkiSurvive/tmp_assets/Char/PNG/Sword_Walk
 res://FinkiSurvive/assets/characters/Samurai
 res://SpaceAlgorithm's/kenney_space-shooter-redux/PNG/Effects
 >>>>>>> dc6c06c7a7e08d1e9d362a16b4c4fb5ce0c297f5
-res://SpaceAlgorithm's/scripts
 res://SpaceAlgorithm's/kenney_space-shooter-redux/PNG/Effects
 res://SpaceAlgorithm's/assets/Boss
