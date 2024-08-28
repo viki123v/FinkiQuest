@@ -21,6 +21,7 @@ public partial class Game : Node2D
     private Label _label;
 	private Control _control;
 	private Timer _endTimer;
+	private CanvasLayer _pauseMenu;
 	Boss boss;
 
 
@@ -43,15 +44,20 @@ public partial class Game : Node2D
 		_control = GetNode<Control>("game_ui");
 		_label = GetNode<Label>("game_ui/score_label");
 		_endTimer = GetNode<Timer>("end_timer");
+		_pauseMenu = GetNode<CanvasLayer>("PauseMenu");
 
-		// startBoss();
-		// bossStarted = true;
+		startBoss();
+		bossStarted = true;
 	}
 	
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
 	public override void _Process(double delta)
 {
+	if (Input.IsActionJustPressed("escape")){
+		togglePause();
+	}
+
     if (boss != null && IsInstanceValid(boss))
     {
         boss.Position = new Vector2(_screenSize.X - 250, _screenSize.Y / 2);
@@ -59,6 +65,11 @@ public partial class Game : Node2D
 
     _screenSize = GetViewport().GetVisibleRect().Size;
     _control.CustomMinimumSize = _screenSize;
+}
+
+public void togglePause(){
+	_pauseMenu.Visible = !_pauseMenu.Visible;
+	GetTree().Paused = !GetTree().Paused;
 }
 
 	private void _on_enemy_timer_timeout()

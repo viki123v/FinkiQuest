@@ -18,7 +18,9 @@ public partial class Meteor : Area2D
 	public override void _Process(double delta)
 	{
 		Position -= new Vector2(speed, 0);
+		Rotate(-0.5f * Mathf.Pi / 180.0f);
 	}
+
 
 	private void _on_area_entered(Area2D area){
 		if(area is Laser){

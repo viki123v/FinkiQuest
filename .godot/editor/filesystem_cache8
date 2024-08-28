@@ -1,13 +1,12 @@
 ea4bc82a6ad023ab7ee23ee620429895
-::res://::1724796314
-graduating image.webp::CompressedTexture2D::3688226735786626126::1724796294::1724796379::1::::<><>::
+::res://::1724804677
 icon.svg::CompressedTexture2D::3312622374120995061::1724409269::1724794900::1::::<><>::
 README.md::TextFile::-1::1724409269::0::1::::<><>::
-::res://Credits/::1724796366
-credits.tscn::PackedScene::2222615074112987037::1724796063::0::1::::<><>::uid://bdbv13fir2fie::::res://MainScene/background_mc.jpg<>res://Credits/Credits.cs<>res://Credits/ScrollingLabel.cs<>uid://d4nsmb8kqdndu::::res://Credits/José Feliciano - Feliz Navidad (Official Audio).mp3
+::res://Credits/::1724796448
+Credits.cs::CSharpScript::-1::1724796033::0::1::::<>Control<>::
+credits.tscn::PackedScene::2222615074112987037::1724796448::0::1::::<><>::res://Credits/Credits.cs<>uid://dc4djw2833hgb::::res://Credits/graduating image.webp<>res://Credits/ScrollingLabel.cs<>uid://d4nsmb8kqdndu::::res://Credits/José Feliciano - Feliz Navidad (Official Audio).mp3
 graduating image.webp::CompressedTexture2D::7359706115107862505::1724796269::1724796379::1::::<><>::
 José Feliciano - Feliz Navidad (Official Audio).mp3::AudioStreamMP3::9222689866759439046::1724795741::1724795795::1::::<><>::
-Credits.cs::CSharpScript::-1::1724796033::0::1::::<>Control<>::
 ScrollingLabel.cs::CSharpScript::-1::1724795843::0::1::::<>Label<>::
 ::res://FinkiSurvive/::1724769883
 test1232.txt::TextFile::-1::1724409262::0::1::::<><>::
@@ -4837,7 +4836,7 @@ Yellow_ruins2.png::CompressedTexture2D::3215633863507419725::1724409268::1724794
 Yellow_ruins3.png::CompressedTexture2D::5624937642970787900::1724409268::1724794897::1::::<><>::
 Yellow_ruins4.png::CompressedTexture2D::3581881004595426964::1724409268::1724794897::1::::<><>::
 Yellow_ruins5.png::CompressedTexture2D::5952593318577997564::1724409268::1724794897::1::::<><>::
-::res://MainScene/::1724796062
+::res://MainScene/::1724796448
 background_mc.jpg::CompressedTexture2D::2600374558615975504::1724436273::1724794898::1::::<><>::
 ChooseGame.cs::CSharpScript::-1::1724794667::0::1::::<>Control<>::
 choose_game.tscn::PackedScene::6648117799256713901::1724794667::0::1::::<><>::res://MainScene/ChooseGame.cs<>uid://bmglbdl6inmvr::::res://MainScene/FinkiSurviveChooseGame.jpg<>uid://4on88usjtnj4::::res://FinkiSurvive/tmp_assets/FONTS/videophreak/VIDEOPHREAK.ttf<>uid://by40sr5mgx58::::res://MainScene/left-arrow.png<>uid://cd2qbgx6xm00p::::res://FinkiSurvive/assets/logofinki-removebg-preview.png
@@ -4848,7 +4847,7 @@ GrapeSoda.ttf::FontFile::3027534639486526508::1724436253::1724794882::1::::<><>:
 left-arrow.png::CompressedTexture2D::121540320434656745::1724769884::1724794897::1::::<><>::
 logout(1).png::CompressedTexture2D::4462100713027515732::1724769884::1724794897::1::::<><>::
 MainMenu.cs::CSharpScript::-1::1724439588::0::1::::<>Control<>::
-main_menu.tscn::PackedScene::7252397460409885519::1724796062::0::1::::<><>::res://MainScene/MainMenu.cs<>uid://d4hxmqolvsl3r::::res://MainScene/FinkiQuestBG.jpg<>uid://4on88usjtnj4::::res://FinkiSurvive/tmp_assets/FONTS/videophreak/VIDEOPHREAK.ttf<>uid://cd2qbgx6xm00p::::res://FinkiSurvive/assets/logofinki-removebg-preview.png
+main_menu.tscn::PackedScene::7252397460409885519::1724796448::0::1::::<><>::res://MainScene/MainMenu.cs<>uid://d4hxmqolvsl3r::::res://MainScene/FinkiQuestBG.jpg<>uid://4on88usjtnj4::::res://FinkiSurvive/tmp_assets/FONTS/videophreak/VIDEOPHREAK.ttf<>uid://cd2qbgx6xm00p::::res://FinkiSurvive/assets/logofinki-removebg-preview.png
 ::res://scenes/::1724769884
 GameStats.tscn::PackedScene::4907080557465971831::1724769884::0::1::::<><>::uid://4on88usjtnj4::::res://FinkiSurvive/tmp_assets/FONTS/videophreak/VIDEOPHREAK.ttf<>uid://bkht2s674oh3r::::res://FinkiSurvive/assets/ui_font_purple.tres
 ::res://SpaceAlgorithm's/::1724794900
@@ -5217,8 +5216,8 @@ sheet.png::CompressedTexture2D::1478737400338668124::1723903961::1724794901::1::
 sheet.xml::TextFile::-1::1723903961::0::1::::<><>::
 ::res://SpaceAlgorithm's/kenney_space-shooter-redux/Vector/::1724794901
 sheet.svg::CompressedTexture2D::8858355894315868376::1723903961::1724794901::1::::<><>::
-::res://SpaceAlgorithm's/prefabs/::1724796313
-boss.tscn::PackedScene::4773379571089019491::1724796063::0::1::::<><>::res://SpaceAlgorithm's/scripts/Boss.cs<>uid://darexrxpjk4qe::::res://SpaceAlgorithm's/assets/Boss/frame_0_delay-0.15s.png<>uid://co1gaajexnga5::::res://SpaceAlgorithm's/assets/Boss/frame_1_delay-0.15s.png<>uid://cx52qposr3pht::::res://SpaceAlgorithm's/assets/Boss/frame_2_delay-0.15s.png<>uid://t7u5gicjsj54::::res://SpaceAlgorithm's/assets/Boss/frame_3_delay-0.15s.png<>uid://dexf2r6k6vetu::::res://SpaceAlgorithm's/assets/Boss/frame_4_delay-0.15s.png<>uid://06jard88t38u::::res://SpaceAlgorithm's/assets/Boss/frame_5_delay-0.15s.png<>uid://677ekuwjq4tt::::res://SpaceAlgorithm's/assets/8-bit RPG Music  Boss Battle.mp3<>uid://b1710rrqh6wcu::::res://SpaceAlgorithm's/new_theme.tres<>uid://derl01ynyqy7c::::res://SpaceAlgorithm's/assets/Boss/crack-3.png
+::res://SpaceAlgorithm's/prefabs/::1724796448
+boss.tscn::PackedScene::4773379571089019491::1724796448::0::1::::<><>::res://SpaceAlgorithm's/scripts/Boss.cs<>uid://darexrxpjk4qe::::res://SpaceAlgorithm's/assets/Boss/frame_0_delay-0.15s.png<>uid://co1gaajexnga5::::res://SpaceAlgorithm's/assets/Boss/frame_1_delay-0.15s.png<>uid://cx52qposr3pht::::res://SpaceAlgorithm's/assets/Boss/frame_2_delay-0.15s.png<>uid://t7u5gicjsj54::::res://SpaceAlgorithm's/assets/Boss/frame_3_delay-0.15s.png<>uid://dexf2r6k6vetu::::res://SpaceAlgorithm's/assets/Boss/frame_4_delay-0.15s.png<>uid://06jard88t38u::::res://SpaceAlgorithm's/assets/Boss/frame_5_delay-0.15s.png<>uid://677ekuwjq4tt::::res://SpaceAlgorithm's/assets/8-bit RPG Music  Boss Battle.mp3<>uid://b1710rrqh6wcu::::res://SpaceAlgorithm's/new_theme.tres<>uid://derl01ynyqy7c::::res://SpaceAlgorithm's/assets/Boss/crack-3.png
 boss_death.tscn::PackedScene::7929546284859743573::1724411015::0::1::::<><>::res://SpaceAlgorithm's/scripts/BossDeath.cs<>uid://doaxx54pahwgp::::res://SpaceAlgorithm's/assets/exploion.png<>uid://bf71nyb35awi5::::res://SpaceAlgorithm's/assets/Sounds/explosion.wav
 boss_hit.tscn::PackedScene::5610780156332195208::1724442205::0::1::::<><>::uid://cicjykq2ewagi::::res://SpaceAlgorithm's/kenney_space-shooter-redux/PNG/Lasers/laserRed09.png<>res://SpaceAlgorithm's/scripts/GpuParticles2d.cs<>uid://dvelumjc1orsc::::res://SpaceAlgorithm's/kenney_space-shooter-redux/Bonus/sfx_twoTone.ogg
 enemy.tscn::PackedScene::8742326635483754894::1724792002::0::1::::<><>::res://SpaceAlgorithm's/scripts/Enemy.cs<>uid://dl6y6b0n3ch44::::res://SpaceAlgorithm's/kenney_space-shooter-redux/PNG/Enemies/enemyGreen4.png
