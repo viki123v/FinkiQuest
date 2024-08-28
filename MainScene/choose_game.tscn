@@ -1891,7 +1891,7 @@ icon_alignment = 1
 
 [node name="Logofinki-removebg-preview" type="Sprite2D" parent="."]
 self_modulate = Color(1, 1, 1, 0.333333)
-position = Vector2(585, 309)
+position = Vector2(651, 341)
 scale = Vector2(0.144601, 0.126622)
 texture = ExtResource("4_v3em7")
 

@@ -1,16 +1,15 @@
+res://FinkiSurvive/scenes
+res://FinkiSurvive/assets
 <<<<<<< HEAD
 =======
 res://SpaceAlgorithm's/shaders
 res://SpaceAlgorithm's/scripts
 res://SpaceAlgorithm's/prefabs
-res://FinkiSurvive/assets
 >>>>>>> 3696846d11b0706ef44a32b2893f3e67fcd75c14
 res://MainScene
 res://SettingsNode
-res://FinkiSurvive/assets
 <<<<<<< HEAD
 =======
-res://FinkiSurvive/scenes
 res://scenes
 res://FinkiSurvive/tmp_assets/Char/PNG/Unarmed_Death
 res://FinkiSurvive/tmp_assets/Char/PNG/Sword_Run_Attack

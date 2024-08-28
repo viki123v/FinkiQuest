@@ -49,7 +49,7 @@ public partial class ChooseGame : Control
 
 	public void FinkiSurvive()
 	{
-		GetTree().ChangeSceneToFile(ProjectPath.MainScenePath);
+		GetTree().ChangeSceneToFile("res://FinkiSurvive/scenes/how_to_play.tscn");
 	}
 
 	public void FinkiTetris()

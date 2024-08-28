@@ -191,8 +191,8 @@ metadata/_edit_lock_ = true
 
 [node name="Logofinki-removebg-preview" type="Sprite2D" parent="."]
 self_modulate = Color(1, 1, 1, 0.2)
-position = Vector2(578, 312)
-scale = Vector2(0.228084, 0.188531)
+position = Vector2(643, 345)
+scale = Vector2(0.201704, 0.176774)
 texture = ExtResource("4_7af7c")
 
 [connection signal="pressed" from="VBoxContainer/start" to="." method="_on_start_pressed"]

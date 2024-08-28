@@ -1,85 +1,4 @@
-<<<<<<< HEAD
-res://SpaceAlgorithm's/prefabs/boss.tscn
-res://SpaceAlgorithm's/shaders/pause_menu.gdshader
-res://SpaceAlgorithm's/scenes/game.tscn
-res://SpaceAlgorithm's/scenes/end.tscn
-res://SpaceAlgorithm's/scenes/start.tscn
-res://SpaceAlgorithm's/prefabs/pause_menu.tscn
-res://SpaceAlgorithm's/scenes/background.tscn
-=======
 res://MainScene/main_menu.tscn
-<<<<<<< HEAD
-=======
->>>>>>> 765fbfc4aeb680d74c2bf934239481d6b2ef97dd
-res://SpaceAlgorithm's/scripts/Meteor.cs
-res://FinkiSurvive/code/MobCollisions.cs
-res://FinkiSurvive/code/Attack2.cs
-<<<<<<< HEAD
-res://FinkiSurvive/code/DashProgress.cs
-res://MainScene/ChooseGame.cs
-res://SpaceAlgorithm's/scripts/PauseMenu.cs
-res://SpaceAlgorithm's/scripts/BossSpecial.cs
-res://ViktorIgraTuka/scenes/mainGameSections/FinkiTetrisExplanation.cs
-res://SpaceAlgorithm's/scripts/BossDeath.cs
-res://MainScene/MainMenu.cs
-res://FinkiSurvive/code/DeathScreen.cs
-res://SpaceAlgorithm's/scripts/Player.cs
-res://SpaceAlgorithm's/scripts/Laser.cs
-res://FinkiSurvive/code/Player.cs
-res://SpaceAlgorithm's/scripts/Boss.cs
-=======
-res://MainScene/QuitGamePopup.cs
-res://FinkiSurvive/code/KnightMob.cs
-res://MainScene/QuitButton.cs
-res://FinkiSurvive/code/OrcMob.cs
-res://FinkiSurvive/code/ZombieMob.cs
-res://SpaceAlgorithm's/scripts/Game.cs
-res://SpaceAlgorithm's/scripts/Shield.cs
-res://SpaceAlgorithm's/scripts/BossDeath.cs
-res://SpaceAlgorithm's/scripts/Player.cs
-res://FinkiSurvive/code/BaseAttack.cs
-res://MainScene/MainMenu.cs
-res://SettingsNode/Settings.cs
-res://MainScene/ChooseGame.cs
->>>>>>> 765fbfc4aeb680d74c2bf934239481d6b2ef97dd
-res://FinkiSurvive/code/Attack3.cs
-res://FinkiSurvive/code/DashProgress.cs
-res://SpaceAlgorithm's/scripts/Laser.cs
-res://SpaceAlgorithm's/scripts/PauseMenu.cs
-res://FinkiSurvive/code/WinScreen.cs
-res://FinkiSurvive/code/HurtBox.cs
-res://FinkiSurvive/code/death_screen.cs
-res://FinkiSurvive/code/DeathScreen.cs
-res://SpaceAlgorithm's/scripts/GpuParticles2d.cs
-res://SpaceAlgorithm's/scripts/HowToPlay.cs
-res://SpaceAlgorithm's/scripts/EnemyLaser.cs
-res://SpaceAlgorithm's/scripts/Boss.cs
-res://SpaceAlgorithm's/scripts/End.cs
-<<<<<<< HEAD
-res://FinkiSurvive/code/win_screen.cs
-res://SpaceAlgorithm's/scripts/Shield.cs
-res://SpaceAlgorithm's/scripts/Start.cs
-=======
-res://SpaceAlgorithm's/scripts/Start.cs
-res://FinkiSurvive/code/Player.cs
-res://FinkiSurvive/code/Map.cs
-res://FinkiSurvive/code/Attack1.cs
-res://FinkiSurvive/code/win_screen.cs
-res://FinkiSurvive/code/Mob.cs
-res://Credits/ScrollingLabel.cs
-res://SpaceAlgorithm's/scripts/BossSpecial.cs
-res://Credits/Credits.cs
-res://SpaceAlgorithm's/scripts/Enemy.cs
-res://ViktorIgraTuka/scenes/mainGameSections/FinkiTetrisEndCredits.cs
-res://ViktorIgraTuka/scenes/mainGameSections/FinkiTetrisExplanation.cs
-res://FinkiSurvive/scenes/map.tscn
->>>>>>> 8faf86144cbe9184275beea766c4e06b91f188cd
-res://FinkiSurvive/themes/HelpMenuTheme.tres
-res://FinkiSurvive/assets/ui_font_purple.tres
-res://SettingsNode/settings.tres
-res://FinkiSurvive/scenes/map.tscn
-res://MainScene/QuitGamePopup.tscn
-<<<<<<< HEAD
 res://MainScene/MainMenu.cs
 res://MainScene/ChooseGame.cs
 res://FinkiSurvive/code/death_screen.cs
@@ -121,9 +40,9 @@ res://FinkiSurvive/code/MobCollisions.cs
 res://SpaceAlgorithm's/scripts/End.cs
 res://SpaceAlgorithm's/scripts/Game.cs
 res://Credits/Credits.cs
-res://FinkiSurvive/scenes/win_screen.tscn
-res://FinkiSurvive/scenes/death_screen.tscn
-res://SettingsNode/settings.tscn
-=======
->>>>>>> 765fbfc4aeb680d74c2bf934239481d6b2ef97dd
->>>>>>> 8faf86144cbe9184275beea766c4e06b91f188cd
+res://MainScene/choose_game.tscn
+res://FinkiSurvive/assets/HelpLabelsettings.tres
+res://FinkiSurvive/scenes/how_to_play.tscn
+res://FinkiSurvive/assets/HowToButtonTheme.tres
+res://FinkiSurvive/scenes/ButtonStyleBoxHowto.tres
+res://FinkiSurvive/code/HowToPlayFinkiSurvive.cs

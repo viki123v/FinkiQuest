@@ -229,7 +229,6 @@ namespace FinkiAdventureQuest.FinkiSurvive.code
 				}
 			}
 			
-			
 			GetNode<Label>("UI/WaveNumCont/Label").Text = "Wave: " + WaveCount;
 		}
 
