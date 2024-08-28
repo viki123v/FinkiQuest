@@ -113,6 +113,8 @@ namespace FinkiAdventureQuest.FinkiSurvive.code
 			{
 				GetNode<CanvasLayer>("WinScreen").Visible = true;
 				ChooseGame.AddGradeEntry(GameNames.FinkiSurvive,Grade);
+				Score = 0;
+				Grade = 5;
 			}
 			else GetNode<CanvasLayer>("DeathScreen").Visible = true;
 			PauseSceneTree();

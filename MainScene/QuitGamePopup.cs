@@ -27,8 +27,9 @@ public partial class QuitGamePopup : Control
 		};
 		GetNode<Button>("QuitButton").Pressed += () =>
 		{
-			dialog.Visible = !dialog.Visible; 
-			GetTree().Paused = true;
+			dialog.Visible = !dialog.Visible;
+			GetTree().Paused = false;
+
 		};
 	}
 

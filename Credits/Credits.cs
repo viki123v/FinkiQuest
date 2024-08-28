@@ -3,11 +3,11 @@ using System;
 
 public partial class Credits : Control
 {
-	AudioStreamPlayer audio;
+	AudioStreamPlayer2D audio;
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
-		audio = GetNode<AudioStreamPlayer>("Song");
+		audio = GetNode<AudioStreamPlayer2D>("Song");
 		audio.Play();
 	}
 

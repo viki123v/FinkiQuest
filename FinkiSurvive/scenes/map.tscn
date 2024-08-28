@@ -554,7 +554,7 @@ popup/item_1/icon = ExtResource("8_gq6nm")
 popup/item_1/id = 1
 metadata/_edit_lock_ = true
 
-[node name="Settings" parent="UI" instance=ExtResource("14_dgnaq")]
+[node name="Settings" parent="UI" groups=["MenuButtons"] instance=ExtResource("14_dgnaq")]
 offset_left = 998.0
 offset_top = 79.0
 offset_right = 998.0
@@ -677,7 +677,7 @@ theme = SubResource("Theme_nmqei")
 texture = ExtResource("8_h6pmy")
 metadata/_edit_lock_ = true
 
-[node name="QuitGame" parent="UI" instance=ExtResource("12_d36eh")]
+[node name="QuitGame" parent="UI" groups=["MenuButtons"] instance=ExtResource("12_d36eh")]
 offset_left = 1149.0
 offset_top = 8.0
 offset_right = -46.0

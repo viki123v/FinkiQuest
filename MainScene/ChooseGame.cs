@@ -40,7 +40,7 @@ public partial class ChooseGame : Control
 
 	public static void AddGradeEntry(GameNames name, int grade)
 	{
-		_gameNameToGrade.Add(name, grade);
+		_gameNameToGrade[name] = grade;
 	}
 
 	public static void setGrade(int gameNum, int grade){
