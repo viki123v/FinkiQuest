@@ -8,15 +8,6 @@ namespace FinkiAdventureQuest.ViktorIgraTuka.scenes.mainGameSections;
 
 public class DefaultConstructionMethods
 {
-    public static string[] BlockPaths = 
-    {
-        "res://ViktorIgraTuka/scenes/blockScenes/lTeramino.tscn",
-        "res://ViktorIgraTuka/scenes/blockScenes/skewTetramino.tscn",
-        "res://ViktorIgraTuka/scenes/blockScenes/squareTetramino.tscn",
-        "res://ViktorIgraTuka/scenes/blockScenes/straightTetramino.tscn",
-        "res://ViktorIgraTuka/scenes/blockScenes/tTeramino.tscn"
-    };
-
     public static string[] ColorPaths =
     {
         "res://ViktorIgraTuka/assets/blockTextures/blueBlock.png",
@@ -36,16 +27,7 @@ public class DefaultConstructionMethods
         return colorPicker; 
     }
 
-    public static IPickers<PackedScene> CreateDefaultBlockTypePicker()
-    {
-        IPickers<PackedScene> blockPicker = new EqualPropabilityPicker<PackedScene>();
-        blockPicker.SetValues(
-            new Collection<PackedScene>(
-                BlockPaths.Select(path => ResourceLoader.Load<PackedScene>(path)).ToList()
-            )
-        );
-        return blockPicker; 
-    }
+  
 
     public static IPickers<int> CreateDefaultRotationStepPicker()
     {
