@@ -1,23 +1,8 @@
-[gd_scene load_steps=11 format=4 uid="uid://cfxwlx606hrsl"]
+[gd_scene load_steps=8 format=3 uid="uid://cfxwlx606hrsl"]
 
 [ext_resource type="Script" path="res://ViktorIgraTuka/scenes/mainGameSections/FinkiTetrisEndCredits.cs" id="1_288pc"]
-[ext_resource type="Texture2D" uid="uid://ndqsl0mlby7o" path="res://assets/BeginingAndEndingScenes/BackgroundTile.png" id="1_t80n3"]
-
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_n1gpi"]
-texture = ExtResource("1_t80n3")
-0:0/size_in_atlas = Vector2i(4, 4)
-0:0/0 = 0
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_uqppl"]
-
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_bvlyp"]
-texture = SubResource("CompressedTexture2D_uqppl")
-0:0/0 = 0
-0:0/0/z_index = 1
-
-[sub_resource type="TileSet" id="TileSet_77bpm"]
-sources/0 = SubResource("TileSetAtlasSource_n1gpi")
-sources/1 = SubResource("TileSetAtlasSource_bvlyp")
+[ext_resource type="PackedScene" uid="uid://cxmo2s2xo0dy2" path="res://ViktorIgraTuka/scenes/background/background.tscn" id="2_gjaq8"]
+[ext_resource type="FontFile" uid="uid://byyj0udheiaj4" path="res://ViktorIgraTuka/assets/fonts/tetris-2-bombliss-credits-font.ttf" id="3_a3en5"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8wvg6"]
 bg_color = Color(1, 1, 1, 0.270588)
@@ -51,48 +36,23 @@ corner_radius_bottom_right = 16
 corner_radius_bottom_left = 16
 shadow_size = 5
 
-[node name="FinkiTetrisEndCredits" type="Node2D"]
+[node name="FinkiTetrisEndCredits" type="CanvasLayer"]
 script = ExtResource("1_288pc")
 
-[node name="Background" type="TileMapLayer" parent="."]
-position = Vector2(11, 0)
-tile_map_data = PackedByteArray("AAACAAIAAAAAAAAAAAAGAAIAAAAAAAAAAAAKAAIAAAAAAAAAAAAOAAIAAAAAAAAAAAASAAIAAAAAAAAAAAAWAAIAAAAAAAAAAAAaAAIAAAAAAAAAAAAeAAIAAAAAAAAAAAAiAAIAAAAAAAAAAAAmAAIAAAAAAAAAAAAqAAIAAAAAAAAAAAAuAAIAAAAAAAAAAAAuAP7/AAAAAAAAAAAqAP7/AAAAAAAAAAAmAP7/AAAAAAAAAAAiAP7/AAAAAAAAAAAeAP7/AAAAAAAAAAAaAP7/AAAAAAAAAAAWAP7/AAAAAAAAAAASAP7/AAAAAAAAAAAOAP7/AAAAAAAAAAAKAP7/AAAAAAAAAAAGAP7/AAAAAAAAAAACAP7/AAAAAAAAAAD+//7/AAAAAAAAAAD+/wIAAAAAAAAAAAACAAYAAAAAAAAAAAD+/wYAAAAAAAAAAAD+/woAAAAAAAAAAAD+/w4AAAAAAAAAAAD+/xIAAAAAAAAAAAD+/xYAAAAAAAAAAAD+/xoAAAAAAAAAAAD+/x4AAAAAAAAAAAD+/yIAAAAAAAAAAAD+/yYAAAAAAAAAAAD+/yoAAAAAAAAAAAACACoAAAAAAAAAAAAGACoAAAAAAAAAAAAKACoAAAAAAAAAAAAOACoAAAAAAAAAAAASACoAAAAAAAAAAAAWACoAAAAAAAAAAAAaACoAAAAAAAAAAAAeACoAAAAAAAAAAAAiACoAAAAAAAAAAAAmACoAAAAAAAAAAAAqACoAAAAAAAAAAAAuACoAAAAAAAAAAAAyACoAAAAAAAAAAAA2ACoAAAAAAAAAAAA6ACoAAAAAAAAAAAA+ACoAAAAAAAAAAABCACoAAAAAAAAAAABGACoAAAAAAAAAAABKACoAAAAAAAAAAABKACYAAAAAAAAAAABKACIAAAAAAAAAAABKAB4AAAAAAAAAAABKABoAAAAAAAAAAABKABYAAAAAAAAAAABKABIAAAAAAAAAAABKAA4AAAAAAAAAAABKAAoAAAAAAAAAAABKAAYAAAAAAAAAAABKAAMAAAAAAAAAAABKAAAAAAAAAAAAAABKAPz/AAAAAAAAAABGAP7/AAAAAAAAAABCAP7/AAAAAAAAAAA+AP7/AAAAAAAAAAA6AP7/AAAAAAAAAAA2AP7/AAAAAAAAAAAyAP7/AAAAAAAAAAAyAAIAAAAAAAAAAAA2AAIAAAAAAAAAAAA6AAIAAAAAAAAAAAA+AAIAAAAAAAAAAABCAAIAAAAAAAAAAABGAAIAAAAAAAAAAAACAAoAAAAAAAAAAAACAA4AAAAAAAAAAAACABIAAAAAAAAAAAACABYAAAAAAAAAAAACABoAAAAAAAAAAAACAB4AAAAAAAAAAAACACIAAAAAAAAAAAACACYAAAAAAAAAAAAGACYAAAAAAAAAAAAKACYAAAAAAAAAAAAOACYAAAAAAAAAAAASACYAAAAAAAAAAAAWACYAAAAAAAAAAAAaACYAAAAAAAAAAAAeACYAAAAAAAAAAAAiACYAAAAAAAAAAAAlACYAAAAAAAAAAAApACYAAAAAAAAAAAAtACYAAAAAAAAAAAAxACYAAAAAAAAAAAA1ACYAAAAAAAAAAAA5ACYAAAAAAAAAAAA9ACYAAAAAAAAAAABBACYAAAAAAAAAAABFACYAAAAAAAAAAABHACYAAAAAAAAAAABGACIAAAAAAAAAAABGAB4AAAAAAAAAAABGABoAAAAAAAAAAABGABYAAAAAAAAAAABGABIAAAAAAAAAAABGAA8AAAAAAAAAAABGAAsAAAAAAAAAAABGAAYAAAAAAAAAAABGAAgAAAAAAAAAAAAGAAYAAAAAAAAAAAAKAAYAAAAAAAAAAAAOAAYAAAAAAAAAAAASAAYAAAAAAAAAAAAWAAYAAAAAAAAAAAAaAAYAAAAAAAAAAAAeAAYAAAAAAAAAAAAiAAYAAAAAAAAAAAAmAAYAAAAAAAAAAAApAAYAAAAAAAAAAAAtAAYAAAAAAAAAAAAxAAYAAAAAAAAAAAA1AAYAAAAAAAAAAAA5AAYAAAAAAAAAAAA9AAYAAAAAAAAAAABBAAYAAAAAAAAAAABDAAYAAAAAAAAAAAAGACIAAAAAAAAAAAAKACIAAAAAAAAAAAAOACIAAAAAAAAAAAASACIAAAAAAAAAAAAWACIAAAAAAAAAAAAaACIAAAAAAAAAAAAeACIAAAAAAAAAAAAiACIAAAAAAAAAAAAmACIAAAAAAAAAAAAqACIAAAAAAAAAAAAuACIAAAAAAAAAAAAyACIAAAAAAAAAAAA2ACIAAAAAAAAAAAA5ACIAAAAAAAAAAAA9ACIAAAAAAAAAAABBACIAAAAAAAAAAABDACIAAAAAAAAAAABCAB4AAAAAAAAAAABCABoAAAAAAAAAAABCABYAAAAAAAAAAABCABIAAAAAAAAAAABCAA4AAAAAAAAAAABCAAoAAAAAAAAAAAA+AAoAAAAAAAAAAAA6AAoAAAAAAAAAAAA2AAoAAAAAAAAAAAAyAAoAAAAAAAAAAAAuAAoAAAAAAAAAAAAqAAoAAAAAAAAAAAAmAAoAAAAAAAAAAAAiAAoAAAAAAAAAAAAeAAoAAAAAAAAAAAAaAAoAAAAAAAAAAAAWAAoAAAAAAAAAAAASAAoAAAAAAAAAAAAOAAoAAAAAAAAAAAAKAAoAAAAAAAAAAAAGAAoAAAAAAAAAAAAGAA4AAAAAAAAAAAAGABIAAAAAAAAAAAAGABYAAAAAAAAAAAAGABkAAAAAAAAAAAAGAB0AAAAAAAAAAAAGAB8AAAAAAAAAAAAKAB4AAAAAAAAAAAAKABoAAAAAAAAAAAAKABYAAAAAAAAAAAAKABIAAAAAAAAAAAAKAA4AAAAAAAAAAAAOAA4AAAAAAAAAAAAOABIAAAAAAAAAAAAOABkAAAAAAAAAAAAOABwAAAAAAAAAAAAOAB8AAAAAAAAAAAASAB4AAAAAAAAAAAASABoAAAAAAAAAAAASABIAAAAAAAAAAAASAA8AAAAAAAAAAAASAA0AAAAAAAAAAAAWAA4AAAAAAAAAAAAaAA4AAAAAAAAAAAAeAA4AAAAAAAAAAAAiAA4AAAAAAAAAAAAmAA4AAAAAAAAAAAAqAA4AAAAAAAAAAAAuAA4AAAAAAAAAAAAyAA4AAAAAAAAAAAA2AA4AAAAAAAAAAAA6AA4AAAAAAAAAAAA+AA4AAAAAAAAAAAA+ABIAAAAAAAAAAAA+ABUAAAAAAAAAAAA+ABkAAAAAAAAAAAA+AB0AAAAAAAAAAAA+AB8AAAAAAAAAAAA6AB4AAAAAAAAAAAA2AB4AAAAAAAAAAAAyAB4AAAAAAAAAAAAuAB4AAAAAAAAAAAAqAB4AAAAAAAAAAAAmAB4AAAAAAAAAAAAiAB4AAAAAAAAAAAAeAB4AAAAAAAAAAAAaAB4AAAAAAAAAAAAWAB4AAAAAAAAAAAAWABoAAAAAAAAAAAAWABYAAAAAAAAAAAAWABIAAAAAAAAAAAAaABIAAAAAAAAAAAAaABYAAAAAAAAAAAAaABoAAAAAAAAAAAAeABoAAAAAAAAAAAAiABoAAAAAAAAAAAAmABoAAAAAAAAAAAAqABoAAAAAAAAAAAAuABoAAAAAAAAAAAAyABoAAAAAAAAAAAA2ABoAAAAAAAAAAAA6ABoAAAAAAAAAAAA6ABYAAAAAAAAAAAA6ABIAAAAAAAAAAAA2ABIAAAAAAAAAAAA2ABYAAAAAAAAAAAAyABYAAAAAAAAAAAAyABIAAAAAAAAAAAAuABIAAAAAAAAAAAAuABYAAAAAAAAAAAAqABYAAAAAAAAAAAAqABIAAAAAAAAAAAAmABIAAAAAAAAAAAAmABYAAAAAAAAAAAAiABYAAAAAAAAAAAAiABIAAAAAAAAAAAAeABIAAAAAAAAAAAAeABYAAAAAAAAAAAAOABUAAAAAAAAAAAASABYAAAAAAAAAAAA=")
-tile_set = SubResource("TileSet_77bpm")
-
-[node name="GradeWrapper" type="Node2D" parent="."]
-position = Vector2(125, 34)
-
-[node name="MetaForGrade" type="RichTextLabel" parent="GradeWrapper"]
-offset_left = 323.0
-offset_top = 197.0
-offset_right = 581.0
-offset_bottom = 237.0
-theme_override_font_sizes/normal_font_size = 26
-text = "Your final grade is:"
-fit_content = true
-
-[node name="BoxForGrade" type="RichTextLabel" parent="GradeWrapper"]
-offset_left = 589.0
-offset_top = 192.0
-offset_right = 658.0
-offset_bottom = 241.0
-theme_override_font_sizes/normal_font_size = 30
-text = "10"
-
-[node name="Feedback" type="RichTextLabel" parent="GradeWrapper"]
-offset_left = 358.0
-offset_top = 237.0
-offset_right = 570.0
-offset_bottom = 277.0
-theme_override_font_sizes/normal_font_size = 19
-bbcode_enabled = true
-text = "[center]Sorry you didn't pass[center]"
+[node name="Background" parent="." instance=ExtResource("2_gjaq8")]
 
 [node name="Retry" type="Button" parent="."]
-offset_left = 779.0
-offset_top = 381.0
-offset_right = 900.0
-offset_bottom = 423.0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -60.5
+offset_top = 82.5
+offset_right = 60.5
+offset_bottom = 124.5
+grow_horizontal = 2
+grow_vertical = 2
 size_flags_vertical = 3
 theme_override_colors/font_disabled_color = Color(0, 0, 0, 1)
 theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
@@ -106,6 +66,7 @@ theme_override_colors/icon_focus_color = Color(0, 0, 0, 1)
 theme_override_colors/icon_pressed_color = Color(0, 0, 0, 1)
 theme_override_colors/icon_hover_pressed_color = Color(0, 0, 0, 1)
 theme_override_colors/icon_disabled_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_a3en5")
 theme_override_font_sizes/font_size = 20
 theme_override_styles/disabled = SubResource("StyleBoxFlat_8wvg6")
 theme_override_styles/hover = SubResource("StyleBoxFlat_mhqjb")
@@ -114,10 +75,17 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_sl01j")
 text = "Play again"
 
 [node name="GoBack" type="Button" parent="."]
-offset_left = 261.0
-offset_top = 381.0
-offset_right = 382.0
-offset_bottom = 423.0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -60.5
+offset_top = 148.0
+offset_right = 60.5
+offset_bottom = 190.0
+grow_horizontal = 2
+grow_vertical = 2
 size_flags_vertical = 3
 theme_override_colors/font_disabled_color = Color(0, 0, 0, 1)
 theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
@@ -131,12 +99,45 @@ theme_override_colors/icon_focus_color = Color(0, 0, 0, 1)
 theme_override_colors/icon_pressed_color = Color(0, 0, 0, 1)
 theme_override_colors/icon_hover_pressed_color = Color(0, 0, 0, 1)
 theme_override_colors/icon_disabled_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_a3en5")
 theme_override_font_sizes/font_size = 20
 theme_override_styles/disabled = SubResource("StyleBoxFlat_8wvg6")
 theme_override_styles/hover = SubResource("StyleBoxFlat_mhqjb")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_uxdqu")
 theme_override_styles/normal = SubResource("StyleBoxFlat_sl01j")
 text = "Go back"
+
+[node name="Title" type="Label" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -115.5
+offset_top = -265.0
+offset_right = 115.5
+offset_bottom = -198.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("3_a3en5")
+theme_override_font_sizes/font_size = 48
+text = "FINKI TETRIS"
+
+[node name="Grade" type="Label" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -115.5
+offset_top = -146.0
+offset_right = 115.5
+offset_bottom = -79.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("3_a3en5")
+theme_override_font_sizes/font_size = 36
+text = "Your grade: 10"
 
 [connection signal="pressed" from="Retry" to="." method="OnPlayClicked"]
 [connection signal="pressed" from="GoBack" to="." method="OnBackClicked"]

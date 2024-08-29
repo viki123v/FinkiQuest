@@ -63,6 +63,10 @@ public partial class ChooseGame : Control
 	public void SpaceAlorithms(){
 		GetTree().ChangeSceneToFile("res://SpaceAlgorithm's/scenes/start.tscn");
 	}
+	public void _on_viki_pressed(){
+		GetTree().ChangeSceneToFile("res://ViktorIgraTuka/scenes/mainGameSections/FinkiTetrisPlayingGame.tscn");
+
+	}
 	public void _on_back_pressed(){
 		GetTree().ChangeSceneToFile("res://MainScene/main_menu.tscn");
 	}

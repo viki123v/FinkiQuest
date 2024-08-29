@@ -1,7 +1,7 @@
 using Godot;
 using System;
 
-public partial class FinkiTetrisExplanation : Node2D
+public partial class FinkiTetrisExplanation : CanvasLayer
 {
 	public void OnBackClicked()
 	{

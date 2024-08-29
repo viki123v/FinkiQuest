@@ -1897,5 +1897,5 @@ texture = ExtResource("4_v3em7")
 
 [connection signal="pressed" from="Container/SpaceAlgorithms2" to="." method="SpaceAlorithms"]
 [connection signal="pressed" from="Container/FinkiSurvive" to="." method="FinkiSurvive"]
-[connection signal="pressed" from="Container/Viki" to="." method="FinkiSurvive"]
+[connection signal="pressed" from="Container/Viki" to="." method="_on_viki_pressed"]
 [connection signal="pressed" from="Back" to="." method="_on_back_pressed"]
