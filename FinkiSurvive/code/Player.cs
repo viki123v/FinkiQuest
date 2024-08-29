@@ -74,13 +74,25 @@ namespace FinkiAdventureQuest.FinkiSurvive.code
         {
             if(!_stateValid) return;
             _animation.Visible = true;
-            var walkAudio = GetNode<AudioStreamPlayer2D>("WalkSoundEffect");
+           
 			
             Vector2 direction = Input.GetVector(
                 "FINKISURVIVE_player_left", 
                 "FINKISURVIVE_player_right", 
                 "FINKISURVIVE_player_up", 
                 "FINKISURVIVE_player_down").Normalized();
+
+            var walkAudio = GetNode<AudioStreamPlayer2D>("WalkSoundEffect");
+            if (direction != Vector2.Zero)
+            {
+               
+                if(!walkAudio.IsPlaying())
+                    walkAudio.Play();
+            }
+            else
+            {
+                walkAudio.Stop();
+            }
             
             if (Input.IsActionPressed("FINKISURVIVE_player_attack"))
             {
@@ -113,8 +125,12 @@ namespace FinkiAdventureQuest.FinkiSurvive.code
             
             
             State = MovementState.GetState((GetGlobalMousePosition() - GetGlobalPosition()).Angle(),direction);
-            if(!_animation.Animation.ToString().Contains("attack") || !_animation.IsPlaying())
+            if (!_animation.Animation.ToString().Contains("attack") || !_animation.IsPlaying())
+            {
                 State.Move(_animation);
+                
+            }
+              
             
             
             Velocity = direction * (Speed * (float)delta);
@@ -227,6 +243,12 @@ namespace FinkiAdventureQuest.FinkiSurvive.code
             cont.AddChild(_currentAttack);
             anim.Play();
         }
+
+        // public void OnAreaEntered(Area2D area)
+        // {
+        //     GD.Print(area.Name);
+        //     TakeDamage(5);
+        // }
 
         public void TakeDamage(int damage)
         {

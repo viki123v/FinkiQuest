@@ -1,4 +1,4 @@
-[gd_scene load_steps=111 format=3 uid="uid://cvmyqo7j3bbvg"]
+[gd_scene load_steps=112 format=3 uid="uid://cvmyqo7j3bbvg"]
 
 [ext_resource type="Script" path="res://FinkiSurvive/code/Player.cs" id="1_pgcxt"]
 [ext_resource type="Texture2D" uid="uid://bb4ovsmjmd34y" path="res://FinkiSurvive/tmp_assets/Char/PNG/Sword_Idle/Sword_Idle_full.png" id="2_eowwh"]
@@ -739,6 +739,12 @@ animations = [{
 radius = 15.04
 height = 41.4988
 
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_g8rs7"]
+playback_mode = 1
+random_pitch = 1.05
+streams_count = 1
+stream_0/stream = ExtResource("6_a1het")
+
 [sub_resource type="Theme" id="Theme_4urpu"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_uihgx"]
@@ -803,8 +809,8 @@ process_callback = 0
 autostart = true
 
 [node name="WalkSoundEffect" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("6_a1het")
-volume_db = -33.611
+stream = SubResource("AudioStreamRandomizer_g8rs7")
+volume_db = -26.914
 metadata/_edit_lock_ = true
 
 [node name="HealthBar" type="TextureProgressBar" parent="."]
@@ -863,5 +869,5 @@ wait_time = 1.5
 one_shot = true
 
 [connection signal="timeout" from="AttackSpeed" to="." method="_on_timer_timeout"]
-[connection signal="area_entered" from="HurtBox" to="." method="TakeDamage"]
+[connection signal="area_entered" from="HurtBox" to="." method="OnAreaEntered"]
 [connection signal="timeout" from="DashCooldown" to="." method="OnDashCooldownEnd"]

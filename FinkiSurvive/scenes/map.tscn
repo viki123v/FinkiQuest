@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=4 uid="uid://u6tdgbuw31s8"]
+[gd_scene load_steps=36 format=4 uid="uid://u6tdgbuw31s8"]
 
 [ext_resource type="Script" path="res://FinkiSurvive/code/Map.cs" id="1_bpkay"]
 [ext_resource type="Texture2D" uid="uid://bv1r25vwj74db" path="res://FinkiSurvive/tmp_assets/TILESET/mountain_landscape.png" id="2_4466c"]
@@ -14,6 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://xndssfje6yyu" path="res://FinkiSurvive/scenes/win_screen.tscn" id="10_k3y2k"]
 [ext_resource type="Texture2D" uid="uid://b83cqy1j8cc8s" path="res://FinkiSurvive/assets/spacebaricon.png" id="10_s3tdu"]
 [ext_resource type="PackedScene" uid="uid://8re1f1cepmc" path="res://MainScene/QuitGamePopup.tscn" id="12_d36eh"]
+[ext_resource type="AudioStream" uid="uid://c37eoekboganj" path="res://FinkiSurvive/assets/audio/mixkit-crickets-and-insects-in-the-wild-ambience-39.wav" id="14_5qb4o"]
 [ext_resource type="PackedScene" uid="uid://dj0qc3pxlg5f2" path="res://SettingsNode/settings.tscn" id="14_dgnaq"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_s1m5j"]
@@ -478,7 +479,7 @@ autostart = true
 [node name="ThemeMusic" type="AudioStreamPlayer" parent="."]
 process_mode = 3
 stream = ExtResource("5_owg0p")
-volume_db = -25.298
+volume_db = -20.613
 autoplay = true
 
 [node name="UI" type="CanvasLayer" parent="."]
@@ -697,6 +698,13 @@ scale = Vector2(1.01253, 3.02849)
 
 [node name="Settings" parent="UI/MarginContainer" instance=ExtResource("14_dgnaq")]
 layout_mode = 2
+
+[node name="AmbientFX" type="AudioStreamPlayer2D" parent="UI"]
+stream = ExtResource("14_5qb4o")
+volume_db = -45.814
+pitch_scale = 1.08
+autoplay = true
+panning_strength = 1.75
 
 [node name="DeathScreen" parent="." instance=ExtResource("9_ob5eq")]
 visible = false

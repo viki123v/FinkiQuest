@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://c11xq5d5f2r8x"]
+[gd_scene load_steps=17 format=3 uid="uid://c11xq5d5f2r8x"]
 
 [ext_resource type="Script" path="res://FinkiSurvive/code/Attack3.cs" id="1_su8mp"]
 [ext_resource type="AudioStream" uid="uid://cmq7e0264tjxn" path="res://FinkiSurvive/assets/audio/mixkit-quick-knife-slice-cutting-2152.mp3" id="2_0fn1s"]
@@ -14,6 +14,11 @@
 [ext_resource type="Texture2D" uid="uid://bjjougs2jb0vj" path="res://FinkiSurvive/assets/fx/slash5/image/slash5_1_00010.png" id="12_ck8r0"]
 [ext_resource type="Texture2D" uid="uid://tye7wwsxyden" path="res://FinkiSurvive/assets/fx/slash5/image/slash5_1_00011.png" id="13_t7h4e"]
 [ext_resource type="Texture2D" uid="uid://dp3vs742nwjsr" path="res://FinkiSurvive/assets/fx/slash5/image/slash5_1_00012.png" id="14_5xkm5"]
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_tbtfs"]
+random_pitch = 1.08
+streams_count = 1
+stream_0/stream = ExtResource("2_0fn1s")
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_3vus7"]
 animations = [{
@@ -78,8 +83,10 @@ polygon = PackedVector2Array(-154.535, -139.638, -54.2784, -126.152, 9.75586, -1
 
 [node name="HitSoundEffect" type="AudioStreamPlayer2D" parent="."]
 position = Vector2(4.00785, -2.98946)
-stream = ExtResource("2_0fn1s")
-volume_db = -11.905
+stream = SubResource("AudioStreamRandomizer_tbtfs")
+volume_db = -17.847
+pitch_scale = 1.1
+stream_paused = true
 max_polyphony = 5
 
 [node name="AttackSpeed" type="Timer" parent="."]

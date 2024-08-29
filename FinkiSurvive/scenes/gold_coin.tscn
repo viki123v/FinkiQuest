@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://gffvp2vo33s1"]
+[gd_scene load_steps=36 format=3 uid="uid://gffvp2vo33s1"]
 
 [ext_resource type="Texture2D" uid="uid://gt18gk6albpn" path="res://FinkiSurvive/assets/craftpix-513237-free-game-coins-sprite-sheets/PNG/Gold/Gold_1.png" id="1_1sg8x"]
 [ext_resource type="Script" path="res://FinkiSurvive/code/GoldCoin.cs" id="1_78ybw"]
@@ -31,6 +31,7 @@
 [ext_resource type="Texture2D" uid="uid://bhhreji177iku" path="res://FinkiSurvive/assets/craftpix-513237-free-game-coins-sprite-sheets/PNG/Gold/Gold_28.png" id="28_cvcrk"]
 [ext_resource type="Texture2D" uid="uid://dgunbcgjl8evs" path="res://FinkiSurvive/assets/craftpix-513237-free-game-coins-sprite-sheets/PNG/Gold/Gold_29.png" id="29_1yfb3"]
 [ext_resource type="Texture2D" uid="uid://cxml6oa3cco3h" path="res://FinkiSurvive/assets/craftpix-513237-free-game-coins-sprite-sheets/PNG/Gold/Gold_30.png" id="30_pt04g"]
+[ext_resource type="AudioStream" uid="uid://cpwjh7lm5jeia" path="res://CoinAudioRandom.tres" id="32_l7j02"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_r12ej"]
 animations = [{
@@ -162,3 +163,6 @@ collision_mask = 9
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AttractBox"]
 shape = SubResource("CircleShape2D_knr8n")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("32_l7j02")

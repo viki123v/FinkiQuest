@@ -11,7 +11,7 @@ namespace FinkiAdventureQuest.FinkiSurvive.code
 	public partial class Map : Node2D
 	{
 		
-		public static int WaveCount = 3;
+		public static int WaveCount = 1;
 		public static int Score = 0;
 		public static int Grade = 5;
 		public static readonly int WaveTime = 30;
@@ -220,22 +220,22 @@ namespace FinkiAdventureQuest.FinkiSurvive.code
 			switch (WaveCount)
 			{
 				case 2:
-					GetNode<Timer>("MobSpawnTimer").WaitTime = 1.1f;
+					//GetNode<Timer>("MobSpawnTimer").WaitTime = 1.1f;
 					GD.Print("CHANGED TIME");
 					break;
 				case 4:
-					GetNode<Timer>("MobSpawnTimer").WaitTime = 0.8f;
+					//GetNode<Timer>("MobSpawnTimer").WaitTime = 0.8f;
 					GD.Print("CHANGED TIME");
 					break;
 				case > 9:
-					GetNode<Timer>("MobSpawnTimer").WaitTime = 0.5f;
+					//GetNode<Timer>("MobSpawnTimer").WaitTime = 0.5f;
 					GD.Print("CHANGED TIME");
 					break;
 				default:
 				{
 					if (WaveCount > 20)
 					{
-						GetNode<Timer>("MobSpawnTimer").WaitTime = 0.3f;
+						//GetNode<Timer>("MobSpawnTimer").WaitTime = 0.3f;
 					}
 
 					break;
