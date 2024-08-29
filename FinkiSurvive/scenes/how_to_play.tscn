@@ -114,6 +114,7 @@ label_settings = SubResource("LabelSettings_n66h2")
 autowrap_mode = 3
 
 [node name="Label3" type="Label" parent="Control"]
+layout_mode = 0
 offset_left = 361.0
 offset_top = 102.0
 offset_right = 470.0
@@ -122,6 +123,7 @@ text = "Movement:"
 label_settings = ExtResource("4_v3p7b")
 
 [node name="Label4" type="Label" parent="Control"]
+layout_mode = 0
 offset_left = 361.0
 offset_top = 166.0
 offset_right = 425.0
@@ -130,6 +132,7 @@ text = "Attack:"
 label_settings = SubResource("LabelSettings_nia4x")
 
 [node name="Label5" type="Label" parent="Control"]
+layout_mode = 0
 offset_left = 359.0
 offset_top = 263.0
 offset_right = 545.0
@@ -138,6 +141,7 @@ text = "Switching Attacks:"
 label_settings = ExtResource("4_v3p7b")
 
 [node name="Label2" type="Label" parent="Control"]
+layout_mode = 0
 offset_left = 358.0
 offset_top = 335.0
 offset_right = 439.0
@@ -146,6 +150,7 @@ text = "Dashing:"
 label_settings = ExtResource("4_v3p7b")
 
 [node name="Label6" type="Label" parent="Control"]
+layout_mode = 0
 offset_left = 358.0
 offset_top = 432.0
 offset_right = 454.0
@@ -154,6 +159,7 @@ text = "Objective:"
 label_settings = ExtResource("4_v3p7b")
 
 [node name="Label7" type="Label" parent="Control"]
+layout_mode = 0
 offset_left = 358.0
 offset_top = 551.0
 offset_right = 566.0

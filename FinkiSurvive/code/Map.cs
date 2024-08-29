@@ -10,10 +10,12 @@ namespace FinkiAdventureQuest.FinkiSurvive.code
 	public partial class Map : Node2D
 	{
 		
-		public static int WaveCount = 1;
+		public static int WaveCount = 3;
 		public static int Score = 0;
 		public static int Grade = 5;
 		public static readonly int WaveTime = 30;
+
+		public WaveState CurrentWaveState;
 		
 		private readonly Random _rng = new();
 
@@ -24,9 +26,9 @@ namespace FinkiAdventureQuest.FinkiSurvive.code
 		private int _checkpointWave = 12;
 		private bool _canGraduate;
 
-		private Vector2[] _mobSpawnPoints = new Vector2[4];
+	
 		private Label _fps;
-		private readonly List<string> _mobSceneNames = new ();
+		
 		private Label _gradeLabel;
 		
 		[Export] 
@@ -38,9 +40,6 @@ namespace FinkiAdventureQuest.FinkiSurvive.code
 		
 		public override void _Ready()
 		{
-			_mobSceneNames.Add("mob_orc");
-			_mobSceneNames.Add("mob_zombie");
-			_mobSceneNames.Add("mob_knight");
 			_gradeLabel = GetNode<Label>("UI/GradeCont/Label");
 			_timer = GetNode<Timer>("GameTimer");
 			_timeSecs = WaveTime;
@@ -304,53 +303,20 @@ namespace FinkiAdventureQuest.FinkiSurvive.code
 			UpdateTimerText(_timeSecs / 60, _timeSecs % 60);
 			
 		}
-
-		private int GetBiasedIndex()
-		{
-			if (WaveCount == 1) return 0;
-			
-			if (WaveCount == 2 )
-			{
-				return _rng.NextDouble() < 0.31 ? 1 : 0;
-			}
-
-			if (WaveCount > 2)
-			{
-				if (_rng.NextDouble() < 0.05)
-				{
-					return 2;
-				}
-				
-				return _rng.NextDouble() < 0.7 ? 1 : 0;
-			}
-
-			return 0;
-		}
-
-		private Vector2 GetMobSpawnPos()
-		{
-			var player = GetNode<Player>("Player");
-			var width = player.Position.X + ( (int) GetViewport().GetVisibleRect().Size[0] - player.Position.X);
-			var height = player.Position.Y + (GetViewport().GetVisibleRect().Size[1] - player.Position.X);
-			_mobSpawnPoints[0] = new Vector2(_rng.Next((int) width + 200, (int) width + 300), _rng.Next( (int)height - 150, (int)height)); // gore desno
-			_mobSpawnPoints[1] = new Vector2(_rng.Next(200, 300), _rng.Next((int)height - 200,(int) height)); // gore levo
-			_mobSpawnPoints[2] = new Vector2(_rng.Next(200, 300), _rng.Next((int)-height, -(int)height + 250)); // dolu levo
-			_mobSpawnPoints[3] = new Vector2(_rng.Next(200,300), _rng.Next((int)-height, -(int)height + 250));// dolu desno
-			
-			// ova da sa optimizirat, samo na toj indeks so ke go izberite da presmetvit kaj da sa naogjat ne na site
-			
-			return _mobSpawnPoints[_rng.Next(_mobSpawnPoints.Length)];
-		}
-
+		
 		private void GenerateMobs()
 		{
-			int idx = GetBiasedIndex();
-			PackedScene mobScene = GD.Load<PackedScene>(ProjectPath.ScenesPath + _mobSceneNames[idx] +  ".tscn");
-			var instance = mobScene.Instantiate<Mob>();
+			CurrentWaveState = WaveState.GetWaveState(WaveCount);
 			
+			PackedScene mobScene = MobSpawner.GetMobScene(CurrentWaveState.GetMobSceneIndex());
+			var instance = mobScene.Instantiate<Mob>();
 			instance.Connect(nameof(Mob.MobDamaged),new Callable(this,nameof(KillMob)));
 
-			instance.Position = GetMobSpawnPos(); 
+			var player = GetNode<Player>("Player");
+			float width = player.Position.X + (GetViewport().GetVisibleRect().Size[0] - player.Position.X);
+			float height = player.Position.Y + (GetViewport().GetVisibleRect().Size[1] - player.Position.Y);
+			
+			instance.Position = MobSpawner.GetMobSpawnPosition((int)width,(int)height); 
 			GetNode<Node2D>("Mobs").AddChild(instance);
 		}
 	}

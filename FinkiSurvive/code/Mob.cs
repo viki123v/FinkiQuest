@@ -156,8 +156,10 @@ public abstract partial class Mob : CharacterBody2D
     }
 
     public abstract void Attack();
+    public abstract void ScaleHp();
 
     public abstract int GetDamage();
+    
     
 
     public void MoveMob(Vector2 position)
@@ -188,7 +190,7 @@ public abstract partial class Mob : CharacterBody2D
     // 	return hp;
     // } // prvo vaka bese GetScaledHp
 
-    public abstract void ScaleHp();
+   
 		
 
 }

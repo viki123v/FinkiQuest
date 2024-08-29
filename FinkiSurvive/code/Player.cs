@@ -45,7 +45,7 @@ namespace FinkiAdventureQuest.FinkiSurvive.code
         {
             _canAttack = true;
             _health = _maxHealth;
-            _hpBarSize = _maxHealth / 30; // 15 - br pati so trebit da ta udrat za da umris
+            _hpBarSize = _maxHealth / 30; 
             _healthBar = GetNode<TextureProgressBar>("HealthBar");
             _attackScenes.Add("attack1");
             _attackScenes.Add("attack2");

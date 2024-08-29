@@ -28,12 +28,10 @@ public partial class OrcMob : Mob
 		public override void Attack()
 		{
 			if (!CanAttack) return;
-			
 			GetNode<Player>("/root/Level/Player").TakeDamage(GetDamage());
 			_animSprite.Play("attack");
 			CanAttack = false;
-
-
+			
 		}
 
 		public override int GetDamage()
