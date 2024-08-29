@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using FinkiAdventureQuest.FinkiSurvive.code.Util;
+using FinkiAdventureQuest.FinkiSurvive.Misc;
 using FinkiAdventureQuest.MainScene;
 using Godot;
 using GameNames = FinkiAdventureQuest.MainScene.GameNames;
@@ -144,7 +145,7 @@ namespace FinkiAdventureQuest.FinkiSurvive.code
 			ResetStats();
 		}
 
-		private void UpdateScore()
+		private void UpdateScore(int value)
 		{
 			Score++;
 			GetNode<Label>("UI/ScoreMarginCont/Score").Text = "Score: " + Score;
@@ -181,7 +182,20 @@ namespace FinkiAdventureQuest.FinkiSurvive.code
 
 		public void KillMob(Mob mob)
 		{
-			UpdateScore();
+			
+			var tween = GetTree().CreateTween();
+			var coin = mob.DropCoin().Instantiate<Coin>();
+			coin.Connect(nameof(coin.CoinPickedUp), new Callable(this, nameof(UpdateScore)));
+			coin.Position = mob.Position;
+			CallDeferred("add_child", coin);
+			
+			Vector2 startUpPos = coin.Position + new Vector2(10,-50);
+			Vector2 middlePos = startUpPos + new Vector2(30, -20);
+			Vector2 endPos = middlePos + new Vector2(10, 50);
+			tween.TweenProperty(coin, "position", startUpPos, 0.3f);
+			tween.TweenProperty(coin, "position", middlePos, 0.3f);
+			tween.TweenProperty(coin, "position", endPos, 0.3f);
+			
 			
 			mob.Death();
 			

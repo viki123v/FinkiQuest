@@ -19,6 +19,11 @@ namespace FinkiAdventureQuest.FinkiSurvive.code
 			AddChild(AttackSpeedTimer);
 		}
 
+		public override PackedScene DropCoin()
+		{
+			return GD.Load<PackedScene>("res://FinkiSurvive/scenes/gold_coin.tscn");
+		}
+
 		public override void Attack()
 		{
 			if (!CanAttack) return;

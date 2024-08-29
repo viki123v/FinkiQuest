@@ -751,7 +751,7 @@ shadow_offset = Vector2(2, 1)
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_yhqtj"]
 radius = 22.6067
-height = 54.5435
+height = 56.5106
 
 [node name="Player" type="CharacterBody2D" groups=["Player"]]
 scale = Vector2(3.18489, 2.83133)
@@ -843,7 +843,7 @@ label_settings = SubResource("LabelSettings_uihgx")
 metadata/_edit_lock_ = true
 
 [node name="HurtBox" type="Area2D" parent="."]
-visible = false
+collision_mask = 17
 script = ExtResource("8_mrtvv")
 
 [node name="HurtShape" type="CollisionShape2D" parent="HurtBox"]

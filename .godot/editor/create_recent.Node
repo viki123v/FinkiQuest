@@ -1,3 +1,8 @@
+AnimatedSprite2D
+AnimatableBody2D
+Node2D
+CollisionShape2D
+Area2D
 Control
 AspectRatioContainer
 Button
@@ -7,9 +12,3 @@ VBoxContainer
 MarginContainer
 HBoxContainer
 CanvasLayer
-TextureRect
-Panel
-LinkButton
-ConfirmationDialog
-Popup
-CheckBox

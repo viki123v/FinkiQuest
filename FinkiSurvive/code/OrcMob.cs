@@ -25,6 +25,11 @@ public partial class OrcMob : Mob
 			
 		}
 
+		public override PackedScene DropCoin()
+		{
+			return GD.Load<PackedScene>("res://FinkiSurvive/scenes/bronze_coin.tscn");
+		}
+
 		public override void Attack()
 		{
 			if (!CanAttack) return;

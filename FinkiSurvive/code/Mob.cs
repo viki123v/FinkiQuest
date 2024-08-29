@@ -101,6 +101,8 @@ public abstract partial class Mob : CharacterBody2D
         return (playerPos - Position).Normalized();
     }
 
+    public abstract PackedScene DropCoin();
+    
     
     public override void _PhysicsProcess(double delta)
     {
