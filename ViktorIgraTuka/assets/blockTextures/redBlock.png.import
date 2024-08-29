@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ndqsl0mlby7o"
-path="res://.godot/imported/BackgroundTile.png-7c8b91d8a8955ff6d9156cae8ed5bbd3.ctex"
+uid="uid://cvlpyw0bsryr0"
+path="res://.godot/imported/redBlock.png-07e67182a34505a48264c29fe9a9f409.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://ViktorIgraTuka/scenes/assets/BeginingAndEndingScenes/BackgroundTile.png"
-dest_files=["res://.godot/imported/BackgroundTile.png-7c8b91d8a8955ff6d9156cae8ed5bbd3.ctex"]
+source_file="res://ViktorIgraTuka/assets/blockTextures/redBlock.png"
+dest_files=["res://.godot/imported/redBlock.png-07e67182a34505a48264c29fe9a9f409.ctex"]
 
 [params]
 

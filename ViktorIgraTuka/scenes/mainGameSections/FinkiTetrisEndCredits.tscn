@@ -1,16 +1,17 @@
-[gd_scene load_steps=10 format=4 uid="uid://cfxwlx606hrsl"]
+[gd_scene load_steps=11 format=4 uid="uid://cfxwlx606hrsl"]
 
-[ext_resource type="Texture2D" uid="uid://ndqsl0mlby7o" path="res://ViktorIgraTuka/scenes/assets/BeginingAndEndingScenes/BackgroundTile.png" id="1_t80n3"]
-[ext_resource type="Texture2D" uid="uid://bbbxnlb0hrmgs" path="res://ViktorIgraTuka/scenes/assets/BeginingAndEndingScenes/ButtonTile.png" id="2_5kh7x"]
+[ext_resource type="Script" path="res://ViktorIgraTuka/scenes/mainGameSections/FinkiTetrisEndCredits.cs" id="1_288pc"]
+[ext_resource type="Texture2D" uid="uid://ndqsl0mlby7o" path="res://assets/BeginingAndEndingScenes/BackgroundTile.png" id="1_t80n3"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_n1gpi"]
 texture = ExtResource("1_t80n3")
 0:0/size_in_atlas = Vector2i(4, 4)
 0:0/0 = 0
 
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_uqppl"]
+
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_bvlyp"]
-texture = ExtResource("2_5kh7x")
-0:0/size_in_atlas = Vector2i(4, 4)
+texture = SubResource("CompressedTexture2D_uqppl")
 0:0/0 = 0
 0:0/0/z_index = 1
 
@@ -51,6 +52,7 @@ corner_radius_bottom_left = 16
 shadow_size = 5
 
 [node name="FinkiTetrisEndCredits" type="Node2D"]
+script = ExtResource("1_288pc")
 
 [node name="Background" type="TileMapLayer" parent="."]
 position = Vector2(11, 0)
@@ -135,3 +137,6 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_mhqjb")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_uxdqu")
 theme_override_styles/normal = SubResource("StyleBoxFlat_sl01j")
 text = "Go back"
+
+[connection signal="pressed" from="Retry" to="." method="OnPlayClicked"]
+[connection signal="pressed" from="GoBack" to="." method="OnBackClicked"]

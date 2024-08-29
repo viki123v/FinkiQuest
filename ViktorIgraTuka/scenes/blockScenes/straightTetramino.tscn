@@ -1,0 +1,26 @@
+[gd_scene load_steps=2 format=3 uid="uid://bkqseaeptmbr"]
+
+[ext_resource type="Texture2D" uid="uid://cvlpyw0bsryr0" path="res://ViktorIgraTuka/assets/blockTextures/redBlock.png" id="1_bdhlj"]
+
+[node name="SkewTetramino" type="CharacterBody2D"]
+collision_layer = 2
+
+[node name="Rec1" type="TextureRect" parent="."]
+offset_right = 32.0
+offset_bottom = 32.0
+texture = ExtResource("1_bdhlj")
+
+[node name="Rec3" type="TextureRect" parent="."]
+offset_left = 64.0
+offset_right = 96.0
+offset_bottom = 32.0
+texture = ExtResource("1_bdhlj")
+
+[node name="Rec4" type="TextureRect" parent="."]
+offset_left = 32.0
+offset_right = 64.0
+offset_bottom = 32.0
+texture = ExtResource("1_bdhlj")
+
+[node name="Collision" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(0, 0, 96, 0, 96, 32, 0, 32)
