@@ -86,7 +86,6 @@ position = Vector2(4.00785, -2.98946)
 stream = SubResource("AudioStreamRandomizer_tbtfs")
 volume_db = -17.847
 pitch_scale = 1.1
-stream_paused = true
 max_polyphony = 5
 
 [node name="AttackSpeed" type="Timer" parent="."]

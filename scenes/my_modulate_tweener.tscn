@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://dbnj65i2yk3nu"]
+
+[ext_resource type="Script" path="res://FinkiSurvive/code/Util/MyModulateTweener.cs" id="1_0ot5i"]
+
+[node name="MyModulateTweener" type="Node2D"]
+script = ExtResource("1_0ot5i")
+startVal = 0.4
+endVal = 0.9
+durationSecs = 2.0

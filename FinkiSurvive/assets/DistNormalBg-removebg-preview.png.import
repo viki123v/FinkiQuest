@@ -2,12 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b3xv28tg6jdxd"
-valid=false
+uid="uid://daem22rk0xix5"
+path="res://.godot/imported/DistNormalBg-removebg-preview.png-43b9269f178464f8f5c93fb148300b8d.ctex"
+metadata={
+"vram_texture": false
+}
 
 [deps]
 
-source_file="res://FinkiSurvive/assets/HowToPlayBackgroung.png"
+source_file="res://FinkiSurvive/assets/DistNormalBg-removebg-preview.png"
+dest_files=["res://.godot/imported/DistNormalBg-removebg-preview.png-43b9269f178464f8f5c93fb148300b8d.ctex"]
 
 [params]
 

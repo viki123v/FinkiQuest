@@ -350,6 +350,7 @@ animations = [{
 }]
 
 [node name="Mob" type="CharacterBody2D"]
+z_index = 1
 position = Vector2(562, 304)
 scale = Vector2(0.275, 0.275)
 collision_layer = 2
