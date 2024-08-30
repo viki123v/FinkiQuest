@@ -83,11 +83,11 @@ Icon = ExtResource("2_ssacd")
 [node name="Slash" type="AnimatedSprite2D" parent="."]
 modulate = Color(0.168627, 0.686275, 0.792157, 1)
 z_index = 1
-position = Vector2(2.87019, -26.7724)
+position = Vector2(-1.60068, -26.8782)
 rotation = 4.18879
 scale = Vector2(0.0856735, 0.389054)
 sprite_frames = SubResource("SpriteFrames_7b38b")
-frame = 5
+frame = 6
 
 [node name="HitSoundEffect" type="AudioStreamPlayer2D" parent="."]
 stream = SubResource("AudioStreamRandomizer_3lwj6")

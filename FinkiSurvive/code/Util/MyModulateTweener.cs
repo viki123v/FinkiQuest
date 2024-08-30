@@ -50,7 +50,6 @@ public partial class MyModulateTweener : Node2D
 
 		modulate.A += (float) _modulateAmountPerTick * ascend;
 		node.Modulate = modulate;
-		GD.Print(modulate);
 	}
     
     

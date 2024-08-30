@@ -800,12 +800,14 @@ frame = 39
 frame_progress = 1.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
 position = Vector2(2.51186, 5.59421)
 scale = Vector2(1.00207, 0.808825)
 shape = SubResource("CapsuleShape2D_wr6at")
 
 [node name="AttackSpeed" type="Timer" parent="."]
 process_callback = 0
+wait_time = 0.3
 autostart = true
 
 [node name="WalkSoundEffect" type="AudioStreamPlayer2D" parent="."]
@@ -828,6 +830,7 @@ texture_progress = ExtResource("40_th7c5")
 tint_under = Color(1, 0.960784, 1, 1)
 tint_over = Color(1, 1, 1, 0.498039)
 tint_progress = Color(0, 0, 0.941176, 1)
+metadata/_edit_lock_ = true
 
 [node name="Label" type="Label" parent="HealthBar"]
 layout_mode = 1
@@ -849,8 +852,10 @@ label_settings = SubResource("LabelSettings_uihgx")
 metadata/_edit_lock_ = true
 
 [node name="HurtBox" type="Area2D" parent="."]
+visible = false
 collision_mask = 17
 script = ExtResource("8_mrtvv")
+metadata/_edit_lock_ = true
 
 [node name="HurtShape" type="CollisionShape2D" parent="HurtBox"]
 position = Vector2(2.51186, 5.65105)

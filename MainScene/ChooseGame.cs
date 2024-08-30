@@ -58,7 +58,6 @@ public partial class ChooseGame : Control
 		label.Visible = true;
 		if (_gameNameToGrade.ContainsKey(GameNames.FinkiSurvive))
 		{
-			GetNode<MarginContainer>("FinkiSurviveStats").AddChild(label); 
 			label.Text = "Best Grade: " + _gameNameToGrade[GameNames.FinkiSurvive];
 		}
 		else

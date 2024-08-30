@@ -1,4 +1,6 @@
 MarginContainer
+TextureProgressBar
+AnimatedSprite2D
 Label
 MyModulateTweener
 Node
@@ -8,8 +10,5 @@ TextureRect
 TileMapLayer
 AudioStreamPlayer2D
 AudioStreamPlayer
-AnimatedSprite2D
 AnimatableBody2D
 CollisionShape2D
-Area2D
-Control

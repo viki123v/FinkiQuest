@@ -33,6 +33,11 @@ public abstract partial class BaseAttack : Area2D
     public abstract int GetAvailableAtWave();
 
     protected abstract void Ability();
+
+    public Timer GetAttackSpeedTimer()
+    {
+        return GetNode<Timer>("AttackSpeed");
+    }
     
     private void _on_area_entered(Area2D area)
     {

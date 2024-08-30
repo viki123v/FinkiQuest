@@ -6,8 +6,11 @@ namespace FinkiAdventureQuest.FinkiSurvive.code {
 	
 public partial class OrcMob : Mob
 	{
+		[Export]
 		public int BaseHp = 60;
+		[Export]
 		public int AppearsAtLevel = 1;
+		[Export]
 		private float _hpScaleFactor = 0.3f;
 
 		

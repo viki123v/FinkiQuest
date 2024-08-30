@@ -1908,6 +1908,7 @@ offset_right = 882.0
 offset_bottom = 505.0
 
 [node name="Label" type="Label" parent="FinkiSurviveStats"]
+visible = false
 layout_mode = 2
 text = "Best Grade: 5"
 label_settings = SubResource("LabelSettings_a661u")

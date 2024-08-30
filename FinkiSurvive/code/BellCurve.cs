@@ -29,7 +29,6 @@ public partial class BellCurve : TextureRect
 	public void ModulateAlpha()
 	{
 		
-		GD.Print("Textre");
 
 		var modulate = Modulate;
 		

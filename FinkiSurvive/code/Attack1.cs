@@ -49,7 +49,7 @@ public partial class Attack1 : BaseAttack
 
 	public override string GetIconPath()
 	{
-		return "res://FinkiSurvive/assets/fx/slash/image/skash_00007.png"; 
+		return "res://FinkiSurvive/assets/fx/attack1Image.png"; 
 	}
 
 	public override int GetAvailableAtWave()

@@ -12,7 +12,7 @@ namespace FinkiAdventureQuest.FinkiSurvive.code
 	{
 		
 		public static int WaveCount = 1;
-		public static int Score = 350;
+		public static int Score = 0;
 		public static int Grade = 5;
 		public static readonly int WaveTime = 30;
 
@@ -149,7 +149,7 @@ namespace FinkiAdventureQuest.FinkiSurvive.code
 
 		private void UpdateScore(int value)
 		{
-			Score++;
+			Score += value;
 			GetNode<Label>("UI/ScoreMarginCont/Score").Text = "Score: " + Score;
 			switch (Score)
 			{

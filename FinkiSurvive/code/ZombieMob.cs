@@ -5,9 +5,11 @@ namespace FinkiAdventureQuest.FinkiSurvive.code
 {
     public partial class ZombieMob : Mob
     {
+        [Export]
         public int BaseHp = 150;
+        [Export]
         public int AppearsAtLevel = 2;
-        
+        [Export]
         private float _hpScaleFactor = 0.2f;
         public override void _Ready()
         {

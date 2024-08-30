@@ -1,4 +1,4 @@
-[gd_scene load_steps=43 format=4 uid="uid://u6tdgbuw31s8"]
+[gd_scene load_steps=45 format=4 uid="uid://u6tdgbuw31s8"]
 
 [ext_resource type="Script" path="res://FinkiSurvive/code/Map.cs" id="1_bpkay"]
 [ext_resource type="Texture2D" uid="uid://bv1r25vwj74db" path="res://FinkiSurvive/tmp_assets/TILESET/mountain_landscape.png" id="2_4466c"]
@@ -13,7 +13,9 @@
 [ext_resource type="Script" path="res://FinkiSurvive/code/DashProgress.cs" id="9_w4qm5"]
 [ext_resource type="PackedScene" uid="uid://xndssfje6yyu" path="res://FinkiSurvive/scenes/win_screen.tscn" id="10_k3y2k"]
 [ext_resource type="Texture2D" uid="uid://b83cqy1j8cc8s" path="res://FinkiSurvive/assets/spacebaricon.png" id="10_s3tdu"]
+[ext_resource type="Texture2D" uid="uid://6hyq5myth35e" path="res://FinkiSurvive/assets/fx/attack1Image.png" id="11_ooma6"]
 [ext_resource type="PackedScene" uid="uid://8re1f1cepmc" path="res://MainScene/QuitGamePopup.tscn" id="12_d36eh"]
+[ext_resource type="Script" path="res://FinkiSurvive/code/AttackCooldownProgress.cs" id="12_geg8l"]
 [ext_resource type="AudioStream" uid="uid://c37eoekboganj" path="res://FinkiSurvive/assets/audio/mixkit-crickets-and-insects-in-the-wild-ambience-39.wav" id="14_5qb4o"]
 [ext_resource type="PackedScene" uid="uid://dj0qc3pxlg5f2" path="res://SettingsNode/settings.tscn" id="14_dgnaq"]
 [ext_resource type="Texture2D" uid="uid://daem22rk0xix5" path="res://FinkiSurvive/assets/DistNormalBg-removebg-preview.png" id="17_8m0aj"]
@@ -593,9 +595,9 @@ anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = -380.0
-offset_top = -124.0
-offset_right = -356.0
-offset_bottom = 10.0
+offset_top = -114.0
+offset_right = -355.0
+offset_bottom = 4.0
 grow_horizontal = 0
 grow_vertical = 0
 scale = Vector2(15.6927, 0.754052)
@@ -621,10 +623,10 @@ script = ExtResource("9_w4qm5")
 
 [node name="Label" type="Label" parent="UI/CurrentWeaponCont/Panel"]
 layout_mode = 2
-offset_left = 13.3183
-offset_top = 27.8495
-offset_right = 183.318
-offset_bottom = 93.8495
+offset_left = 11.7252
+offset_top = 26.5233
+offset_right = 181.725
+offset_bottom = 92.5233
 scale = Vector2(0.0417691, 1.10405)
 text = "Current Attack: 
 
@@ -633,11 +635,12 @@ Change Attack: R
 label_settings = SubResource("LabelSettings_06mis")
 
 [node name="TextureRect" type="TextureRect" parent="UI/CurrentWeaponCont/Panel"]
+visible = false
 layout_mode = 0
-offset_left = 20.3916
-offset_top = 9.28316
-offset_right = 234.392
-offset_bottom = 841.283
+offset_left = 19.0
+offset_top = 20.0
+offset_right = 320.0
+offset_bottom = 751.0
 scale = Vector2(0.0137387, 0.107002)
 texture = ExtResource("8_gq6nm")
 
@@ -651,6 +654,22 @@ scale = Vector2(1.36377, 1.01631)
 texture = ExtResource("10_s3tdu")
 expand_mode = 1
 flip_h = true
+
+[node name="MarginContainer" type="MarginContainer" parent="UI/CurrentWeaponCont/Panel"]
+layout_mode = 0
+offset_left = 17.7152
+offset_top = 6.63084
+offset_right = 320.715
+offset_bottom = 402.631
+scale = Vector2(0.0219063, 0.244891)
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="UI/CurrentWeaponCont/Panel/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+max_value = 30.0
+value = 30.0
+texture_progress = ExtResource("11_ooma6")
+script = ExtResource("12_geg8l")
 
 [node name="GradeCont" type="MarginContainer" parent="UI"]
 offset_left = -23.0
@@ -772,6 +791,7 @@ position = Vector2(1487.25, 320)
 rotation = -0.0769361
 scale = Vector2(1.11171, 1.11132)
 texture = ExtResource("23_uvocj")
+metadata/_edit_lock_ = true
 
 [connection signal="timeout" from="MobSpawnTimer" to="." method="GenerateMobs"]
 [connection signal="timeout" from="GameTimer" to="." method="OnGameTimerTick"]
