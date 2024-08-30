@@ -2,6 +2,7 @@ using Godot;
 using System;
 using FinkiAdventureQuest.FinkiSurvive.code;
 using System.Linq;
+using FinkiAdventureQuest.FinkiSurvive.code.Util;
 using Godot.Collections;
 
 namespace FinkiAdventureQuest.MainScene
@@ -12,7 +13,7 @@ public partial class ChooseGame : Control
 	private Button _graduateButton;
 	
 	private static Dictionary<GameNames, int> _gameNameToGrade = new();
-	// Called when the node enters the scene tree for the first time.
+	
 	public override void _Ready()
 	{
 		GetTree().Paused = false;
@@ -25,15 +26,14 @@ public partial class ChooseGame : Control
 		};
 
 	}
-
-	// Called every frame. 'delta' is the elapsed time since the previous frame.
+	
 	public override void _Process(double delta)
 	{
-		_label.Text = "Exams passed: " + GetPassed() + "/3";
-		if (GetPassed() == 1)
+		var passed = GetPassed();
+		_label.Text = "Exams passed: " + passed + "/3";
+		if (passed == 3)
 		{
 			_graduateButton.Disabled = false;
-			GetNode<Button>("/root/MainMenu/VBoxContainer/credits");
 		}
 		
 	}
@@ -50,6 +50,27 @@ public partial class ChooseGame : Control
 	public void FinkiSurvive()
 	{
 		GetTree().ChangeSceneToFile("res://FinkiSurvive/scenes/how_to_play.tscn");
+	}
+
+	public void ShowFinkiSurviveStats()
+	{
+		var label = GetNode<Label>("FinkiSurviveStats/Label");
+		label.Visible = true;
+		if (_gameNameToGrade.ContainsKey(GameNames.FinkiSurvive))
+		{
+			GetNode<MarginContainer>("FinkiSurviveStats").AddChild(label); 
+			label.Text = "Best Grade: " + _gameNameToGrade[GameNames.FinkiSurvive];
+		}
+		else
+		{
+			label.Text = "Not Passed";
+		}
+		
+	}
+
+	public void HideFinkiSurviveStats()
+	{
+		GetNode<Label>("FinkiSurviveStats/Label").Visible = false;
 	}
 
 	public void FinkiTetris()

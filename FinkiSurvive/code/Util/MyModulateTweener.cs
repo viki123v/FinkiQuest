@@ -36,13 +36,13 @@ public partial class MyModulateTweener : Node2D
 
 		var modulate = node.Modulate;
 		
-		if (modulate.A + _modulateAmountPerTick * ascend > endVal)
+		if (modulate.A + _modulateAmountPerTick * ascend >= endVal)
 		{
 			modulate.A = endVal;
 			ascend = -1;
 
 		}
-		else if (modulate.A + _modulateAmountPerTick * ascend < startVal)
+		else if (modulate.A + _modulateAmountPerTick * ascend <= startVal)
 		{
 			modulate.A = startVal;
 			ascend = 1;
@@ -50,8 +50,7 @@ public partial class MyModulateTweener : Node2D
 
 		modulate.A += (float) _modulateAmountPerTick * ascend;
 		node.Modulate = modulate;
-		
-		GD.Print(Modulate);
+		GD.Print(modulate);
 	}
     
     

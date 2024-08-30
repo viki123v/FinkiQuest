@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=4 uid="uid://c1ynr8l8okl8p"]
+[gd_scene load_steps=27 format=4 uid="uid://c1ynr8l8okl8p"]
 
 [ext_resource type="Script" path="res://MainScene/ChooseGame.cs" id="1_aj5jn"]
 [ext_resource type="Texture2D" uid="uid://bmglbdl6inmvr" path="res://MainScene/FinkiSurviveChooseGame.jpg" id="2_t4k5x"]
@@ -1707,6 +1707,11 @@ Button/styles/hover = SubResource("StyleBoxFlat_pwnia")
 Button/styles/normal = SubResource("StyleBoxFlat_a6xnk")
 Button/styles/pressed = SubResource("StyleBoxFlat_scp6w")
 
+[sub_resource type="LabelSettings" id="LabelSettings_a661u"]
+font = ExtResource("3_x1kb0")
+font_size = 12
+font_color = Color(0.768627, 0.4, 0.0862745, 1)
+
 [node name="Node2D" type="Control"]
 process_mode = 3
 layout_mode = 3
@@ -1895,7 +1900,21 @@ position = Vector2(651, 341)
 scale = Vector2(0.144601, 0.126622)
 texture = ExtResource("4_v3em7")
 
+[node name="FinkiSurviveStats" type="MarginContainer" parent="."]
+layout_mode = 0
+offset_left = 785.0
+offset_top = 443.0
+offset_right = 882.0
+offset_bottom = 505.0
+
+[node name="Label" type="Label" parent="FinkiSurviveStats"]
+layout_mode = 2
+text = "Best Grade: 5"
+label_settings = SubResource("LabelSettings_a661u")
+
 [connection signal="pressed" from="Container/SpaceAlgorithms2" to="." method="SpaceAlorithms"]
+[connection signal="mouse_entered" from="Container/FinkiSurvive" to="." method="ShowFinkiSurviveStats"]
+[connection signal="mouse_exited" from="Container/FinkiSurvive" to="." method="HideFinkiSurviveStats"]
 [connection signal="pressed" from="Container/FinkiSurvive" to="." method="FinkiSurvive"]
 [connection signal="pressed" from="Container/Viki" to="." method="FinkiSurvive"]
 [connection signal="pressed" from="Back" to="." method="_on_back_pressed"]

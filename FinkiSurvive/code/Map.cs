@@ -12,7 +12,7 @@ namespace FinkiAdventureQuest.FinkiSurvive.code
 	{
 		
 		public static int WaveCount = 1;
-		public static int Score = 0;
+		public static int Score = 350;
 		public static int Grade = 5;
 		public static readonly int WaveTime = 30;
 
@@ -62,6 +62,8 @@ namespace FinkiAdventureQuest.FinkiSurvive.code
 			GD.Print("TARGET SPAWN: " + MobSpawner.CalcDecrementValue(10,0.5f));
 
 			TreeExiting += ResetStats;
+			TreeExiting += () => ChooseGame.AddGradeEntry(GameNames.FinkiSurvive,Grade);
+			UpdateScore(0);
 
 		}
 
@@ -168,7 +170,7 @@ namespace FinkiAdventureQuest.FinkiSurvive.code
 				case >= 500 and < 600:
 					Grade = 8;
 					break;
-				case >=600 and < 800:
+				case >=600 and < 999:
 					Grade = 9;
 					break;
 				case >= 1000:
