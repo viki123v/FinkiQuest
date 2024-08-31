@@ -14,7 +14,8 @@ public partial class WinScreen : CanvasLayer
 	public override void _Process(double delta)
 	{
 	}
-
+	
+	
 	 public void OnVisibilityChanged()
 	 {
 	 	GetNode<Label>("Container/NumContainers/GradeNum").Text = Map.Grade.ToString();

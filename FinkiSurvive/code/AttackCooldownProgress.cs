@@ -33,8 +33,6 @@ public partial class AttackCooldownProgress : TextureProgressBar
 			_valueTimer.Stop();
 		}
 		Value = !_cooldownTimerStarted ? MaxValue : Value;
-		
-		GD.Print(MaxValue + "<---- max val");
 	}
 
 	public void UpdateProgressBarValue()
@@ -44,7 +42,6 @@ public partial class AttackCooldownProgress : TextureProgressBar
 
 	public void ResetIcon()
 	{
-		GD.Print("StartTimer");
 		_cooldownTimerStarted = true;
 		Value = 0;
 		_valueTimer.Start();

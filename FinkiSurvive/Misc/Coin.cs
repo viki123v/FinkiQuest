@@ -12,6 +12,8 @@ public abstract partial class Coin : Node2D
     private int _baseSpeed = 200;
     private int _speed = 0;
     private Node2D player;
+    
+    private bool _pickupAreaEntered = false;
 	
     private bool _canAttract = false;
 
@@ -55,9 +57,11 @@ public abstract partial class Coin : Node2D
             tween.TweenProperty(this,"scale", Vector2.Zero, 0.1f);
             tween.TweenCallback(Callable.From(QueueFree)).SetDelay(0.2f);
             
-            EmitSignal(nameof(CoinPickedUp), GetValue());
+            if (_pickupAreaEntered) return; 
             
-
+            EmitSignal(nameof(CoinPickedUp), GetValue());
+            _pickupAreaEntered = true;
+            
         };
         GetNode<AnimatedSprite2D>("AnimatedSprite2D").Play();
 

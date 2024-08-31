@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using FinkiAdventureQuest.FinkiSurvive.code.Util;
 using FinkiAdventureQuest.FinkiSurvive.Misc;
+using FinkiAdventureQuest.FinkiSurvive.scenes;
 using FinkiAdventureQuest.MainScene;
 using Godot;
 using GameNames = FinkiAdventureQuest.MainScene.GameNames;
@@ -38,6 +39,9 @@ namespace FinkiAdventureQuest.FinkiSurvive.code
 		private int _targetWaveForMinSpawnRate = 10;
 		
 		private float _spawnRateDecrement;
+
+		[Signal]
+		public delegate void SendGameStatsEventHandler(int score, int grade, int waveCount);
 		
 		public override void _Ready()
 		{
@@ -60,10 +64,11 @@ namespace FinkiAdventureQuest.FinkiSurvive.code
 			AddChild(_spacebarIconTimer);
 			
 			GD.Print("TARGET SPAWN: " + MobSpawner.CalcDecrementValue(10,0.5f));
+			
 
-			TreeExiting += ResetStats;
 			TreeExiting += () => ChooseGame.AddGradeEntry(GameNames.FinkiSurvive,Grade);
-			UpdateScore(0);
+			TreeExiting += ResetStats;
+			//UpdateScore(0);
 
 		}
 
@@ -111,14 +116,16 @@ namespace FinkiAdventureQuest.FinkiSurvive.code
 
 		public void PlayerDeath()
 		{
+			EmitSignal(nameof(SendGameStats));
 			if (_canGraduate)
 			{
 				GetNode<CanvasLayer>("WinScreen").Visible = true;
-				ChooseGame.AddGradeEntry(GameNames.FinkiSurvive,Grade);
-				ResetStats();
 			}
 			else GetNode<CanvasLayer>("DeathScreen").Visible = true;
-			
+
+			GD.Print("GRADE: " + Grade);
+			ChooseGame.AddGradeEntry(GameNames.FinkiSurvive,Grade);
+			ResetStats();
 			PauseSceneTree();
 		}
 
@@ -149,31 +156,35 @@ namespace FinkiAdventureQuest.FinkiSurvive.code
 
 		private void UpdateScore(int value)
 		{
+			GD.Print(value + "Val");
 			Score += value;
 			GetNode<Label>("UI/ScoreMarginCont/Score").Text = "Score: " + Score;
 			switch (Score)
 			{
-				case < 300:
+				case < 500:
 					return;
-				case >= 300 and < 400:
+				case >= 500 and < 600:
 					Grade = 6;
-					_gradeLabel.QueueFree();
-					Color color = Color.FromHtml("#adebb0");
-					_gradeLabel = LabelFactory.CreateLabel(color);
-					GetNode<MarginContainer>("UI/GradeCont").AddChild(_gradeLabel);
-					_canGraduate = true;
+					if (!_canGraduate)
+					{
+						_gradeLabel.QueueFree();
+						Color color = Color.FromHtml("#adebb0");
+						_gradeLabel = LabelFactory.CreateLabel(color);
+						GetNode<MarginContainer>("UI/GradeCont").AddChild(_gradeLabel);
+						_canGraduate = true;
+					}
 					
 					break;
-				case >= 400 and < 500:
+				case >= 600 and < 700:
 					Grade = 7;
 					break;
-				case >= 500 and < 600:
+				case >= 700 and < 900:
 					Grade = 8;
 					break;
-				case >=600 and < 999:
+				case >=900 and < 1200:
 					Grade = 9;
 					break;
-				case >= 1000:
+				case >= 1200:
 					Grade = 10;
 					break;
 			}
@@ -198,7 +209,6 @@ namespace FinkiAdventureQuest.FinkiSurvive.code
 			tween.TweenProperty(coin, "position", middlePos, 0.3f);
 			tween.TweenProperty(coin, "position", endPos, 0.3f);
 			
-			
 			mob.Death();
 			
 			var anim = mob.GetNode<AnimatedSprite2D>("AnimatedSprite2D");
@@ -219,30 +229,7 @@ namespace FinkiAdventureQuest.FinkiSurvive.code
 
 		private void UpdateWaveLabel()
 		{
-			switch (WaveCount)
-			{
-				case 2:
-					//GetNode<Timer>("MobSpawnTimer").WaitTime = 1.1f;
-					GD.Print("CHANGED TIME");
-					break;
-				case 4:
-					//GetNode<Timer>("MobSpawnTimer").WaitTime = 0.8f;
-					GD.Print("CHANGED TIME");
-					break;
-				case > 9:
-					//GetNode<Timer>("MobSpawnTimer").WaitTime = 0.5f;
-					GD.Print("CHANGED TIME");
-					break;
-				default:
-				{
-					if (WaveCount > 20)
-					{
-						//GetNode<Timer>("MobSpawnTimer").WaitTime = 0.3f;
-					}
-
-					break;
-				}
-			}
+			GD.Print("Mob Spawn Time: " + GetNode<Timer>("MobSpawnTimer").WaitTime);
 			
 			GetNode<Label>("UI/WaveNumCont/Label").Text = "Wave: " + WaveCount;
 		}

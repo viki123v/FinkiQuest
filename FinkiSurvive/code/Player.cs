@@ -16,19 +16,20 @@ namespace FinkiAdventureQuest.FinkiSurvive.code
         private int _hpBarSize; // golemina na edno hp bar delce
         private TextureProgressBar _healthBar;
         private MovementState State {get; set;}
-		
-        public BaseAttack CurrentAttack;
+        private BaseAttack _currentAttack;
+
+        private int _currentAttackIdx = 0;
+        
         private bool _canAttack;
         private bool _canBounce;
-
-        private readonly List<string> _attackScenes = new();
-        private int _currentAttackIdx;
-        private Label _hpLabel;
+        private bool _canDash;
         private bool _stateValid = true;
-
+        //private int _currentAttackIdx;
+        private Label _hpLabel;
+        
         private AnimatedSprite2D _animation; 
         [Export] public int dashSpeed = 100;
-        private bool canDash;
+       
 
         [Signal] public delegate void PlayerMovedEventHandler(Vector2 position);
         [Signal] public delegate void PlayerDamagedEventHandler();
@@ -46,26 +47,24 @@ namespace FinkiAdventureQuest.FinkiSurvive.code
             _health = _maxHealth;
             _hpBarSize = _maxHealth / 30; 
             _healthBar = GetNode<TextureProgressBar>("HealthBar");
-            _attackScenes.Add("attack1");
-            _attackScenes.Add("attack2");
-            _attackScenes.Add("attack3");
-            _currentAttackIdx = 0;
-            CurrentAttack = CurrentAttack = GD.Load<PackedScene>(ProjectPath.ScenesPath + _attackScenes[_currentAttackIdx] + ".tscn").Instantiate<Attack1>();
             _hpLabel = GetNode<Label>("HealthBar/Label");
-            
             _hpLabel.Text = $"{_maxHealth} / {_maxHealth}";
-            GetNode<Timer>("AttackSpeed").WaitTime = CurrentAttack.GetAttackSpeed();
-			
+            
+            _currentAttackIdx = 0;
+            _currentAttack = _currentAttack = GD.Load<PackedScene>(ProjectPath.ScenesPath + BaseAttack.AttackScenes[_currentAttackIdx] + ".tscn").Instantiate<Attack1>();
+            
             _animation = GetNode<AnimatedSprite2D>("PlayerImage/PlayerSprite");
 
-            Timer BounceTimer = new Timer();
+            GetNode<Timer>("AttackSpeed").WaitTime = _currentAttack.GetAttackSpeed();
             
-            BounceTimer.Autostart = true;
-            BounceTimer.WaitTime = 0.5f;
-            BounceTimer.Timeout += () => { _canBounce = true; };
-            AddChild(BounceTimer);
+            Timer bounceTimer = new Timer();
+            
+            bounceTimer.Autostart = true;
+            bounceTimer.WaitTime = 2f;
+            bounceTimer.Timeout += () => { _canBounce = true; };
+            AddChild(bounceTimer);
 
-            canDash = true;
+            _canDash = true;
 
         }
         
@@ -101,7 +100,7 @@ namespace FinkiAdventureQuest.FinkiSurvive.code
             
             if (Input.IsActionJustPressed("FINKISURVIVE_dash") )
             {
-                if (canDash)
+                if (_canDash)
                 {
                     var tween = GetTree().CreateTween();
                     Color modulated = Color.FromHtml("#451c26");
@@ -120,7 +119,7 @@ namespace FinkiAdventureQuest.FinkiSurvive.code
                     
                     
                     MoveAndCollide(Velocity);
-                    canDash = false;
+                    _canDash = false;
                     GetNode<Timer>("DashCooldown").Start();
                     EmitSignal(nameof(DashTimerStarted));
                     map.EnablePlayerCollisions();
@@ -134,10 +133,8 @@ namespace FinkiAdventureQuest.FinkiSurvive.code
             if (!_animation.Animation.ToString().Contains("attack") || !_animation.IsPlaying())
             {
                 State.Move(_animation);
-                
             }
               
-            
             
             Velocity = direction * (Speed * (float)delta);
 			
@@ -156,7 +153,7 @@ namespace FinkiAdventureQuest.FinkiSurvive.code
 
         public void OnDashCooldownEnd()
         {
-            canDash = true;
+            _canDash = true;
         }
 
         public void HealPlayer(float amount)
@@ -176,33 +173,31 @@ namespace FinkiAdventureQuest.FinkiSurvive.code
         
         public void SwitchAttack()
         {
-            ShiftAttackIdx();
-			
-            var scene = GD.Load<PackedScene>(ProjectPath.ScenesPath + _attackScenes[_currentAttackIdx] + ".tscn");
-            BaseAttack atk = scene.Instantiate() as BaseAttack;
+            GetNextAttack();
+			     
+            var attackScene = GD.Load<PackedScene>(ProjectPath.ScenesPath + BaseAttack.AttackScenes[_currentAttackIdx] + ".tscn");
+            BaseAttack atk = attackScene.Instantiate() as BaseAttack;
             while (atk!.GetAvailableAtWave() > Map.WaveCount)
             {
-                ShiftAttackIdx();
-                atk = GD.Load<PackedScene>(ProjectPath.ScenesPath + _attackScenes[_currentAttackIdx] + ".tscn").Instantiate() as BaseAttack;
+                GetNextAttack();
+                atk = GD.Load<PackedScene>(ProjectPath.ScenesPath + BaseAttack.AttackScenes[_currentAttackIdx] + ".tscn").Instantiate() as BaseAttack;
             }
-
+            
+        
             GetNode<TextureProgressBar>("/root/Level/UI/CurrentWeaponCont/Panel/MarginContainer/TextureProgressBar")
                     .TextureProgress = ResourceLoader.Load<Texture2D>(atk!.GetIconPath());
-			
+			     
             var timer = GetNode<Timer>("AttackSpeed");
             timer.Stop();
             timer.WaitTime = atk.GetAttackSpeed();
             timer.Start();
             _canAttack = false;
         }
-
-        private void ShiftAttackIdx()
+        
+        private void GetNextAttack()
         {
-            if (++_currentAttackIdx > _attackScenes.Count - 1)
-            {
-                _currentAttackIdx = 0;
-            }
-			
+            _currentAttackIdx = ++_currentAttackIdx % BaseAttack.AttackScenes.Count;
+            
         }
 
         public override void _Input(InputEvent @event)
@@ -222,9 +217,9 @@ namespace FinkiAdventureQuest.FinkiSurvive.code
 
             _canAttack = false;
             
-            PackedScene attackScene = GD.Load<PackedScene>(ProjectPath.ScenesPath + _attackScenes[_currentAttackIdx] + ".tscn");
-            CurrentAttack = attackScene.Instantiate() as BaseAttack;
-            var cont = GetNode<Node2D>("Attacks/" + CurrentAttack!.GetContainerName());
+            PackedScene attackScene = GD.Load<PackedScene>(ProjectPath.ScenesPath + BaseAttack.AttackScenes[_currentAttackIdx] + ".tscn");
+            _currentAttack = attackScene.Instantiate() as BaseAttack;
+            var cont = GetNode<Node2D>("Attacks/" + _currentAttack!.GetContainerName());
             Vector2 mousePosition = GetGlobalMousePosition();
             var point = GetNode<Node2D>("Marker2D");
             Vector2 playerPosition = point.GlobalPosition;
@@ -233,18 +228,18 @@ namespace FinkiAdventureQuest.FinkiSurvive.code
             Vector2 direction = (mousePosition - playerPosition).Normalized();
             
 
-            var attackDistance = CurrentAttack!.GetAttackRange();
+            var attackDistance = _currentAttack!.GetAttackRange();
 
-            CurrentAttack.Position = attackPos + direction * attackDistance;
-            CurrentAttack.Rotation = direction.Angle();
+            _currentAttack.Position = attackPos + direction * attackDistance;
+            _currentAttack.Rotation = direction.Angle();
             
-            var anim = CurrentAttack.GetNode<AnimatedSprite2D>("Slash");
+            var anim = _currentAttack.GetNode<AnimatedSprite2D>("Slash");
             anim.AnimationFinished += () =>
             {
                 foreach (var child in cont.GetChildren())
                     child.QueueFree();
             };
-            cont.AddChild(CurrentAttack);
+            cont.AddChild(_currentAttack);
             anim.Play();
             
             EmitSignal(nameof(AttackCooldownTimerStarted));

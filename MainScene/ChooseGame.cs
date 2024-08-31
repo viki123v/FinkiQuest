@@ -4,6 +4,7 @@ using FinkiAdventureQuest.FinkiSurvive.code;
 using System.Linq;
 using FinkiAdventureQuest.FinkiSurvive.code.Util;
 using Godot.Collections;
+using CollectionExtensions = System.Collections.Generic.CollectionExtensions;
 
 namespace FinkiAdventureQuest.MainScene
 {
@@ -40,7 +41,12 @@ public partial class ChooseGame : Control
 
 	public static void AddGradeEntry(GameNames name, int grade)
 	{
-		_gameNameToGrade[name] = grade;
+		if (CollectionExtensions.TryAdd(_gameNameToGrade, name, grade)) return; // ako imat vekje entry vrakjat true
+		
+		if (grade > _gameNameToGrade[name])
+		{
+			_gameNameToGrade[name] = grade;
+		}
 	}
 	
 	public static int GetPassed(){
@@ -54,6 +60,7 @@ public partial class ChooseGame : Control
 
 	public void ShowFinkiSurviveStats()
 	{
+		
 		var label = GetNode<Label>("FinkiSurviveStats/Label");
 		label.Visible = true;
 		if (_gameNameToGrade.ContainsKey(GameNames.FinkiSurvive))

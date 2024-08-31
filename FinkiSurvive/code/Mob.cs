@@ -177,7 +177,7 @@ public abstract partial class Mob : CharacterBody2D
         hp += (int) Math.Ceiling(hp * (hpScaleFactor + Map.WaveCount / 20.0f));
 			
         HpScaling.Add(hp);
-			
+        GD.Print("HpScalingList: " + HpScaling.ToString());
         return hp;
     }
 		
