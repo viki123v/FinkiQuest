@@ -10,9 +10,9 @@ public abstract class WaveState
     {
         return wave switch
         {
-            1 => new StartWaveState(),
-            > 1 and < 4 => new ZombieWaveState(),
-            >= 4 => new KnightWaveState(),
+            >= 1 and < 3 => new StartWaveState(),
+            >= 3 and < 5 => new ZombieWaveState(),
+            >= 5 => new KnightWaveState(),
             _ => null
         };
     }

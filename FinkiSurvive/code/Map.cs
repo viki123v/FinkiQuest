@@ -15,9 +15,10 @@ namespace FinkiAdventureQuest.FinkiSurvive.code
 		public static int WaveCount = 1;
 		public static int Score = 0;
 		public static int Grade = 5;
-		public static readonly int WaveTime = 30;
+		public static int WaveTime = 30;
 
 		public WaveState CurrentWaveState;
+		public WaveHandler WaveHandler = new WaveHandler();
 		
 		private readonly Random _rng = new();
 
@@ -154,42 +155,53 @@ namespace FinkiAdventureQuest.FinkiSurvive.code
 			ResetStats();
 		}
 
+		private void UpdateScoreLabel()
+		{
+			GetNode<Label>("UI/ScoreMarginCont/Score").Text = "Score: " + Score;
+		}
+
+		private void UpdateGradeLabel()
+		{
+			if (!_canGraduate && Grade == 6)
+			{
+				_gradeLabel.QueueFree();
+				Color color = Color.FromHtml("#adebb0");
+				_gradeLabel = LabelFactory.CreateLabel(color);
+				GetNode<MarginContainer>("UI/GradeCont").AddChild(_gradeLabel);
+				_canGraduate = true;
+			}
+			
+			_gradeLabel.Text = "Grade: " + Grade;
+		}
+
 		private void UpdateScore(int value)
 		{
 			GD.Print(value + "Val");
 			Score += value;
-			GetNode<Label>("UI/ScoreMarginCont/Score").Text = "Score: " + Score;
-			switch (Score)
-			{
-				case < 500:
-					return;
-				case >= 500 and < 600:
-					Grade = 6;
-					if (!_canGraduate)
-					{
-						_gradeLabel.QueueFree();
-						Color color = Color.FromHtml("#adebb0");
-						_gradeLabel = LabelFactory.CreateLabel(color);
-						GetNode<MarginContainer>("UI/GradeCont").AddChild(_gradeLabel);
-						_canGraduate = true;
-					}
-					
-					break;
-				case >= 600 and < 700:
-					Grade = 7;
-					break;
-				case >= 700 and < 900:
-					Grade = 8;
-					break;
-				case >=900 and < 1200:
-					Grade = 9;
-					break;
-				case >= 1200:
-					Grade = 10;
-					break;
-			}
+			UpdateScoreLabel();
 			
-			_gradeLabel.Text = "Grade: " + Grade;
+			int previousGrade = Grade;
+			UpdateGradeBasedOnScore();
+
+			if (Grade != previousGrade)
+			{
+				UpdateGradeLabel();
+			}
+		
+		}
+
+		private void UpdateGradeBasedOnScore()
+		{
+			if (Score >= 1200)
+				Grade = 10;
+			else if (Score >= 900)
+				Grade = 9;
+			else if (Score >= 700)
+				Grade = 8;
+			else if (Score >= 600)
+				Grade = 7;
+			else if (Score >= 500)
+				Grade = 6;
 		}
 		
 
@@ -288,25 +300,58 @@ namespace FinkiAdventureQuest.FinkiSurvive.code
 			player.SetCollisionLayerValue(4,true);
 			player.SetCollisionMaskValue(2,true);
 		}
-
+		
 		private void OnGameTimerTick()
 		{
-			if (--_timeSecs <= 0)
+			var mobSpawnTimer = GetNode<Timer>("MobSpawnTimer");
+
+			_timeSecs--;
+
+			if (_timeSecs <= 0)
 			{
+				HandleWaveTransition(mobSpawnTimer);
 				_timeSecs = WaveTime;
-				WaveCount++;
 				UpdateWaveLabel();
 				UpdateMenu();
 			}
 
-			GetNode<Timer>("MobSpawnTimer").WaitTime -= _spawnRateDecrement;
-			
-			GD.Print(GetNode<Timer>("MobSpawnTimer").WaitTime);
-			
+			AdjustMobSpawnTimer(mobSpawnTimer);
+
+			GD.Print(mobSpawnTimer.WaitTime);
+
 			UpdateTimerText(_timeSecs / 60, _timeSecs % 60);
-			
 		}
-		
+
+		private void AdjustMobSpawnTimer(Timer mobSpawnTimer)
+		{
+			mobSpawnTimer.WaitTime -= _spawnRateDecrement;
+			
+			if (mobSpawnTimer.WaitTime < 0.5f)
+			{
+				mobSpawnTimer.WaitTime = 0.5f;
+			}
+		}
+
+		private void HandleWaveTransition(Timer mobSpawnTimer)
+		{
+			WaveCount++;
+
+			if (WaveCount == 11)
+			{
+				WaveTime = 10;
+				mobSpawnTimer.Stop();
+				ClearMobs();
+			}
+			else if (WaveCount > 11)
+			{
+				WaveTime = 30;
+				if (mobSpawnTimer.IsStopped())
+				{
+					mobSpawnTimer.Start();
+				}
+			}
+		}
+
 		private void GenerateMobs()
 		{
 			CurrentWaveState = WaveState.GetWaveState(WaveCount);
