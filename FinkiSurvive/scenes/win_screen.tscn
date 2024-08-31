@@ -17,9 +17,8 @@ process_mode = 3
 script = ExtResource("1_naaaq")
 
 [node name="ColorRect" type="ColorRect" parent="."]
-offset_left = -15.0
-offset_right = 26.0
-offset_bottom = 41.0
+offset_right = 46.0
+offset_bottom = 47.0
 scale = Vector2(28.5687, 15.8559)
 color = Color(0, 0, 0, 0.756863)
 

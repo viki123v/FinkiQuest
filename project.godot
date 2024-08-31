@@ -13,7 +13,6 @@ config_version=5
 config/name="FinkiQuest"
 run/main_scene="res://MainScene/main_menu.tscn"
 config/features=PackedStringArray("4.3", "C#", "GL Compatibility")
-run/max_fps=200
 boot_splash/bg_color=Color(1, 1, 1, 1)
 boot_splash/image="res://FinkiSurvive/assets/logofinki-removebg-preview.png"
 boot_splash/fullsize=false
@@ -34,6 +33,11 @@ window/vsync/vsync_mode=0
 [dotnet]
 
 project/assembly_name="FinkiAdventureQuest"
+
+[global_group]
+
+MenuButtons=""
+Settings=""
 
 [input]
 

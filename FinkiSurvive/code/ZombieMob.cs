@@ -5,9 +5,11 @@ namespace FinkiAdventureQuest.FinkiSurvive.code
 {
     public partial class ZombieMob : Mob
     {
+        [Export]
         public int BaseHp = 150;
+        [Export]
         public int AppearsAtLevel = 2;
-        
+        [Export]
         private float _hpScaleFactor = 0.2f;
         public override void _Ready()
         {
@@ -19,6 +21,11 @@ namespace FinkiAdventureQuest.FinkiSurvive.code
             base._Ready();
             AttackSpeedTimer.WaitTime = 0.5f;
             AddChild(AttackSpeedTimer);
+        }
+
+        public override PackedScene DropCoin()
+        {
+            return GD.Load<PackedScene>("res://FinkiSurvive/scenes/silver_coin.tscn");
         }
 
         public override void Attack()

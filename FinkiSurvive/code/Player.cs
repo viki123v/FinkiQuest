@@ -16,56 +16,55 @@ namespace FinkiAdventureQuest.FinkiSurvive.code
         private int _hpBarSize; // golemina na edno hp bar delce
         private TextureProgressBar _healthBar;
         private MovementState State {get; set;}
-		
         private BaseAttack _currentAttack;
+
+        private int _currentAttackIdx = 0;
+        
         private bool _canAttack;
         private bool _canBounce;
-
-        private readonly List<string> _attackScenes = new();
-        private int _currentAttackIdx;
-        private Label _hpLabel;
+        private bool _canDash;
         private bool _stateValid = true;
+        //private int _currentAttackIdx;
+        private Label _hpLabel;
+        
+        private AnimatedSprite2D _animation; 
+        [Export] public int dashSpeed = 100;
+       
 
-        private AnimatedSprite2D _animation;
-        [Export]
-        public int dashSpeed = 100;
-        private bool canDash;
+        [Signal] public delegate void PlayerMovedEventHandler(Vector2 position);
+        [Signal] public delegate void PlayerDamagedEventHandler();
+        [Signal] public delegate void PlayerDiedEventHandler();
+        [Signal] public delegate void DashTimerStartedEventHandler();
+
+        [Signal] public delegate void AttackCooldownTimerStartedEventHandler();
 
         [Signal]
-        public delegate void PlayerMovedEventHandler(Vector2 position);
-        [Signal]
-        public delegate void PlayerDamagedEventHandler();
-        [Signal]
-        public delegate void PlayerDiedEventHandler();
-
-        [Signal]
-        public delegate void DashTimerStartedEventHandler();
+        public delegate void AttackSwitchedEventHandler();
 
         public override void _Ready()
         {
             _canAttack = true;
             _health = _maxHealth;
-            _hpBarSize = _maxHealth / 30; // 15 - br pati so trebit da ta udrat za da umris
+            _hpBarSize = _maxHealth / 30; 
             _healthBar = GetNode<TextureProgressBar>("HealthBar");
-            _attackScenes.Add("attack1");
-            _attackScenes.Add("attack2");
-            _attackScenes.Add("attack3");
-            _currentAttackIdx = 0;
-            _currentAttack = _currentAttack = GD.Load<PackedScene>(ProjectPath.ScenesPath + _attackScenes[_currentAttackIdx] + ".tscn").Instantiate<Attack1>();
             _hpLabel = GetNode<Label>("HealthBar/Label");
-            
             _hpLabel.Text = $"{_maxHealth} / {_maxHealth}";
-            GetNode<Timer>("AttackSpeed").WaitTime = _currentAttack.GetAttackSpeed();
-			
+            
+            _currentAttackIdx = 0;
+            _currentAttack = _currentAttack = GD.Load<PackedScene>(ProjectPath.ScenesPath + BaseAttack.AttackScenes[_currentAttackIdx] + ".tscn").Instantiate<Attack1>();
+            
             _animation = GetNode<AnimatedSprite2D>("PlayerImage/PlayerSprite");
 
-            Timer BounceTimer = new Timer();
+            GetNode<Timer>("AttackSpeed").WaitTime = _currentAttack.GetAttackSpeed();
             
-            BounceTimer.Autostart = true;
-            BounceTimer.WaitTime = 0.2f;
-            BounceTimer.Timeout += () => { _canBounce = true; };
+            Timer bounceTimer = new Timer();
+            
+            bounceTimer.Autostart = true;
+            bounceTimer.WaitTime = 2f;
+            bounceTimer.Timeout += () => { _canBounce = true; };
+            AddChild(bounceTimer);
 
-            canDash = true;
+            _canDash = true;
 
         }
         
@@ -73,13 +72,25 @@ namespace FinkiAdventureQuest.FinkiSurvive.code
         {
             if(!_stateValid) return;
             _animation.Visible = true;
-            var walkAudio = GetNode<AudioStreamPlayer2D>("WalkSoundEffect");
+           
 			
             Vector2 direction = Input.GetVector(
                 "FINKISURVIVE_player_left", 
                 "FINKISURVIVE_player_right", 
                 "FINKISURVIVE_player_up", 
                 "FINKISURVIVE_player_down").Normalized();
+
+            var walkAudio = GetNode<AudioStreamPlayer2D>("WalkSoundEffect");
+            if (direction != Vector2.Zero)
+            {
+               
+                if(!walkAudio.IsPlaying())
+                    walkAudio.Play();
+            }
+            else
+            {
+                walkAudio.Stop();
+            }
             
             if (Input.IsActionPressed("FINKISURVIVE_player_attack"))
             {
@@ -89,8 +100,12 @@ namespace FinkiAdventureQuest.FinkiSurvive.code
             
             if (Input.IsActionJustPressed("FINKISURVIVE_dash") )
             {
-                if (canDash)
+                if (_canDash)
                 {
+                    var tween = GetTree().CreateTween();
+                    Color modulated = Color.FromHtml("#451c26");
+                    modulated.A = 0.3f;
+                    tween.TweenProperty(this, "modulate", modulated, 0.1f);
                     var map = GetParent<Map>();
                     map.DisablePlayerCollisions();
                     if (direction != Vector2.Zero)
@@ -101,20 +116,25 @@ namespace FinkiAdventureQuest.FinkiSurvive.code
                     {
                         Velocity = Velocity.Normalized();
                     }
-
+                    
+                    
                     MoveAndCollide(Velocity);
-                    canDash = false;
+                    _canDash = false;
                     GetNode<Timer>("DashCooldown").Start();
                     EmitSignal(nameof(DashTimerStarted));
                     map.EnablePlayerCollisions();
+                    
+                    tween.TweenProperty(this, "modulate", Modulate, 0.2f);
                 }
             }
             
             
             State = MovementState.GetState((GetGlobalMousePosition() - GetGlobalPosition()).Angle(),direction);
-            if(!_animation.Animation.ToString().Contains("attack") || !_animation.IsPlaying())
+            if (!_animation.Animation.ToString().Contains("attack") || !_animation.IsPlaying())
+            {
                 State.Move(_animation);
-            
+            }
+              
             
             Velocity = direction * (Speed * (float)delta);
 			
@@ -133,7 +153,7 @@ namespace FinkiAdventureQuest.FinkiSurvive.code
 
         public void OnDashCooldownEnd()
         {
-            canDash = true;
+            _canDash = true;
         }
 
         public void HealPlayer(float amount)
@@ -153,42 +173,40 @@ namespace FinkiAdventureQuest.FinkiSurvive.code
         
         public void SwitchAttack()
         {
-            ShiftAttackIdx();
-			
-            var scene = GD.Load<PackedScene>(ProjectPath.ScenesPath + _attackScenes[_currentAttackIdx] + ".tscn");
-            BaseAttack atk = scene.Instantiate() as BaseAttack;
+            GetNextAttack();
+			     
+            var attackScene = GD.Load<PackedScene>(ProjectPath.ScenesPath + BaseAttack.AttackScenes[_currentAttackIdx] + ".tscn");
+            BaseAttack atk = attackScene.Instantiate() as BaseAttack;
             while (atk!.GetAvailableAtWave() > Map.WaveCount)
             {
-                ShiftAttackIdx();
-                atk = GD.Load<PackedScene>(ProjectPath.ScenesPath + _attackScenes[_currentAttackIdx] + ".tscn").Instantiate() as BaseAttack;
+                GetNextAttack();
+                atk = GD.Load<PackedScene>(ProjectPath.ScenesPath + BaseAttack.AttackScenes[_currentAttackIdx] + ".tscn").Instantiate() as BaseAttack;
             }
-
-            GetNode<TextureRect>("/root/Level/UI/CurrentWeaponCont/Panel/TextureRect").Texture =
-                ResourceLoader.Load<Texture2D>(atk!.GetIconPath());
-			
+            
+        
+            GetNode<TextureProgressBar>("/root/Level/UI/CurrentWeaponCont/Panel/MarginContainer/TextureProgressBar")
+                    .TextureProgress = ResourceLoader.Load<Texture2D>(atk!.GetIconPath());
+			     
             var timer = GetNode<Timer>("AttackSpeed");
             timer.Stop();
             timer.WaitTime = atk.GetAttackSpeed();
             timer.Start();
             _canAttack = false;
         }
-
-        private void ShiftAttackIdx()
+        
+        private void GetNextAttack()
         {
-            if (++_currentAttackIdx > _attackScenes.Count - 1)
-            {
-                _currentAttackIdx = 0;
-            }
-			
+            _currentAttackIdx = ++_currentAttackIdx % BaseAttack.AttackScenes.Count;
+            
         }
 
         public override void _Input(InputEvent @event)
         {
-            if (@event.IsActionPressed("FINKISURVIVE_switch_attack"))
-            {
-                SwitchAttack();
-            }
+            if (!@event.IsActionPressed("FINKISURVIVE_switch_attack")) return;
             
+            SwitchAttack();
+            EmitSignal(nameof(AttackSwitched));
+
         }
 
        
@@ -199,7 +217,7 @@ namespace FinkiAdventureQuest.FinkiSurvive.code
 
             _canAttack = false;
             
-            PackedScene attackScene = GD.Load<PackedScene>(ProjectPath.ScenesPath + _attackScenes[_currentAttackIdx] + ".tscn");
+            PackedScene attackScene = GD.Load<PackedScene>(ProjectPath.ScenesPath + BaseAttack.AttackScenes[_currentAttackIdx] + ".tscn");
             _currentAttack = attackScene.Instantiate() as BaseAttack;
             var cont = GetNode<Node2D>("Attacks/" + _currentAttack!.GetContainerName());
             Vector2 mousePosition = GetGlobalMousePosition();
@@ -209,14 +227,12 @@ namespace FinkiAdventureQuest.FinkiSurvive.code
             Vector2 attackPos = point.Position;
             Vector2 direction = (mousePosition - playerPosition).Normalized();
             
-			
 
             var attackDistance = _currentAttack!.GetAttackRange();
 
             _currentAttack.Position = attackPos + direction * attackDistance;
             _currentAttack.Rotation = direction.Angle();
-			
-			
+            
             var anim = _currentAttack.GetNode<AnimatedSprite2D>("Slash");
             anim.AnimationFinished += () =>
             {
@@ -225,6 +241,9 @@ namespace FinkiAdventureQuest.FinkiSurvive.code
             };
             cont.AddChild(_currentAttack);
             anim.Play();
+            
+            EmitSignal(nameof(AttackCooldownTimerStarted));
+           
         }
 
         public void TakeDamage(int damage)

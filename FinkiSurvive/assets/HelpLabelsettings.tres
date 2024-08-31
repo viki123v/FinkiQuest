@@ -1,0 +1,12 @@
+[gd_resource type="LabelSettings" load_steps=2 format=3 uid="uid://b515onuupd076"]
+
+[ext_resource type="FontFile" uid="uid://4on88usjtnj4" path="res://FinkiSurvive/tmp_assets/FONTS/videophreak/VIDEOPHREAK.ttf" id="1_tfjkp"]
+
+[resource]
+font = ExtResource("1_tfjkp")
+font_size = 18
+outline_size = 2
+outline_color = Color(0.611765, 0.286275, 0.698039, 1)
+shadow_size = 8
+shadow_color = Color(0.0728426, 0.0728426, 0.0728426, 1)
+shadow_offset = Vector2(3, 3)

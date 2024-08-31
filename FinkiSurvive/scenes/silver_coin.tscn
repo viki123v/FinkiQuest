@@ -1,0 +1,170 @@
+[gd_scene load_steps=36 format=3 uid="uid://cmjcuadlm36lp"]
+
+[ext_resource type="Script" path="res://FinkiSurvive/code/SilverCoin.cs" id="1_0pmlc"]
+[ext_resource type="Texture2D" uid="uid://dq65swkawwok7" path="res://FinkiSurvive/assets/craftpix-513237-free-game-coins-sprite-sheets/PNG/Silver/Silver_1.png" id="1_pnbu1"]
+[ext_resource type="Texture2D" uid="uid://ykgtx1acru20" path="res://FinkiSurvive/assets/craftpix-513237-free-game-coins-sprite-sheets/PNG/Silver/Silver_2.png" id="2_ky18o"]
+[ext_resource type="Texture2D" uid="uid://v6nk4jsnmlnh" path="res://FinkiSurvive/assets/craftpix-513237-free-game-coins-sprite-sheets/PNG/Silver/Silver_3.png" id="3_kwgmq"]
+[ext_resource type="Texture2D" uid="uid://ce57tlfctedgv" path="res://FinkiSurvive/assets/craftpix-513237-free-game-coins-sprite-sheets/PNG/Silver/Silver_4.png" id="4_bgmgt"]
+[ext_resource type="Texture2D" uid="uid://0g653dc18n83" path="res://FinkiSurvive/assets/craftpix-513237-free-game-coins-sprite-sheets/PNG/Silver/Silver_5.png" id="5_f53j2"]
+[ext_resource type="Texture2D" uid="uid://b00ae703wpjpj" path="res://FinkiSurvive/assets/craftpix-513237-free-game-coins-sprite-sheets/PNG/Silver/Silver_6.png" id="6_xc47l"]
+[ext_resource type="Texture2D" uid="uid://bmpea06il8bor" path="res://FinkiSurvive/assets/craftpix-513237-free-game-coins-sprite-sheets/PNG/Silver/Silver_7.png" id="7_jbmv8"]
+[ext_resource type="Texture2D" uid="uid://d08a68h16s4v5" path="res://FinkiSurvive/assets/craftpix-513237-free-game-coins-sprite-sheets/PNG/Silver/Silver_8.png" id="8_qlu0y"]
+[ext_resource type="Texture2D" uid="uid://12eaaxugbd2w" path="res://FinkiSurvive/assets/craftpix-513237-free-game-coins-sprite-sheets/PNG/Silver/Silver_9.png" id="9_t6dwg"]
+[ext_resource type="Texture2D" uid="uid://boa14gxe2t2ii" path="res://FinkiSurvive/assets/craftpix-513237-free-game-coins-sprite-sheets/PNG/Silver/Silver_10.png" id="10_bo6et"]
+[ext_resource type="Texture2D" uid="uid://cqn634arnwi10" path="res://FinkiSurvive/assets/craftpix-513237-free-game-coins-sprite-sheets/PNG/Silver/Silver_11.png" id="11_257pr"]
+[ext_resource type="Texture2D" uid="uid://bjniw30fcq2h1" path="res://FinkiSurvive/assets/craftpix-513237-free-game-coins-sprite-sheets/PNG/Silver/Silver_12.png" id="12_7i431"]
+[ext_resource type="Texture2D" uid="uid://c0jreybnoeevx" path="res://FinkiSurvive/assets/craftpix-513237-free-game-coins-sprite-sheets/PNG/Silver/Silver_13.png" id="13_75l7v"]
+[ext_resource type="Texture2D" uid="uid://bwuuja1qm1lt2" path="res://FinkiSurvive/assets/craftpix-513237-free-game-coins-sprite-sheets/PNG/Silver/Silver_14.png" id="14_mmlgt"]
+[ext_resource type="Texture2D" uid="uid://d3fl5hj4hfjpa" path="res://FinkiSurvive/assets/craftpix-513237-free-game-coins-sprite-sheets/PNG/Silver/Silver_15.png" id="15_dhpkb"]
+[ext_resource type="Texture2D" uid="uid://bw80fx3m7ula2" path="res://FinkiSurvive/assets/craftpix-513237-free-game-coins-sprite-sheets/PNG/Silver/Silver_16.png" id="16_y7ygj"]
+[ext_resource type="Texture2D" uid="uid://b36lnrp1mhxet" path="res://FinkiSurvive/assets/craftpix-513237-free-game-coins-sprite-sheets/PNG/Silver/Silver_17.png" id="17_xm1xv"]
+[ext_resource type="Texture2D" uid="uid://ctocfud7ica3p" path="res://FinkiSurvive/assets/craftpix-513237-free-game-coins-sprite-sheets/PNG/Silver/Silver_18.png" id="18_e4ur3"]
+[ext_resource type="Texture2D" uid="uid://dosbuwqwsphbi" path="res://FinkiSurvive/assets/craftpix-513237-free-game-coins-sprite-sheets/PNG/Silver/Silver_19.png" id="19_4pq2a"]
+[ext_resource type="Texture2D" uid="uid://bm1y80k24qkgj" path="res://FinkiSurvive/assets/craftpix-513237-free-game-coins-sprite-sheets/PNG/Silver/Silver_20.png" id="20_haxom"]
+[ext_resource type="Texture2D" uid="uid://4a6jt0si5dvq" path="res://FinkiSurvive/assets/craftpix-513237-free-game-coins-sprite-sheets/PNG/Silver/Silver_21.png" id="21_p2d3g"]
+[ext_resource type="Texture2D" uid="uid://dxayly50t4xmw" path="res://FinkiSurvive/assets/craftpix-513237-free-game-coins-sprite-sheets/PNG/Silver/Silver_22.png" id="22_4smbr"]
+[ext_resource type="Texture2D" uid="uid://ylnws3qv1nut" path="res://FinkiSurvive/assets/craftpix-513237-free-game-coins-sprite-sheets/PNG/Silver/Silver_23.png" id="23_1tq0k"]
+[ext_resource type="Texture2D" uid="uid://cph008thojet6" path="res://FinkiSurvive/assets/craftpix-513237-free-game-coins-sprite-sheets/PNG/Silver/Silver_24.png" id="24_3saqf"]
+[ext_resource type="Texture2D" uid="uid://bj650vgvenjax" path="res://FinkiSurvive/assets/craftpix-513237-free-game-coins-sprite-sheets/PNG/Silver/Silver_25.png" id="25_6o7sg"]
+[ext_resource type="Texture2D" uid="uid://b4k8w8h37u6io" path="res://FinkiSurvive/assets/craftpix-513237-free-game-coins-sprite-sheets/PNG/Silver/Silver_26.png" id="26_xbtr1"]
+[ext_resource type="Texture2D" uid="uid://cno5lk16rvjus" path="res://FinkiSurvive/assets/craftpix-513237-free-game-coins-sprite-sheets/PNG/Silver/Silver_27.png" id="27_y1mkf"]
+[ext_resource type="Texture2D" uid="uid://du6ev78kh8mh7" path="res://FinkiSurvive/assets/craftpix-513237-free-game-coins-sprite-sheets/PNG/Silver/Silver_28.png" id="28_i0ybi"]
+[ext_resource type="Texture2D" uid="uid://cqgvtfu1qnai1" path="res://FinkiSurvive/assets/craftpix-513237-free-game-coins-sprite-sheets/PNG/Silver/Silver_29.png" id="29_j1y3p"]
+[ext_resource type="Texture2D" uid="uid://c2082uu0okj82" path="res://FinkiSurvive/assets/craftpix-513237-free-game-coins-sprite-sheets/PNG/Silver/Silver_30.png" id="30_aory6"]
+[ext_resource type="AudioStream" uid="uid://cpwjh7lm5jeia" path="res://CoinAudioRandom.tres" id="32_0mar5"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_e3cap"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_pnbu1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_ky18o")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_kwgmq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_bgmgt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_f53j2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_xc47l")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_jbmv8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_qlu0y")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_t6dwg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_bo6et")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_257pr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_7i431")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_75l7v")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_mmlgt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_dhpkb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_y7ygj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_xm1xv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_e4ur3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_4pq2a")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_haxom")
+}, {
+"duration": 1.0,
+"texture": ExtResource("21_p2d3g")
+}, {
+"duration": 1.0,
+"texture": ExtResource("22_4smbr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("23_1tq0k")
+}, {
+"duration": 1.0,
+"texture": ExtResource("24_3saqf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("25_6o7sg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("26_xbtr1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("27_y1mkf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("28_i0ybi")
+}, {
+"duration": 1.0,
+"texture": ExtResource("29_j1y3p")
+}, {
+"duration": 1.0,
+"texture": ExtResource("30_aory6")
+}],
+"loop": true,
+"name": &"default",
+"speed": 20.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_7ksrv"]
+radius = 30.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_tqn1g"]
+radius = 102.078
+
+[node name="Coin" type="Node2D"]
+script = ExtResource("1_0pmlc")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(-2.86102e-06, -1)
+scale = Vector2(0.028468, 0.0279777)
+sprite_frames = SubResource("SpriteFrames_e3cap")
+frame_progress = 0.0070465
+
+[node name="PickupBox" type="Area2D" parent="."]
+position = Vector2(0, -1)
+collision_layer = 16
+collision_mask = 9
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PickupBox"]
+shape = SubResource("CircleShape2D_7ksrv")
+debug_color = Color(0.905882, 0.239216, 0.486275, 0.662745)
+
+[node name="AttractBox" type="Area2D" parent="."]
+position = Vector2(0, -1)
+disable_mode = 1
+collision_layer = 16
+collision_mask = 9
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AttractBox"]
+shape = SubResource("CircleShape2D_tqn1g")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("32_0mar5")
+volume_db = -7.924
+max_polyphony = 10

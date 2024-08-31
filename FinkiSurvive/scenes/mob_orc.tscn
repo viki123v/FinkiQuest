@@ -350,11 +350,13 @@ animations = [{
 }]
 
 [node name="Mob" type="CharacterBody2D" groups=["Mobs"]]
+z_index = 1
 position = Vector2(562, 304)
 scale = Vector2(0.275, 0.275)
 collision_layer = 2
 collision_mask = 14
 script = ExtResource("1_5stjo")
+_hpScaleFactor = 0.6
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(466.5, 336.705)

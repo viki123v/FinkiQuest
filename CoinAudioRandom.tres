@@ -1,0 +1,10 @@
+[gd_resource type="AudioStreamRandomizer" load_steps=2 format=3 uid="uid://cpwjh7lm5jeia"]
+
+[ext_resource type="AudioStream" uid="uid://btqu747ti30c4" path="res://FinkiSurvive/assets/audio/collect-points-190037.mp3" id="1_g23e2"]
+
+[resource]
+playback_mode = 1
+random_pitch = 1.05
+random_volume_offset_db = 1.98
+streams_count = 1
+stream_0/stream = ExtResource("1_g23e2")

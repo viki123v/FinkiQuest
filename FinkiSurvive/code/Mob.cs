@@ -101,6 +101,8 @@ public abstract partial class Mob : CharacterBody2D
         return (playerPos - Position).Normalized();
     }
 
+    public abstract PackedScene DropCoin();
+    
     
     public override void _PhysicsProcess(double delta)
     {
@@ -131,10 +133,7 @@ public abstract partial class Mob : CharacterBody2D
         
 			
         var collision = MoveAndCollide(Velocity);
-
-			
-			
-        var bounceFactor = 2;
+        
 
         if (collision != null)
         { 
@@ -159,8 +158,10 @@ public abstract partial class Mob : CharacterBody2D
     }
 
     public abstract void Attack();
+    public abstract void ScaleHp();
 
     public abstract int GetDamage();
+    
     
 
     public void MoveMob(Vector2 position)
@@ -176,7 +177,7 @@ public abstract partial class Mob : CharacterBody2D
         hp += (int) Math.Ceiling(hp * (hpScaleFactor + Map.WaveCount / 20.0f));
 			
         HpScaling.Add(hp);
-			
+        GD.Print("HpScalingList: " + HpScaling.ToString());
         return hp;
     }
 		
@@ -191,7 +192,7 @@ public abstract partial class Mob : CharacterBody2D
     // 	return hp;
     // } // prvo vaka bese GetScaledHp
 
-    public abstract void ScaleHp();
+   
 		
 
 }

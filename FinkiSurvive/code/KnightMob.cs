@@ -4,19 +4,27 @@ namespace FinkiAdventureQuest.FinkiSurvive.code
 {
 	public partial class KnightMob : Mob
 	{
-		public int BaseHp = 600;
-		public int AppearsAtLevel = 4;
-		private float _hpScaleFactor = 0.1f;
+		[Export] private int _baseHp = 600;
+		[Export] private int _appearsAtLevel = 4;
+		[Export] private float _hpScaleFactor = 0.1f;
+		[Export] private int _minDamage = 50;
+		[Export] private float _attackSpeed = 1.0f;
+		[Export] private int _minSpeed = 60;
 		public override void _Ready()
 		{
-			HpScaling.Add(BaseHp);
-			MaxHealth = BaseHp;
-			if(Map.WaveCount > AppearsAtLevel)
+			HpScaling.Add(_baseHp);
+			MaxHealth = _baseHp;
+			if(Map.WaveCount > _appearsAtLevel)
 				ScaleHp();
-			Speed = rng.Next(60,70);
+			Speed = rng.Next(_minSpeed,_minSpeed + 10);
 			base._Ready();
-			AttackSpeedTimer.WaitTime = 0.5f;
+			AttackSpeedTimer.WaitTime = _attackSpeed;
 			AddChild(AttackSpeedTimer);
+		}
+
+		public override PackedScene DropCoin()
+		{
+			return GD.Load<PackedScene>("res://FinkiSurvive/scenes/gold_coin.tscn");
 		}
 
 		public override void Attack()
@@ -30,7 +38,7 @@ namespace FinkiAdventureQuest.FinkiSurvive.code
 
 		public override int GetDamage()
 		{
-			return rng.Next(70,85);
+			return rng.Next(_minDamage,_minDamage + 10);
 		}
 
 		public override void ScaleHp()

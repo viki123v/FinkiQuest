@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://cpuq3drxwa581"]
+[gd_scene load_steps=18 format=3 uid="uid://cpuq3drxwa581"]
 
 [ext_resource type="Script" path="res://FinkiSurvive/code/Attack1.cs" id="1_x8sfl"]
 [ext_resource type="Texture2D" uid="uid://dmn5bn1pxbv84" path="res://FinkiSurvive/assets/fx/slash/image/skash_00007.png" id="2_ssacd"]
@@ -60,6 +60,12 @@ animations = [{
 "speed": 30.0
 }]
 
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_3lwj6"]
+random_pitch = 1.08
+random_volume_offset_db = 1.15
+streams_count = 1
+stream_0/stream = ExtResource("6_ftfyi")
+
 [node name="Attack" type="Area2D"]
 show_behind_parent = true
 position = Vector2(782, 413)
@@ -67,7 +73,8 @@ rotation = -0.487306
 collision_layer = 4
 collision_mask = 2
 script = ExtResource("1_x8sfl")
-AttackSpeed = 0.2
+_healAmount = 4.0
+AttackSpeed = 0.15
 Damage = 10
 AttackRange = 70.0
 AvailableAtWave = 1
@@ -76,15 +83,16 @@ Icon = ExtResource("2_ssacd")
 [node name="Slash" type="AnimatedSprite2D" parent="."]
 modulate = Color(0.168627, 0.686275, 0.792157, 1)
 z_index = 1
-position = Vector2(2.87019, -26.7724)
+position = Vector2(-1.60068, -26.8782)
 rotation = 4.18879
 scale = Vector2(0.0856735, 0.389054)
 sprite_frames = SubResource("SpriteFrames_7b38b")
-frame = 5
+frame = 6
 
 [node name="HitSoundEffect" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("6_ftfyi")
+stream = SubResource("AudioStreamRandomizer_3lwj6")
 volume_db = -21.81
+pitch_scale = 2.14
 max_polyphony = 5
 
 [node name="AttackSpeed" type="Timer" parent="."]

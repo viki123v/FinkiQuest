@@ -1,0 +1,184 @@
+[gd_scene load_steps=9 format=3 uid="uid://cqiwor163n8pw"]
+
+[ext_resource type="Texture2D" uid="uid://d1p2ro8nfihor" path="res://FinkiSurvive/assets/BackgroundHowTo.jpeg" id="1_63x61"]
+[ext_resource type="Script" path="res://FinkiSurvive/code/HowToPlayFinkiSurvive.cs" id="1_xj606"]
+[ext_resource type="Theme" uid="uid://hmongvf87gi0" path="res://FinkiSurvive/assets/HowToButtonTheme.tres" id="2_63aso"]
+[ext_resource type="FontFile" uid="uid://4on88usjtnj4" path="res://FinkiSurvive/tmp_assets/FONTS/videophreak/VIDEOPHREAK.ttf" id="3_0gy3u"]
+[ext_resource type="LabelSettings" uid="uid://b515onuupd076" path="res://FinkiSurvive/assets/HelpLabelsettings.tres" id="4_v3p7b"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_qmdur"]
+font = ExtResource("3_0gy3u")
+font_size = 32
+shadow_size = 5
+shadow_color = Color(0.10389, 0.0695108, 0.146719, 1)
+shadow_offset = Vector2(3, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_n66h2"]
+font = ExtResource("3_0gy3u")
+outline_size = 2
+outline_color = Color(0.286275, 0.360784, 0.533333, 1)
+shadow_size = 5
+shadow_color = Color(0, 0, 0, 1)
+shadow_offset = Vector2(3, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_nia4x"]
+font = ExtResource("3_0gy3u")
+outline_size = 2
+outline_color = Color(0.611765, 0.286275, 0.698039, 1)
+shadow_size = 5
+shadow_color = Color(0.0728426, 0.0728426, 0.0728426, 1)
+shadow_offset = Vector2(3, 1)
+
+[node name="HowToPlay" type="CanvasLayer"]
+script = ExtResource("1_xj606")
+
+[node name="BgCont" type="MarginContainer" parent="."]
+offset_left = -1.0
+offset_right = 1258.0
+offset_bottom = 1024.0
+scale = Vector2(1.01874, 0.698071)
+
+[node name="TextureRect" type="TextureRect" parent="BgCont"]
+self_modulate = Color(0.707967, 0.707967, 0.707967, 1)
+layout_mode = 2
+texture = ExtResource("1_63x61")
+metadata/_edit_lock_ = true
+
+[node name="PlayButton" type="Button" parent="."]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -279.0
+offset_top = -628.0
+offset_right = -191.0
+offset_bottom = -506.0
+grow_horizontal = 0
+grow_vertical = 0
+scale = Vector2(0.753715, 0.753715)
+theme = ExtResource("2_63aso")
+text = "PLAY"
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -250.0
+offset_right = -210.0
+offset_bottom = 40.0
+
+[node name="Label" type="Label" parent="Control"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 513.0
+offset_top = 23.0
+offset_right = 727.0
+offset_bottom = 65.0
+grow_horizontal = 2
+text = "How to Play"
+label_settings = SubResource("LabelSettings_qmdur")
+
+[node name="HelpText" type="Label" parent="Control"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 321.0
+offset_top = 88.0
+offset_right = 950.0
+offset_bottom = 657.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "        Use the WASD keys to move your character.
+
+
+        Left Mouse Button: Click or hold the left mouse button to attack. (It's recommended to hold the button for continuous attacks.)
+
+
+        R Key: Press to cycle through available attacks.
+   
+
+        Press the Spacebar to dash, allowing you to quickly evade enemies.
+
+
+        Your goal is to survive for as long as possible.
+        Score: You earn points by killing mobs. A score of 300 or more is required for a passing grade.
+
+
+        Mobs become stronger and spawn more frequently as the game progresses."
+label_settings = SubResource("LabelSettings_n66h2")
+autowrap_mode = 3
+
+[node name="Label3" type="Label" parent="Control"]
+layout_mode = 0
+offset_left = 361.0
+offset_top = 102.0
+offset_right = 470.0
+offset_bottom = 126.0
+text = "Movement:"
+label_settings = ExtResource("4_v3p7b")
+
+[node name="Label4" type="Label" parent="Control"]
+layout_mode = 0
+offset_left = 361.0
+offset_top = 166.0
+offset_right = 425.0
+offset_bottom = 189.0
+text = "Attack:"
+label_settings = SubResource("LabelSettings_nia4x")
+
+[node name="Label5" type="Label" parent="Control"]
+layout_mode = 0
+offset_left = 359.0
+offset_top = 263.0
+offset_right = 545.0
+offset_bottom = 287.0
+text = "Switching Attacks:"
+label_settings = ExtResource("4_v3p7b")
+
+[node name="Label2" type="Label" parent="Control"]
+layout_mode = 0
+offset_left = 358.0
+offset_top = 335.0
+offset_right = 439.0
+offset_bottom = 359.0
+text = "Dashing:"
+label_settings = ExtResource("4_v3p7b")
+
+[node name="Label6" type="Label" parent="Control"]
+layout_mode = 0
+offset_left = 358.0
+offset_top = 432.0
+offset_right = 454.0
+offset_bottom = 456.0
+text = "Objective:"
+label_settings = ExtResource("4_v3p7b")
+
+[node name="Label7" type="Label" parent="Control"]
+layout_mode = 0
+offset_left = 358.0
+offset_top = 551.0
+offset_right = 566.0
+offset_bottom = 575.0
+text = "Increasing Difficulty:"
+label_settings = ExtResource("4_v3p7b")
+
+[node name="BackButton" type="Button" parent="."]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -293.0
+offset_top = -198.0
+offset_right = -156.0
+offset_bottom = -76.0
+grow_horizontal = 0
+grow_vertical = 0
+scale = Vector2(0.688972, 0.499978)
+theme = ExtResource("2_63aso")
+text = "GO BACK"

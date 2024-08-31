@@ -281,7 +281,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"hurt",
-"speed": 20.0
+"speed": 45.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -350,6 +350,7 @@ animations = [{
 }]
 
 [node name="Mob" type="CharacterBody2D"]
+z_index = 1
 position = Vector2(340, 139)
 scale = Vector2(0.714542, 0.714542)
 collision_layer = 2
@@ -360,7 +361,7 @@ script = ExtResource("1_23ka2")
 position = Vector2(403.311, 198.729)
 scale = Vector2(0.811492, 0.799329)
 sprite_frames = SubResource("SpriteFrames_qwwvm")
-animation = &"walk"
+animation = &"attack"
 
 [node name="MobCollisions" type="Area2D" parent="."]
 position = Vector2(296.694, 218.322)

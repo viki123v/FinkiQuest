@@ -2,58 +2,81 @@ using Godot;
 using System;
 using FinkiAdventureQuest.FinkiSurvive.code;
 using System.Linq;
+using FinkiAdventureQuest.FinkiSurvive.code.Util;
 using Godot.Collections;
+using CollectionExtensions = System.Collections.Generic.CollectionExtensions;
 
 namespace FinkiAdventureQuest.MainScene
 {
 public partial class ChooseGame : Control
 {
 	private Label _label;
-	private Button graduate;
-	static int[] grades = {5, 5, 5};
-
+	private Button _graduateButton;
+	
 	private static Dictionary<GameNames, int> _gameNameToGrade = new();
-	// Called when the node enters the scene tree for the first time.
+	
 	public override void _Ready()
 	{
 		GetTree().Paused = false;
 		_label = GetNode<Label>("Container/Passed");
-		graduate = GetNode<Button>("Container/Graduate");
-		graduate.Disabled = true;
-		graduate.Pressed += () =>
+		_graduateButton = GetNode<Button>("Container/Graduate");
+		_graduateButton.Disabled = true;
+		_graduateButton.Pressed += () =>
 		{
 			GetTree().ChangeSceneToFile("res://Credits/credits.tscn");
 		};
 
 	}
-
-	// Called every frame. 'delta' is the elapsed time since the previous frame.
+	
 	public override void _Process(double delta)
 	{
-		_label.Text = "Exams passed: " + GetPassed() + "/3";
-		if (GetPassed() == 1)
+		var passed = GetPassed();
+		_label.Text = "Exams passed: " + passed + "/3";
+		if (passed == 3)
 		{
-			graduate.Disabled = false;
+			_graduateButton.Disabled = false;
 		}
 		
 	}
 
 	public static void AddGradeEntry(GameNames name, int grade)
 	{
-		_gameNameToGrade[name] = grade;
+		if (CollectionExtensions.TryAdd(_gameNameToGrade, name, grade)) return; // ako imat vekje entry vrakjat true
+		
+		if (grade > _gameNameToGrade[name])
+		{
+			_gameNameToGrade[name] = grade;
+		}
 	}
-
-	public static void setGrade(int gameNum, int grade){
-		grades[gameNum-1] = grade;
-	}
-
+	
 	public static int GetPassed(){
 		return _gameNameToGrade.Values.Count(value => value > 5);
 	}
 
 	public void FinkiSurvive()
 	{
-		GetTree().ChangeSceneToFile(ProjectPath.MainScenePath);
+		GetTree().ChangeSceneToFile("res://FinkiSurvive/scenes/how_to_play.tscn");
+	}
+
+	public void ShowFinkiSurviveStats()
+	{
+		
+		var label = GetNode<Label>("FinkiSurviveStats/Label");
+		label.Visible = true;
+		if (_gameNameToGrade.ContainsKey(GameNames.FinkiSurvive))
+		{
+			label.Text = "Best Grade: " + _gameNameToGrade[GameNames.FinkiSurvive];
+		}
+		else
+		{
+			label.Text = "Not Passed";
+		}
+		
+	}
+
+	public void HideFinkiSurviveStats()
+	{
+		GetNode<Label>("FinkiSurviveStats/Label").Visible = false;
 	}
 
 	public void FinkiTetris()

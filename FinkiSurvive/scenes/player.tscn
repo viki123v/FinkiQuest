@@ -1,4 +1,4 @@
-[gd_scene load_steps=111 format=3 uid="uid://cvmyqo7j3bbvg"]
+[gd_scene load_steps=112 format=3 uid="uid://cvmyqo7j3bbvg"]
 
 [ext_resource type="Script" path="res://FinkiSurvive/code/Player.cs" id="1_pgcxt"]
 [ext_resource type="Texture2D" uid="uid://bb4ovsmjmd34y" path="res://FinkiSurvive/tmp_assets/Char/PNG/Sword_Idle/Sword_Idle_full.png" id="2_eowwh"]
@@ -739,6 +739,12 @@ animations = [{
 radius = 15.04
 height = 41.4988
 
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_g8rs7"]
+playback_mode = 1
+random_pitch = 1.05
+streams_count = 1
+stream_0/stream = ExtResource("6_a1het")
+
 [sub_resource type="Theme" id="Theme_4urpu"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_uihgx"]
@@ -751,7 +757,7 @@ shadow_offset = Vector2(2, 1)
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_yhqtj"]
 radius = 22.6067
-height = 54.5435
+height = 56.5106
 
 [node name="Player" type="CharacterBody2D" groups=["Player"]]
 scale = Vector2(3.18489, 2.83133)
@@ -794,17 +800,19 @@ frame = 39
 frame_progress = 1.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
 position = Vector2(2.51186, 5.59421)
 scale = Vector2(1.00207, 0.808825)
 shape = SubResource("CapsuleShape2D_wr6at")
 
 [node name="AttackSpeed" type="Timer" parent="."]
 process_callback = 0
+wait_time = 0.3
 autostart = true
 
 [node name="WalkSoundEffect" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("6_a1het")
-volume_db = -33.611
+stream = SubResource("AudioStreamRandomizer_g8rs7")
+volume_db = -26.914
 metadata/_edit_lock_ = true
 
 [node name="HealthBar" type="TextureProgressBar" parent="."]
@@ -822,6 +830,7 @@ texture_progress = ExtResource("40_th7c5")
 tint_under = Color(1, 0.960784, 1, 1)
 tint_over = Color(1, 1, 1, 0.498039)
 tint_progress = Color(0, 0, 0.941176, 1)
+metadata/_edit_lock_ = true
 
 [node name="Label" type="Label" parent="HealthBar"]
 layout_mode = 1
@@ -844,7 +853,9 @@ metadata/_edit_lock_ = true
 
 [node name="HurtBox" type="Area2D" parent="."]
 visible = false
+collision_mask = 17
 script = ExtResource("8_mrtvv")
+metadata/_edit_lock_ = true
 
 [node name="HurtShape" type="CollisionShape2D" parent="HurtBox"]
 position = Vector2(2.51186, 5.65105)
@@ -863,5 +874,5 @@ wait_time = 1.5
 one_shot = true
 
 [connection signal="timeout" from="AttackSpeed" to="." method="_on_timer_timeout"]
-[connection signal="area_entered" from="HurtBox" to="." method="TakeDamage"]
+[connection signal="area_entered" from="HurtBox" to="." method="OnAreaEntered"]
 [connection signal="timeout" from="DashCooldown" to="." method="OnDashCooldownEnd"]
