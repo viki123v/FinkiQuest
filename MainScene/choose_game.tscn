@@ -1901,6 +1901,19 @@ position = Vector2(651, 341)
 scale = Vector2(0.144601, 0.126622)
 texture = ExtResource("4_v3em7")
 
+[node name="BaseNetworking" type="MarginContainer" parent="."]
+layout_mode = 2
+offset_left = 786.0
+offset_top = 439.0
+offset_right = 883.0
+offset_bottom = 501.0
+
+[node name="Label" type="Label" parent="BaseNetworking"]
+visible = false
+layout_mode = 2
+text = "Best Grade: 5"
+label_settings = SubResource("LabelSettings_a661u")
+
 [node name="FinkiSurviveStats" type="MarginContainer" parent="."]
 layout_mode = 0
 offset_left = 794.0
@@ -1914,6 +1927,7 @@ text = "Best Grade: 5"
 label_settings = SubResource("LabelSettings_a661u")
 
 [node name="SpaceAlgorithmsStats" type="MarginContainer" parent="."]
+layout_mode = 0
 offset_left = 778.0
 offset_top = 393.0
 offset_right = 875.0
@@ -1929,7 +1943,9 @@ label_settings = SubResource("LabelSettings_a661u")
 [connection signal="mouse_entered" from="Container/SpaceAlgorithms2" to="." method="ShowSpaceAlorithms"]
 [connection signal="mouse_exited" from="Container/SpaceAlgorithms2" to="." method="HideSpaceAlorithms"]
 [connection signal="pressed" from="Container/SpaceAlgorithms2" to="." method="SpaceAlorithms"]
-[connection signal="pressed" from="Container/Viki" to="." method="FinkiSurvive"]
+[connection signal="mouse_entered" from="Container/Viki" to="." method="ShowBaseNetworking"]
+[connection signal="mouse_exited" from="Container/Viki" to="." method="HideBaseNetworking"]
+[connection signal="pressed" from="Container/Viki" to="." method="BlockNetworking"]
 [connection signal="mouse_entered" from="Container/FinkiSurvive" to="." method="ShowFinkiSurviveStats"]
 [connection signal="mouse_exited" from="Container/FinkiSurvive" to="." method="HideFinkiSurviveStats"]
 [connection signal="pressed" from="Container/FinkiSurvive" to="." method="FinkiSurvive"]

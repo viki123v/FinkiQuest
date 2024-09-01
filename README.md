@@ -1,22 +1,133 @@
-# FinkiQuest
+## Block Networking
 
-# Za da premestite files prajte vaka:
-- Project folderot, kaj so vi sa site raboti, kopirajte go vo dr folder
-- Vo kopiraniot project folder izbrisete go project.godot fileot
-- Site raboti so gi koristite od fodlerot, sceni , c# files, assets, kopirajte gi vo soodvetniot folder na repovo
-- Vekje vo noviov proekt, na site sceni edna po edna ke trebit da kliknite i ke vi izlezit error deka ne mozit da najt tocna pateka, samo kliknejte fix dependencies i posle gore desno samo klikni fix broken.
-- Sekade vo kodot kaj so koristite res://, za loading na sceni, zamenete so soodvetna pateka. Go naprev jas so klasa vaka:
+### Цел на играта и начин на играње
 
+Block Networking е градена во духот на познатата игра [Tetris](https://tetris.com/play-tetris), со мал финес. Блоковите во овај тетрис се мрежни уреди и успешното завршување на играта претставува
+успешно положување на предметот **Мрежи**. Во играва од играчот се очекува успешно да се справи со паѓачки блокови, кои постојано се појавуваат, дополнително играта овозможува олеснување во облик
+на бришење редици полни со блокови.
+Главната цел во играта е играчот да опстане одредено време (опстојување од 45s се смета доволно за оценка 6), потоа врз основа на опстанатото време играчот добива оценка, која се прикажува во посебен прозорец.
+Брзината на движењата и фреквенцијата на појавувањето на блоковите се пресметуваат како функција од поминатото време, што значи дека се зголемуваат со текот на времето, што впрочем значи дека играчот 
+сепак ќе треба да се потруди за повисока оценка.
+
+Играта се игра со помош на arrow keys, притоа акциите се ивршуваат само на последниот блок во паѓање. Акциите кои се дозволени и копчината кои ги овозможуваат истите, се следниве:
++ **Up arrow** овозможува ротирање на фигурата.
++ **Left arrow** овозможува движење на фигурата за еден блок на лево.
++ **Right arrow** овозможува движење на фигурата за еден блок на десно.
++ **Down arrow** овозможува движење на фигурата за еден блок надолу.
+
+### Oпис на соочените проблеми
+
+Проблемите со кои се соочив во изработката на оваа игра и нивните решенија се следниве:
+
++ **Детектирање на стопиран блок и правилно движење на блоковите**. Пред било какво движење на блок потребно да е осигураме дека:
+
+	+ **Новата позиција не излегува од екранот**. Овај услов го проверувам во А1,А2,Б1. Променливата `isDownMove` е битна заради тоа што сакаме во играта само при надолно движење, блокот да се фиксира, односно да стани
+	  неподвижен. Променливата `positions` е листа на новите, недоделени позиции, односно позиции за проверка. `UpdateCount()` е функција која го ажурира `CountByRow`(потребата од променливата е објаснета подолу за проблемот "Оптимално пратење на пополнетоста на редиците" ), заради тоа што блокот станал фиксен, на местата каде што се користи `UpdateCount()` и според тоа потребно е промената да се евидентира.
+
+	+ **Новата позиција не е окупирана од некој друг блок**. Овај услов го проверувам во Б2, со што се проверува дали на новата позиција `SharedBitMap[x, y]` има веќе блок и дали се на различни групи.
+	  Проверката дали блокојте се на различни групи е важно за да не ги погрешиме претходните позиции на блоковите од истата група со новите позициите на истите, бидејќи блокојте од иста група се движат заедно.
+
+```C#
+ private bool CanMove(List<Vector2> positions, bool isDownMove)
+	{
+		var rowNum = FinkiTetrisPlayingGame.Dimensions.Item1;
+		var columnNum = FinkiTetrisPlayingGame.Dimensions.Item2;
+
+		foreach (var pos in positions)
+		{
+			var x = (int)pos.X;
+			var y = (int)pos.Y;
+			
+			//А1 
+			if (x >= rowNum && !isDownMove)
+			{
+				return false;
+			}
+		
+			//А2
+			if (x >= rowNum && isDownMove)
+			{
+				IsStopped = true;
+				UpdateCount();
+				return false;
+			}
+			
+			//Б1
+			if (y < 0 || y >= columnNum)
+			{
+				return false;
+			}
+			
+			//Б2
+			if (SharedBitMap[x, y] is not null && SharedBitMap[x, y].Parent != this)
+			{
+				if (isDownMove)
+				{
+					IsStopped = true;
+					UpdateCount();
+				}
+
+				return false;
+			}
+		}
+
+		return true;
+	}
 ```
-public class ProjectPath
-{
-    public static string ScenesPath = "res://FinkiSurvive/FinkiQuest/scenes/";
-    public static string DefaultPath = "res://FinkiSurvive/FinkiQuest/";
-    public static string MainScenePath = ScenesPath + "level.tscn";
-}
++ **Пратење на позицијата на блоковите**. За решавање на овај проблем користам матрица со фиксна големина од 20x10 (`BitMap` во `BlockNetworkingPlaying`), која постојано мора да ја рефлектира состојбата на екранот. Ажурирањето на матрицата е оставено на индивидуалните блокови (инстаци од `Block` класата), кои при секое поместување или ротирање вршат промени на оваа структура. Се одлучив за користење
+  на оваа структура заради тоа што многу брзо и лесно можам да добијам кој е блокот во дадена ќелија, исто така и која е групата во која припаѓа блокот(групата е претставена преку `Parent`)
 
++ **Оптимално пратење на пополнетоста на редиците**. Со цел избегнување на постојаното O(n^2) време потребно да се провери целата матрица за целосно пополнета редица, ja користам низа `CountByRow`, чија намена е постојано да го прати бројот на неподвижни блокови во редиците. Нејзиното ажурирање, исто како и за`BitMap` структурата, е оставено на самите блокови.
+
++ **Ротирање на групите од блокови**. Секој тип на група е претставен со интерфејсот `IGroupTypes` и неговите имплементации. Позициите на индивидуалните блокови се претставени преку distance вектори од некоја пивот позиција, тоа ми овозможи само преку една точка на екранот да ја конструирам целата група. Во пивот точката може да замислиме дека има две оски x,y чии насоки се променливи.
+  Користењето на оските ни овозможува ротацијата да ја извршиме со смена на насоките на оските. На пр. ако пивот точка ни е (0,0) и имаме блок со distance вектор од таа точка (0,1), тоа значи дека во неротирана состојба (кога x oската има насока (1,0) и y оската има насока (0,-1))
+  блокот би се наоѓал над пивот точката((0,0) + 0*(1,0)+1*(0,-1)=(0,-1)). За да ја ротираме групата за 90 степени само ги ротираме оските за 90 степени што значи дека x оската би имала насока (0,1) и y оската би имала насока (1,0). Сега ако се обидиме да ја издрадиме групата би добиле дека (0,0)+1*(1,0)+0*(0,-1)=(1,0),односно блокот би се наоѓал десно од пивот точката. Во имплементацијата `pivotPosition` ја содржи позицијата на пивот точката(склаирана во `Block` матрицата), `fromPivotToBlcok` се distance векторите на сите блокови во тој тип на група и `direction` ги содржи насоките
+  на оските, од кои зависи самата ротација.
+
+```C#
+public static List<Vector2> FindBlocksBitmapPosition(Vector2 pivotPosition, Vector2[] fromPivotToBlcok,
+		(Vector2, Vector2) direction)
+	{
+		List<Vector2> newPositions = new List<Vector2>(fromPivotToBlcok.Length); 
+		newPositions.Add(pivotPosition);
+
+		for (int i = 1; i < fromPivotToBlcok.Length; i++)
+		{
+			var newPosition = new Vector2(pivotPosition.X, pivotPosition.Y);
+
+			var currentDisFromPivot = fromPivotToBlcok[i];
+
+			var xAxis = direction.Item1;
+			var yAxis = direction.Item2;
+
+			var xAxisTranslation = new Vector2(currentDisFromPivot.X * xAxis.X, currentDisFromPivot.X * xAxis.Y);
+			var yAxisTranslation = new Vector2(currentDisFromPivot.Y * yAxis.X, currentDisFromPivot.Y * yAxis.Y);
+			
+			newPosition.X += xAxisTranslation.X + yAxisTranslation.X;
+			newPosition.Y += xAxisTranslation.Y + yAxisTranslation.Y;
+			
+			newPositions.Add(newPosition);
+		}
+
+		return newPositions;
+	}
 ```
 
-- Inputs so gi koristite za dvizenje ili za so bilo, nemat da rabotat deka nov proekt e. Odete vo input map vo project settings i klajte si odnovo iminja za niv.Isto i to ke trebit vo kodot da go smenite
++ **Анимации за бришење и падвење**. Секоја интеркација со тајмер, тајмерите се потребни за синхронизација и извршување на анимациите
+  (Godot ни овозможува анимациите да ги реализираме преку нодојте од типот `AnimationPlayer`, но ако истите ги искористев во проблемот, тогаш за секој блок на екранот ќе имав посебен `AnimationPlayer` и
+  истото би имало големи последици на преформасите) се реализира преку интеркација со инстанца од класата `TimerMenager`. Целта на `TimerMenager` е полесно координирање на низа на акции во однос на повеќе тајмери,
+  истите се потребни како на пр. за замрзнување на екранот при бришење на блокови, каде што потребно е `_timerTracker`,`_spawnTimer`,`MoveTimer` да се запрат. Класата овозможува избегнување на проблеми од типот на "Заборавив да го исклучам тајмер за движење во еднава функција" или пак "Заборавив да го активирам тајмерот за инстанцирање во другава функција".
 
-### GG
+### Слики од играта 
+
++ **Почетен прозорец**
+
+![](/BasicNetworking/README_Assets/BasicNetworkingIntro.png)
+
++ **Прозорец за играње** 
+
+![](/BasicNetworking/README_Assets/BlockNetworkingGamePlay.png)
+
++ **Прозорец со освоената оценка**
+
+![](/BasicNetworking/README_Assets/BasicNetworkingEnding.png)
