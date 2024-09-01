@@ -1913,6 +1913,21 @@ layout_mode = 2
 text = "Best Grade: 5"
 label_settings = SubResource("LabelSettings_a661u")
 
+[node name="SpaceAlgorithmsStats" type="MarginContainer" parent="."]
+offset_left = 778.0
+offset_top = 393.0
+offset_right = 875.0
+offset_bottom = 455.0
+
+[node name="Label" type="Label" parent="SpaceAlgorithmsStats"]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Best Grade: 5"
+label_settings = SubResource("LabelSettings_a661u")
+
+[connection signal="mouse_entered" from="Container/SpaceAlgorithms2" to="." method="ShowSpaceAlorithms"]
+[connection signal="mouse_exited" from="Container/SpaceAlgorithms2" to="." method="HideSpaceAlorithms"]
 [connection signal="pressed" from="Container/SpaceAlgorithms2" to="." method="SpaceAlorithms"]
 [connection signal="mouse_entered" from="Container/FinkiSurvive" to="." method="ShowFinkiSurviveStats"]
 [connection signal="mouse_exited" from="Container/FinkiSurvive" to="." method="HideFinkiSurviveStats"]

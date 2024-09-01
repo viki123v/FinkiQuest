@@ -52,10 +52,6 @@
             "GodotSharp": {
               "target": "Package",
               "version": "[4.3.0, )"
-            },
-            "GodotSharpEditor": {
-              "target": "Package",
-              "version": "[4.3.0, )"
             }
           },
           "imports": [
@@ -75,11 +71,23 @@
               "version": "[6.0.28, 6.0.28]"
             },
             {
+              "name": "Microsoft.AspNetCore.App.Runtime.win-x64",
+              "version": "[6.0.28, 6.0.28]"
+            },
+            {
               "name": "Microsoft.NETCore.App.Ref",
               "version": "[6.0.28, 6.0.28]"
             },
             {
+              "name": "Microsoft.NETCore.App.Runtime.win-x64",
+              "version": "[6.0.28, 6.0.28]"
+            },
+            {
               "name": "Microsoft.WindowsDesktop.App.Ref",
+              "version": "[6.0.28, 6.0.28]"
+            },
+            {
+              "name": "Microsoft.WindowsDesktop.App.Runtime.win-x64",
               "version": "[6.0.28, 6.0.28]"
             }
           ],
@@ -89,6 +97,11 @@
             }
           },
           "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.202\\RuntimeIdentifierGraph.json"
+        }
+      },
+      "runtimes": {
+        "win-x64": {
+          "#import": []
         }
       }
     }
