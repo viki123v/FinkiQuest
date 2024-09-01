@@ -1,7 +1,7 @@
 [gd_resource type="Theme" load_steps=13 format=4 uid="uid://lmmy8y1ymyy3"]
 
 [ext_resource type="FontFile" uid="uid://4on88usjtnj4" path="res://FinkiSurvive/tmp_assets/FONTS/videophreak/VIDEOPHREAK.ttf" id="1_e1knt"]
-[ext_resource type="Texture2D" uid="uid://cd0k0r0sitowg" path="res://FinkiSurvive/assets/help.png" id="1_hskrb"]
+[ext_resource type="Texture2D" uid="uid://cd0k0r0sitowg" path="res://FinkiSurvive/assets/images/help.png" id="1_hskrb"]
 
 [sub_resource type="Image" id="Image_4whuu"]
 data = {

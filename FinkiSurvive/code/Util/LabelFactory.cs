@@ -17,7 +17,7 @@ public class LabelFactory
 
         var fv = new FontVariation();
 
-        fv.BaseFont = ResourceLoader.Load<FontFile>(ProjectPath.DefaultPath + "tmp_assets/FONTS/videophreak/VIDEOPHREAK.ttf");
+        fv.BaseFont = ResourceLoader.Load<FontFile>(ProjectPaths.DefaultPath + "tmp_assets/FONTS/videophreak/VIDEOPHREAK.ttf");
         fv.VariationEmbolden = 1.2f;
 
         label.AddThemeFontOverride("font", fv);
@@ -39,7 +39,7 @@ public class LabelFactory
     {
         var label = new Label();
         var fv = new FontVariation();
-        fv.BaseFont = ResourceLoader.Load<FontFile>(ProjectPath.DefaultPath + "tmp_assets/FONTS/videophreak/VIDEOPHREAK.ttf");
+        fv.BaseFont = ResourceLoader.Load<FontFile>(ProjectPaths.DefaultPath + "tmp_assets/FONTS/videophreak/VIDEOPHREAK.ttf");
         fv.VariationEmbolden = 1.2f;
         label.AddThemeFontOverride("font", fv);
         label.AddThemeColorOverride("font_color",color);

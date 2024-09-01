@@ -14,7 +14,7 @@ public static class MobSpawner
     
     public static float CalcDecrementValue(int targetWave, float targetSpawnRate)
     {
-        return (BaseSpawnRate - targetSpawnRate) / (targetWave * Map.WaveTime);
+        return (BaseSpawnRate - targetSpawnRate) / (targetWave * Main.Game.WaveTime);
     }
     
     public static Vector2 GetMobSpawnPosition(int width, int height)
@@ -30,7 +30,7 @@ public static class MobSpawner
 
     public static PackedScene GetMobScene(int idx)
     {
-        return GD.Load<PackedScene>(ProjectPath.ScenesPath + MobSceneNames[idx] +  ".tscn");
+        return GD.Load<PackedScene>(ProjectPaths.MobScenesPath + MobSceneNames[idx] +  ".tscn");
     }
     
     

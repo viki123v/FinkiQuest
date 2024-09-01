@@ -55,7 +55,7 @@ public partial class ChooseGame : Control
 
 	public void FinkiSurvive()
 	{
-		GetTree().ChangeSceneToFile("res://FinkiSurvive/scenes/how_to_play.tscn");
+		GetTree().ChangeSceneToFile(ProjectPaths.MainScenesPath + "how_to_play.tscn");
 	}
 
 	public void ShowFinkiSurviveStats()
