@@ -74,6 +74,26 @@ public partial class ChooseGame : Control
 		
 	}
 
+	public void ShowBaseNetworking()
+	{
+		var label = GetNode<Label>("BaseNetworking/Label");
+		label.Visible = true;
+		if (_gameNameToGrade.ContainsKey(GameNames.BaseNetworking))
+		{
+			label.Text = "Best Grade: " + _gameNameToGrade[GameNames.BaseNetworking];
+		}
+		else
+		{
+			label.Text = "Not Passed";
+		}
+	}
+
+	public void HideBaseNetworking()
+	{
+		var label = GetNode<Label>("BaseNetworking/Label");
+		label.Visible = false;
+	}
+
 	public void HideFinkiSurviveStats()
 	{
 		GetNode<Label>("SpaceAlgorithmsStats/Label").Visible = false;
@@ -100,8 +120,8 @@ public partial class ChooseGame : Control
 		GetNode<Label>("FinkiSurviveStats/Label").Visible = false;
 	}
 
-	public void FinkiTetris()
-	 =>  GetTree().ChangeSceneToFile("res://ViktorIgraTuka/scenes/mainGameSections/FinkiTetrisExplanation.tscn");
+	public void BlockNetworking()
+	 =>  GetTree().ChangeSceneToFile("res://BasicNetworking/scenes/mainGameSections/FinkiTetrisExplanation.tscn");
 	
 	
 	public void SpaceAlorithms(){
