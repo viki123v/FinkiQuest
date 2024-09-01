@@ -138,14 +138,19 @@ private void _on_area_entered(Area2D area)
 ### Слики од играта
 
 #### Стартна сцена
+![start](https://github.com/user-attachments/assets/b135dc34-24aa-4a96-abfb-efb2687f1cdc)
 
 #### Инструкции
+![instructions](https://github.com/user-attachments/assets/cc994f81-e2ce-4e06-aa02-f307ce5c54b0)
 
 #### Игра
+![game](https://github.com/user-attachments/assets/a3dea021-9acf-445c-9701-bf75f4e2abae)
 
 #### Испит
+![boss](https://github.com/user-attachments/assets/217fccd5-06ee-4c08-8f6c-ee0ab40477c1)
 
 #### Постигната оценка
+![grade](https://github.com/user-attachments/assets/8750ccad-9888-456c-b568-832bf2768210)
 
 ## Block Networking
 
