@@ -18,7 +18,7 @@ Finki Quest се одвива во замислен свет од иднинат
    - [Стартно Мени](#стартно-мени)
    - [Мени за Селекција на Игри](#мени-за-селекција-на-игри)
  - ### Игри
-   - [Space Algorithms](#space-algorithms)(Мартин Џаков - )
+   - [Space Algorithms](#space-algorithms)(Мартин Џаков - 223078)
    - [Block Networking](#block-networking)(Виктор Христовски - 226026)
    - [Probability Survival](#probability-survival)(Стефан Тосковски - 225144)
    
