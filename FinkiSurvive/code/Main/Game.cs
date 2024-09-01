@@ -33,9 +33,9 @@ namespace FinkiAdventureQuest.FinkiSurvive.code.Main
 		private Label _gradeLabel;
 		
 		[Export] 
-		private float _minMobSpawnRate = 0.5f;
+		private float _minMobSpawnRate = 0.7f;
 		[Export]
-		private int _targetWaveForMinSpawnRate = 10;
+		private int _targetWaveForMinSpawnRate = 9;
 		
 		private float _spawnRateDecrement;
 
@@ -336,11 +336,6 @@ namespace FinkiAdventureQuest.FinkiSurvive.code.Main
 		private void AdjustMobSpawnTimer(Timer mobSpawnTimer)
 		{
 			mobSpawnTimer.WaitTime -= _spawnRateDecrement;
-			
-			if (mobSpawnTimer.WaitTime < 0.5f)
-			{
-				mobSpawnTimer.WaitTime = 0.5f;
-			}
 		}
 
 		private void HandleWaveTransition(Timer mobSpawnTimer)
@@ -356,6 +351,7 @@ namespace FinkiAdventureQuest.FinkiSurvive.code.Main
 			else if (WaveCount > 11)
 			{
 				WaveTime = 30;
+				mobSpawnTimer.WaitTime = 1;
 				if (mobSpawnTimer.IsStopped())
 				{
 					mobSpawnTimer.Start();

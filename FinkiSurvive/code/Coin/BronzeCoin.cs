@@ -7,6 +7,6 @@ public partial class BronzeCoin : Coin
 
 	public override int GetValue()
 	{
-		return 2;
+		return 1;
 	}
 }

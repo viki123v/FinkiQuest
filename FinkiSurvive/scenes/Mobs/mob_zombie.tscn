@@ -356,7 +356,7 @@ scale = Vector2(0.275, 0.275)
 collision_layer = 2
 collision_mask = 12
 script = ExtResource("1_lb1je")
-_hpScaleFactor = 0.05
+_hpScaleFactor = 0.08
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(469.091, 352.727)
