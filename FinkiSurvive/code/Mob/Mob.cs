@@ -174,9 +174,9 @@ public abstract partial class Mob : CharacterBody2D
 		
     protected int GetScaledHp(float hpScaleFactor,MobType type)
     {
-        int hp = MobScaleHandler.GetHpEntry(type);
+        int hp = MobScaleHandler.GetInstance().GetHpEntry(type);
         hp += (int) Math.Ceiling(hp * (hpScaleFactor + Main.Game.WaveCount / 1000.0f));
-        MobScaleHandler.AddEntry(type, hp);
+        MobScaleHandler.GetInstance().AddEntry(type, hp);
         GD.Print("HpScalingList: " + HpScaling.ToString());
         return hp;
     }

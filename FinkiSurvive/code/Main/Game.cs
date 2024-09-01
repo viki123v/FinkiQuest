@@ -69,8 +69,6 @@ namespace FinkiAdventureQuest.FinkiSurvive.code.Main
 			TreeExiting += ResetStats;
 			UpdateMenu();
 			
-			MobScaleHandler.Initialize();
-
 		}
 
 		// ReSharper disable once InconsistentNaming
@@ -121,9 +119,8 @@ namespace FinkiAdventureQuest.FinkiSurvive.code.Main
 			if (_canGraduate) GetNode<CanvasLayer>("WinScreen").Visible = true;
 			else GetNode<CanvasLayer>("DeathScreen").Visible = true;
 			
-			
 			ChooseGame.AddGradeEntry(GameNames.FinkiSurvive,Grade);
-			MobScaleHandler.ResetEntries();
+			MobScaleHandler.GetInstance().ResetEntries();
 			PauseSceneTree();
 			ResetStats();
 		}
@@ -323,7 +320,7 @@ namespace FinkiAdventureQuest.FinkiSurvive.code.Main
 				_timeSecs = WaveTime;
 				UpdateWaveLabel();
 				UpdateMenu();
-				MobScaleHandler.ResetEntries();
+				MobScaleHandler.GetInstance().ResetEntries();
 			}
 
 			AdjustMobSpawnTimer(mobSpawnTimer);
