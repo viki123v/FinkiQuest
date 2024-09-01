@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://cb6a5uhvkpf4r"]
 
 [ext_resource type="FontFile" uid="uid://4on88usjtnj4" path="res://FinkiSurvive/tmp_assets/FONTS/videophreak/VIDEOPHREAK.ttf" id="1_bbk2p"]
-[ext_resource type="LabelSettings" uid="uid://bkht2s674oh3r" path="res://FinkiSurvive/assets/ui_font_purple.tres" id="2_of2dg"]
+[ext_resource type="LabelSettings" uid="uid://bkht2s674oh3r" path="res://FinkiSurvive/themes/ui_font_purple.tres" id="2_of2dg"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_ltd3b"]
 font = ExtResource("1_bbk2p")

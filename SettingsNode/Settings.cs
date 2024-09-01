@@ -22,6 +22,16 @@ public partial class Settings : Control
 	{
 	}
 
+	public override void _Input(InputEvent @event)
+	{
+		if (@event.IsActionPressed("escape"))
+		{
+			ShowMenu();
+			var blur = GetNode<ColorRect>("/root/Level/UI/ColorRect");
+			blur.Visible = !blur.Visible;
+		}
+	}
+
 	public void OnVolumeSliderValueChanged(float value)
 	{
 		AudioServer.SetBusVolumeDb(0,value - 50);

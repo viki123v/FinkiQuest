@@ -1,0 +1,170 @@
+[gd_scene load_steps=36 format=3 uid="uid://cmjcuadlm36lp"]
+
+[ext_resource type="Script" path="res://FinkiSurvive/code/Coin/SilverCoin.cs" id="1_e68yk"]
+[ext_resource type="Texture2D" uid="uid://dq65swkawwok7" path="res://FinkiSurvive/assets/Coins/PNG/Silver/Silver_1.png" id="2_d041y"]
+[ext_resource type="Texture2D" uid="uid://ykgtx1acru20" path="res://FinkiSurvive/assets/Coins/PNG/Silver/Silver_2.png" id="3_sfxvn"]
+[ext_resource type="Texture2D" uid="uid://v6nk4jsnmlnh" path="res://FinkiSurvive/assets/Coins/PNG/Silver/Silver_3.png" id="4_cl5cy"]
+[ext_resource type="Texture2D" uid="uid://ce57tlfctedgv" path="res://FinkiSurvive/assets/Coins/PNG/Silver/Silver_4.png" id="5_vhcm0"]
+[ext_resource type="Texture2D" uid="uid://0g653dc18n83" path="res://FinkiSurvive/assets/Coins/PNG/Silver/Silver_5.png" id="6_ka4un"]
+[ext_resource type="Texture2D" uid="uid://b00ae703wpjpj" path="res://FinkiSurvive/assets/Coins/PNG/Silver/Silver_6.png" id="7_5lqky"]
+[ext_resource type="Texture2D" uid="uid://bmpea06il8bor" path="res://FinkiSurvive/assets/Coins/PNG/Silver/Silver_7.png" id="8_vqpt0"]
+[ext_resource type="Texture2D" uid="uid://d08a68h16s4v5" path="res://FinkiSurvive/assets/Coins/PNG/Silver/Silver_8.png" id="9_0w664"]
+[ext_resource type="Texture2D" uid="uid://12eaaxugbd2w" path="res://FinkiSurvive/assets/Coins/PNG/Silver/Silver_9.png" id="10_8ixdy"]
+[ext_resource type="Texture2D" uid="uid://boa14gxe2t2ii" path="res://FinkiSurvive/assets/Coins/PNG/Silver/Silver_10.png" id="11_0cgvv"]
+[ext_resource type="Texture2D" uid="uid://cqn634arnwi10" path="res://FinkiSurvive/assets/Coins/PNG/Silver/Silver_11.png" id="12_clfba"]
+[ext_resource type="Texture2D" uid="uid://bjniw30fcq2h1" path="res://FinkiSurvive/assets/Coins/PNG/Silver/Silver_12.png" id="13_dxrxn"]
+[ext_resource type="Texture2D" uid="uid://c0jreybnoeevx" path="res://FinkiSurvive/assets/Coins/PNG/Silver/Silver_13.png" id="14_cwal0"]
+[ext_resource type="Texture2D" uid="uid://bwuuja1qm1lt2" path="res://FinkiSurvive/assets/Coins/PNG/Silver/Silver_14.png" id="15_ym7wx"]
+[ext_resource type="Texture2D" uid="uid://d3fl5hj4hfjpa" path="res://FinkiSurvive/assets/Coins/PNG/Silver/Silver_15.png" id="16_v07c0"]
+[ext_resource type="Texture2D" uid="uid://bw80fx3m7ula2" path="res://FinkiSurvive/assets/Coins/PNG/Silver/Silver_16.png" id="17_s2ywg"]
+[ext_resource type="Texture2D" uid="uid://b36lnrp1mhxet" path="res://FinkiSurvive/assets/Coins/PNG/Silver/Silver_17.png" id="18_5dua1"]
+[ext_resource type="Texture2D" uid="uid://ctocfud7ica3p" path="res://FinkiSurvive/assets/Coins/PNG/Silver/Silver_18.png" id="19_q71x3"]
+[ext_resource type="Texture2D" uid="uid://dosbuwqwsphbi" path="res://FinkiSurvive/assets/Coins/PNG/Silver/Silver_19.png" id="20_str12"]
+[ext_resource type="Texture2D" uid="uid://bm1y80k24qkgj" path="res://FinkiSurvive/assets/Coins/PNG/Silver/Silver_20.png" id="21_prkqc"]
+[ext_resource type="Texture2D" uid="uid://4a6jt0si5dvq" path="res://FinkiSurvive/assets/Coins/PNG/Silver/Silver_21.png" id="22_0q8ay"]
+[ext_resource type="Texture2D" uid="uid://dxayly50t4xmw" path="res://FinkiSurvive/assets/Coins/PNG/Silver/Silver_22.png" id="23_dhqnq"]
+[ext_resource type="Texture2D" uid="uid://ylnws3qv1nut" path="res://FinkiSurvive/assets/Coins/PNG/Silver/Silver_23.png" id="24_1kmps"]
+[ext_resource type="Texture2D" uid="uid://cph008thojet6" path="res://FinkiSurvive/assets/Coins/PNG/Silver/Silver_24.png" id="25_o7mj8"]
+[ext_resource type="Texture2D" uid="uid://bj650vgvenjax" path="res://FinkiSurvive/assets/Coins/PNG/Silver/Silver_25.png" id="26_gci1a"]
+[ext_resource type="Texture2D" uid="uid://b4k8w8h37u6io" path="res://FinkiSurvive/assets/Coins/PNG/Silver/Silver_26.png" id="27_i2y0i"]
+[ext_resource type="Texture2D" uid="uid://cno5lk16rvjus" path="res://FinkiSurvive/assets/Coins/PNG/Silver/Silver_27.png" id="28_wgwlg"]
+[ext_resource type="Texture2D" uid="uid://du6ev78kh8mh7" path="res://FinkiSurvive/assets/Coins/PNG/Silver/Silver_28.png" id="29_ljvfw"]
+[ext_resource type="Texture2D" uid="uid://cqgvtfu1qnai1" path="res://FinkiSurvive/assets/Coins/PNG/Silver/Silver_29.png" id="30_3f0w0"]
+[ext_resource type="Texture2D" uid="uid://c2082uu0okj82" path="res://FinkiSurvive/assets/Coins/PNG/Silver/Silver_30.png" id="31_7cmfx"]
+[ext_resource type="AudioStream" uid="uid://cpwjh7lm5jeia" path="res://CoinAudioRandom.tres" id="32_lss7p"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_e3cap"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_d041y")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_sfxvn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_cl5cy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_vhcm0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_ka4un")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_5lqky")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_vqpt0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_0w664")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_8ixdy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_0cgvv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_clfba")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_dxrxn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_cwal0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_ym7wx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_v07c0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_s2ywg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_5dua1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_q71x3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_str12")
+}, {
+"duration": 1.0,
+"texture": ExtResource("21_prkqc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("22_0q8ay")
+}, {
+"duration": 1.0,
+"texture": ExtResource("23_dhqnq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("24_1kmps")
+}, {
+"duration": 1.0,
+"texture": ExtResource("25_o7mj8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("26_gci1a")
+}, {
+"duration": 1.0,
+"texture": ExtResource("27_i2y0i")
+}, {
+"duration": 1.0,
+"texture": ExtResource("28_wgwlg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("29_ljvfw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("30_3f0w0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("31_7cmfx")
+}],
+"loop": true,
+"name": &"default",
+"speed": 20.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_7ksrv"]
+radius = 30.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_tqn1g"]
+radius = 102.078
+
+[node name="Coin" type="Node2D"]
+script = ExtResource("1_e68yk")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(-2.86102e-06, -1)
+scale = Vector2(0.028468, 0.0279777)
+sprite_frames = SubResource("SpriteFrames_e3cap")
+frame_progress = 0.0070465
+
+[node name="PickupBox" type="Area2D" parent="."]
+position = Vector2(0, -1)
+collision_layer = 16
+collision_mask = 9
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PickupBox"]
+shape = SubResource("CircleShape2D_7ksrv")
+debug_color = Color(0.905882, 0.239216, 0.486275, 0.662745)
+
+[node name="AttractBox" type="Area2D" parent="."]
+position = Vector2(0, -1)
+disable_mode = 1
+collision_layer = 16
+collision_mask = 9
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AttractBox"]
+shape = SubResource("CircleShape2D_tqn1g")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("32_lss7p")
+volume_db = -7.924
+max_polyphony = 10

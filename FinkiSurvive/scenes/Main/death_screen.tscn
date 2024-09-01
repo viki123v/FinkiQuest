@@ -1,0 +1,122 @@
+[gd_scene load_steps=6 format=3 uid="uid://by36fl7tow1u5"]
+
+[ext_resource type="Script" path="res://FinkiSurvive/code/UI/DeathScreen.cs" id="1_dsxtv"]
+[ext_resource type="FontFile" uid="uid://4on88usjtnj4" path="res://FinkiSurvive/tmp_assets/FONTS/videophreak/VIDEOPHREAK.ttf" id="1_lyrq2"]
+[ext_resource type="PackedScene" uid="uid://cb6a5uhvkpf4r" path="res://scenes/GameStats.tscn" id="2_55qlp"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_lwqr3"]
+font = ExtResource("1_lyrq2")
+font_size = 64
+font_color = Color(0.435294, 0.243137, 0.698039, 1)
+shadow_size = 5
+shadow_color = Color(0.733333, 0.85098, 1, 1)
+shadow_offset = Vector2(5, 5)
+
+[sub_resource type="LabelSettings" id="LabelSettings_l6j6j"]
+font = ExtResource("1_lyrq2")
+font_color = Color(1, 0.921569, 0.380392, 1)
+shadow_size = 5
+shadow_color = Color(0.0313726, 0.0156863, 0, 1)
+shadow_offset = Vector2(2, 1)
+
+[node name="DeathScreen" type="CanvasLayer"]
+process_mode = 3
+script = ExtResource("1_dsxtv")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(28.5687, 15.8559)
+color = Color(0.00392157, 0, 0.00392157, 0.666667)
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -216.0
+offset_top = 130.451
+offset_right = 204.0
+offset_bottom = 214.451
+grow_horizontal = 2
+rotation = -0.0630197
+
+[node name="Label" type="Label" parent="MarginContainer"]
+layout_mode = 2
+text = "YOU failed
+"
+label_settings = SubResource("LabelSettings_lwqr3")
+uppercase = true
+
+[node name="MarginContainer2" type="MarginContainer" parent="."]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -141.0
+offset_right = 360.0
+grow_vertical = 0
+theme_override_constants/margin_left = 100
+theme_override_constants/margin_bottom = 80
+
+[node name="PlayAgainButton" type="Button" parent="MarginContainer2"]
+process_mode = 3
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_lyrq2")
+theme_override_font_sizes/font_size = 40
+text = "Play Again"
+
+[node name="MarginContainer3" type="MarginContainer" parent="."]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -272.0
+offset_top = -168.0
+offset_right = -8.0
+offset_bottom = -56.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_constants/margin_right = 100
+
+[node name="QuitButton" type="Button" parent="MarginContainer3"]
+process_mode = 3
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_lyrq2")
+theme_override_font_sizes/font_size = 40
+text = "Quit
+"
+
+[node name="Container" parent="." instance=ExtResource("2_55qlp")]
+anchors_preset = 0
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 40.0
+offset_top = -16.0
+offset_right = 88.0
+offset_bottom = 48.0
+grow_horizontal = 1
+grow_vertical = 1
+
+[node name="MarginContainer4" type="MarginContainer" parent="."]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -742.0
+offset_top = 218.451
+offset_right = -309.0
+offset_bottom = 258.451
+grow_horizontal = 0
+rotation = -0.07124
+scale = Vector2(0.770143, 1.01156)
+
+[node name="Label" type="Label" parent="MarginContainer4"]
+layout_mode = 2
+text = "You need to get  a score of at least 300 to pass!"
+label_settings = SubResource("LabelSettings_l6j6j")
+
+[connection signal="visibility_changed" from="." to="." method="OnVisibilityChanged"]

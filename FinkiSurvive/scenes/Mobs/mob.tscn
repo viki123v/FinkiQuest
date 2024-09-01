@@ -1,0 +1,403 @@
+[gd_scene load_steps=85 format=3 uid="uid://bw67plt2wd8du"]
+
+[ext_resource type="Texture2D" uid="uid://roa8dbfp7ps" path="res://FinkiSurvive/tmp_assets/ENEMY_MOBS/PNG/1/1_enemies_1_attack_000.png" id="2_5spg6"]
+[ext_resource type="Texture2D" uid="uid://bylhdq4vnwrmi" path="res://FinkiSurvive/tmp_assets/ENEMY_MOBS/PNG/1/1_enemies_1_attack_001.png" id="3_4v0fl"]
+[ext_resource type="Texture2D" uid="uid://bjdbktlk744rx" path="res://FinkiSurvive/tmp_assets/ENEMY_MOBS/PNG/1/1_enemies_1_attack_002.png" id="4_vyj1u"]
+[ext_resource type="Texture2D" uid="uid://cet06ci3bfq0k" path="res://FinkiSurvive/tmp_assets/ENEMY_MOBS/PNG/1/1_enemies_1_attack_003.png" id="5_brhlu"]
+[ext_resource type="Texture2D" uid="uid://b0e52wl7a1tp3" path="res://FinkiSurvive/tmp_assets/ENEMY_MOBS/PNG/1/1_enemies_1_attack_004.png" id="6_10tnj"]
+[ext_resource type="Texture2D" uid="uid://dtawa3g6v32jm" path="res://FinkiSurvive/tmp_assets/ENEMY_MOBS/PNG/1/1_enemies_1_attack_005.png" id="7_qekns"]
+[ext_resource type="Texture2D" uid="uid://v5vco3nwxmky" path="res://FinkiSurvive/tmp_assets/ENEMY_MOBS/PNG/1/1_enemies_1_attack_006.png" id="8_at6yy"]
+[ext_resource type="Texture2D" uid="uid://huptwoubhgpd" path="res://FinkiSurvive/tmp_assets/ENEMY_MOBS/PNG/1/1_enemies_1_attack_007.png" id="9_k4gbu"]
+[ext_resource type="Texture2D" uid="uid://byjwmr5l4hrqd" path="res://FinkiSurvive/tmp_assets/ENEMY_MOBS/PNG/1/1_enemies_1_attack_008.png" id="10_uh3ti"]
+[ext_resource type="Texture2D" uid="uid://bhewmy1h4tr4f" path="res://FinkiSurvive/tmp_assets/ENEMY_MOBS/PNG/1/1_enemies_1_attack_009.png" id="11_n7krg"]
+[ext_resource type="Texture2D" uid="uid://dbcwedhna8lmk" path="res://FinkiSurvive/tmp_assets/ENEMY_MOBS/PNG/1/1_enemies_1_attack_010.png" id="12_51ysc"]
+[ext_resource type="Texture2D" uid="uid://curxavfssh70s" path="res://FinkiSurvive/tmp_assets/ENEMY_MOBS/PNG/1/1_enemies_1_attack_011.png" id="13_nd13y"]
+[ext_resource type="Texture2D" uid="uid://ds1v2goevfm66" path="res://FinkiSurvive/tmp_assets/ENEMY_MOBS/PNG/1/1_enemies_1_attack_012.png" id="14_tlnpa"]
+[ext_resource type="Texture2D" uid="uid://c3y2ry60xa376" path="res://FinkiSurvive/tmp_assets/ENEMY_MOBS/PNG/1/1_enemies_1_attack_013.png" id="15_8udbc"]
+[ext_resource type="Texture2D" uid="uid://dkc4eqa0xakg1" path="res://FinkiSurvive/tmp_assets/ENEMY_MOBS/PNG/1/1_enemies_1_attack_014.png" id="16_s7b62"]
+[ext_resource type="Texture2D" uid="uid://ctaxomad3d72c" path="res://FinkiSurvive/tmp_assets/ENEMY_MOBS/PNG/1/1_enemies_1_attack_015.png" id="17_dyb7p"]
+[ext_resource type="Texture2D" uid="uid://ufxdwcpgmrva" path="res://FinkiSurvive/tmp_assets/ENEMY_MOBS/PNG/1/1_enemies_1_attack_016.png" id="18_mot8r"]
+[ext_resource type="Texture2D" uid="uid://c06apeo3irqb6" path="res://FinkiSurvive/tmp_assets/ENEMY_MOBS/PNG/1/1_enemies_1_attack_017.png" id="19_v650q"]
+[ext_resource type="Texture2D" uid="uid://b2lt1sjq3ethj" path="res://FinkiSurvive/tmp_assets/ENEMY_MOBS/PNG/1/1_enemies_1_attack_018.png" id="20_2e7ur"]
+[ext_resource type="Texture2D" uid="uid://ch2uk7fecr3en" path="res://FinkiSurvive/tmp_assets/ENEMY_MOBS/PNG/1/1_enemies_1_attack_019.png" id="21_jn8uh"]
+[ext_resource type="Texture2D" uid="uid://q1nkdlgb3h2r" path="res://FinkiSurvive/tmp_assets/ENEMY_MOBS/PNG/1/1_enemies_1_die_001.png" id="22_hgxk8"]
+[ext_resource type="Texture2D" uid="uid://caju8lyxuj6nw" path="res://FinkiSurvive/tmp_assets/ENEMY_MOBS/PNG/1/1_enemies_1_die_002.png" id="23_revcm"]
+[ext_resource type="Texture2D" uid="uid://03scworaqhvw" path="res://FinkiSurvive/tmp_assets/ENEMY_MOBS/PNG/1/1_enemies_1_die_003.png" id="24_upkx6"]
+[ext_resource type="Texture2D" uid="uid://bysk45l4q8tl" path="res://FinkiSurvive/tmp_assets/ENEMY_MOBS/PNG/1/1_enemies_1_die_004.png" id="25_poh1p"]
+[ext_resource type="Texture2D" uid="uid://deptwbrbqhtr0" path="res://FinkiSurvive/tmp_assets/ENEMY_MOBS/PNG/1/1_enemies_1_die_005.png" id="26_ucdca"]
+[ext_resource type="Texture2D" uid="uid://gpqc0yuqibup" path="res://FinkiSurvive/tmp_assets/ENEMY_MOBS/PNG/1/1_enemies_1_die_006.png" id="27_3w2o1"]
+[ext_resource type="Texture2D" uid="uid://13nmq7xqrol6" path="res://FinkiSurvive/tmp_assets/ENEMY_MOBS/PNG/1/1_enemies_1_die_007.png" id="28_8gp7w"]
+[ext_resource type="Texture2D" uid="uid://duf8rohx37uox" path="res://FinkiSurvive/tmp_assets/ENEMY_MOBS/PNG/1/1_enemies_1_die_008.png" id="29_wdqco"]
+[ext_resource type="Texture2D" uid="uid://dhgqkoceb17p0" path="res://FinkiSurvive/tmp_assets/ENEMY_MOBS/PNG/1/1_enemies_1_die_009.png" id="30_uvgu5"]
+[ext_resource type="Texture2D" uid="uid://5heqv51bbojd" path="res://FinkiSurvive/tmp_assets/ENEMY_MOBS/PNG/1/1_enemies_1_die_010.png" id="31_x07s1"]
+[ext_resource type="Texture2D" uid="uid://cblcujjj0kheu" path="res://FinkiSurvive/tmp_assets/ENEMY_MOBS/PNG/1/1_enemies_1_die_011.png" id="32_llii4"]
+[ext_resource type="Texture2D" uid="uid://bbt8q0dltrc68" path="res://FinkiSurvive/tmp_assets/ENEMY_MOBS/PNG/1/1_enemies_1_die_012.png" id="33_00tta"]
+[ext_resource type="Texture2D" uid="uid://biebg2rgydnso" path="res://FinkiSurvive/tmp_assets/ENEMY_MOBS/PNG/1/1_enemies_1_die_013.png" id="34_h4e0d"]
+[ext_resource type="Texture2D" uid="uid://btihipskp5dql" path="res://FinkiSurvive/tmp_assets/ENEMY_MOBS/PNG/1/1_enemies_1_die_014.png" id="35_yxlio"]
+[ext_resource type="Texture2D" uid="uid://k8bc3i4thn5t" path="res://FinkiSurvive/tmp_assets/ENEMY_MOBS/PNG/1/1_enemies_1_die_015.png" id="36_7o24q"]
+[ext_resource type="Texture2D" uid="uid://doauebxyr720s" path="res://FinkiSurvive/tmp_assets/ENEMY_MOBS/PNG/1/1_enemies_1_die_016.png" id="37_bbga7"]
+[ext_resource type="Texture2D" uid="uid://cpyovuwnuro30" path="res://FinkiSurvive/tmp_assets/ENEMY_MOBS/PNG/1/1_enemies_1_die_017.png" id="38_23jwd"]
+[ext_resource type="Texture2D" uid="uid://bvymjk2oppewx" path="res://FinkiSurvive/tmp_assets/ENEMY_MOBS/PNG/1/1_enemies_1_die_018.png" id="39_lnhso"]
+[ext_resource type="Texture2D" uid="uid://bcjtfk4sd4caa" path="res://FinkiSurvive/tmp_assets/ENEMY_MOBS/PNG/1/1_enemies_1_die_019.png" id="40_qv6y2"]
+[ext_resource type="Texture2D" uid="uid://de21bkb1dv4pu" path="res://FinkiSurvive/tmp_assets/ENEMY_MOBS/PNG/1/1_enemies_1_hurt_000.png" id="41_kjhk3"]
+[ext_resource type="Texture2D" uid="uid://v72y57b58doc" path="res://FinkiSurvive/tmp_assets/ENEMY_MOBS/PNG/1/1_enemies_1_hurt_001.png" id="42_tmhvw"]
+[ext_resource type="Texture2D" uid="uid://fdn4sg8lbwoa" path="res://FinkiSurvive/tmp_assets/ENEMY_MOBS/PNG/1/1_enemies_1_hurt_002.png" id="43_ab81q"]
+[ext_resource type="Texture2D" uid="uid://cdgw0n6o1bwmi" path="res://FinkiSurvive/tmp_assets/ENEMY_MOBS/PNG/1/1_enemies_1_hurt_003.png" id="44_lhgj5"]
+[ext_resource type="Texture2D" uid="uid://bj8r8qtid1iyo" path="res://FinkiSurvive/tmp_assets/ENEMY_MOBS/PNG/1/1_enemies_1_hurt_004.png" id="45_7oll2"]
+[ext_resource type="Texture2D" uid="uid://1mvljtrkoodi" path="res://FinkiSurvive/tmp_assets/ENEMY_MOBS/PNG/1/1_enemies_1_hurt_005.png" id="46_abooe"]
+[ext_resource type="Texture2D" uid="uid://dv6n01qvjilqs" path="res://FinkiSurvive/tmp_assets/ENEMY_MOBS/PNG/1/1_enemies_1_hurt_006.png" id="47_8d6kg"]
+[ext_resource type="Texture2D" uid="uid://22m0uvf0ymh8" path="res://FinkiSurvive/tmp_assets/ENEMY_MOBS/PNG/1/1_enemies_1_hurt_007.png" id="48_0kbum"]
+[ext_resource type="Texture2D" uid="uid://b7u3iekeahr82" path="res://FinkiSurvive/tmp_assets/ENEMY_MOBS/PNG/1/1_enemies_1_hurt_008.png" id="49_habgq"]
+[ext_resource type="Texture2D" uid="uid://lhwq37c06iyr" path="res://FinkiSurvive/tmp_assets/ENEMY_MOBS/PNG/1/1_enemies_1_hurt_009.png" id="50_1ht4f"]
+[ext_resource type="Texture2D" uid="uid://c1ejpe6cb5gt1" path="res://FinkiSurvive/tmp_assets/ENEMY_MOBS/PNG/1/1_enemies_1_hurt_010.png" id="51_1viue"]
+[ext_resource type="Texture2D" uid="uid://dn5twwswq1vjs" path="res://FinkiSurvive/tmp_assets/ENEMY_MOBS/PNG/1/1_enemies_1_hurt_011.png" id="52_folkg"]
+[ext_resource type="Texture2D" uid="uid://b50lquk8wjv6d" path="res://FinkiSurvive/tmp_assets/ENEMY_MOBS/PNG/1/1_enemies_1_hurt_012.png" id="53_5pajp"]
+[ext_resource type="Texture2D" uid="uid://whn5gog7n0mb" path="res://FinkiSurvive/tmp_assets/ENEMY_MOBS/PNG/1/1_enemies_1_hurt_013.png" id="54_5kmsi"]
+[ext_resource type="Texture2D" uid="uid://bdmoid3if076l" path="res://FinkiSurvive/tmp_assets/ENEMY_MOBS/PNG/1/1_enemies_1_hurt_014.png" id="55_2ymkh"]
+[ext_resource type="Texture2D" uid="uid://bds0gmyfaygi5" path="res://FinkiSurvive/tmp_assets/ENEMY_MOBS/PNG/1/1_enemies_1_hurt_015.png" id="56_vwqg5"]
+[ext_resource type="Texture2D" uid="uid://bflaluqk5x8dd" path="res://FinkiSurvive/tmp_assets/ENEMY_MOBS/PNG/1/1_enemies_1_hurt_016.png" id="57_8nj15"]
+[ext_resource type="Texture2D" uid="uid://i2ab8g3ex2nr" path="res://FinkiSurvive/tmp_assets/ENEMY_MOBS/PNG/1/1_enemies_1_hurt_017.png" id="58_4ona8"]
+[ext_resource type="Texture2D" uid="uid://570khs4kw0uc" path="res://FinkiSurvive/tmp_assets/ENEMY_MOBS/PNG/1/1_enemies_1_hurt_018.png" id="59_t6x3o"]
+[ext_resource type="Texture2D" uid="uid://c8uw81ydq0e0w" path="res://FinkiSurvive/tmp_assets/ENEMY_MOBS/PNG/1/1_enemies_1_hurt_019.png" id="60_fqoon"]
+[ext_resource type="Texture2D" uid="uid://ci5jrokh3h8hl" path="res://FinkiSurvive/tmp_assets/ENEMY_MOBS/PNG/1/1_enemies_1_walk_000.png" id="61_goydl"]
+[ext_resource type="Texture2D" uid="uid://dleqdefl268bj" path="res://FinkiSurvive/tmp_assets/ENEMY_MOBS/PNG/1/1_enemies_1_walk_001.png" id="62_3hbf1"]
+[ext_resource type="Texture2D" uid="uid://murvquxktuje" path="res://FinkiSurvive/tmp_assets/ENEMY_MOBS/PNG/1/1_enemies_1_walk_002.png" id="63_3tcyn"]
+[ext_resource type="Texture2D" uid="uid://dbkk11jsg2yye" path="res://FinkiSurvive/tmp_assets/ENEMY_MOBS/PNG/1/1_enemies_1_walk_003.png" id="64_877mh"]
+[ext_resource type="Texture2D" uid="uid://cpjnt1gqlxh2u" path="res://FinkiSurvive/tmp_assets/ENEMY_MOBS/PNG/1/1_enemies_1_walk_004.png" id="65_60e84"]
+[ext_resource type="Texture2D" uid="uid://dfw7v1evt5qfl" path="res://FinkiSurvive/tmp_assets/ENEMY_MOBS/PNG/1/1_enemies_1_walk_005.png" id="66_oq84k"]
+[ext_resource type="Texture2D" uid="uid://dh1wcesd5v01h" path="res://FinkiSurvive/tmp_assets/ENEMY_MOBS/PNG/1/1_enemies_1_walk_006.png" id="67_r1dcl"]
+[ext_resource type="Texture2D" uid="uid://bwuweejpl10bc" path="res://FinkiSurvive/tmp_assets/ENEMY_MOBS/PNG/1/1_enemies_1_walk_007.png" id="68_bunsk"]
+[ext_resource type="Texture2D" uid="uid://61lc2hqgawws" path="res://FinkiSurvive/tmp_assets/ENEMY_MOBS/PNG/1/1_enemies_1_walk_008.png" id="69_k5pe3"]
+[ext_resource type="Texture2D" uid="uid://c8ghxuopycx8t" path="res://FinkiSurvive/tmp_assets/ENEMY_MOBS/PNG/1/1_enemies_1_walk_009.png" id="70_csbnb"]
+[ext_resource type="Texture2D" uid="uid://dnveqjatqy37j" path="res://FinkiSurvive/tmp_assets/ENEMY_MOBS/PNG/1/1_enemies_1_walk_010.png" id="71_2j1x2"]
+[ext_resource type="Texture2D" uid="uid://cg0i063qhr1nj" path="res://FinkiSurvive/tmp_assets/ENEMY_MOBS/PNG/1/1_enemies_1_walk_011.png" id="72_mc2hx"]
+[ext_resource type="Texture2D" uid="uid://cse4wtkqxnuq3" path="res://FinkiSurvive/tmp_assets/ENEMY_MOBS/PNG/1/1_enemies_1_walk_012.png" id="73_j03bu"]
+[ext_resource type="Texture2D" uid="uid://bdp1p76hggnti" path="res://FinkiSurvive/tmp_assets/ENEMY_MOBS/PNG/1/1_enemies_1_walk_013.png" id="74_rgv6a"]
+[ext_resource type="Texture2D" uid="uid://dew8y5o7waxpo" path="res://FinkiSurvive/tmp_assets/ENEMY_MOBS/PNG/1/1_enemies_1_walk_014.png" id="75_6fqcb"]
+[ext_resource type="Texture2D" uid="uid://cdty3v0xj3j3y" path="res://FinkiSurvive/tmp_assets/ENEMY_MOBS/PNG/1/1_enemies_1_walk_015.png" id="76_hob74"]
+[ext_resource type="Texture2D" uid="uid://8m2vo6evx8kj" path="res://FinkiSurvive/tmp_assets/ENEMY_MOBS/PNG/1/1_enemies_1_walk_016.png" id="77_lbf3e"]
+[ext_resource type="Texture2D" uid="uid://bekfthqhjcsnm" path="res://FinkiSurvive/tmp_assets/ENEMY_MOBS/PNG/1/1_enemies_1_walk_017.png" id="78_adxsr"]
+[ext_resource type="Texture2D" uid="uid://ckpv6pgpydovu" path="res://FinkiSurvive/tmp_assets/ENEMY_MOBS/PNG/1/1_enemies_1_walk_018.png" id="79_repe6"]
+[ext_resource type="Texture2D" uid="uid://14a2fx1xrcss" path="res://FinkiSurvive/tmp_assets/ENEMY_MOBS/PNG/1/1_enemies_1_walk_019.png" id="80_00xh6"]
+[ext_resource type="Script" path="res://FinkiSurvive/code/Mob/MobCollisions.cs" id="81_ptag1"]
+[ext_resource type="Texture2D" uid="uid://bjxdprjh1d5us" path="res://FinkiSurvive/assets/fx/HealthBars/health_bar_under2.svg" id="82_84yfm"]
+[ext_resource type="Texture2D" uid="uid://bqagx0frewjem" path="res://FinkiSurvive/assets/fx/HealthBars/health_bar_progress.svg" id="83_8kk1y"]
+[ext_resource type="AudioStream" uid="uid://chj6061yu0g6f" path="res://FinkiSurvive/assets/audio/mixkit-sword-cutting-flesh-2788.wav" id="84_5txa1"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_nbxpl"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_5spg6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_4v0fl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_vyj1u")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_brhlu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_10tnj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_qekns")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_at6yy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_k4gbu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_uh3ti")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_n7krg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_51ysc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_nd13y")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_tlnpa")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_8udbc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_s7b62")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_dyb7p")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_mot8r")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_v650q")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_2e7ur")
+}, {
+"duration": 1.0,
+"texture": ExtResource("21_jn8uh")
+}],
+"loop": false,
+"name": &"attack",
+"speed": 20.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("22_hgxk8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("23_revcm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("24_upkx6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("25_poh1p")
+}, {
+"duration": 1.0,
+"texture": ExtResource("26_ucdca")
+}, {
+"duration": 1.0,
+"texture": ExtResource("27_3w2o1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("28_8gp7w")
+}, {
+"duration": 1.0,
+"texture": ExtResource("29_wdqco")
+}, {
+"duration": 1.0,
+"texture": ExtResource("30_uvgu5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("31_x07s1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("32_llii4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("33_00tta")
+}, {
+"duration": 1.0,
+"texture": ExtResource("34_h4e0d")
+}, {
+"duration": 1.0,
+"texture": ExtResource("35_yxlio")
+}, {
+"duration": 1.0,
+"texture": ExtResource("36_7o24q")
+}, {
+"duration": 1.0,
+"texture": ExtResource("37_bbga7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("38_23jwd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("39_lnhso")
+}, {
+"duration": 1.0,
+"texture": ExtResource("40_qv6y2")
+}],
+"loop": false,
+"name": &"death",
+"speed": 30.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("41_kjhk3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("42_tmhvw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("43_ab81q")
+}, {
+"duration": 1.0,
+"texture": ExtResource("44_lhgj5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("45_7oll2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("46_abooe")
+}, {
+"duration": 1.0,
+"texture": ExtResource("47_8d6kg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("48_0kbum")
+}, {
+"duration": 1.0,
+"texture": ExtResource("49_habgq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("50_1ht4f")
+}, {
+"duration": 1.0,
+"texture": ExtResource("51_1viue")
+}, {
+"duration": 1.0,
+"texture": ExtResource("52_folkg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("53_5pajp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("54_5kmsi")
+}, {
+"duration": 1.0,
+"texture": ExtResource("55_2ymkh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("56_vwqg5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("57_8nj15")
+}, {
+"duration": 1.0,
+"texture": ExtResource("58_4ona8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("59_t6x3o")
+}, {
+"duration": 1.0,
+"texture": ExtResource("60_fqoon")
+}],
+"loop": false,
+"name": &"hurt",
+"speed": 15.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("61_goydl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("62_3hbf1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("63_3tcyn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("64_877mh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("65_60e84")
+}, {
+"duration": 1.0,
+"texture": ExtResource("66_oq84k")
+}, {
+"duration": 1.0,
+"texture": ExtResource("67_r1dcl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("68_bunsk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("69_k5pe3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("70_csbnb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("71_2j1x2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("72_mc2hx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("73_j03bu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("74_rgv6a")
+}, {
+"duration": 1.0,
+"texture": ExtResource("75_6fqcb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("76_hob74")
+}, {
+"duration": 1.0,
+"texture": ExtResource("77_lbf3e")
+}, {
+"duration": 1.0,
+"texture": ExtResource("78_adxsr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("79_repe6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("80_00xh6")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}]
+
+[node name="Mob" type="CharacterBody2D"]
+position = Vector2(562, 304)
+scale = Vector2(0.275, 0.275)
+collision_layer = 2
+collision_mask = 14
+safe_margin = 3.636
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(461.818, 338.182)
+sprite_frames = SubResource("SpriteFrames_nbxpl")
+animation = &"hurt"
+speed_scale = 1.5
+
+[node name="MobCollisions" type="Area2D" parent="."]
+position = Vector2(298.182, 221.818)
+scale = Vector2(1.00178, 1)
+collision_layer = 2
+collision_mask = 12
+script = ExtResource("81_ptag1")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="MobCollisions"]
+visible = false
+position = Vector2(68.9679, -94.5452)
+polygon = PackedVector2Array(54.4487, 367.273, 192.385, 363.636, 214.164, 123.636, 98.0076, 83.6365, -25.4092, 123.636, -18.1494, 370.909, 68.9683, 367.273)
+metadata/_edit_lock_ = true
+
+[node name="HealthBar" type="TextureProgressBar" parent="."]
+offset_left = 389.091
+offset_top = 163.636
+offset_right = 570.091
+offset_bottom = 196.636
+scale = Vector2(1.22039, 1.27404)
+max_value = 3.0
+value = 3.0
+texture_under = ExtResource("82_84yfm")
+texture_progress = ExtResource("83_8kk1y")
+texture_progress_offset = Vector2(1.8, 1.2)
+
+[node name="Label" type="Label" parent="HealthBar"]
+layout_mode = 0
+offset_left = 32.7764
+offset_top = -51.3757
+offset_right = 123.776
+offset_bottom = 5.62427
+scale = Vector2(1.54741, 1.46268)
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+position = Vector2(374.545, 120)
+polygon = PackedVector2Array(54.4487, 367.273, 192.385, 363.636, 214.164, 123.636, 98.0076, 83.6365, -25.4092, 123.636, -18.1494, 370.909, 68.9683, 367.273)
+
+[node name="KillAttackSoundEffect" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("84_5txa1")
+
+[connection signal="area_entered" from="MobCollisions" to="MobCollisions" method="_on_mob_collisions_area_entered"]
+[connection signal="body_entered" from="MobCollisions" to="MobCollisions" method="_on_body_entered"]

@@ -1,0 +1,92 @@
+[gd_scene load_steps=5 format=3 uid="uid://xndssfje6yyu"]
+
+[ext_resource type="FontFile" uid="uid://4on88usjtnj4" path="res://FinkiSurvive/tmp_assets/FONTS/videophreak/VIDEOPHREAK.ttf" id="1_er1cb"]
+[ext_resource type="Script" path="res://FinkiSurvive/code/UI/WinScreen.cs" id="1_naaaq"]
+[ext_resource type="PackedScene" uid="uid://cb6a5uhvkpf4r" path="res://scenes/GameStats.tscn" id="3_8oh3u"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_6ovir"]
+font = ExtResource("1_er1cb")
+font_size = 64
+font_color = Color(0.434048, 0.242121, 0.698092, 1)
+shadow_size = 5
+shadow_color = Color(0.732112, 0.851136, 1, 1)
+shadow_offset = Vector2(5, 5)
+
+[node name="DeathScreen" type="CanvasLayer"]
+process_mode = 3
+script = ExtResource("1_naaaq")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(28.5687, 15.8559)
+color = Color(0, 0, 0, 0.756863)
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -504.0
+offset_top = -284.0
+offset_right = 216.0
+offset_bottom = -113.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="MarginContainer"]
+layout_mode = 2
+text = "Congratulations!!!
+   YOU passed
+"
+label_settings = SubResource("LabelSettings_6ovir")
+uppercase = true
+
+[node name="MarginContainer2" type="MarginContainer" parent="."]
+z_index = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -111.0
+offset_right = 234.0
+grow_vertical = 0
+theme_override_constants/margin_left = 100
+theme_override_constants/margin_bottom = 50
+
+[node name="ContinueButton" type="Button" parent="MarginContainer2"]
+process_mode = 3
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_er1cb")
+theme_override_font_sizes/font_size = 40
+text = "Play Again
+"
+
+[node name="MarginContainer3" type="MarginContainer" parent="."]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -333.0
+offset_top = -111.0
+offset_right = -81.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_constants/margin_bottom = 50
+
+[node name="GraduateButton" type="Button" parent="MarginContainer3"]
+process_mode = 3
+z_index = 1
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_er1cb")
+theme_override_font_sizes/font_size = 40
+text = "Graduate
+"
+
+[node name="Container" parent="." instance=ExtResource("3_8oh3u")]
+
+[connection signal="visibility_changed" from="." to="." method="OnVisibilityChanged"]

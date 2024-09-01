@@ -13,8 +13,9 @@ config_version=5
 config/name="FinkiQuest"
 run/main_scene="res://MainScene/main_menu.tscn"
 config/features=PackedStringArray("4.3", "C#", "GL Compatibility")
+run/max_fps=200
 boot_splash/bg_color=Color(1, 1, 1, 1)
-boot_splash/image="res://FinkiSurvive/assets/logofinki-removebg-preview.png"
+boot_splash/image="res://FinkiSurvive/assets/images/logofinki-removebg-preview.png"
 boot_splash/fullsize=false
 
 [debug]
@@ -33,6 +34,10 @@ window/vsync/vsync_mode=0
 [dotnet]
 
 project/assembly_name="FinkiAdventureQuest"
+
+[editor]
+
+movie_writer/movie_file="/home/stevetosak/Projects/FinkiAdventureQuest/FinkiSurvive/Recordings/movie.png"
 
 [global_group]
 
@@ -110,6 +115,26 @@ FINKISURVIVE_dash={
 escape={
 "deadzone": 0.5,
 "events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":4194305,"key_label":0,"unicode":0,"location":0,"echo":false,"script":null)
+]
+}
+Tetris_RotateBlock={
+"deadzone": 0.5,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":4194320,"key_label":0,"unicode":0,"location":0,"echo":false,"script":null)
+]
+}
+Tetris_MoveBlockLeft={
+"deadzone": 0.5,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":4194319,"key_label":0,"unicode":0,"location":0,"echo":false,"script":null)
+]
+}
+Tetris_MoveBlockRight={
+"deadzone": 0.5,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":4194321,"key_label":0,"unicode":0,"location":0,"echo":false,"script":null)
+]
+}
+Tetris_MoveBlockDown={
+"deadzone": 0.5,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":4194322,"key_label":0,"unicode":0,"location":0,"echo":false,"script":null)
 ]
 }
 

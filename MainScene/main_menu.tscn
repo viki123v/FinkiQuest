@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://MainScene/MainMenu.cs" id="1_pgo65"]
 [ext_resource type="Texture2D" uid="uid://d4hxmqolvsl3r" path="res://MainScene/FinkiQuestBG.jpg" id="2_13027"]
 [ext_resource type="FontFile" uid="uid://4on88usjtnj4" path="res://FinkiSurvive/tmp_assets/FONTS/videophreak/VIDEOPHREAK.ttf" id="3_71rwn"]
-[ext_resource type="Texture2D" uid="uid://cd2qbgx6xm00p" path="res://FinkiSurvive/assets/logofinki-removebg-preview.png" id="4_7af7c"]
+[ext_resource type="Texture2D" uid="uid://cd2qbgx6xm00p" path="res://FinkiSurvive/assets/images/logofinki-removebg-preview.png" id="4_7af7c"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_h2ta5"]
 texture = ExtResource("2_13027")

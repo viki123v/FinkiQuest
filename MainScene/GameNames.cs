@@ -4,5 +4,5 @@ public enum GameNames
 {
     FinkiSurvive,
     SpaceAlgorithms,
-    FinkiTetris
+    BaseNetworking
 }

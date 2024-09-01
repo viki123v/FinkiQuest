@@ -1,0 +1,196 @@
+[gd_scene load_steps=8 format=3 uid="uid://bq7j6ggbgnb4f"]
+
+[ext_resource type="Script" path="res://BasicNetworking/scenes/mainGameSections/FinkiTetrisExplanation.cs" id="1_avsq6"]
+[ext_resource type="PackedScene" uid="uid://cxmo2s2xo0dy2" path="res://BasicNetworking/scenes/background/background.tscn" id="2_n5a1x"]
+[ext_resource type="FontFile" uid="uid://byyj0udheiaj4" path="res://BasicNetworking/assets/fonts/tetris-2-bombliss-credits-font.ttf" id="4_qdc7l"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_q7if7"]
+bg_color = Color(1, 1, 1, 0.270588)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_size = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2iuow"]
+bg_color = Color(0.741385, 0.741385, 0.741385, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_size = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cp3l6"]
+bg_color = Color(0.362829, 0.362829, 0.362829, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_size = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_p4ggb"]
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_size = 5
+
+[node name="FinkiTetrisExplanation" type="CanvasLayer"]
+script = ExtResource("1_avsq6")
+
+[node name="Background2" parent="." instance=ExtResource("2_n5a1x")]
+
+[node name="Explanation" type="Label" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -278.0
+offset_top = -205.0
+offset_right = 309.0
+offset_bottom = -26.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("4_qdc7l")
+text = "The purpose of the game is for you to survive  half of the initial time. 
+Based on the time you survive you will get a grade. The game is considered accomplished if you get at least a six as a grade. The game will continue until either the time runs out or the spawning point for the figures is occupied.
+
+ "
+horizontal_alignment = 1
+autowrap_mode = 2
+justification_flags = 0
+metadata/_edit_use_anchors_ = true
+
+[node name="PlayGame" type="Button" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -59.0
+offset_top = 132.0
+offset_right = 62.0
+offset_bottom = 174.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 3
+theme_override_colors/font_disabled_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_normal_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_disabled_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_qdc7l")
+theme_override_font_sizes/font_size = 20
+theme_override_styles/disabled = SubResource("StyleBoxFlat_q7if7")
+theme_override_styles/hover = SubResource("StyleBoxFlat_2iuow")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_cp3l6")
+theme_override_styles/normal = SubResource("StyleBoxFlat_p4ggb")
+text = "Play game"
+
+[node name="GoBack" type="Button" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -59.0
+offset_top = 199.0
+offset_right = 62.0
+offset_bottom = 241.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 3
+theme_override_colors/font_disabled_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_normal_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_disabled_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_qdc7l")
+theme_override_font_sizes/font_size = 20
+theme_override_styles/disabled = SubResource("StyleBoxFlat_q7if7")
+theme_override_styles/hover = SubResource("StyleBoxFlat_2iuow")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_cp3l6")
+theme_override_styles/normal = SubResource("StyleBoxFlat_p4ggb")
+text = "Back"
+
+[node name="Disclamer" type="Label" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -245.0
+offset_top = 34.0
+offset_right = 246.0
+offset_bottom = 83.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0.515793, 0.672529, 1, 1)
+theme_override_fonts/font = ExtResource("4_qdc7l")
+text = "Disclaimer: As the time goes, the rate at which the figures spawn is getting higher, so be prepared for that."
+horizontal_alignment = 1
+autowrap_mode = 2
+justification_flags = 0
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+offset_right = 99.0
+offset_bottom = 1872.0
+
+[node name="Title" type="Label" parent="."]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -156.0
+offset_top = 57.0
+offset_right = 156.0
+offset_bottom = 124.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("4_qdc7l")
+theme_override_font_sizes/font_size = 48
+text = "Block Networking"
+
+[node name="HowToPlay" type="Label" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -281.0
+offset_top = -111.0
+offset_right = 306.0
+offset_bottom = 68.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("4_qdc7l")
+text = "The game is played using the arrow keys and the actions available are:
+
+- Up arrow, rotate the current falling figure.
+-Left arrow, move the current fallling figure one block to the left.
+-Right arrow, move the current fallling figure one block to the right.
+-Down arrow, move the current falling figure one block down."
+horizontal_alignment = 1
+autowrap_mode = 2
+justification_flags = 0
+metadata/_edit_use_anchors_ = true
+
+[connection signal="pressed" from="PlayGame" to="." method="OnPlayClicked"]
+[connection signal="pressed" from="GoBack" to="." method="OnBackClicked"]
