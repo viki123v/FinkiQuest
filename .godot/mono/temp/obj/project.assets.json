@@ -20,19 +20,24 @@
             "related": ".xml"
           }
         }
-      },
-      "GodotSharpEditor/4.3.0": {
+      }
+    },
+    "net6.0/win-x64": {
+      "Godot.SourceGenerators/4.3.0": {
         "type": "package",
-        "dependencies": {
-          "GodotSharp": "4.3.0"
-        },
+        "build": {
+          "build/Godot.SourceGenerators.props": {}
+        }
+      },
+      "GodotSharp/4.3.0": {
+        "type": "package",
         "compile": {
-          "lib/net6.0/GodotSharpEditor.dll": {
+          "lib/net6.0/GodotSharp.dll": {
             "related": ".xml"
           }
         },
         "runtime": {
-          "lib/net6.0/GodotSharpEditor.dll": {
+          "lib/net6.0/GodotSharp.dll": {
             "related": ".xml"
           }
         }
@@ -65,47 +70,35 @@
         "lib/net6.0/GodotSharp.dll",
         "lib/net6.0/GodotSharp.xml"
       ]
-    },
-    "GodotSharpEditor/4.3.0": {
-      "sha512": "r7A3lszHS9/gIWoOb7w+MNtEjrD/NRX+9ACHq01GD2+lctu6eHsmlSTA0Ah1bjJDKs9rDZeSq+42zwXvtBsPzQ==",
-      "type": "package",
-      "path": "godotsharpeditor/4.3.0",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "godotsharpeditor.4.3.0.nupkg.sha512",
-        "godotsharpeditor.nuspec",
-        "lib/net6.0/GodotSharpEditor.dll",
-        "lib/net6.0/GodotSharpEditor.xml"
-      ]
     }
   },
   "projectFileDependencyGroups": {
     "net6.0": [
       "Godot.SourceGenerators >= 4.3.0",
-      "GodotSharp >= 4.3.0",
-      "GodotSharpEditor >= 4.3.0"
+      "GodotSharp >= 4.3.0"
     ]
   },
   "packageFolders": {
-    "/home/stevetosak/.nuget/packages/": {}
+    "C:\\Users\\anton\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/home/stevetosak/Projects/FinkiAdventureQuest/FinkiAdventureQuest.csproj",
+      "projectUniqueName": "C:\\Users\\anton\\OneDrive\\Desktop\\FinkiQuest\\FinkiAdventureQuest.csproj",
       "projectName": "FinkiAdventureQuest",
-      "projectPath": "/home/stevetosak/Projects/FinkiAdventureQuest/FinkiAdventureQuest.csproj",
-      "packagesPath": "/home/stevetosak/.nuget/packages/",
-      "outputPath": "/home/stevetosak/Projects/FinkiAdventureQuest/.godot/mono/temp/obj/",
+      "projectPath": "C:\\Users\\anton\\OneDrive\\Desktop\\FinkiQuest\\FinkiAdventureQuest.csproj",
+      "packagesPath": "C:\\Users\\anton\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\anton\\OneDrive\\Desktop\\FinkiQuest\\.godot\\mono\\temp\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "/home/stevetosak/.nuget/NuGet/NuGet.Config"
+        "C:\\Users\\anton\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
         "net6.0"
       ],
       "sources": {
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -118,6 +111,11 @@
         "warnAsError": [
           "NU1605"
         ]
+      },
+      "restoreAuditProperties": {
+        "enableAudit": "true",
+        "auditLevel": "low",
+        "auditMode": "direct"
       }
     },
     "frameworks": {
@@ -129,10 +127,6 @@
             "version": "[4.3.0, )"
           },
           "GodotSharp": {
-            "target": "Package",
-            "version": "[4.3.0, )"
-          },
-          "GodotSharpEditor": {
             "target": "Package",
             "version": "[4.3.0, )"
           }
@@ -151,11 +145,27 @@
         "downloadDependencies": [
           {
             "name": "Microsoft.AspNetCore.App.Ref",
-            "version": "[6.0.33, 6.0.33]"
+            "version": "[6.0.28, 6.0.28]"
+          },
+          {
+            "name": "Microsoft.AspNetCore.App.Runtime.win-x64",
+            "version": "[6.0.28, 6.0.28]"
           },
           {
             "name": "Microsoft.NETCore.App.Ref",
-            "version": "[6.0.33, 6.0.33]"
+            "version": "[6.0.28, 6.0.28]"
+          },
+          {
+            "name": "Microsoft.NETCore.App.Runtime.win-x64",
+            "version": "[6.0.28, 6.0.28]"
+          },
+          {
+            "name": "Microsoft.WindowsDesktop.App.Ref",
+            "version": "[6.0.28, 6.0.28]"
+          },
+          {
+            "name": "Microsoft.WindowsDesktop.App.Runtime.win-x64",
+            "version": "[6.0.28, 6.0.28]"
           }
         ],
         "frameworkReferences": {
@@ -163,7 +173,12 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "/usr/lib/dotnet/sdk/8.0.108/RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.202\\RuntimeIdentifierGraph.json"
+      }
+    },
+    "runtimes": {
+      "win-x64": {
+        "#import": []
       }
     }
   }

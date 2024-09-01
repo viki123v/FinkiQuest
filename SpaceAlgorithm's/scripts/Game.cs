@@ -126,7 +126,7 @@ public partial class Game : Node2D
         if(bossStarted)
         {
             Shield shield = (Shield)_shieldPrefab.Instantiate();
-            shield.Position = new Vector2(_screenSize.X - 400, _screenSize.Y / 2);
+            shield.Position = boss.Position;
             AddChild(shield);
         }
     }

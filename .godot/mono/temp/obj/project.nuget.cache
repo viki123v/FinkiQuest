@@ -1,14 +1,17 @@
 {
   "version": 2,
-  "dgSpecHash": "gcn/vvDnTERhTT6cQsH2tp7dt/1xKFWjkkWbkJzWd96PF8w/gV0kHWG7Ylzq1OkbU9Qrq/CL3rnsXY70n4jSMQ==",
+  "dgSpecHash": "OAhOn+vicEA8ojBihd/irtxPN0BojtCh1tfGDhOwnmFX5l5kRcXliZ/TEumGxRej0pvPLdyfvEaMoeaVjP9yGw==",
   "success": true,
-  "projectFilePath": "/home/stevetosak/Projects/FinkiAdventureQuest/FinkiAdventureQuest.csproj",
+  "projectFilePath": "C:\\Users\\anton\\OneDrive\\Desktop\\FinkiQuest\\FinkiAdventureQuest.csproj",
   "expectedPackageFiles": [
-    "/home/stevetosak/.nuget/packages/godot.sourcegenerators/4.3.0/godot.sourcegenerators.4.3.0.nupkg.sha512",
-    "/home/stevetosak/.nuget/packages/godotsharp/4.3.0/godotsharp.4.3.0.nupkg.sha512",
-    "/home/stevetosak/.nuget/packages/godotsharpeditor/4.3.0/godotsharpeditor.4.3.0.nupkg.sha512",
-    "/home/stevetosak/.nuget/packages/microsoft.netcore.app.ref/6.0.33/microsoft.netcore.app.ref.6.0.33.nupkg.sha512",
-    "/home/stevetosak/.nuget/packages/microsoft.aspnetcore.app.ref/6.0.33/microsoft.aspnetcore.app.ref.6.0.33.nupkg.sha512"
+    "C:\\Users\\anton\\.nuget\\packages\\godot.sourcegenerators\\4.3.0\\godot.sourcegenerators.4.3.0.nupkg.sha512",
+    "C:\\Users\\anton\\.nuget\\packages\\godotsharp\\4.3.0\\godotsharp.4.3.0.nupkg.sha512",
+    "C:\\Users\\anton\\.nuget\\packages\\microsoft.netcore.app.ref\\6.0.28\\microsoft.netcore.app.ref.6.0.28.nupkg.sha512",
+    "C:\\Users\\anton\\.nuget\\packages\\microsoft.netcore.app.runtime.win-x64\\6.0.28\\microsoft.netcore.app.runtime.win-x64.6.0.28.nupkg.sha512",
+    "C:\\Users\\anton\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\6.0.28\\microsoft.windowsdesktop.app.ref.6.0.28.nupkg.sha512",
+    "C:\\Users\\anton\\.nuget\\packages\\microsoft.windowsdesktop.app.runtime.win-x64\\6.0.28\\microsoft.windowsdesktop.app.runtime.win-x64.6.0.28.nupkg.sha512",
+    "C:\\Users\\anton\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\6.0.28\\microsoft.aspnetcore.app.ref.6.0.28.nupkg.sha512",
+    "C:\\Users\\anton\\.nuget\\packages\\microsoft.aspnetcore.app.runtime.win-x64\\6.0.28\\microsoft.aspnetcore.app.runtime.win-x64.6.0.28.nupkg.sha512"
   ],
   "logs": []
 }

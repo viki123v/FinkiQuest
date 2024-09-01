@@ -13,12 +13,12 @@ public partial class Enemy : Area2D
 		
 	}
 
-	float speed = -1.5f;
+	float speed = 400f;
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
 	public override void _Process(double delta)
 	{
-		Position += new Vector2(speed, 0);
+		Position -= new Vector2((float)(speed * delta), 0);
 	}
 	private void _on_area_entered(Area2D area){
 		if(area is Laser){

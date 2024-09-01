@@ -3,7 +3,7 @@ using System;
 
 public partial class Shield : Area2D
 {
-	int speed = 2;
+	int speed = 400;
 	private PackedScene _explosionPrefab = (PackedScene)GD.Load("res://SpaceAlgorithm's/prefabs/explosion.tscn");
 
 
@@ -17,17 +17,11 @@ public partial class Shield : Area2D
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
 	public override void _Process(double delta)
 	{
-		Position -= new Vector2(speed, 0);
+		Position -= new Vector2((float)(speed * delta), 0);
 	}
 
 	private void _on_area_entered(Area2D area){
 		if(area is Laser){
-			// this.QueueFree();
-
-			// Node2D explosionInstance = (Node2D)_explosionPrefab.Instantiate();
-			// explosionInstance.Position = Position;
-        	// this.GetParent().AddChild(explosionInstance);
-
 			area.QueueFree();
 		}
 	}

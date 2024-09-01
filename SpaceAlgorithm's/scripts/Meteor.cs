@@ -3,7 +3,7 @@ using System;
 
 public partial class Meteor : Area2D
 {
-	float speed = 2.5f;
+	float speed = 370f;
 	private PackedScene _explosionPrefab = (PackedScene)GD.Load("res://SpaceAlgorithm's/prefabs/explosion.tscn");
 
 
@@ -17,8 +17,8 @@ public partial class Meteor : Area2D
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
 	public override void _Process(double delta)
 	{
-		Position -= new Vector2(speed, 0);
-		Rotate(-0.5f * Mathf.Pi / 180.0f);
+		Position -= new Vector2((float)(speed * delta), 0);
+		Rotate(-40f * Mathf.Pi / 180.0f * (float)delta);
 	}
 
 

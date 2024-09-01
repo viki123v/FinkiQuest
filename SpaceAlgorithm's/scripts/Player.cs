@@ -54,7 +54,7 @@ public override void _Process(double delta)
 
     private void _on_area_entered(Area2D area){
         if(isHit) return;
-        if(area is EnemyLaser || area is Enemy || area is Meteor || area is BossSpecial){
+        if(area is EnemyLaser || area is Enemy || area is Meteor || area is BossSpecial || area is Shield){
             Node2D explosion = (Node2D)_explosionPrefab.Instantiate();
             explosion.Position = Position;
             this.GetParent().AddChild(explosion);

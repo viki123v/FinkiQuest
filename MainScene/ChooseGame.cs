@@ -76,6 +76,27 @@ public partial class ChooseGame : Control
 
 	public void HideFinkiSurviveStats()
 	{
+		GetNode<Label>("SpaceAlgorithmsStats/Label").Visible = false;
+	}
+
+	public void ShowSpaceAlorithms()
+	{
+		
+		var label = GetNode<Label>("SpaceAlgorithmsStats/Label");
+		label.Visible = true;
+		if (_gameNameToGrade.ContainsKey(GameNames.SpaceAlgorithms))
+		{
+			label.Text = "Best Grade: " + _gameNameToGrade[GameNames.SpaceAlgorithms];
+		}
+		else
+		{
+			label.Text = "Not Passed";
+		}
+		
+	}
+
+	public void HideSpaceAlorithms()
+	{
 		GetNode<Label>("FinkiSurviveStats/Label").Visible = false;
 	}
 
