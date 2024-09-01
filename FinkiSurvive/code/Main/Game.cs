@@ -33,7 +33,7 @@ namespace FinkiAdventureQuest.FinkiSurvive.code.Main
 		private Label _gradeLabel;
 		
 		[Export] 
-		private float _minMobSpawnRate = 0.7f;
+		private float _minMobSpawnRate = 0.65f;
 		[Export]
 		private int _targetWaveForMinSpawnRate = 9;
 		
@@ -48,6 +48,7 @@ namespace FinkiAdventureQuest.FinkiSurvive.code.Main
 			_timer = GetNode<Timer>("GameTimer");
 			_timeSecs = WaveTime;
 			_fps = GetNode<Label>("UI/FpsCont/Label");
+			
 			_spawnRateDecrement = MobSpawner.CalcDecrementValue(_targetWaveForMinSpawnRate, _minMobSpawnRate);
 			
 			var player = GetNode<Player>("Player");
@@ -347,8 +348,8 @@ namespace FinkiAdventureQuest.FinkiSurvive.code.Main
 			}
 			else if (WaveCount > 11)
 			{
-				WaveTime = 30;
-				mobSpawnTimer.WaitTime = 1;
+				WaveTime = 20;
+				mobSpawnTimer.WaitTime = 0.6;
 				if (mobSpawnTimer.IsStopped())
 				{
 					mobSpawnTimer.Start();

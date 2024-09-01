@@ -35,6 +35,10 @@ window/vsync/vsync_mode=0
 
 project/assembly_name="FinkiAdventureQuest"
 
+[editor]
+
+movie_writer/movie_file="/home/stevetosak/Projects/FinkiAdventureQuest/FinkiSurvive/Recordings/movie.png"
+
 [global_group]
 
 MenuButtons=""

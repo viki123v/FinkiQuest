@@ -15,7 +15,7 @@ public partial class OrcMob : Mob
 		
 		public override void _Ready()
 		{
-			
+			SeekForce = 0.05f;
 			MaxHealth = BaseHp;
 			if(Main.Game.WaveCount > AppearsAtLevel)
 				ScaleHp();

@@ -12,6 +12,7 @@ namespace FinkiAdventureQuest.FinkiSurvive.code
         private float _hpScaleFactor = 0.2f;
         public override void _Ready()
         {
+            SeekForce = 0.04f;
             MaxHealth = BaseHp;
             if(Main.Game.WaveCount > AppearsAtLevel)
                 ScaleHp();

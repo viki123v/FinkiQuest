@@ -56,3 +56,6 @@ res://FinkiSurvive/code/Coin/BronzeCoin.cs
 res://SpaceAlgorithm's/scripts/Game.cs
 res://FinkiSurvive/code/Mob/Mob.cs
 res://FinkiSurvive/code/Mob/OrcMob.cs
+res://FinkiSurvive/scenes/Main/map.tscn
+res://FinkiSurvive/themes/HelpMenuTheme.tres
+res://SettingsNode/settings.tres

@@ -12,6 +12,7 @@ namespace FinkiAdventureQuest.FinkiSurvive.code
 		[Export] private int _minSpeed = 60;
 		public override void _Ready()
 		{
+			SeekForce = 0.01f;
 			MaxHealth = BaseHp;
 			if(Main.Game.WaveCount > _appearsAtLevel)
 				ScaleHp();

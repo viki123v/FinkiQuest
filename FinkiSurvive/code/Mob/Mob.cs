@@ -17,7 +17,7 @@ public abstract partial class Mob : CharacterBody2D
     public int _hpBarSize;
     public  AnimatedSprite2D _animSprite;
     public int AttackDamage = 2;
-    public float SeekForce = 0.05f;
+    protected float SeekForce = 0.05f;
     public Vector2 Acceleration = Vector2.Zero;
 
     protected Timer AttackSpeedTimer = new();
@@ -114,17 +114,15 @@ public abstract partial class Mob : CharacterBody2D
             _animSprite.Play("walk");
         }
         
-       
-
         Vector2 desired = (playerPos - Position).Normalized() * (Speed * (float) delta);
         Vector2 steer = desired - Velocity;
+        
         if (steer.Length() > SeekForce)
         {
             steer *= SeekForce;
         }
-
+        
         Acceleration = steer;
-
         Velocity += Acceleration;
 
         if (Velocity.Length() > Speed)

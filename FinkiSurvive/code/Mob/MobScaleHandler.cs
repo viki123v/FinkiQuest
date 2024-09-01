@@ -7,9 +7,7 @@ namespace FinkiAdventureQuest.FinkiSurvive.code;
 
 public class MobScaleHandler
 {
-    private  Dictionary<MobType, (bool EntryAdded,int Hp)> MobTypeToLastScaledHp = new();
-
-
+    private Dictionary<MobType, (bool EntryAdded,int Hp)> MobTypeToLastScaledHp = new();
     private static MobScaleHandler instance;
 
     private MobScaleHandler()
@@ -30,7 +28,7 @@ public class MobScaleHandler
         }
     }
 
-    public  void AddEntry(MobType type, int hp)
+    public void AddEntry(MobType type, int hp)
     { 
         var entry = MobTypeToLastScaledHp[type];
         if(entry.EntryAdded) return;
