@@ -1,25 +1,27 @@
 {
   "format": 1,
   "restore": {
-    "/home/stevetosak/Projects/FinkiAdventureQuest/FinkiAdventureQuest.csproj": {}
+    "C:\\Users\\anton\\OneDrive\\Desktop\\FinkiQuest\\FinkiAdventureQuest.csproj": {}
   },
   "projects": {
-    "/home/stevetosak/Projects/FinkiAdventureQuest/FinkiAdventureQuest.csproj": {
+    "C:\\Users\\anton\\OneDrive\\Desktop\\FinkiQuest\\FinkiAdventureQuest.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/home/stevetosak/Projects/FinkiAdventureQuest/FinkiAdventureQuest.csproj",
+        "projectUniqueName": "C:\\Users\\anton\\OneDrive\\Desktop\\FinkiQuest\\FinkiAdventureQuest.csproj",
         "projectName": "FinkiAdventureQuest",
-        "projectPath": "/home/stevetosak/Projects/FinkiAdventureQuest/FinkiAdventureQuest.csproj",
-        "packagesPath": "/home/stevetosak/.nuget/packages/",
-        "outputPath": "/home/stevetosak/Projects/FinkiAdventureQuest/.godot/mono/temp/obj/",
+        "projectPath": "C:\\Users\\anton\\OneDrive\\Desktop\\FinkiQuest\\FinkiAdventureQuest.csproj",
+        "packagesPath": "C:\\Users\\anton\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\anton\\OneDrive\\Desktop\\FinkiQuest\\.godot\\mono\\temp\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/home/stevetosak/.nuget/NuGet/NuGet.Config"
+          "C:\\Users\\anton\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net6.0"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -32,6 +34,11 @@
           "warnAsError": [
             "NU1605"
           ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
         }
       },
       "frameworks": {
@@ -65,7 +72,6 @@
           "downloadDependencies": [
             {
               "name": "Microsoft.AspNetCore.App.Ref",
-<<<<<<< HEAD
               "version": "[6.0.28, 6.0.28]"
             },
             {
@@ -75,13 +81,6 @@
             {
               "name": "Microsoft.WindowsDesktop.App.Ref",
               "version": "[6.0.28, 6.0.28]"
-=======
-              "version": "[6.0.33, 6.0.33]"
-            },
-            {
-              "name": "Microsoft.NETCore.App.Ref",
-              "version": "[6.0.33, 6.0.33]"
->>>>>>> ca04bf8c5270051785929c7539baf33eb0274fb1
             }
           ],
           "frameworkReferences": {
@@ -89,11 +88,7 @@
               "privateAssets": "all"
             }
           },
-<<<<<<< HEAD
           "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.202\\RuntimeIdentifierGraph.json"
-=======
-          "runtimeIdentifierGraphPath": "/usr/lib/dotnet/sdk/8.0.108/RuntimeIdentifierGraph.json"
->>>>>>> ca04bf8c5270051785929c7539baf33eb0274fb1
         }
       }
     }

@@ -69,7 +69,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("3_gouh2")
 theme_override_font_sizes/font_size = 48
-text = "SPACE ALGORIHM's"
+text = "SPACE ALGORIHMS"
 horizontal_alignment = 1
 
 [connection signal="pressed" from="start" to="." method="_on_start_pressed"]
