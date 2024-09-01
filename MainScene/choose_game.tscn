@@ -1914,6 +1914,7 @@ text = "Best Grade: 5"
 label_settings = SubResource("LabelSettings_a661u")
 
 [node name="SpaceAlgorithmsStats" type="MarginContainer" parent="."]
+layout_mode = 0
 offset_left = 778.0
 offset_top = 393.0
 offset_right = 875.0
